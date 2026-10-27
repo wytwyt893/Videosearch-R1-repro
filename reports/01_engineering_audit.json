@@ -1,0 +1,496 @@
+{
+  "timestamp": "2026-10-23T20:05:05.280703+08:00",
+  "scope": "stage1 only; no benchmark data/weights downloaded, no inference/training",
+  "commit_sha": "69234fd9783b7235164d9f92b8903d9781dc284e",
+  "upstream_clean": true,
+  "provenance": {
+    "method": "official_archive_plus_exact_git_object_restore_not_standard_clone",
+    "commit_sha": "69234fd9783b7235164d9f92b8903d9781dc284e",
+    "tree_sha": "5cc0e48010a6ed0f8e4787c5079abc8c667189d6",
+    "worktree_matches_official_tree": true,
+    "commit_bytes_match_official_sha": true,
+    "clean": true,
+    "archive_sha256": "ccea3a0f1e86ea03d01c364397c2b883075b7d0ea4f755598aaee485fe248bea",
+    "new_research_commit_created": false,
+    "network_issue": "Git smart HTTPS TLS termination; official API/codeload work"
+  },
+  "python": {
+    "executable": "/data/wyt/videosearch_r1_repro/envs/videosearchr1/bin/python",
+    "version": "3.11.17 (main, Oct 13 2026, 16:45:47) [GCC 15.3.0]",
+    "prefix": "/data/wyt/videosearch_r1_repro/envs/videosearchr1"
+  },
+  "disk": {
+    "total_bytes": 63745645264896,
+    "used_bytes": 33461616365568,
+    "free_bytes": 27083939364864
+  },
+  "gpu_snapshot": {
+    "command": [
+      "nvidia-smi",
+      "--query-gpu=index,uuid,name,driver_version,memory.total,memory.used,utilization.gpu",
+      "--format=csv,noheader"
+    ],
+    "exit_code": 0,
+    "stdout": "0, GPU-628327af-6e58-d49d-6c43-aef764bd3e3d, NVIDIA A100-SXM4-80GB, 590.48.01, 81920 MiB, 0 MiB, 0 %\n1, GPU-677cef2a-aeb8-267d-4a59-19e72f682efc, NVIDIA A100-SXM4-80GB, 590.48.01, 81920 MiB, 0 MiB, 0 %",
+    "stderr": ""
+  },
+  "gpu_processes": {
+    "command": [
+      "nvidia-smi",
+      "--query-compute-apps=gpu_uuid,pid,process_name,used_memory",
+      "--format=csv,noheader"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "topology": {
+    "command": [
+      "nvidia-smi",
+      "topo",
+      "-m"
+    ],
+    "exit_code": 0,
+    "stdout": "\u001b[4mGPU0\tGPU1\tNIC0\tNIC1\tCPU Affinity\tNUMA Affinity\tGPU NUMA ID\u001b[0m\nGPU0\t X \tNODE\tSYS\tSYS\t32-63,96-127\t1\t\tN/A\nGPU1\tNODE\t X \tSYS\tSYS\t32-63,96-127\t1\t\tN/A\nNIC0\tSYS\tSYS\t X \tPIX\t\t\t\t\nNIC1\tSYS\tSYS\tPIX\t X \t\t\t\t\n\nLegend:\n\n  X    = Self\n  SYS  = Connection traversing PCIe as well as the SMP interconnect between NUMA nodes (e.g., QPI/UPI)\n  NODE = Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA node\n  PHB  = Connection traversing PCIe as well as a PCIe Host Bridge (typically the CPU)\n  PXB  = Connection traversing multiple PCIe bridges (without traversing the PCIe Host Bridge)\n  PIX  = Connection traversing at most a single PCIe bridge\n  NV#  = Connection traversing a bonded set of # NVLinks\n\nNIC Legend:\n\n  NIC0: mlx5_0\n  NIC1: mlx5_1",
+    "stderr": ""
+  },
+  "mount": {
+    "command": [
+      "findmnt",
+      "-T",
+      "/data/wyt/videosearch_r1_repro",
+      "-o",
+      "TARGET,SOURCE,FSTYPE,OPTIONS"
+    ],
+    "exit_code": 0,
+    "stdout": "TARGET SOURCE   FSTYPE OPTIONS\n/data  /dev/sdb ext4   rw,relatime,stripe=64",
+    "stderr": ""
+  },
+  "host_memory": {
+    "command": [
+      "free",
+      "-h"
+    ],
+    "exit_code": 0,
+    "stdout": "total        used        free      shared  buff/cache   available\nMem:           503Gi        21Gi        11Gi       3.0Mi       470Gi       478Gi\nSwap:          8.0Gi       410Mi       7.6Gi",
+    "stderr": ""
+  },
+  "cuda_compiler": {
+    "command": [
+      "/usr/local/cuda-12.8/bin/nvcc",
+      "--version"
+    ],
+    "exit_code": 0,
+    "stdout": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Wed_Jan_15_19:20:09_PST_2025\nCuda compilation tools, release 12.8, V12.8.61\nBuild cuda_12.8.r12.8/compiler.35404655_0",
+    "stderr": ""
+  },
+  "package_versions": {
+    "ninja": "1.13.0",
+    "wheel": "0.45.1",
+    "psutil": "7.2.1",
+    "packaging": "25.0",
+    "pip": "26.2.2",
+    "setuptools": "80.9.0"
+  },
+  "syntax_checks": {
+    "python_files": 52,
+    "bash_files": 85,
+    "python_errors": [],
+    "bash_errors": []
+  },
+  "helper_fixtures": {
+    "passed": true,
+    "checks": 6,
+    "missing_rank_fixture": {
+      "input_rows": 2,
+      "metric_denominator": 1
+    },
+    "malformed_and_duplicate_fixture": {
+      "input_lines": 3,
+      "retained_rows": 1,
+      "last_duplicate_kept": true
+    },
+    "duplicate_question_mapping_fixture": {
+      "input_rows": 2,
+      "mapped_questions": 1,
+      "last_qid": "q2"
+    },
+    "scope": "synthetic CPU fixtures, NOT evidence that actual benchmark data contains these anomalies"
+  },
+  "setr_isolation": {
+    "passed": true,
+    "checked_code_files": 257,
+    "changed_code_files": [],
+    "versions_before": {
+      "env311": {
+        "deepspeed": "0.14.4",
+        "torch": "2.7.1+cu128",
+        "transformers": "4.48.3"
+      },
+      "qwen_env": {
+        "torch": "2.13.0+cu132",
+        "transformers": "5.15.1",
+        "vllm": "0.27.1"
+      }
+    },
+    "versions_after": {
+      "env311": {
+        "torch": "2.7.1+cu128",
+        "transformers": "4.48.3",
+        "deepspeed": "0.14.4"
+      },
+      "qwen_env": {
+        "torch": "2.13.0+cu132",
+        "transformers": "5.15.1",
+        "vllm": "0.27.1"
+      }
+    },
+    "scope": "code hashes and core package versions; active SetR predictions/logs intentionally not frozen or stopped"
+  },
+  "bucket_cli_probe": {
+    "command": [
+      "/data/wyt/videosearch_r1_repro/tools/bin/hf",
+      "buckets",
+      "--help"
+    ],
+    "exit_code": 0,
+    "stdout": "Usage: hf buckets [OPTIONS] COMMAND [ARGS]...\n\n  Commands to interact with buckets.\n\nOptions:\n  -h, --help  Show this message and exit.\n\nMain commands:\n  cp      Copy files between local paths, repositories, and buckets.\n  create  Create a new bucket.\n  delete  Delete a bucket.\n  info    Get info about a bucket.\n  list    List buckets or files in a bucket. [alias: ls]\n  move    Move (rename) a bucket to a new name or namespace.\n  remove  Remove files from a bucket. [alias: rm]\n  sync    Sync files between local directory and a bucket.\n\nExamples\n  $ hf buckets cp hf://buckets/username/my-bucket/config.json config.json\n  $ hf buckets create my-bucket\n  $ hf buckets delete user/my-bucket\n  $ hf buckets info user/my-bucket\n  $ hf buckets list\n  $ hf buckets move user/old-bucket user/new-bucket\n  $ hf buckets remove user/my-bucket/file.txt\n  $ hf buckets sync ./data hf://buckets/user/my-bucket\n\nLearn more\n  Use `hf <command> --help` for more information about a command.\n  Read the documentation at\n  https://huggingface.co/docs/huggingface_hub/en/guides/cli",
+    "stderr": ""
+  },
+  "runtime_install_pause": {
+    "time": "2026-10-23T16:46:56.910037",
+    "pid": 2093411,
+    "reason": "Stage1 audit boundary and slow dependency transport; runtime not ready. No experiment started.",
+    "torch_download_incomplete": true,
+    "flash_attention_download_incomplete": true,
+    "partial_wheel_not_installable": true,
+    "automatic_resume_scheduled": false
+  },
+  "project_script_sha256": {
+    "scripts/restore_upstream.py": "9965219dd95a709aadf8eb8262af435052b2e3875d6fd50b98945d5f040c5600",
+    "scripts/audit_stage1.py": "10054d3dfafd9fcd08ba459b0d37cefd5438f25705b9f9c8bd750cd8bf3948f4",
+    "scripts/install_runtime.sh": "149dad33ee7fb088539703b96ac99b78c1424f6a7d44a15c0757c85689c55d08",
+    "scripts/env.sh": "fe2f27ef80e2dc8499dd169aad745816d72b73a554cea1b0b060c0e49315886a",
+    "tools/bin/hf": "211a62e22515a13954b338c468cf56496d0abbb3d30b4cee7714ec65f3a353aa"
+  },
+  "benchmark_data_downloaded": false,
+  "checkpoint_downloaded": false,
+  "gpu_model_or_engine_created": false,
+  "source_sha256": {
+    "LICENSE.txt": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "pyproject.toml": "9558013a6635e1c25900a282e87ac560db81512fe27b9b86739b8663db574312",
+    "requirements.txt": "c2b28583583ee1259279ac82b1b3943e3321f21a80f99fcf3215c51f3b12fe33",
+    "scripts/download_data.bash": "db9f73c25635bbe590ffa313dc798912a51583a3997627a20caa8a9ee961323e",
+    "scripts/download_checkpoint.bash": "998c651e34854a80fb3ff933973a41199a5969f70c03842d72bf0ffab0988aab",
+    "scripts/training/stage1/train.bash": "188082f2b9127b677307e07546c53a122a11c85f7f5dd2f7d4203602329db211",
+    "scripts/training/stage2/train.bash": "da14be2d30878f3144ad6ce7d3b250f0af0acd3da6f139029ba1111f8e425d89",
+    "scripts/internal/dsconfig/zero1.json": "9e6a15a72bb7f592c92e007211c40545c9a46f108c5c8c3ac20dfe168ce65eb6",
+    "scripts/internal/dsconfig/zero3.json": "d92a2aac4df2f335d7e3ee6684d7660047408d7c7a511e18ebb9c116efc11c54",
+    "scripts/internal/dsconfig/zero2.json": "daf31a879272a2f30795b0448ca92245ab9ae2e759e4cc1372a34d2f1e40bc99",
+    "scripts/internal/dsconfig/zero3_offload.json": "0b224b19dc32cfc9dac52797036530f0ca11fad73d9ae7ff30f8c962ddde3b3c",
+    "scripts/internal/stage1/eval_refine_recall.py": "40fe2b612a4bbd5e441726bc5d7d3b3616827812c90f61bb399b8167a9426f56",
+    "scripts/internal/stage1/eval_verified_test_rerank_temporal_grounding.py": "3e8ec59647ed07a500bc9535fbce61c94a514f39369ef756a8d5deaa55473421",
+    "scripts/internal/stage1/test_checkpoint_temporal_grounding.bash": "0f13cf039f40ac763ddaec60e272c74f2e3c6848332388fa20f7e961a652eb5e",
+    "scripts/internal/stage1/eval_verified_test_rerank.py": "0fb6af7413163c5707c8f96c2df0e84ac136350930f9b4cbd023eaed47ec8d44",
+    "scripts/internal/stage1/temp_report_temporal_grounding.bash": "90354b268f411082d17e2fb3191549ec0f4268b07dafb4b01209c5d1db1072d5",
+    "scripts/internal/stage1/verification_setting.bash": "08a494570ace4e72dc1bc17e85d7cfc146c9c6542d0d1dfa791b688aaa383380",
+    "scripts/internal/stage1/test_checkpoint_temporal_grounding_sequential.bash": "5159ca1e94244776a7e30975508a9cf49affcdd6953c3bb20c8fa4e34325df82",
+    "scripts/internal/stage1/test_checkpoint.bash": "16a7ee5d2a6eed9599a1fb47b2a7d8eb3f28886d660fcc436a496f00112f44f7",
+    "scripts/internal/stage1/eval_verified_test_rerank_temporal_grounding_sequential.py": "ce304f681dfc6c454399a8fadb076dbda437f72346bb30d2e4f410b6fabf0791",
+    "scripts/internal/stage1/scripts/_dataset_defaults.bash": "6f6dc4268148ebc159a1c0c1cb69b9205ada707c6322c4815fec577820ca183b",
+    "scripts/internal/stage1/scripts/activitynet/eval_all_checkpoints_temporal_grounding.bash": "6e018ad5ca966c22b130241676c0ec9f465116f190ced217528ab81e03adb250",
+    "scripts/internal/stage1/scripts/activitynet/test_checkpoint_temporal_grounding.bash": "660fb6b2532883074814781cf605a79b73aaccfef760ae28a1925d25ad5b002f",
+    "scripts/internal/stage1/scripts/activitynet/temp_report_temporal_grounding.bash": "5994b68a528d1ead1e1f44eab30fca08c451a6d8eaad6ed42df48f328b039ac9",
+    "scripts/internal/stage1/scripts/activitynet/verification_setting.bash": "ffb70e28c527bbe3d392577d6988934dba5d4481a5f5da9dc960b8eb7a7aa3ad",
+    "scripts/internal/stage1/scripts/activitynet/test_checkpoint_temporal_grounding_sequential.bash": "f7bc2cc0cffc105f157c7c6d28387545ece058532e34b332127b07df647d1cb3",
+    "scripts/internal/stage1/scripts/didemo/eval_all_checkpoints_temporal_grounding.bash": "ad6a079e62a11915b422b4fbd2ace83af31d85c31c342425cd00b724be7280e2",
+    "scripts/internal/stage1/scripts/didemo/test_checkpoint_temporal_grounding.bash": "70370491abe2d16af14a7bac83ecef764b7e9ec36de6edef7f6c768138063457",
+    "scripts/internal/stage1/scripts/didemo/temp_report_temporal_grounding.bash": "34f45433b723380e2e813dfa65e2ec62a1158ceea06fef0dc3f821ea907c3f08",
+    "scripts/internal/stage1/scripts/didemo/verification_setting.bash": "3fbf307eec353bcfc9252f04e044f03ce9271518bfd14f5f397f83d38ffc87b9",
+    "scripts/internal/stage1/scripts/didemo/test_checkpoint_temporal_grounding_sequential.bash": "fbafe9455d73ff859848cde1763f986865659ea9764d2581fa33b728a6b749f9",
+    "scripts/internal/stage1/scripts/charades/eval_all_checkpoints_temporal_grounding.bash": "3f6989f2b8b08ac88b0462832cf601f6ee8a726683159f5eede721fbab4a5df1",
+    "scripts/internal/stage1/scripts/charades/test_checkpoint_temporal_grounding.bash": "51b65fb3e42d32c9bd6d2d249c17fadf7909da0840fa445d8fbbfe1dcca0a8c7",
+    "scripts/internal/stage1/scripts/charades/temp_report_temporal_grounding.bash": "019cf8f0fff48dbbb18c1f2d8d12b465bd6a7520145124026604aca07ad0791d",
+    "scripts/internal/stage1/scripts/charades/verification_setting.bash": "862d32c0d6d3564858aaaf88dd152484cca6434cc56412a2b5a371df36ae076f",
+    "scripts/internal/stage1/scripts/charades/test_checkpoint_temporal_grounding_sequential.bash": "57c3db94630447c1fa60dbcf1c66466727fc9464d4ec39642a3a8e567fb5fd9b",
+    "scripts/internal/stage2/train_stage2.bash": "8c7235b0d607d5f90c04995f58bb4564d1e4bd1d04381be06733c2cf36001a11",
+    "scripts/internal/stage2/build_minimal_match_dataset.py": "290cd58cce1cf5bb3f8a62f7f8a3d2de5cc35e2ae83d15b07d04ef9ae978f374",
+    "scripts/internal/stage2/scripts/_dataset_defaults.bash": "2a8abd784cb334712c4f90a708b9e6729c7873dc900b53d714e678f77d8bea25",
+    "scripts/internal/stage2/scripts/activitynet/stage2.bash": "fc731fbd35a79ee8db3142a85a0ebaeeca297ab5769b3d880cddfca6cf2fca03",
+    "scripts/internal/stage2/scripts/didemo/stage2.bash": "cdcb64dd829d76b4ee96a1e077ea37e86cb3a69ef8019798f6f7388ed74e1e41",
+    "scripts/internal/stage2/scripts/charades/stage2.bash": "eff43c8ca1bb2c7101002b49cb21993557e20c1fb00a2273376101132ffab15a",
+    "scripts/eval/write_temporal_result.py": "e1c3efe7c461614d9e562bccd3f5e84845c488caa2beb9d175b3630e4f6ab7b7",
+    "scripts/data_construct/check_raw_videos.bash": "4b99fd639f15a1939b0159ee714914e3d72ccc93a53328d133addc181dbc55fb",
+    "scripts/data_construct/build_activitynet_toy_subset.py": "cca4f5e8ce0f3cd083f4bc39b944c208f900a07da0e5959e98dbba8708ed3998",
+    "scripts/data_construct/prepare_raw_layout.bash": "13ec2558affdf9ebc501433505010d50694986698f6fa58c91b478d19f5b30cc",
+    "scripts/data_construct/download_verified_annotations.bash": "82d2be7a8d2e147725f8fb8ea9b8fedf8af411e533359bf5f339a1dddaa7964d",
+    "scripts/data_construct/download_preextracted_data.bash": "9f06eeeeca3d7d11685f5e74cd3f1bbb65bbcd7ab991e529f7982aa84f48cd3f",
+    "scripts/data_construct/start_from_scratch.bash": "81137d517af06e51f9534d144e43defb530f94700fc1ee5476c9419049f6b14a",
+    "scripts/common/env.bash": "9f58b00a52771a8930d9efb74ca0047755017d33bc9420eb6015882300715d36",
+    "scripts/toy/toy_activitynet_full_process.bash": "a76488e0ecd9bd4e92131cdd0959486f3d61addf96c4b9587819039e5ca2d2c7",
+    "scripts/inference/inference.bash": "a9baf9fe51f32e84c6a7c48b966751756d50c3250d6cb403c53d1729bdb6782f",
+    "scripts/inference/report.bash": "b77e394d6adae3c318d01c30f47497313f59b391e90cfb5a75500df1de364ae4",
+    "preprocess/data_annotation_process/__init__.py": "1783a830db0cd5bdee7d9b225cbfc67414952139029da724b757cd64a5e5548b",
+    "preprocess/data_annotation_process/build_verified_search_minimal_top1.py": "4706301073069000d31545b1ad8b6364d56cff41532b93eef60b2b38577a0a6c",
+    "preprocess/scripts_charades/02_embed_queries_charades.bash": "c6472df429b6c5c60a63e1e9ca56a8573971e64694a80526e4dd695225ef55d1",
+    "preprocess/scripts_charades/05_build_top1_pool_charades.bash": "60e1bd1e6519ee8b2690eb9727952d58fc254a2e0cb0b0f708648ef253403963",
+    "preprocess/scripts_charades/08_build_hard_negatives_charades.bash": "18877c3b50305de7112f211216dc6e9e60fd816b607e9e218849092d9e48eca2",
+    "preprocess/scripts_charades/02_embed_segments_charades.bash": "5733d97d6146115d9ce2994d6592e2ba85814b0670896f42c650deb372ccf067",
+    "preprocess/scripts_charades/04_extract_train_npy_charades.bash": "cf95ffb91a91ecc0f9dbafca8c77fda84da860a1cf20e6de09dd796c76d7cf87",
+    "preprocess/scripts_charades/05_build_index_charades.bash": "82fff163a4b1875ef7e9b4786a06b48483632fff9fd7bd8c4606c3119fd5b802",
+    "preprocess/scripts_charades/05_generate_match_grounding_charades.bash": "d72d1ac2fe976f571d982e0ef967cf170dabdb9d07bfcc064a2b56de3e1543e7",
+    "preprocess/scripts_charades/01_data_generate_charades.bash": "e71ad77d23f8cfef78415cb3dbda3defe92c4e1307ac5e3ffc599c03b484abea",
+    "preprocess/scripts_charades/00_data_download_charades.bash": "549ca6e9556c46d415f236ec4c836ca255b61623289a627c35da750868efc52c",
+    "preprocess/scripts_charades/04_extract_test_npy_charades.bash": "e022e0d885fb0b352647c10783b4a67759e3eebb62307b324d9d8834ad5a0b47",
+    "preprocess/scripts_charades/05_repair_match_grounding_charades.bash": "3e1c1189670491433b96c6d7cce93b484a578edc9ecb21f06eb3da8f1249df63",
+    "preprocess/scripts_charades/09_build_verified_search_minimal_top1_charades.bash": "61f940ec95bd61d6ef6bdb25147291fce8f0a77a7495c88e6304d8fd2d4f5ec9",
+    "preprocess/scripts_charades/07_eval_test_retrieval_npy_charades.bash": "5450576377bc4401d0288dea31dbc8cf385f54a388d32990d956ab330d451336",
+    "preprocess/scripts_charades/06_convert_to_train_oneturn_charades.bash": "650f88a83186fa7839c1c1731cbc203a490b71caf07a69ebe778ad3e14dab116",
+    "preprocess/annotation_process/prepare_activitynet_segments.py": "3fa0e60653c21eeae666edd57ef01e46268c2797f976fbde85bbb8fe388a945d",
+    "preprocess/annotation_process/eval_retrieval_npy.py": "6f9882111b347de3a298642ba0a567cf37b66309225e291c0a3a5a396111ddb5",
+    "preprocess/annotation_process/build_faiss.py": "ae4e88a55dacfd831f2fa5f9f2435c4336c0f99b18978146a0e7dd6fffa29615",
+    "preprocess/annotation_process/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "preprocess/annotation_process/eval_retrieval.py": "92d476979840c8dc8a05bc52805ac2867090d49f7aaf007aeff27d3c6328abb5",
+    "preprocess/annotation_process/build_hard_negatives_npy.py": "c1c6b77dcb68bf8bce9e3081452274b740e59544a2dab9309a32262c2b927cb4",
+    "preprocess/scripts_activitynet/02_embed_segments.bash": "e852547e8c9ebf98b2cbba3c3cc5e8f80379f526f9c23e5e3b202aac57a6f98b",
+    "preprocess/scripts_activitynet/07_eval_test_retrieval_npy.bash": "4949f989d260c5913b3ee6bce73c115475d655439e952eb231de1b95f30e62bb",
+    "preprocess/scripts_activitynet/04_extract_train_npy.bash": "7f0f27a0477d969443b616d614af4ca5a8095bf57535e0e2a2059a13668e8c38",
+    "preprocess/scripts_activitynet/extract_train_npy.bash": "28cbaf46da202d213c5c440599d9ca927b21e5e45ab951e605d0a1c207ab8e5d",
+    "preprocess/scripts_activitynet/03_build_index.bash": "54b4bbdeb8b7a7949e5b51f77d5cbe2a71d319f7d711c667a5e05acca03393a4",
+    "preprocess/scripts_activitynet/04_extract_test_npy.bash": "3ad82b39fe74ad928f48503e8c6102e3fdb200e0632e8d3669a7b4f6ba821b6e",
+    "preprocess/scripts_activitynet/08_build_hard_negatives.bash": "391ca2098086f67bd9d20974014c5278fbc025d22cee52f6fe153f34044c7eb9",
+    "preprocess/scripts_activitynet/05_generate_match_grounding.bash": "2b752b7c125bb4d784055fffb619ef7f4bfaf2b803a20dac27d4f6f648ea85db",
+    "preprocess/scripts_activitynet/00_data_download.bash": "c121bada5b20578817ec961ece841b3158e81293ce6aeeeb57c37c030af55ccc",
+    "preprocess/scripts_activitynet/05_build_top1_pool.bash": "15dd133692cf1c2be781a9eccef9a1a9b34236587bf724b0366d809ba5ee8988",
+    "preprocess/scripts_activitynet/09_build_verified_search_minimal_top1.bash": "b8f8105844d1349274e194fe6e68ea39647f6ee93b213ec4e60781f28465e5f0",
+    "preprocess/scripts_activitynet/01_data_generate.bash": "88cb472ed5a1f651c39740b4e973e7c2a17f1bd57b0d77fc94c737ed638137d4",
+    "preprocess/scripts_activitynet/06_convert_to_train_oneturn.bash": "d04ffe4fccb3fb0abe9e3a06dccea291309660a6df9223bbaffb022ef8e594fc",
+    "preprocess/scripts_activitynet/05_repair_match_grounding.bash": "e9cd4a8e30722b66293e6a69bc970be568b961ac3ac0641d0d2f109ab304e8db",
+    "preprocess/scripts_activitynet/02_embed_queries.bash": "f01caf99a89e54ab556420cd11f33460d70fc19979b15923d36ad1a74f97714c",
+    "preprocess/dataset_generation/vllm.bash": "4dcbee3053d81ee1f7dc73a261b05395cce282675bb9b44768b3cd19d280a7de",
+    "preprocess/dataset_generation/convert_match_grounding_to_oneturn.py": "e5ce203caa9fb885a4cdaa708d7314edfcf205b1c5a6f7a339bfa73eeb5c63a8",
+    "preprocess/dataset_generation/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "preprocess/dataset_generation/generate_match_grounding.py": "a9fc638503a0e13e218f87dec8b6b0cc5979cf6d2ed5968a07eea3ac743a072b",
+    "preprocess/dataset_generation/build_top1_pool.py": "32c99da4f9c12cab02672970acb8aa64ceab05d25f19843b623106d6406f7e98",
+    "preprocess/dataset_generation/scripts/0_build_top1_pool.bash": "a58cb4205e363d629c7b339d3e1c5d9b2c186cae64e9f8020dd9e1c2a952bb40",
+    "preprocess/dataset_generation/scripts/2_generate_match_grounding.bash": "7b51d39210db3e1aabf5ac182af32ad4061ce6a01fd1d67592a9181b2c888f3f",
+    "preprocess/scripts_didemo/08_build_hard_negatives_didemo.bash": "1ad20c395cfae60cc4aecd5e104c48e19bde2e1872d96e7c4d6d207970b4ded9",
+    "preprocess/scripts_didemo/02_embed_queries_didemo.bash": "3188ce890b37398a262a8f1c8e6f3ba1c3777425a8d3b1590dae119921d83c12",
+    "preprocess/scripts_didemo/02_embed_segments_didemo.bash": "83b2c4ab3c75765aa0955fba6458a26b25888a41f70866abffd703316da18dba",
+    "preprocess/scripts_didemo/04_extract_train_npy_didemo.bash": "daf0d10e51f755078c38135e6d00d93ab005b8b78945ffa133307b9ff2ba16d3",
+    "preprocess/scripts_didemo/05_build_top1_pool_didemo.bash": "9757c09afebd427fd166974968a18317df9c74d6ded5ab55b4f18c9bd22b8ccc",
+    "preprocess/scripts_didemo/07_eval_test_retrieval_npy_didemo.bash": "0d157294f69fe522a956cfaf7175771b5b8070888018310e1cba28f7158cd441",
+    "preprocess/scripts_didemo/00_data_download_didemo.bash": "a6a254e33a393b0932eb15d64c7af4ecd36f68314834748c8af473f440239795",
+    "preprocess/scripts_didemo/01_data_generate_didemo.bash": "dcab8160e01c6a970c35883217206d5875fb64acc322dc97e4fc77fdfeb62752",
+    "preprocess/scripts_didemo/09_build_verified_search_minimal_top1_didemo.bash": "e9c3dca5de5696a2385e1a92c8b42fab5f8c36a3111caefc3c4fc96010ddb8f7",
+    "preprocess/scripts_didemo/04_extract_test_npy_didemo.bash": "22a89c5565448c5042b7d6fbe480eb7bf3983fa23fe2a1d62b2905c054ab05c8",
+    "preprocess/scripts_didemo/06_convert_to_train_oneturn_didemo.bash": "3174b02f2bfb58f806f7f6d188e85fb312cd854280fd5b7cd92f7be723342018",
+    "preprocess/scripts_didemo/05_generate_match_grounding_didemo.bash": "f4c1d3012ff255973645590c962f963750db4a7ee36b1f051ea00502bbbfdba1",
+    "preprocess/scripts_didemo/03_build_index_didemo.bash": "57559cd090f1c832b72316c89b1970d45b7b31309cbec5c3f45468b36440dc0a",
+    "preprocess/scripts_didemo/05_repair_match_grounding_didemo.bash": "050aaaf2fcedb09f3605567cd0296bd321207ed27c9b01066fd4882bdc46f23e",
+    "preprocess/extract_embed/embed_segments.py": "3a815538c4ad53ced884bbd8d9ac4f99b085bcee7c564a1ce1164aca09c0f6a8",
+    "preprocess/extract_embed/__init__.py": "1ca7abbe67f2a63671befba2246e919c7f0bb7241dcbecbe6c864df0b09a71e1",
+    "preprocess/extract_embed/embed_queries.py": "e756a30e9842aeb370f40aa39368a542dbd03f2201b3890f1cd7e2d4a96e6655",
+    "preprocess/extract_embed/retry_failed_segments.py": "feef879358895a9444d43eead5f082f30855fe84812d0b55af6d00998da7a8ef",
+    "preprocess/extract_embed/softqmr/data.py": "4694724256c3503118a204e62082087e131b698d72dd43b5578e0c1d5ca21302",
+    "preprocess/extract_embed/softqmr/debug.py": "cf44b67e3ed8d5b51e07e520629866767fb40502a01206812572641c6b064df5",
+    "preprocess/extract_embed/softqmr/video_io.py": "0232173460803fd559c7ff66de6c9467d11a17c8bd59cf84b9d28d9494f32327",
+    "preprocess/extract_embed/softqmr/device.py": "25c0bf49c1acd2b4c4964d82a2482245bb6c9008291ca27b78e22defe0bf662d",
+    "preprocess/extract_embed/softqmr/__init__.py": "affc18d42d3fdbdb3b665baa388437bb757ce86676d5d51de872ca12e323769f",
+    "preprocess/extract_embed/softqmr/qwen_query_embed.py": "305e6e7e2615dc5c12d0229274f2bf5b49bdb9394dbabdc0bb9634c6140ab8c0",
+    "preprocess/extract_embed/vendor/qwen3_vl_embedding.py": "9ab3b26a7d052af6957aeec0288bf4c6779c7aac66d6b883da6579b868a710c0",
+    "preprocess/extract_embed/vendor/__init__.py": "46f6f82277d762cfe602358504e88bc8ef057d166b3bb334d89a8644decb7b9e",
+    "preprocess/extract_npy/extract_npy.py": "4c8d424d2aeb16ca91ee4ada06e216621a54861c438a06cb68a11b1be8c88e79",
+    "videosearch_r1/train_grpo_qwen2_5_vl.py": "e28f6265a7c55fb3bf59c013f7b05c3a8d8d9cf984b6a6fdda3c3a7c20aa2572",
+    "videosearch_r1/train_sft_qwen2_5_vl.py": "2ccdcd44b12c51b122067de1cb175fa6387b2f39b1362e5df31066f776ed26b1",
+    "videosearch_r1/train_sft_qwen3_vl_share_gpt.py": "22871a3ef4572e70a9fea87cf2380702e7ca1cdeda1bccbd58fbe39cbfbcbe4a",
+    "videosearch_r1/train_grpo_qwen3_vl.py": "5c4b1ed139fcc020a529096837c3b1569767ccd18953898637913a7967167749",
+    "videosearch_r1/train_sft_qwen2_5_vl_share_gpt.py": "924786d0a0efd45cd06da2a9004276b7a15eb0db9cff22eb1369e81bec246523",
+    "videosearch_r1/trainer/sft_share_gpt_trainer.py": "9e8751197d256188a60a2bec2b4956310abeb8ebfcb8b3ece8eb738d45f6f284",
+    "videosearch_r1/trainer/grpo_vllm_trainer_qwen3_vl.py": "5ac95c8c41701ad8355d4a6785d6c319ff67b8073e0c7f1a8181d89967909d58",
+    "videosearch_r1/trainer/grpo_vllm_trainer_qwen2_5_vl.py": "b02e0922e5047c6f96b1f3698977b48acf1d0215ab727401dc96cc3b55b11b51",
+    "videosearch_r1/trainer/sft_soft_refine_trainer.py": "a3b643db55ddd153c766547f4f5144c578bcdc834244ae535f6efe48707b401c",
+    "videosearch_r1/search/retriever_server.py": "6886bd1147bcb8f680d757b8e0cccbd3e8394a6347eeae11a2607ff4b8c50f29",
+    "videosearch_r1/search/__init__.py": "27b492fa0c43f025b3e173a5b45793e52c859709f3b73a594d3d75f356b7e60b",
+    "videosearch_r1/model/monkey_patch.py": "925498a49507315d877adfb21857336506222c4bdb3de6cbadf44ee222dc8a51",
+    "videosearch_r1/model/modeling_qwen2_5_vl_patched.py": "d7c7b30aade203d6210423b3bffeb79a1c84b537c1fb9aeba6a312cedffaf7a0",
+    "videosearch_r1/model/modeling_qwen3_vl_patched.py": "a6d1e9404ad9a2da677d6bf9837aa5cc7955545c088bce0034da327f888ff7ec",
+    "videosearch_r1/model/qwen_vl_utils/vision_process.py": "8fe11e3c3d1b57778d706425d9eeb884838f3053b28f8c763ae1ac37e22a8404",
+    "videosearch_r1/reward/reward.py": "c390a3da3af7d28f61b38b55b375d1b2364b98e39207b5d64a38077675151ded",
+    "videosearch_r1/utils/data_rl.py": "de86617a7dd1a107eed5c47061e13eb51d3d1c500f9f0f29cce5baf68f419249",
+    "videosearch_r1/utils/video_metadata.py": "e1ff4c97972fc84c32bd24cf6242738ae0e012446a2c05798bf0e5597a1b9f13",
+    "videosearch_r1/utils/data_sft_share_gpt.py": "0181b60d89adefe863085fa1189f6a6c08f9786831ebf1f034b313fa91e7c902",
+    "videosearch_r1/utils/arguments.py": "7a54e9c8009c7849a69697414750b189772f7089ae15db10d53ffb6a08ddb6ad"
+  },
+  "pip_check": {
+    "command": [
+      "/data/wyt/videosearch_r1_repro/envs/videosearchr1/bin/python",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "exit_code": 0,
+    "stdout": "No broken requirements found.",
+    "stderr": ""
+  },
+  "engineering_checks_passed": true,
+  "runtime_requirements_mismatch": {
+    "torch": {
+      "expected": "2.8.0",
+      "actual": null
+    },
+    "torchvision": {
+      "expected": "0.23.0",
+      "actual": null
+    },
+    "torchaudio": {
+      "expected": "2.8.0",
+      "actual": null
+    },
+    "transformers": {
+      "expected": "4.57.1",
+      "actual": null
+    },
+    "accelerate": {
+      "expected": "1.11.0",
+      "actual": null
+    },
+    "trl": {
+      "expected": "0.23.0",
+      "actual": null
+    },
+    "deepspeed": {
+      "expected": "0.16.8",
+      "actual": null
+    },
+    "vllm": {
+      "expected": "0.11.0",
+      "actual": null
+    },
+    "flash-attn": {
+      "expected": "2.8.3.post1",
+      "actual": null
+    },
+    "datasets": {
+      "expected": "4.0.0",
+      "actual": null
+    },
+    "peft": {
+      "expected": "0.17.1",
+      "actual": null
+    },
+    "qwen-vl-utils": {
+      "expected": "0.0.14",
+      "actual": null
+    },
+    "math-verify": {
+      "expected": "0.8.0",
+      "actual": null
+    },
+    "torchcodec": {
+      "expected": "0.7.0",
+      "actual": null
+    },
+    "faiss-cpu": {
+      "expected": "1.13.2",
+      "actual": null
+    },
+    "av": {
+      "expected": "16.0.0",
+      "actual": null
+    },
+    "decord": {
+      "expected": "0.6.0",
+      "actual": null
+    },
+    "opencv-python-headless": {
+      "expected": "4.13.0.92",
+      "actual": null
+    },
+    "huggingface-hub": {
+      "expected": "0.36.0",
+      "actual": null
+    },
+    "hf_transfer": {
+      "expected": "0.1.9",
+      "actual": null
+    },
+    "hf-xet": {
+      "expected": "1.2.0",
+      "actual": null
+    },
+    "wandb": {
+      "expected": "0.24.0",
+      "actual": null
+    },
+    "tensorboardX": {
+      "expected": "2.6.5",
+      "actual": null
+    },
+    "numpy": {
+      "expected": "2.2.6",
+      "actual": null
+    },
+    "pandas": {
+      "expected": "2.3.3",
+      "actual": null
+    },
+    "scipy": {
+      "expected": "1.17.0",
+      "actual": null
+    },
+    "Pillow": {
+      "expected": "11.3.0",
+      "actual": null
+    },
+    "PyYAML": {
+      "expected": "6.0.3",
+      "actual": null
+    },
+    "requests": {
+      "expected": "2.32.5",
+      "actual": null
+    },
+    "tqdm": {
+      "expected": "4.67.1",
+      "actual": null
+    },
+    "einops": {
+      "expected": "0.8.1",
+      "actual": null
+    },
+    "safetensors": {
+      "expected": "0.7.0",
+      "actual": null
+    },
+    "tokenizers": {
+      "expected": "0.22.2",
+      "actual": null
+    },
+    "loguru": {
+      "expected": "0.7.3",
+      "actual": null
+    },
+    "pytablewriter": {
+      "expected": "1.2.1",
+      "actual": null
+    },
+    "sacrebleu": {
+      "expected": "2.6.0",
+      "actual": null
+    },
+    "evaluate": {
+      "expected": "0.4.6",
+      "actual": null
+    },
+    "sqlitedict": {
+      "expected": "2.1.0",
+      "actual": null
+    },
+    "tenacity": {
+      "expected": "8.3.0",
+      "actual": null
+    }
+  },
+  "runtime_ready_cpu": false
+}

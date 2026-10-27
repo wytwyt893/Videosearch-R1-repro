@@ -1,0 +1,410 @@
+{
+  "timestamp": "2026-10-23T20:40:31.239303+08:00",
+  "scope": "CPU audit and small metadata queries only; no installation, weights/data downloads, inference or training",
+  "upstream": {
+    "head": {
+      "command": [
+        "git",
+        "-C",
+        "/data/wyt/videosearch_r1_repro/upstream",
+        "rev-parse",
+        "HEAD"
+      ],
+      "returncode": 0,
+      "stdout": "69234fd9783b7235164d9f92b8903d9781dc284e",
+      "stderr": ""
+    },
+    "tree": {
+      "command": [
+        "git",
+        "-C",
+        "/data/wyt/videosearch_r1_repro/upstream",
+        "rev-parse",
+        "HEAD^{tree}"
+      ],
+      "returncode": 0,
+      "stdout": "5cc0e48010a6ed0f8e4787c5079abc8c667189d6",
+      "stderr": ""
+    },
+    "status": {
+      "command": [
+        "git",
+        "-C",
+        "/data/wyt/videosearch_r1_repro/upstream",
+        "status",
+        "--porcelain"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "fsck": {
+      "command": [
+        "git",
+        "-C",
+        "/data/wyt/videosearch_r1_repro/upstream",
+        "fsck",
+        "--connectivity-only",
+        "--no-dangling"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "tracked_files": 167,
+    "provenance": {
+      "method": "official_archive_plus_exact_git_object_restore_not_standard_clone",
+      "commit_sha": "69234fd9783b7235164d9f92b8903d9781dc284e",
+      "tree_sha": "5cc0e48010a6ed0f8e4787c5079abc8c667189d6",
+      "worktree_matches_official_tree": true,
+      "commit_bytes_match_official_sha": true,
+      "clean": true,
+      "archive_sha256": "ccea3a0f1e86ea03d01c364397c2b883075b7d0ea4f755598aaee485fe248bea",
+      "new_research_commit_created": false,
+      "network_issue": "Git smart HTTPS TLS termination; official API/codeload work"
+    },
+    "remote_main": {
+      "source": "GitHub connector GET https://api.github.com/repos/mlvlab/VideoSearch-R1/commits/main",
+      "sha": "69234fd9783b7235164d9f92b8903d9781dc284e",
+      "tree": "5cc0e48010a6ed0f8e4787c5079abc8c667189d6",
+      "author_date_utc": "2026-09-04T00:28:47Z",
+      "verified_this_audit": true
+    }
+  },
+  "python": {
+    "executable": "/data/wyt/videosearch_r1_repro/envs/videosearchr1/bin/python",
+    "prefix": "/data/wyt/videosearch_r1_repro/envs/videosearchr1",
+    "version": "3.11.17 (main, Oct 13 2026, 16:45:47) [GCC 15.3.0]"
+  },
+  "requirements": {
+    "total_pins": 42,
+    "mismatch_count": 39,
+    "mismatches": {
+      "torch": {
+        "required": "2.8.0",
+        "installed": null
+      },
+      "torchvision": {
+        "required": "0.23.0",
+        "installed": null
+      },
+      "torchaudio": {
+        "required": "2.8.0",
+        "installed": null
+      },
+      "transformers": {
+        "required": "4.57.1",
+        "installed": null
+      },
+      "accelerate": {
+        "required": "1.11.0",
+        "installed": null
+      },
+      "trl": {
+        "required": "0.23.0",
+        "installed": null
+      },
+      "deepspeed": {
+        "required": "0.16.8",
+        "installed": null
+      },
+      "vllm": {
+        "required": "0.11.0",
+        "installed": null
+      },
+      "flash-attn": {
+        "required": "2.8.3.post1",
+        "installed": null
+      },
+      "datasets": {
+        "required": "4.0.0",
+        "installed": null
+      },
+      "peft": {
+        "required": "0.17.1",
+        "installed": null
+      },
+      "qwen-vl-utils": {
+        "required": "0.0.14",
+        "installed": null
+      },
+      "math-verify": {
+        "required": "0.8.0",
+        "installed": null
+      },
+      "torchcodec": {
+        "required": "0.7.0",
+        "installed": null
+      },
+      "faiss-cpu": {
+        "required": "1.13.2",
+        "installed": null
+      },
+      "av": {
+        "required": "16.0.0",
+        "installed": null
+      },
+      "decord": {
+        "required": "0.6.0",
+        "installed": null
+      },
+      "opencv-python-headless": {
+        "required": "4.13.0.92",
+        "installed": null
+      },
+      "huggingface-hub": {
+        "required": "0.36.0",
+        "installed": null
+      },
+      "hf_transfer": {
+        "required": "0.1.9",
+        "installed": null
+      },
+      "hf-xet": {
+        "required": "1.2.0",
+        "installed": null
+      },
+      "wandb": {
+        "required": "0.24.0",
+        "installed": null
+      },
+      "tensorboardX": {
+        "required": "2.6.5",
+        "installed": null
+      },
+      "numpy": {
+        "required": "2.2.6",
+        "installed": null
+      },
+      "pandas": {
+        "required": "2.3.3",
+        "installed": null
+      },
+      "scipy": {
+        "required": "1.17.0",
+        "installed": null
+      },
+      "Pillow": {
+        "required": "11.3.0",
+        "installed": null
+      },
+      "PyYAML": {
+        "required": "6.0.3",
+        "installed": null
+      },
+      "requests": {
+        "required": "2.32.5",
+        "installed": null
+      },
+      "tqdm": {
+        "required": "4.67.1",
+        "installed": null
+      },
+      "einops": {
+        "required": "0.8.1",
+        "installed": null
+      },
+      "safetensors": {
+        "required": "0.7.0",
+        "installed": null
+      },
+      "tokenizers": {
+        "required": "0.22.2",
+        "installed": null
+      },
+      "loguru": {
+        "required": "0.7.3",
+        "installed": null
+      },
+      "pytablewriter": {
+        "required": "1.2.1",
+        "installed": null
+      },
+      "sacrebleu": {
+        "required": "2.6.0",
+        "installed": null
+      },
+      "evaluate": {
+        "required": "0.4.6",
+        "installed": null
+      },
+      "sqlitedict": {
+        "required": "2.1.0",
+        "installed": null
+      },
+      "tenacity": {
+        "required": "8.3.0",
+        "installed": null
+      }
+    },
+    "installed_packages": {
+      "ninja": "1.13.0",
+      "wheel": "0.45.1",
+      "psutil": "7.2.1",
+      "packaging": "25.0",
+      "pip": "26.2.2",
+      "setuptools": "80.9.0"
+    },
+    "project_installed": false
+  },
+  "pip_check": {
+    "command": [
+      "/data/wyt/videosearch_r1_repro/envs/videosearchr1/bin/python",
+      "-B",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "returncode": 0,
+    "stdout": "No broken requirements found.",
+    "stderr": ""
+  },
+  "syntax": {
+    "python_files": 52,
+    "bash_files": 85,
+    "python_errors": [],
+    "bash_errors": []
+  },
+  "synthetic_cpu_metric_checks": {
+    "passed": true,
+    "checks": 6,
+    "missing_rank_fixture": {
+      "input_rows": 2,
+      "metric_denominator": 1
+    },
+    "malformed_and_duplicate_fixture": {
+      "input_lines": 3,
+      "retained_rows": 1,
+      "last_duplicate_kept": true
+    },
+    "duplicate_question_mapping_fixture": {
+      "input_rows": 2,
+      "mapped_questions": 1,
+      "last_qid": "q2"
+    },
+    "scope": "synthetic CPU fixtures, NOT evidence that actual benchmark data contains these anomalies"
+  },
+  "assets": {
+    "data": {
+      "files": 0
+    },
+    "checkpoints": {
+      "files": 0
+    },
+    "outputs": {
+      "files": 0
+    }
+  },
+  "flash_attention_cache": [
+    {
+      "name": "flash_attn-2.8.3.post1+cu12torch2.8cxx11abiTRUE-cp311-cp311-linux_x86_64.whl.partial",
+      "bytes": 7167397,
+      "complete": false
+    }
+  ],
+  "hf_cli": {
+    "command": [
+      "/data/wyt/videosearch_r1_repro/tools/bin/hf",
+      "version"
+    ],
+    "returncode": 0,
+    "stdout": "✓ hf version\n  version: 1.20.1",
+    "stderr": ""
+  },
+  "hf_buckets_cli": {
+    "command": [
+      "/data/wyt/videosearch_r1_repro/tools/bin/hf",
+      "buckets",
+      "--help"
+    ],
+    "returncode": 0,
+    "stdout": "Usage: hf buckets [OPTIONS] COMMAND [ARGS]...\n\n  Commands to interact with buckets.\n\nOptions:\n  -h, --help  Show this message and exit.\n\nMain commands:\n  cp      Copy files between local paths, repositories, and buckets.\n  create  Create a new bucket.\n  delete  Delete a bucket.\n  info    Get info about a bucket.\n  list    List buckets or files in a bucket. [alias: ls]\n  move    Move (rename) a bucket to a new name or namespace.\n  remove  Remove files from a bucket. [alias: rm]\n  sync    Sync files between local directory and a bucket.\n\nExamples\n  $ hf buckets cp hf://buckets/username/my-bucket/config.json config.json\n  $ hf buckets create my-bucket\n  $ hf buckets delete user/my-bucket\n  $ hf buckets info user/my-bucket\n  $ hf buckets list\n  $ hf buckets move user/old-bucket user/new-bucket\n  $ hf buckets remove user/my-bucket/file.txt\n  $ hf buckets sync ./data hf://buckets/user/my-bucket\n\nLearn more\n  Use `hf <command> --help` for more information about a command.\n  Read the documentation at\n  https://huggingface.co/docs/huggingface_hub/en/guides/cli",
+    "stderr": ""
+  },
+  "disk": {
+    "total_bytes": 63745645264896,
+    "used_bytes": 33462741422080,
+    "free_bytes": 27082814308352
+  },
+  "directory_sizes": {
+    "command": [
+      "du",
+      "-sh",
+      "upstream",
+      "envs",
+      "cache",
+      "data",
+      "checkpoints",
+      "outputs",
+      "logs",
+      "reports"
+    ],
+    "returncode": 0,
+    "stdout": "108M\tupstream\n260M\tenvs\n6.3G\tcache\n4.0K\tdata\n4.0K\tcheckpoints\n4.0K\toutputs\n336K\tlogs\n108K\treports",
+    "stderr": ""
+  },
+  "host_memory": {
+    "command": [
+      "free",
+      "-h"
+    ],
+    "returncode": 0,
+    "stdout": "total        used        free      shared  buff/cache   available\nMem:           503Gi        25Gi        11Gi        22Mi       467Gi       475Gi\nSwap:          8.0Gi       399Mi       7.6Gi",
+    "stderr": ""
+  },
+  "host_cpu": {
+    "command": [
+      "lscpu"
+    ],
+    "returncode": 0,
+    "stdout": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           46 bits physical, 57 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  128\nOn-line CPU(s) list:                     0-127\nVendor ID:                               GenuineIntel\nModel name:                              Intel(R) Xeon(R) Platinum 8352Y CPU @ 2.20GHz\nCPU family:                              6\nModel:                                   106\nThread(s) per core:                      2\nCore(s) per socket:                      32\nSocket(s):                               2\nStepping:                                6\nCPU max MHz:                             3400.0000\nCPU min MHz:                             800.0000\nBogoMIPS:                                4400.00\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local split_lock_detect wbnoinvd dtherm ida arat pln pts hwp hwp_act_window hwp_epp hwp_pkg_req avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg tme avx512_vpopcntdq la57 rdpid fsrm md_clear pconfig flush_l1d arch_capabilities\nVirtualization:                          VT-x\nL1d cache:                               3 MiB (64 instances)\nL1i cache:                               2 MiB (64 instances)\nL2 cache:                                80 MiB (64 instances)\nL3 cache:                                96 MiB (2 instances)\nNUMA node(s):                            2\nNUMA node0 CPU(s):                       0-31,64-95\nNUMA node1 CPU(s):                       32-63,96-127\nVulnerability Gather data sampling:      Mitigation; Microcode\nVulnerability Indirect target selection: Mitigation; Aligned branch/return thunks\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Mitigation; Clear CPU buffers; SMT vulnerable\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl and seccomp\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI SW loop, KVM SW loop\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected",
+    "stderr": ""
+  },
+  "cuda_toolkit": {
+    "command": [
+      "/usr/local/cuda-12.8/bin/nvcc",
+      "--version"
+    ],
+    "returncode": 0,
+    "stdout": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Wed_Jan_15_19:20:09_PST_2025\nCuda compilation tools, release 12.8, V12.8.61\nBuild cuda_12.8.r12.8/compiler.35404655_0",
+    "stderr": ""
+  },
+  "gcc": {
+    "command": [
+      "gcc",
+      "-dumpfullversion"
+    ],
+    "returncode": 0,
+    "stdout": "11.4.0",
+    "stderr": ""
+  },
+  "glibc": {
+    "command": [
+      "getconf",
+      "GNU_LIBC_VERSION"
+    ],
+    "returncode": 0,
+    "stdout": "glibc 2.35",
+    "stderr": ""
+  },
+  "ffmpeg": {
+    "command": [
+      "ffmpeg",
+      "-version"
+    ],
+    "returncode": 0,
+    "stdout": "ffmpeg version 4.4.2-0ubuntu0.22.04.1 Copyright (c) 2000-2021 the FFmpeg developers\nbuilt with gcc 11 (Ubuntu 11.2.0-19ubuntu1)\nconfiguration: --prefix=/usr --extra-version=0ubuntu0.22.04.1 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --enable-gnutls --enable-ladspa --enable-libaom --enable-libass --enable-libbluray --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libcodec2 --enable-libdav1d --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libgsm --enable-libjack --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-libpulse --enable-librabbitmq --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libsrt --enable-libssh --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzimg --enable-libzmq --enable-libzvbi --enable-lv2 --enable-omx --enable-openal --enable-opencl --enable-opengl --enable-sdl2 --enable-pocketsphinx --enable-librsvg --enable-libmfx --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-libx264 --enable-shared\nlibavutil      56. 70.100 / 56. 70.100\nlibavcodec     58.134.100 / 58.134.100\nlibavformat    58. 76.100 / 58. 76.100\nlibavdevice    58. 13.100 / 58. 13.100\nlibavfilter     7.110.100 /  7.110.100\nlibswscale      5.  9.100 /  5.  9.100\nlibswresample   3.  9.100 /  3.  9.100\nlibpostproc    55.  9.100 / 55.  9.100",
+    "stderr": ""
+  },
+  "source_script_hashes": {
+    "scripts/restore_upstream.py": "9965219dd95a709aadf8eb8262af435052b2e3875d6fd50b98945d5f040c5600",
+    "scripts/audit_stage1.py": "10054d3dfafd9fcd08ba459b0d37cefd5438f25705b9f9c8bd750cd8bf3948f4",
+    "scripts/install_runtime.sh": "149dad33ee7fb088539703b96ac99b78c1424f6a7d44a15c0757c85689c55d08",
+    "scripts/env.sh": "fe2f27ef80e2dc8499dd169aad745816d72b73a554cea1b0b060c0e49315886a",
+    "tools/bin/hf": "211a62e22515a13954b338c468cf56496d0abbb3d30b4cee7714ec65f3a353aa"
+  },
+  "runtime_ready": false,
+  "gpu_model_tested": false,
+  "network_evidence": "02_remote_metadata.json",
+  "host_gpu_evidence": "02_host_resources.json"
+}

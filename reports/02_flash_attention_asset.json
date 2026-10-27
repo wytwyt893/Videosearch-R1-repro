@@ -1,0 +1,10 @@
+{
+  "checked_date": "2026-10-23",
+  "source": "https://api.github.com/repos/Dao-AILab/flash-attention/releases/assets/444171392",
+  "name": "flash_attn-2.8.3.post1+cu12torch2.8cxx11abiTRUE-cp311-cp311-linux_x86_64.whl",
+  "size": 256044010,
+  "digest": "sha256:3807faf34d263ad0c3dff6f07c7ebdd27aef4a2614ef124db2afee4578ef7232",
+  "browser_download_url": "https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.3.post1/flash_attn-2.8.3.post1%2Bcu12torch2.8cxx11abiTRUE-cp311-cp311-linux_x86_64.whl",
+  "local_partial_bytes": 7167397,
+  "downloaded_this_audit": false
+}

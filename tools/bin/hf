@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+# New bucket CLI only; Python/Transformers keep the pinned legacy runtime SDK.
+hf_workspace="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." && pwd -P)"
+source "$hf_workspace/scripts/network.sh"
+# Preserve caches explicitly supplied by download workers. Do not source env.sh here.
+export HF_HOME="${HF_HOME:-$hf_workspace/cache/huggingface}"
+export HF_XET_CACHE="${HF_XET_CACHE:-$HF_HOME/xet}"
+export HF_HUB_CACHE="${HF_HUB_CACHE:-$HF_HOME/hub}"
+export PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1 HF_HUB_DISABLE_TELEMETRY=1
+exec "$hf_workspace/envs/hf_tools/bin/hf" "$@"

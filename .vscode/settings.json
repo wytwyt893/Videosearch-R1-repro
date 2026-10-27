@@ -1,0 +1,7 @@
+{
+  "git.autoRepositoryDetection": false,
+  "git.detectSubmodules": false,
+  "git.ignoredRepositories": ["upstream"],
+  "git.openRepositoryInParentFolders": "never",
+  "git.repositoryScanMaxDepth": 0
+}

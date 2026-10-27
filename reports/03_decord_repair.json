@@ -1,0 +1,20 @@
+{
+  "official_url": "https://files.pythonhosted.org/packages/11/79/936af42edf90a7bd4e41a6cac89c913d4b47fa48a26b042d5129a9242ee3/decord-0.6.0-py3-none-manylinux2010_x86_64.whl",
+  "original_sha256": "51997f20be8958e23b7c4061ba45d0efcd86bffd5fe81c695d0befee0d442976",
+  "repacked_wheel": "/data/wyt/videosearch_r1_repro/cache/wheels/repacked/decord-0.6.0-1py311fix-py3-none-manylinux2010_x86_64.whl",
+  "changed_members": [
+    "decord-0.6.0.dist-info/RECORD",
+    "decord-0.6.0.dist-info/WHEEL"
+  ],
+  "native_payload_sha256": "98b260c5812106648ba299279916fbe98439893e346d4efdcf5cde66ba8973da",
+  "binary_and_python_payloads_unchanged": true,
+  "decord_version": "0.6.0",
+  "cpu_decode_shape": [
+    2,
+    64,
+    64,
+    3
+  ],
+  "cpu_decode_passed": true,
+  "reason": "Published filename is py3-none, but internal WHEEL incorrectly says cp36-cp36m; only libdecord.so is native, loaded through ctypes."
+}

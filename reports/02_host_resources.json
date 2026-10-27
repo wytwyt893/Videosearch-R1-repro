@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-10-23T20:40:32.547889+08:00",
+  "scope": "read-only host GPU inspection; no CUDA context or model created",
+  "sandbox_note": "ordinary sandbox nvidia-smi cannot access driver; these queries executed on host with approved read access",
+  "gpus": {
+    "command": [
+      "nvidia-smi",
+      "--query-gpu=index,name,uuid,driver_version,memory.total,memory.used,memory.free,utilization.gpu",
+      "--format=csv"
+    ],
+    "returncode": 0,
+    "stdout": "index, name, uuid, driver_version, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%]\n0, NVIDIA A100-SXM4-80GB, GPU-628327af-6e58-d49d-6c43-aef764bd3e3d, 590.48.01, 81920 MiB, 70599 MiB, 10554 MiB, 100 %\n1, NVIDIA A100-SXM4-80GB, GPU-677cef2a-aeb8-267d-4a59-19e72f682efc, 590.48.01, 81920 MiB, 0 MiB, 81153 MiB, 0 %",
+    "stderr": ""
+  },
+  "compute_processes": {
+    "command": [
+      "nvidia-smi",
+      "--query-compute-apps=pid,gpu_uuid,process_name,used_memory",
+      "--format=csv"
+    ],
+    "returncode": 0,
+    "stdout": "pid, gpu_uuid, process_name, used_gpu_memory [MiB]\n2141205, GPU-628327af-6e58-d49d-6c43-aef764bd3e3d, VLLM::EngineCore, 70592 MiB",
+    "stderr": ""
+  },
+  "topology": {
+    "command": [
+      "nvidia-smi",
+      "topo",
+      "-m"
+    ],
+    "returncode": 0,
+    "stdout": "\u001b[4mGPU0\tGPU1\tNIC0\tNIC1\tCPU Affinity\tNUMA Affinity\tGPU NUMA ID\u001b[0m\nGPU0\t X \tNODE\tSYS\tSYS\t32-63,96-127\t1\t\tN/A\nGPU1\tNODE\t X \tSYS\tSYS\t32-63,96-127\t1\t\tN/A\nNIC0\tSYS\tSYS\t X \tPIX\t\t\t\t\nNIC1\tSYS\tSYS\tPIX\t X \t\t\t\t\n\nLegend:\n\n  X    = Self\n  SYS  = Connection traversing PCIe as well as the SMP interconnect between NUMA nodes (e.g., QPI/UPI)\n  NODE = Connection traversing PCIe as well as the interconnect between PCIe Host Bridges within a NUMA node\n  PHB  = Connection traversing PCIe as well as a PCIe Host Bridge (typically the CPU)\n  PXB  = Connection traversing multiple PCIe bridges (without traversing the PCIe Host Bridge)\n  PIX  = Connection traversing at most a single PCIe bridge\n  NV#  = Connection traversing a bonded set of # NVLinks\n\nNIC Legend:\n\n  NIC0: mlx5_0\n  NIC1: mlx5_1",
+    "stderr": ""
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "started": "2026-10-23T21:30:15.572252+08:00",
+  "gpu_index": 1,
+  "gpu_uuid": "GPU-677cef2a-aeb8-267d-4a59-19e72f682efc",
+  "cuda_uuid_verified": "677cef2a-aeb8-267d-4a59-19e72f682efc",
+  "gpu_before": [
+    "GPU-677cef2a-aeb8-267d-4a59-19e72f682efc",
+    "81153",
+    "0",
+    "0"
+  ],
+  "command": [
+    "bash",
+    "scripts/inference/inference.bash",
+    "charades",
+    "--checkpoint",
+    "/data/wyt/videosearch_r1_repro/checkpoints/VideoSearchR1__charades-stage2"
+  ],
+  "output_dir": "/data/wyt/videosearch_r1_repro/outputs/charades_smoke_20261023_213015",
+  "parameters": {
+    "MAX_SAMPLES": "5",
+    "MAX_TURN": "2",
+    "REFINE_TOKEN_COUNT": "8",
+    "SEED": "42",
+    "USE_VLLM": "True",
+    "VLLM_GPU_MEMORY_UTILIZATION": "0.45",
+    "VLLM_ENFORCE_EAGER": "True"
+  },
+  "data_policy": "Full official test embedding corpus; lazy fetch of official video tensors only; no query/corpus substitution.",
+  "returncode": 0,
+  "elapsed_seconds": 123.03,
+  "peak_gpu_used_mib": 45583,
+  "completed": true,
+  "predictions": "/data/wyt/videosearch_r1_repro/outputs/charades_smoke_20261023_213015/external_verified_test_temporal_grounding_VideoSearchR1__charades-stage2.jsonl",
+  "evaluation": "/data/wyt/videosearch_r1_repro/outputs/charades_smoke_20261023_213015/external_verified_test_temporal_grounding_VideoSearchR1__charades-stage2.json",
+  "refine": {
+    "samples_with_refine": 3,
+    "refine_token_generated_turns": 5,
+    "refine_applied_turns": 5
+  },
+  "sample_count": 5,
+  "results": [
+    "/data/wyt/videosearch_r1_repro/outputs/charades_smoke_20261023_213015/external_verified_test_temporal_grounding_VideoSearchR1__charades-stage2.result.json"
+  ],
+  "integrity_report": "/data/wyt/videosearch_r1_repro/reports/03_smoke_integrity.json",
+  "post_run_resources": "/data/wyt/videosearch_r1_repro/reports/03_post_smoke_resources.json"
+}

@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-10-23T21:24:42.993051+08:00",
+  "passed": true,
+  "annotation_rows": 3720,
+  "query_vectors_shape": [
+    3720,
+    2048
+  ],
+  "video_vectors_shape": [
+    1334,
+    2048
+  ],
+  "faiss_ntotal": 1334,
+  "duplicate_query_strings": 13,
+  "video_metadata_complete": true,
+  "smoke_indices": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "smoke_initial_videos": [
+    "BQA97",
+    "KB7WQ",
+    "BZ5N5",
+    "HI4NV",
+    "FAJEA"
+  ],
+  "full_test_corpus_preserved": true,
+  "video_tensors_policy": "Fetch candidate tensors on demand."
+}

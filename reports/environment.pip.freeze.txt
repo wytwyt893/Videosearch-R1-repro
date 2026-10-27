@@ -1,0 +1,6 @@
+ninja==1.13.0
+packaging==25.0
+pip @ file:///home/conda/feedstock_root/build_artifacts/pip_1792524215381/work
+psutil==7.2.1
+setuptools==80.9.0
+wheel==0.45.1

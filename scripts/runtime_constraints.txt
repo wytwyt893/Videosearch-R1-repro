@@ -1,0 +1,2 @@
+# requests 2.32.5 only supports chardet < 6; mbstrdecoder otherwise selects 6.x.
+chardet==5.2.0

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+smoke_workspace="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." && pwd -P)"
+exec "$smoke_workspace/envs/videosearchr1/bin/python" -B "$smoke_workspace/scripts/smoke_eval.py" "$@"

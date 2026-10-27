@@ -1,0 +1,25 @@
+# Large local assets and raw experiment outputs.
+/envs/
+/cache/
+/data/
+/checkpoints/
+/outputs/
+/logs/
+/tmp/
+
+# Local agent state, credentials and unrelated-project audit snapshots.
+/.agents/
+/.codex/
+/.aws/
+/reports/setr_isolation_before.json
+__pycache__/
+*.pyc
+.env
+.env.*
+*.token
+*.pem
+*.partial
+
+# Keep only the shared workspace Git settings under version control.
+/.vscode/*
+!/.vscode/settings.json

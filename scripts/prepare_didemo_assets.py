@@ -34,6 +34,10 @@ MUTEX = threading.RLock()
 STATE = {}
 
 
+class AssetTransportBatchError(RuntimeError):
+    """A completed batch still has files missing due only to transport errors."""
+
+
 def digest(path):
     with path.open('rb') as handle:
         return hashlib.file_digest(handle, 'sha256').hexdigest()
@@ -132,7 +136,7 @@ def prepare_model():
 
 
 def prepare_data(workers):
-    update('data', status='indexing_core', error=None, source='hf://buckets/VideoSearchR1/data/datasets/didemo',
+    update('data', status='indexing_core', error=None, failures=[], source='hf://buckets/VideoSearchR1/data/datasets/didemo',
            scope='Complete test assets only; no training videos.')
     shards = canonical_shards()
     indices = [index_one(shards[0])]
@@ -201,8 +205,17 @@ def prepare_data(workers):
     jobs = [(index, member) for index in indices for member in index['members'] if member['name'] in wanted]
     if len(jobs) != len(wanted):
         raise ValueError('Duplicate test video tar members')
+    pending = [(index, member) for index, member in jobs if
+               member['name'] not in receipts or not (DATA / member['name']).is_file()
+               or (DATA / member['name']).stat().st_size != member['size']]
+    pending_names = {member['name'] for _, member in pending}
+    cached_bytes = sum(member['size'] for _, member in jobs if member['name'] not in pending_names)
     update('data', status='downloading_test', expected_videos=len(wanted),
-           expected_video_bytes=sum(m['size'] for _, m in jobs), completed_videos=0, completed_video_bytes=0)
+           expected_video_bytes=sum(m['size'] for _, m in jobs),
+           completed_videos=len(jobs)-len(pending), completed_video_bytes=cached_bytes,
+           resumed_complete_videos=len(jobs)-len(pending), pending_downloads=len(pending))
+    print(f'[resume] {len(jobs)-len(pending)}/{len(jobs)} complete files retained; '
+          f'{len(pending)} require download; all files will be SHA256-validated', flush=True)
 
     def fetch(job):
         index, member = job
@@ -216,21 +229,23 @@ def prepare_data(workers):
                       f'{state["completed_video_bytes"]/2**30:.2f} GiB', flush=True)
     failures = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:
-        futures = {pool.submit(fetch, job): job[1]['name'] for job in jobs}
+        futures = {pool.submit(fetch, job): job[1]['name'] for job in pending}
         for future in concurrent.futures.as_completed(futures):
             try:
                 future.result()
             except Exception as error:
-                failures.append({'path': futures[future], 'error': f'{type(error).__name__}: {str(error)[:200]}'})
+                failures.append({'path': futures[future], 'error': f'{type(error).__name__}: {str(error)[:200]}',
+                                 'transport_failure': isinstance(error, httpx.TransportError)})
                 update('data', failures=failures)
     if failures:
-        raise ValueError(f'{len(failures)} test video downloads failed; rerun to resume complete files')
+        error_type = AssetTransportBatchError if all(r['transport_failure'] for r in failures) else ValueError
+        raise error_type(f'{len(failures)} test video downloads failed; complete files retained')
     update('data', status='validating')
     metadata = {r['video_id']: r for r in (json.loads(line) for line in
                 (DATA / expected_core[5]).read_text().splitlines() if line.strip())}
     if set(metadata) != set(mapping):
         raise ValueError('Video metadata does not cover exact test corpus')
-    for index, member in jobs:
+    for checked, (index, member) in enumerate(jobs, 1):
         path = DATA / member['name']
         meta = metadata[path.stem]
         arr = np.load(path, allow_pickle=False, mmap_mode='r')
@@ -239,6 +254,8 @@ def prepare_data(workers):
         arr._mmap.close()
         if not valid or path.stat().st_size != member['size'] or digest(path) != receipts[member['name']]['sha256']:
             raise ValueError(f'Pixel array or SHA256 validation failed: {path.name}')
+        if checked % 100 == 0 or checked == len(jobs):
+            print(f'[validate] {checked}/{len(jobs)} arrays, metadata and SHA256 OK', flush=True)
     annotations = [json.loads(line) for line in (DATA / expected_core[0]).read_text().splitlines() if line.strip()]
     queries = np.load(DATA / expected_core[1], allow_pickle=False)
     videos = np.load(DATA / expected_core[3], allow_pickle=False)
@@ -256,7 +273,7 @@ def run_phase(phase, task):
         update(phase, attempt=attempt)
         try:
             return task()
-        except (httpx.TransportError, subprocess.CalledProcessError) as error:
+        except (httpx.TransportError, subprocess.CalledProcessError, AssetTransportBatchError) as error:
             if isinstance(error, subprocess.CalledProcessError) and error.returncode not in {
                     5, 6, 7, 18, 28, 35, 52, 55, 56, 60, 92}:
                 raise
@@ -279,7 +296,7 @@ def main():
     with (WORK / 'download.lock').open('a') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         STATE = json.loads((WORK/'status.json').read_text()) if (WORK/'status.json').exists() else {}
-        STATE.update(status='running', pid=os.getpid(), gpu_used=False, model_execution=False,
+        STATE.update(status='running', pid=os.getpid(), gpu_used=False, model_execution=False, errors=[],
                      phase=args.phase, started_at=datetime.datetime.now(ZoneInfo('Asia/Shanghai')).isoformat())
         update('run', status='running')
         tasks = {'models': prepare_model, 'data': lambda: prepare_data(args.workers)}

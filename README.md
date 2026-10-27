@@ -2,7 +2,7 @@
 
 本仓库用于复现 [VideoSearch-R1](https://github.com/mlvlab/VideoSearch-R1) 发布权重在 Charades-FIG、DiDeMo-FIG、ActivityNet-FIG 上的推理评测，主要对应[论文 Table 2](https://arxiv.org/html/2607.00446v1#S4) 的 VideoSearch-R1 行。
 
-当前状态（2026-10-27）：**Charades Stage2 全量 3720 题完成，最小离线核查通过；DiDeMo-FIG 资产下载已启动**，随后扩展 ActivityNet-FIG。当前结果来自作者发布 checkpoint；尚未执行完整 SFT/GRPO 训练复现，也未复现整张表中的所有 baseline。
+当前状态（2026-10-28）：**Charades Stage2 全量 3720 题完成，最小离线核查通过；DiDeMo-FIG 模型与完整测试资产下载、验收完成**。DiDeMo 下一步为配置与计分适配、CPU 预检及 smoke，随后扩展 ActivityNet-FIG。当前结果来自作者发布 checkpoint；尚未执行完整 SFT/GRPO 训练复现，也未复现整张表中的所有 baseline。
 
 ## Charades 当前结果
 
@@ -79,14 +79,16 @@ python -B scripts/run_charades_full.py --execute --gpu 1
 
 ## DiDeMo 资产准备
 
-当前后台任务下载固定 revision `a576c16040c35a5ec71468c66ec7628e7db71997` 的 2B Stage2（约 4.9 GB）及完整测试资产，复用已有 Qwen 检索器，不执行模型或下载训练视频。测试标注和向量已取得：4013 个问题、1002 个视频。218 个逻辑 tar 按官方 manifest 选择完整资产或拆分 parts；索引到全部测试视频及位于测试视频分片尾部的 metadata 后，停止继续索引训练分片。
+固定 revision `a576c16040c35a5ec71468c66ec7628e7db71997` 的 2B Stage2 已通过官方大小/哈希核验，共 14 个运行文件、16 个 refine tensors。完整测试资产于北京时间 2026-10-28 01:54 验收完成：4013 个问题、1002 个视频像素张量（24976278588 字节，约 23.26 GiB），向量形状为 `(4013, 2048)` / `(1002, 2048)`。全部视频数组、元数据与本地 SHA256 收据核对通过，无缺失、无 `.partial`，任务退出码为 0。
+
+此次只准备测试资产，复用已有 Qwen 检索器，没有执行模型或下载训练视频。218 个逻辑 tar 按官方 manifest 选择完整资产或拆分 parts，实际索引前 25 个逻辑分片即覆盖测试视频和尾部 metadata。首次任务因 TLS 超时剩余 15 个文件；后续保留已完成的 987 个文件，仅补齐缺失文件，再验证完整测试库。下载器已加入网络失败批次的有限重试；本地完整性错误仍直接失败。
 
 ```bash
-# 当前本机查看下载任务；Ctrl+B 后按 D 离开，下载继续。
+# 当前本机查看保留的下载日志；Ctrl+B 后按 D 离开。
 tmux attach -t videosearch_didemo_download
 ```
 
-[下载启动快照](reports/12_didemo_download_plan.json)记录来源和范围；实时状态位于本地 `cache/didemo_download/status.json`，不纳入 Git。脚本为 `scripts/prepare_didemo_assets.py`，依赖事先获取到 `cache/manifests/didemo/` 的官方模型、config、bucket manifest 和物理分片元数据。下载完成后仍需配置与计分脚本的跨数据集适配、CPU 预检及 smoke，才能开始全量推理。
+[下载启动快照](reports/12_didemo_download_plan.json)保留当时的来源和范围；当前结论见[模型与测试资产验收](reports/13_didemo_assets.json)。原始状态与收据位于本地 `cache/didemo_download/`，不纳入 Git。脚本为 `scripts/prepare_didemo_assets.py`，依赖事先获取到 `cache/manifests/didemo/` 的官方模型、config、bucket manifest 和物理分片元数据。资产验收不等同于最终实验 CPU 预检；仍需配置与计分脚本的跨数据集适配、CPU 预检及 smoke，才能开始全量推理。
 
 ## 历史记录
 

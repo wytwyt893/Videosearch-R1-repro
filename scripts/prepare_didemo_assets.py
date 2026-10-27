@@ -14,10 +14,13 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import subprocess
 import threading
+import time
 from zoneinfo import ZoneInfo
 
 import numpy as np
+import httpx
 
 from prepare_models import prepare
 from remote_tar import RemoteTar
@@ -117,7 +120,7 @@ def prepare_model():
     if (meta['sha'] != REVISION or config['text_config']['hidden_size'] != 2048
             or config['text_config']['num_hidden_layers'] != 28):
         raise ValueError('Unexpected Stage2 revision / 2B architecture')
-    update('models', status='downloading', revision=REVISION,
+    update('models', status='downloading', error=None, revision=REVISION,
            expected_runtime_bytes=sum(r['size'] for r in meta['siblings'] if not r['rfilename'].startswith('eval/')))
     result = prepare('didemo/model')
     if len(result['refine_keys']) != 16:
@@ -248,6 +251,22 @@ def prepare_data(workers):
     print(f'[data complete] {len(annotations)} test queries, {len(mapping)} video pixels/vectors', flush=True)
 
 
+def run_phase(phase, task):
+    for attempt in range(1, 5):
+        update(phase, attempt=attempt)
+        try:
+            return task()
+        except (httpx.TransportError, subprocess.CalledProcessError) as error:
+            if isinstance(error, subprocess.CalledProcessError) and error.returncode not in {
+                    5, 6, 7, 18, 28, 35, 52, 55, 56, 60, 92}:
+                raise
+            if attempt == 4:
+                raise
+            update(phase, status='retrying_transport', error=f'{type(error).__name__}: {str(error)[:200]}')
+            print(f'[retry transport] {phase} attempt {attempt}/4; complete files/chunks retained', flush=True)
+            time.sleep(10 * attempt)
+
+
 def main():
     global STATE
     parser = argparse.ArgumentParser(description=__doc__)
@@ -268,7 +287,7 @@ def main():
             tasks = {args.phase: tasks[args.phase]}
         errors = []
         with concurrent.futures.ThreadPoolExecutor(max_workers=len(tasks)) as pool:
-            futures = {pool.submit(task): phase for phase, task in tasks.items()}
+            futures = {pool.submit(run_phase, phase, task): phase for phase, task in tasks.items()}
             for future in concurrent.futures.as_completed(futures):
                 try:
                     future.result()

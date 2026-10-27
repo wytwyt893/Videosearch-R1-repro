@@ -14,5 +14,9 @@
   "tmux_session": "videosearch_didemo_download",
   "local_status": "cache/didemo_download/status.json",
   "gpu_used": false,
-  "model_execution": false
+  "model_execution": false,
+  "expected_test_queries": 4013,
+  "expected_test_videos": 1002,
+  "test_core_vectors_validated": true,
+  "video_metadata_location": "Trailing test-video tar members, located together with full test corpus."
 }

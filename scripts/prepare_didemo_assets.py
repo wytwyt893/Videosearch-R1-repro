@@ -129,15 +129,16 @@ def prepare_model():
 
 
 def prepare_data(workers):
-    update('data', status='indexing_core', source='hf://buckets/VideoSearchR1/data/datasets/didemo',
+    update('data', status='indexing_core', error=None, source='hf://buckets/VideoSearchR1/data/datasets/didemo',
            scope='Complete test assets only; no training videos.')
     shards = canonical_shards()
     indices = [index_one(shards[0])]
-    core = [(indices[0], member) for member in indices[0]['members'] if
-            member['name'] == 'raw_annotation/test.jsonl' or
-            (member['name'].startswith('test/') and not
-             (member['name'].startswith('test/video_npy_with_meta/') and
-              Path(member['name']).suffix in {'.npy', '.npz'}))]
+    def is_core(member):
+        return (member['name'] == 'raw_annotation/test.jsonl' or
+                (member['name'].startswith('test/') and not
+                 (member['name'].startswith('test/video_npy_with_meta/') and
+                  Path(member['name']).suffix in {'.npy', '.npz'})))
+    core = [(indices[0], member) for member in indices[0]['members'] if is_core(member)]
     receipt_path = WORK / 'data_receipts.jsonl'
     receipts = {}
     if receipt_path.exists():
@@ -168,25 +169,32 @@ def prepare_data(workers):
                      'test/query_embedding/query_meta.test.jsonl',
                      'test/video_embedding_1fps/segment_embeds.npy',
                      'test/video_embedding_1fps/docid2row.json', 'test/video_npy_with_meta/meta.jsonl']
-    if any(not (DATA / p).is_file() for p in expected_core):
-        raise ValueError('Expected test core files were not all in the first logical shard')
+    # Video metadata is written after the pixel arrays and occurs at the end
+    # of the test-video run of shards, rather than in the first core shard.
+    if any(not (DATA / p).is_file() for p in expected_core[:-1]):
+        raise ValueError('Initial test annotations/vectors/mapping are incomplete')
     mapping = json.loads((DATA / expected_core[4]).read_text())
     if any(Path(doc).name != doc for doc in mapping) or set(mapping.values()) != set(range(len(mapping))):
         raise ValueError('Invalid test corpus mapping')
     wanted = {f'test/video_npy_with_meta/{doc}.npy' for doc in mapping}
     found = {m['name'] for i in indices for m in i['members'] if m['name'] in wanted}
     for start in range(1, len(shards), workers):
-        if found == wanted:
+        if found == wanted and (DATA / expected_core[-1]).is_file():
             break
         with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:
             batch = list(pool.map(index_one, shards[start:start+workers]))
         indices.extend(batch)
+        for index in batch:
+            for member in index['members']:
+                if is_core(member):
+                    extract(index, member)
+                    print(f'[core] {member["name"]}: {member["size"]} bytes', flush=True)
         found.update(m['name'] for i in batch for m in i['members'] if m['name'] in wanted)
         update('data', status='indexing_test', expected_videos=len(wanted), indexed_test_videos=len(found),
                logical_shards_indexed=len(indices))
         print(f'[test index] {len(found)}/{len(wanted)} videos located', flush=True)
-    if found != wanted:
-        raise ValueError('Incomplete test-video tar index')
+    if found != wanted or not (DATA / expected_core[-1]).is_file():
+        raise ValueError('Incomplete test-video tar index or metadata')
     jobs = [(index, member) for index in indices for member in index['members'] if member['name'] in wanted]
     if len(jobs) != len(wanted):
         raise ValueError('Duplicate test video tar members')

@@ -79,7 +79,7 @@ python -B scripts/run_charades_full.py --execute --gpu 1
 
 ## DiDeMo 资产准备
 
-当前后台任务下载固定 revision `a576c16040c35a5ec71468c66ec7628e7db71997` 的 2B Stage2（约 4.9 GB）及完整测试资产，复用已有 Qwen 检索器，不执行模型或下载训练视频。218 个逻辑 tar 按官方 manifest 选择完整资产或拆分 parts；为完整测试库索引到全部视频后停止继续索引训练分片。
+当前后台任务下载固定 revision `a576c16040c35a5ec71468c66ec7628e7db71997` 的 2B Stage2（约 4.9 GB）及完整测试资产，复用已有 Qwen 检索器，不执行模型或下载训练视频。测试标注和向量已取得：4013 个问题、1002 个视频。218 个逻辑 tar 按官方 manifest 选择完整资产或拆分 parts；索引到全部测试视频及位于测试视频分片尾部的 metadata 后，停止继续索引训练分片。
 
 ```bash
 # 当前本机查看下载任务；Ctrl+B 后按 D 离开，下载继续。

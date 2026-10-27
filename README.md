@@ -2,7 +2,7 @@
 
 本仓库用于复现 [VideoSearch-R1](https://github.com/mlvlab/VideoSearch-R1) 发布权重在 Charades-FIG、DiDeMo-FIG、ActivityNet-FIG 上的推理评测，主要对应[论文 Table 2](https://arxiv.org/html/2607.00446v1#S4) 的 VideoSearch-R1 行。
 
-当前状态（2026-10-27）：**Charades Stage2 全量 3720 题完成，最小离线核查通过**。下一步准备 DiDeMo-FIG，随后扩展 ActivityNet-FIG。当前结果来自作者发布 checkpoint；尚未执行完整 SFT/GRPO 训练复现，也未复现整张表中的所有 baseline。
+当前状态（2026-10-27）：**Charades Stage2 全量 3720 题完成，最小离线核查通过；DiDeMo-FIG 资产下载已启动**，随后扩展 ActivityNet-FIG。当前结果来自作者发布 checkpoint；尚未执行完整 SFT/GRPO 训练复现，也未复现整张表中的所有 baseline。
 
 ## Charades 当前结果
 
@@ -76,6 +76,17 @@ python -B scripts/run_charades_full.py --execute --gpu 1
 `scripts/env.sh` 将路径与缓存限制在当前工作区，默认隐藏 CUDA；执行 runner 时再明确选择 GPU。下载通过本项目的 `scripts/network.sh` 设置进程局部网络，不修改系统代理、DNS 或其他项目环境。
 
 新机器准备资产时参考固定提交的[官方资源与安装说明](upstream/README.md)，再对照本仓库的环境、模型和数据验收工具；当前 `prepare_models.py` 等工具依赖本地已获取的官方 manifests，不能直接跳过资产元数据准备。
+
+## DiDeMo 资产准备
+
+当前后台任务下载固定 revision `a576c16040c35a5ec71468c66ec7628e7db71997` 的 2B Stage2（约 4.9 GB）及完整测试资产，复用已有 Qwen 检索器，不执行模型或下载训练视频。218 个逻辑 tar 按官方 manifest 选择完整资产或拆分 parts；为完整测试库索引到全部视频后停止继续索引训练分片。
+
+```bash
+# 当前本机查看下载任务；Ctrl+B 后按 D 离开，下载继续。
+tmux attach -t videosearch_didemo_download
+```
+
+[下载启动快照](reports/12_didemo_download_plan.json)记录来源和范围；实时状态位于本地 `cache/didemo_download/status.json`，不纳入 Git。脚本为 `scripts/prepare_didemo_assets.py`，依赖事先获取到 `cache/manifests/didemo/` 的官方模型、config、bucket manifest 和物理分片元数据。下载完成后仍需配置与计分脚本的跨数据集适配、CPU 预检及 smoke，才能开始全量推理。
 
 ## 历史记录
 

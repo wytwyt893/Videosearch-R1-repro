@@ -1,0 +1,18 @@
+{
+  "snapshot_at": "2026-10-27T22:14:11.072055+08:00",
+  "dataset": "DiDeMo-FIG",
+  "status": "DOWNLOAD_STARTED",
+  "scope": "Pinned Stage2 and complete test assets; existing Qwen retriever reused. No training or inference.",
+  "model_repo": "VideoSearchR1/didemo-stage2",
+  "model_revision": "a576c16040c35a5ec71468c66ec7628e7db71997",
+  "model_runtime_bytes": 4924782699,
+  "model_text_hidden_size": 2048,
+  "model_text_layers": 28,
+  "complete_official_bundle_bytes": 230517178247,
+  "bundle_scope": "Full bundle includes training; only test assets are being selected.",
+  "logical_shards": 218,
+  "tmux_session": "videosearch_didemo_download",
+  "local_status": "cache/didemo_download/status.json",
+  "gpu_used": false,
+  "model_execution": false
+}

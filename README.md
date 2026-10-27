@@ -2,7 +2,7 @@
 
 本仓库用于复现 [VideoSearch-R1](https://github.com/mlvlab/VideoSearch-R1) 发布权重在 Charades-FIG、DiDeMo-FIG、ActivityNet-FIG 上的推理评测，主要对应[论文 Table 2](https://arxiv.org/html/2607.00446v1#S4) 的 VideoSearch-R1 行。
 
-当前状态（2026-10-28）：**Charades Stage2 全量 3720 题完成，最小离线核查通过；DiDeMo-FIG 模型与完整测试资产下载、验收完成**。DiDeMo 下一步为配置与计分适配、CPU 预检及 smoke，随后扩展 ActivityNet-FIG。当前结果来自作者发布 checkpoint；尚未执行完整 SFT/GRPO 训练复现，也未复现整张表中的所有 baseline。
+当前状态（2026-10-28）：**Charades Stage2 全量 3720 题完成，最小离线核查通过；DiDeMo-FIG CPU 预检和同入口 10 题 smoke 已通过，全量尚未启动**。DiDeMo 在单卡 A100 80GB、batch=1 下外推约 4.1–4.6 小时，建议先预留 6 小时；其官方 NPY 时间轴与源时间戳的差异已记录，暂保留官方行为。后续扩展 ActivityNet-FIG。当前结果来自作者发布 checkpoint；尚未执行完整 SFT/GRPO 训练复现，也未复现整张表中的所有 baseline。
 
 ## Charades 当前结果
 
@@ -88,7 +88,14 @@ python -B scripts/run_charades_full.py --execute --gpu 1
 tmux attach -t videosearch_didemo_download
 ```
 
-[下载启动快照](reports/12_didemo_download_plan.json)保留当时的来源和范围；当前结论见[模型与测试资产验收](reports/13_didemo_assets.json)。原始状态与收据位于本地 `cache/didemo_download/`，不纳入 Git。脚本为 `scripts/prepare_didemo_assets.py`，依赖事先获取到 `cache/manifests/didemo/` 的官方模型、config、bucket manifest 和物理分片元数据。资产验收不等同于最终实验 CPU 预检；仍需配置与计分脚本的跨数据集适配、CPU 预检及 smoke，才能开始全量推理。
+[下载启动快照](reports/12_didemo_download_plan.json)保留当时的来源和范围；资产结论见[模型与测试资产验收](reports/13_didemo_assets.json)。原始状态与收据位于本地 `cache/didemo_download/`，不纳入 Git。脚本为 `scripts/prepare_didemo_assets.py`，依赖事先获取到 `cache/manifests/didemo/` 的官方模型、config、bucket manifest 和物理分片元数据。
+
+随后已完成 DiDeMo 专用配置与计分适配、完整 CPU 预检及同入口 smoke：10/10 有效预测、零跳题、2 题使用 SQR，推理子进程总耗时 74.43 秒，GPU 已释放。入口为 `scripts/run_didemo_full.py`，默认只做 CPU dry run，`--execute --smoke --gpu 1` 才执行前 10 题；全量需显式执行并通过当前输入的 smoke 绑定检查。
+
+- [DiDeMo smoke 与估时报告](doc/DIDEMO_STAGE2_SMOKE_20261028.md)
+- [CPU 预检](reports/15_didemo_cpu_preflight.json)、[完整 smoke 记录](reports/16_didemo_final_smoke.json)、[精简结果与估时](reports/17_didemo_smoke_summary.json)
+
+官方 NPY 入口把预抽帧数据按 target fps=1、连续帧号传给 processor；最长视频源时间约 180 秒，而 reader 的最后名义时间为 63 秒。本轮保留官方实现，明确区分基线估时、全量指标复现与未来真实时间戳透传对照，详见 smoke 报告。
 
 ## 历史记录
 

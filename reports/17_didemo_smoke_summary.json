@@ -1,0 +1,146 @@
+{
+  "created_at": "2026-10-28T02:15:33.256738+08:00",
+  "status": "DIDEMO_SMOKE_PASSED",
+  "full_evaluation_started": false,
+  "smoke_examples": 10,
+  "original_indices": [
+    0,
+    9
+  ],
+  "full_test_queries": 4013,
+  "full_video_corpus": 1002,
+  "output_dir": "/data/wyt/videosearch_r1_repro/outputs/didemo_final_smoke_20261028_020857_537290",
+  "gpu": {
+    "index": 1,
+    "name": "NVIDIA A100-SXM4-80GB",
+    "uuid": "GPU-677cef2a-aeb8-267d-4a59-19e72f682efc",
+    "peak_used_mib": 46485,
+    "peak_used_gib": 45.3955078125,
+    "released": true
+  },
+  "parameters": {
+    "T": 2,
+    "soft_tokens": 8,
+    "bf16": true,
+    "backend": "vllm",
+    "batch": 1,
+    "tensor_parallel_size": 1,
+    "eager": true,
+    "gpu_memory_utilization": 0.45,
+    "primary_VER": "last_verified",
+    "terminal_refinement": "keep_official"
+  },
+  "primary": {
+    "VER": {
+      "N": 10,
+      "N_expected": 10,
+      "correct": 8,
+      "accuracy": 0.8,
+      "invalid_answers": 0,
+      "coverage": 1.0,
+      "accuracy_all_examples": 0.8,
+      "confusion": {
+        "TP": 7,
+        "TN": 1,
+        "FP": 2,
+        "FN": 0
+      }
+    },
+    "VR": {
+      "N": 10,
+      "R@1": 0.7,
+      "R@5": 0.7,
+      "R@10": 0.8,
+      "R@100": 0.9,
+      "MRR": 0.7137521667731046,
+      "mean_rank": 56.4
+    },
+    "VCMR": {
+      "N": 10,
+      "mIoU@R1": 0.4533333333333333,
+      "IoU@0.3@R1": 0.5,
+      "IoU@0.5@R1": 0.4,
+      "IoU@0.7@R1": 0.4
+    }
+  },
+  "refine": {
+    "samples_with_refine": 2,
+    "refine_token_generated_turns": 3,
+    "refine_applied_turns": 3
+  },
+  "timing_seconds": {
+    "startup_seconds": 31.563727140426636,
+    "official_loop_seconds": 40.66799998283386,
+    "process_seconds": 74.43,
+    "shutdown_seconds": 2.1982728767395088,
+    "first_query_seconds": 7.445279944571666,
+    "steady_mean_seconds_per_query": 3.691161854115004,
+    "per_query_seconds": [
+      7.445279944571666,
+      9.524674959015101,
+      1.8848181479843333,
+      2.470262711052783,
+      2.5684207959566265,
+      2.5601970920106396,
+      2.271575968945399,
+      7.542670470080338,
+      2.594794581993483,
+      1.8030419599963352
+    ],
+    "sample_timing_poll_seconds": 0.1
+  },
+  "estimate": {
+    "target_queries": 4013,
+    "steady_mean_projection_seconds": 14910.148638671135,
+    "steady_mean_projection_hours": 4.141707955186426,
+    "all_ten_loop_mean_projection_seconds": 16413.830393128395,
+    "all_ten_loop_mean_projection_hours": 4.559397331424554,
+    "planning_budget_hours": 6,
+    "sample_p10_p90_scenario_hours": [
+      2.1099049381915513,
+      8.876947088155296
+    ],
+    "scenario_is_confidence_interval": false,
+    "assumptions": "Same single GPU type, batch1, BF16/vLLM/eager, full local corpus and fixed settings. Query lengths, video sizes and number of turns vary.",
+    "limitations": [
+      "Only original first 10 queries; 2 used refinement. Full-set video lengths and turn frequencies can differ.",
+      "First-query excess is counted once, but is not proven to be pure warmup.",
+      "Same official timestamp handling is assumed; changing it requires another smoke."
+    ]
+  },
+  "temporal_axis_caveat": {
+    "confirmed": true,
+    "official_behavior_preserved": true,
+    "issue": "Official presampled-NPY metadata uses target fps=1 and sequential indices; source sampled timestamps are not forwarded. Long videos may receive a shorter apparent timeline.",
+    "decision": "Preserve official checkpoint inference for baseline smoke; no undocumented timestamp correction. Timing estimate does not establish exact paper metric alignment.",
+    "paper_temporal_alignment_confirmed": false
+  },
+  "longest_video_processor_check": {
+    "role": "longest_source_video",
+    "video": "66139643@N00_11214344623_b48220bc8b",
+    "grid_thw": [
+      32,
+      20,
+      38
+    ],
+    "visual_tokens": 6080,
+    "prompt_tokens": 6663,
+    "generation_allowance": 1024,
+    "engine_context_limit": 21408,
+    "truncation_enabled": false,
+    "source_duration_sec": 180.01334668001334,
+    "source_sample_last_second": 179.97997997998,
+    "official_reader_last_second": 63.0,
+    "official_reader_fps": 1.0
+  },
+  "query_whitespace_normalization_count": 14,
+  "primary_scores_are_smoke_diagnostics_only": true,
+  "evidence": {
+    "alignment": "reports/14_didemo_alignment.json",
+    "cpu_preflight": "reports/15_didemo_cpu_preflight.json",
+    "smoke": "reports/16_didemo_final_smoke.json",
+    "prediction_sha256": "5458b7177af4aabf6f09473e9809c4870ae9dba3aa078bc854f3fe07b88c137d",
+    "primary_result_sha256": "0a124b6dd9a85bca68f7b08649f407c13d87dd24b90cbd44f4042286de90c5e9",
+    "experiment_signature": "997eef2dad1d0b3fa092a7155bb4d29be7906d1e6a985d780e4b41f6332eb491"
+  }
+}

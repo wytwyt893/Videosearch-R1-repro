@@ -1,0 +1,109 @@
+{
+  "created_at": "2026-10-30T00:31:40.762700+08:00",
+  "model_execution": false,
+  "gpu_access": false,
+  "annotation_sha256": "f4ccf8f2c8db0306ec1e1346e81912cec0d8186c3165144dfd9cc720992ca445",
+  "metadata_sha256": "a88ed53da88a1a821571fe66b182421281f9045ce38a8b6ecb54cd9aed327320",
+  "annotation_end_after_annotation_duration_over_point1s": 114,
+  "gt_end_after_source_duration_queries_by_threshold_seconds": {
+    "0.1": 1481,
+    "0.5": 55,
+    "1": 17,
+    "2": 9,
+    "10": 4
+  },
+  "examples": [
+    {
+      "original_index": 16022,
+      "video": "v_90vop6PS2Y0",
+      "gt_start": 223.77,
+      "gt_end": 271.23,
+      "annotation_duration": 208.25,
+      "source_duration": 208.03333333333333,
+      "excess_seconds": 63.19666666666669
+    },
+    {
+      "original_index": 11533,
+      "video": "v_D0RDF1ez-8Y",
+      "gt_start": 120.75,
+      "gt_end": 178.89,
+      "annotation_duration": 164.5,
+      "source_duration": 164.32084444444445,
+      "excess_seconds": 14.56915555555554
+    },
+    {
+      "original_index": 11404,
+      "video": "v_0dkIbKXXFzI",
+      "gt_start": 10.61,
+      "gt_end": 15.49,
+      "annotation_duration": 1.25,
+      "source_duration": 1.1029333333333333,
+      "excess_seconds": 14.387066666666668
+    },
+    {
+      "original_index": 7835,
+      "video": "v_90vop6PS2Y0",
+      "gt_start": 59.67,
+      "gt_end": 222.41,
+      "annotation_duration": 208.25,
+      "source_duration": 208.03333333333333,
+      "excess_seconds": 14.376666666666665
+    },
+    {
+      "original_index": 15789,
+      "video": "v_6DXH6kwMe-Q",
+      "gt_start": 167.12,
+      "gt_end": 180.68,
+      "annotation_duration": 171.38,
+      "source_duration": 171.139,
+      "excess_seconds": 9.540999999999997
+    },
+    {
+      "original_index": 8794,
+      "video": "v_0dkIbKXXFzI",
+      "gt_start": 4.03,
+      "gt_end": 10.3,
+      "annotation_duration": 1.25,
+      "source_duration": 1.1029333333333333,
+      "excess_seconds": 9.197066666666668
+    },
+    {
+      "original_index": 792,
+      "video": "v_y_Ak7a3oXRY",
+      "gt_start": 24.51,
+      "gt_end": 34.04,
+      "annotation_duration": 30.88,
+      "source_duration": 30.697333333333333,
+      "excess_seconds": 3.3426666666666662
+    },
+    {
+      "original_index": 3685,
+      "video": "v_ll91M5topgU",
+      "gt_start": 7.94,
+      "gt_end": 10.31,
+      "annotation_duration": 7.63,
+      "source_duration": 7.4074,
+      "excess_seconds": 2.9026000000000005
+    },
+    {
+      "original_index": 1323,
+      "video": "v_Si6LZFiQT3k",
+      "gt_start": 124.09,
+      "gt_end": 185.19,
+      "annotation_duration": 182.88,
+      "source_duration": 182.72035555555556,
+      "excess_seconds": 2.469644444444441
+    },
+    {
+      "original_index": 2421,
+      "video": "v_I91LmNcwN4Y",
+      "gt_start": 82.83,
+      "gt_end": 126.46,
+      "annotation_duration": 124.88,
+      "source_duration": 124.69123333333333,
+      "excess_seconds": 1.7687666666666644
+    }
+  ],
+  "short_source_known_case": "v_0dkIbKXXFzI",
+  "policy": "Original annotations, duration clipping and full benchmark membership retained. Boundary mismatches are data observations; they are not repaired by pixel resampling or used to exclude questions. Source duration for 4502 unrepaired videos is published metadata, not newly decoded source."
+}

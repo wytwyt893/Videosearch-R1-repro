@@ -1,0 +1,165 @@
+{
+  "created_at": "2026-10-29T20:38:01.670973+08:00",
+  "status": "REAL_VIDEO_CONTENT_CORRESPONDENCE_AND_FULL_RANGE_EXTRACTION_VERIFIED",
+  "gpu_access": false,
+  "model_execution": false,
+  "full_evaluation_started": false,
+  "canonical_assets_modified": false,
+  "video_id": "v_KyrDumISv4A",
+  "raw_source": {
+    "created_at": "2026-10-29T20:17:14.901698+08:00",
+    "publisher": "TornadoLabs/activitynet",
+    "metadata_revision": "bc9c567ea67be43daf443cddb832ed983e5ccae5",
+    "video_id": "v_KyrDumISv4A",
+    "source_url": "https://huggingface.co/buckets/TornadoLabs/staging/resolve/videos/activitynet/KyrDumISv4A.mp4",
+    "bytes": 2694034,
+    "sha256": "26591a01c7b7852a667c1699d521a9358abfd9406d500058c051ab5288e2342c",
+    "metadata_size_verified": true,
+    "same_as_author_original_verified": false
+  },
+  "published_npy": {
+    "shape": [
+      64,
+      240,
+      320,
+      3
+    ],
+    "sha256": "0ecb2ab06404a42076b9a55dac2cd094ee06f497dbdee6ac52f18f2534611837",
+    "recorded_first_source_frame": 0,
+    "recorded_last_source_frame": 63,
+    "recorded_last_source_timestamp_seconds": 2.1021
+  },
+  "acquired_raw": {
+    "decoded_total_frames": 2176,
+    "fps": 29.97002997002997,
+    "duration_seconds": 72.60586666666667,
+    "last_source_pts_seconds": 72.5725,
+    "retrieval_recorded_total_frames": 2183,
+    "exact_author_raw_file_identity_verified": false
+  },
+  "correspondence": {
+    "same_frame_indices_mean_absolute_rgb_error_0_to_255": 0.8277915120124817,
+    "same_frame_indices_max_frame_mae": 1.5077300071716309,
+    "exact_all_64_frames_pixel_identity": false,
+    "full_range_ordinal_mean_absolute_rgb_error_0_to_255": 108.34491729736328,
+    "visual_inspection": "Published frames and source prefix show opening Expert Village logo; full-range samples show gymnastics training later in the video.",
+    "interpretation": "Strong content correspondence with the opening ~2.1 seconds; exact author encode identity unconfirmed."
+  },
+  "verified_extraction": {
+    "sampled_frames": 64,
+    "first_source_index": 0,
+    "last_source_index": 2175,
+    "last_source_timestamp_seconds": 72.5725,
+    "source_frame_span_fraction": 1.0,
+    "actual_pts_recorded": true,
+    "inference_time_axis_integration_done": false
+  },
+  "real_content_mkv_failure_reproduction": {
+    "source": "Downloaded MP4 remuxed with stream copy into MKV; not the author original MKV.",
+    "mkv_header_frame_count": 0,
+    "decoded_frame_count": 2176,
+    "official_extractor_last_source_timestamp_seconds": 2.1021,
+    "verified_extractor_last_source_timestamp_seconds": 72.573,
+    "remux_preserved_prefix_and_selected_pixels": true
+  },
+  "annotations": [
+    {
+      "index": 8716,
+      "video": "v_KyrDumISv4A",
+      "time": [
+        53.57,
+        72.15
+      ],
+      "desc_id": "1714394126.018702",
+      "duration": 72.75,
+      "cog_desc": " The girls move back to the beginning performing tricks.",
+      "fig_desc": "Girls perform gymnastics tricks on a trampoline, one girl in purple outfit does a handstand, observed by a man in yellow shirt and gray shorts in the background.",
+      "fig_desc_score": 2.28515625
+    },
+    {
+      "index": 12787,
+      "video": "v_KyrDumISv4A",
+      "time": [
+        0.0,
+        19.31
+      ],
+      "desc_id": "1714394126.009877",
+      "duration": 72.75,
+      "cog_desc": "A woman speaks to the camera and shows a car bending down on a mat.",
+      "fig_desc": "In a gym setting, a woman wearing a black top stands on a blue mat and speaks to the camera, while a man in a yellow shirt and gray shorts watches from the side as a car bends down on a mat.",
+      "fig_desc_score": 3.986328125
+    },
+    {
+      "index": 15513,
+      "video": "v_KyrDumISv4A",
+      "time": [
+        16.03,
+        50.65
+      ],
+      "desc_id": "1714394126.02201",
+      "duration": 72.75,
+      "cog_desc": " Another girl performs kicks down the mat while a man follows from behind.",
+      "fig_desc": "In a gymnastics training session, a girl practices handstand kicks on a trampoline, with a male instructor observing and guiding from the side.",
+      "fig_desc_score": 2.84765625
+    }
+  ],
+  "source_availability": {
+    "affected_test_video_ids": 364,
+    "present_in_Tornado_metadata": 312,
+    "absent_from_this_mirror_metadata": 52,
+    "live_files_downloaded_from_this_mirror": 1,
+    "note": "ID coverage is not a guarantee that every live media file is available, original quality or version-matched."
+  },
+  "second_mirror_sample": {
+    "video_id": "v_QMCHIR3nDLs",
+    "path": "cache/activitynet_raw_probe/friedrichor__ActivityNet_Captions/v_QMCHIR3nDLs.mkv",
+    "publisher": "friedrichor/ActivityNet_Captions",
+    "scan": {
+      "header_source_total_frames": 0,
+      "decoded_source_total_frames": 263,
+      "header_count_unknown": true,
+      "positive_header_count_matches_decode": null,
+      "header_average_fps": 3.0,
+      "header_stream_duration_seconds": null,
+      "header_container_duration_seconds": 87.666,
+      "source_duration_sec": 87.666,
+      "source_duration_method": "decoded_pts_extent_with_last_frame_duration",
+      "first_pts_seconds": 0.0,
+      "last_pts_seconds": 87.333,
+      "last_frame_duration_seconds": 0.333,
+      "positive_pts_gap_seconds": {
+        "min": 0.3329999999999984,
+        "max": 0.3340000000000032
+      }
+    },
+    "retrieval_recorded_frames": 2182,
+    "retrieval_recorded_fps": 25,
+    "conclusion": "Public archive sample is a 3 FPS version. Not accepted as an exact author-original replacement."
+  },
+  "protected_historical_files_checked": 15,
+  "protected_historical_files_changed": [],
+  "official_baseline_cpu_and_smoke_bindings_valid": true,
+  "official_baseline_experiment_signature": "8bb66d31034665345f7d03256b6d2e22a7d8b8faaaf633f1bef3fb1d632c6f46",
+  "artifacts": {
+    "analysis": "outputs/activitynet_raw_correspondence_20261029/v_KyrDumISv4A/analysis.json",
+    "per_frame_csv": "outputs/activitynet_raw_correspondence_20261029/v_KyrDumISv4A/per_frame.csv",
+    "comparison_png": "outputs/activitynet_raw_correspondence_20261029/v_KyrDumISv4A/frame_comparison.png",
+    "comparison_pdf": "outputs/activitynet_raw_correspondence_20261029/v_KyrDumISv4A/frame_comparison.pdf",
+    "remux_validation": "outputs/activitynet_raw_correspondence_20261029/v_KyrDumISv4A/remuxed_mkv_validation.json"
+  },
+  "source_sha256": {
+    "scripts/fetch_activitynet_raw_sample.py": "bee8c93800a99e5a75e3000777c83173bc6759eea4751b8521322e5e5a6a449a",
+    "scripts/compare_activitynet_raw_npy.py": "148b40ce457d1d6ca98d63e4658ac3ead8fe064d3c498228ea313491e22f8336"
+  },
+  "next_steps": [
+    "Qualify additional sources by content, FPS, duration and original annotation time alignment; do not equate public availability with exact source identity.",
+    "Adapt actual timestamp propagation in an isolated derived-data evaluation path and validate on CPU.",
+    "Run a separate smoke before scoring a larger corrected-data variant; retain original released assets for the official baseline."
+  ],
+  "references": {
+    "official_download": "https://activity-net.org/download.html",
+    "public_individual_video_mirror": "https://huggingface.co/datasets/TornadoLabs/activitynet",
+    "public_split_tar_mirror": "https://huggingface.co/datasets/friedrichor/ActivityNet_Captions"
+  },
+  "last_integrity_check_at": "2026-10-29T20:40:34.304253+08:00"
+}

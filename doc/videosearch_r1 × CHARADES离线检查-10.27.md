@@ -1,4 +1,6 @@
-# Charades Stage2 最小离线检查（2026-10-27）
+# videosearch_r1 × CHARADES离线检查-10.27
+
+整理说明（2026-11-05）：文件日期沿用原实验/报告日期，正文保留当时阶段的记录；当前三数据集结果见[全量评估汇总](<videosearch_r1 × 三数据集全量评估汇总-11.05.md>)。
 
 检查对象为 `charades_full_20261027_161353_178368`，使用已保存的预测、原始标注和固定 revision 的作者公开预测。**最小检查通过：没有发现漏题、标注错配、回答/时间解析不一致或 IoU 重算错误。当前主实验配置与末次 VER 协议保留，可以进入 DiDeMo-FIG 的准备阶段。**
 
@@ -131,6 +133,6 @@ IoU≥0.7 的 85 条失去的命中中：**79 条本地仍正确接受了 GT 视
 - [机器可读分析结果 analysis.json](../outputs/charades_offline_minimum_20261027/analysis.json)：包含两侧主/补充指标、混淆矩阵、失败分解、时间偏差分布、阈值差异 index、输入哈希和限制。
 - [3720 题逐题对照 per_example.csv](../outputs/charades_offline_minimum_20261027/per_example.csv)：可筛选候选视频、起止时间、IoU、失败类型与数据子组。
 - [离线分析脚本](../scripts/analyze_charades_offline.py)。
-- [原始全量实验报告](CHARADES_STAGE2_FULL_20261027.md)。
+- [原始全量实验报告](<videosearch_r1 × CHARADES全量评估-10.27.md>)。
 
 作者预测 SHA256：`ac2256b6a5d882df706cc8b0730b22d29594b5bcb2d38894ac782b3def01ac2f`。本地预测与原始主计分 SHA256 见原始实验报告及 analysis.json，检查前后均未改变。

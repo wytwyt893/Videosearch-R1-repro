@@ -1,0 +1,44 @@
+{
+  "status": "failed",
+  "started_at": "2026-11-06T18:32:54.673713+08:00",
+  "output": "/data/wyt/videosearch_r1_repro/outputs/charades_localization_probe_20261106_182705_399413",
+  "gpu_index": 1,
+  "gpu_uuid": "GPU-677cef2a-aeb8-267d-4a59-19e72f682efc",
+  "command": [
+    "/data/wyt/videosearch_r1_repro/envs/videosearchr1/bin/python",
+    "-B",
+    "/data/wyt/videosearch_r1_repro/scripts/charades_localization_probe_worker.py",
+    "--run"
+  ],
+  "plan_sha256": "36923e317ebf19e2579f78767fb284c67aec5bbd85f204017505a7d0f4abdce8",
+  "runner_sha256": "a2f20944ee0f3030152e0c554fc3d2c3b1ac9736aff1c5a8fb1960d9dcf53590",
+  "conditions": [
+    "baseline",
+    "ordinary",
+    "evidence"
+  ],
+  "records": 35,
+  "returncode": 1,
+  "elapsed_seconds": 6.25,
+  "peak_gpu_used_mib": 4,
+  "resource_release": {
+    "passed": true,
+    "samples": [
+      {
+        "elapsed_seconds": 0.108,
+        "gpu": "GPU-677cef2a-aeb8-267d-4a59-19e72f682efc, 81153, 0, 0",
+        "compute_apps": [],
+        "idle": true
+      },
+      {
+        "elapsed_seconds": 1.24,
+        "gpu": "GPU-677cef2a-aeb8-267d-4a59-19e72f682efc, 81153, 0, 0",
+        "compute_apps": [],
+        "idle": true
+      }
+    ],
+    "method": "Two consecutive idle samples, >=1s apart, without compute processes."
+  },
+  "error": "Worker failed; inspect independent inference log",
+  "completed_at": "2026-11-06T18:33:02.169517+08:00"
+}

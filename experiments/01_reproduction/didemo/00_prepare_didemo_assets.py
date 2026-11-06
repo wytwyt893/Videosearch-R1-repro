@@ -1,0 +1,1 @@
+../../../scripts/prepare_didemo_assets.py

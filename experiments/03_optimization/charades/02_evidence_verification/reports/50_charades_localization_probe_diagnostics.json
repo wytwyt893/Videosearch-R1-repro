@@ -1,0 +1,569 @@
+{
+  "status": "POSTRUN_DIAGNOSTICS_COMPLETE",
+  "output": "/data/wyt/videosearch_r1_repro/outputs/charades_localization_probe_20261106_183407_371798",
+  "result_report_sha256": "c5891689ee56422887bdc1cf3641e74ad68f0e94b1b62dde427431836335fd04",
+  "diagnostics": {
+    "dev": {
+      "ordinary": {
+        "executed": 7,
+        "not_executed": 5,
+        "executed_fallbacks": 1,
+        "effective_span_equal_to_baseline": 5,
+        "outputs_with_nonboundary_display_label_mentions": 0,
+        "evidence_notes": [
+          {
+            "index": 6596,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 3919,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 9609,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 9112,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 8482,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 7453,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 6016,
+            "nonboundary_display_labels_mentioned": []
+          }
+        ]
+      },
+      "evidence": {
+        "executed": 7,
+        "not_executed": 5,
+        "executed_fallbacks": 1,
+        "effective_span_equal_to_baseline": 5,
+        "outputs_with_nonboundary_display_label_mentions": 0,
+        "evidence_notes": [
+          {
+            "index": 6596,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 3919,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 9609,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 9112,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 8482,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 7453,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 6016,
+            "nonboundary_display_labels_mentioned": []
+          }
+        ]
+      }
+    },
+    "holdout": {
+      "ordinary": {
+        "executed": 20,
+        "not_executed": 3,
+        "executed_fallbacks": 3,
+        "effective_span_equal_to_baseline": 16,
+        "outputs_with_nonboundary_display_label_mentions": 0,
+        "evidence_notes": [
+          {
+            "index": 4146,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 3930,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 3440,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 5052,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 11823,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 1793,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 2700,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 4809,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 10130,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 8860,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 11429,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 2327,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 5578,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 11395,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 7613,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 933,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 7310,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 2410,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 9089,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 6333,
+            "nonboundary_display_labels_mentioned": []
+          }
+        ]
+      },
+      "evidence": {
+        "executed": 20,
+        "not_executed": 3,
+        "executed_fallbacks": 3,
+        "effective_span_equal_to_baseline": 17,
+        "outputs_with_nonboundary_display_label_mentions": 0,
+        "evidence_notes": [
+          {
+            "index": 4146,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 3930,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 3440,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 5052,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 11823,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 1793,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 2700,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 4809,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 10130,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 8860,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 11429,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 2327,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 5578,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 11395,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 7613,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 933,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 7310,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 2410,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 9089,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 6333,
+            "nonboundary_display_labels_mentioned": []
+          }
+        ]
+      }
+    },
+    "all": {
+      "ordinary": {
+        "executed": 27,
+        "not_executed": 8,
+        "executed_fallbacks": 4,
+        "effective_span_equal_to_baseline": 21,
+        "outputs_with_nonboundary_display_label_mentions": 0,
+        "evidence_notes": [
+          {
+            "index": 6596,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 3919,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 9609,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 9112,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 8482,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 7453,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 6016,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 4146,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 3930,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 3440,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 5052,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 11823,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 1793,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 2700,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 4809,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 10130,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 8860,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 11429,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 2327,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 5578,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 11395,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 7613,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 933,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 7310,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 2410,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 9089,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 6333,
+            "nonboundary_display_labels_mentioned": []
+          }
+        ]
+      },
+      "evidence": {
+        "executed": 27,
+        "not_executed": 8,
+        "executed_fallbacks": 4,
+        "effective_span_equal_to_baseline": 22,
+        "outputs_with_nonboundary_display_label_mentions": 0,
+        "evidence_notes": [
+          {
+            "index": 6596,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 3919,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 9609,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 9112,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 8482,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 7453,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 6016,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 4146,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 3930,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 3440,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 5052,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 11823,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 1793,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 2700,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 4809,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 10130,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 8860,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 11429,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 2327,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 5578,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 11395,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 7613,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 933,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 7310,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 2410,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 9089,
+            "nonboundary_display_labels_mentioned": []
+          },
+          {
+            "index": 6333,
+            "nonboundary_display_labels_mentioned": []
+          }
+        ]
+      }
+    }
+  },
+  "figure": "/data/wyt/videosearch_r1_repro/outputs/charades_localization_probe_20261106_183407_371798/postrun_examples.png",
+  "figure_sha256": "69b8e65cbe24feb88d18c6cfe972a5cbec8106df32b2fa27e3f812e6d5d234bd",
+  "frame_evidence": [
+    {
+      "index": 11823,
+      "frame_index": 8,
+      "source_seconds": 8.475133333333334
+    },
+    {
+      "index": 11823,
+      "frame_index": 8,
+      "source_seconds": 8.475133333333334
+    },
+    {
+      "index": 11823,
+      "frame_index": 9,
+      "source_seconds": 9.542866666666667
+    },
+    {
+      "index": 11823,
+      "frame_index": 10,
+      "source_seconds": 10.6106
+    },
+    {
+      "index": 11823,
+      "frame_index": 15,
+      "source_seconds": 15.9159
+    },
+    {
+      "index": 11823,
+      "frame_index": 17,
+      "source_seconds": 18.051366666666667
+    },
+    {
+      "index": 9609,
+      "frame_index": 1,
+      "source_seconds": 1.0333333333333334
+    },
+    {
+      "index": 9609,
+      "frame_index": 3,
+      "source_seconds": 3.1666666666666665
+    },
+    {
+      "index": 9609,
+      "frame_index": 5,
+      "source_seconds": 5.266666666666667
+    },
+    {
+      "index": 9609,
+      "frame_index": 8,
+      "source_seconds": 8.466666666666667
+    },
+    {
+      "index": 9609,
+      "frame_index": 11,
+      "source_seconds": 11.633333333333333
+    },
+    {
+      "index": 9609,
+      "frame_index": 15,
+      "source_seconds": 15.866666666666667
+    }
+  ],
+  "limitations": [
+    "Timestamp mention counts are a heuristic adherence check, not proof of visual grounding.",
+    "Only numeric labels other than prior/current interval endpoints are counted.",
+    "Examples are post-hoc diagnostic illustrations, not used to select or tune this run.",
+    "Frames come from published sampled NPYs, not newly decoded raw videos."
+  ]
+}

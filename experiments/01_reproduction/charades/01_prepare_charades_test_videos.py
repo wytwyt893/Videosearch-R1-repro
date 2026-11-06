@@ -1,0 +1,1 @@
+../../../scripts/prepare_charades_test_videos.py

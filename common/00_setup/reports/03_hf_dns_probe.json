@@ -1,0 +1,60 @@
+[
+  {
+    "url": "https://dns.google/resolve?name=huggingface.co&type=A",
+    "answers": [
+      {
+        "name": "huggingface.co.",
+        "type": 1,
+        "TTL": 38,
+        "data": "13.35.202.40"
+      },
+      {
+        "name": "huggingface.co.",
+        "type": 1,
+        "TTL": 38,
+        "data": "13.35.202.121"
+      },
+      {
+        "name": "huggingface.co.",
+        "type": 1,
+        "TTL": 38,
+        "data": "13.35.202.97"
+      },
+      {
+        "name": "huggingface.co.",
+        "type": 1,
+        "TTL": 38,
+        "data": "13.35.202.34"
+      }
+    ]
+  },
+  {
+    "url": "https://cloudflare-dns.com/dns-query?name=huggingface.co&type=A",
+    "answers": [
+      {
+        "name": "huggingface.co",
+        "type": 1,
+        "TTL": 24,
+        "data": "13.35.202.97"
+      },
+      {
+        "name": "huggingface.co",
+        "type": 1,
+        "TTL": 24,
+        "data": "13.35.202.121"
+      },
+      {
+        "name": "huggingface.co",
+        "type": 1,
+        "TTL": 24,
+        "data": "13.35.202.34"
+      },
+      {
+        "name": "huggingface.co",
+        "type": 1,
+        "TTL": 24,
+        "data": "13.35.202.40"
+      }
+    ]
+  }
+]

@@ -1,0 +1,878 @@
+{
+  "status": "complete",
+  "started_at": "2026-11-06T18:35:42.769723+08:00",
+  "output": "/data/wyt/videosearch_r1_repro/outputs/charades_localization_probe_20261106_183407_371798",
+  "gpu_index": 1,
+  "gpu_uuid": "GPU-677cef2a-aeb8-267d-4a59-19e72f682efc",
+  "command": [
+    "/data/wyt/videosearch_r1_repro/envs/videosearchr1/bin/python",
+    "-B",
+    "/data/wyt/videosearch_r1_repro/scripts/charades_localization_probe_worker.py",
+    "--run"
+  ],
+  "plan_sha256": "7337548228e3bea6d911f84299985499430d0ae60efdb6a02529a8724e337891",
+  "runner_sha256": "a2f20944ee0f3030152e0c554fc3d2c3b1ac9736aff1c5a8fb1960d9dcf53590",
+  "conditions": [
+    "baseline",
+    "ordinary",
+    "evidence"
+  ],
+  "records": 35,
+  "returncode": 0,
+  "elapsed_seconds": 250.95,
+  "peak_gpu_used_mib": 36771,
+  "resource_release": {
+    "passed": true,
+    "samples": [
+      {
+        "elapsed_seconds": 0.154,
+        "gpu": "GPU-677cef2a-aeb8-267d-4a59-19e72f682efc, 81153, 0, 0",
+        "compute_apps": [],
+        "idle": true
+      },
+      {
+        "elapsed_seconds": 1.296,
+        "gpu": "GPU-677cef2a-aeb8-267d-4a59-19e72f682efc, 81153, 0, 0",
+        "compute_apps": [],
+        "idle": true
+      }
+    ],
+    "method": "Two consecutive idle samples, >=1s apart, without compute processes."
+  },
+  "comparison": {
+    "status": "EXPLORATORY_PROBE_COMPLETE",
+    "cohorts": {
+      "dev": {
+        "N": 12,
+        "baseline_matched": 7,
+        "conditions": {
+          "baseline": {
+            "mIoU": 0.3099216171617161,
+            "recall_at_iou": {
+              "0.3": 0.4166666666666667,
+              "0.5": 0.4166666666666667,
+              "0.7": 0.25
+            },
+            "executed_calls": 12,
+            "fallback_count": 0,
+            "generation_seconds": 24.9979,
+            "input_tokens": 30854,
+            "output_tokens": 1002
+          },
+          "ordinary": {
+            "mIoU": 0.3011075145976136,
+            "recall_at_iou": {
+              "0.3": 0.4166666666666667,
+              "0.5": 0.4166666666666667,
+              "0.7": 0.16666666666666666
+            },
+            "executed_calls": 7,
+            "fallback_count": 6,
+            "generation_seconds": 13.091199999999999,
+            "input_tokens": 20895,
+            "output_tokens": 735
+          },
+          "evidence": {
+            "mIoU": 0.3003790763691754,
+            "recall_at_iou": {
+              "0.3": 0.4166666666666667,
+              "0.5": 0.4166666666666667,
+              "0.7": 0.16666666666666666
+            },
+            "executed_calls": 7,
+            "fallback_count": 6,
+            "generation_seconds": 13.314900000000002,
+            "input_tokens": 21280,
+            "output_tokens": 749
+          }
+        },
+        "comparisons": {
+          "ordinary_vs_baseline": {
+            "mean_iou_delta": -0.00881410256410257,
+            "bootstrap_95_interval": [
+              -0.0216346153846154,
+              0.0
+            ],
+            "iou_improved": 0,
+            "iou_worsened": 2,
+            "iou_unchanged": 10,
+            "point7_gained": 0,
+            "point7_lost": 1
+          },
+          "evidence_vs_baseline": {
+            "mean_iou_delta": -0.00954254079254079,
+            "bootstrap_95_interval": [
+              -0.02381993006993006,
+              0.0
+            ],
+            "iou_improved": 0,
+            "iou_worsened": 2,
+            "iou_unchanged": 10,
+            "point7_gained": 0,
+            "point7_lost": 1
+          },
+          "evidence_vs_ordinary": {
+            "mean_iou_delta": -0.0007284382284382199,
+            "bootstrap_95_interval": [
+              -0.00218531468531466,
+              0.0
+            ],
+            "iou_improved": 0,
+            "iou_worsened": 1,
+            "iou_unchanged": 11,
+            "point7_gained": 0,
+            "point7_lost": 0
+          }
+        }
+      },
+      "holdout": {
+        "N": 23,
+        "baseline_matched": 20,
+        "conditions": {
+          "baseline": {
+            "mIoU": 0.514712060421796,
+            "recall_at_iou": {
+              "0.3": 0.6956521739130435,
+              "0.5": 0.6086956521739131,
+              "0.7": 0.34782608695652173
+            },
+            "executed_calls": 23,
+            "fallback_count": 0,
+            "generation_seconds": 50.396300000000004,
+            "input_tokens": 72222,
+            "output_tokens": 2327
+          },
+          "ordinary": {
+            "mIoU": 0.5129830846486947,
+            "recall_at_iou": {
+              "0.3": 0.6956521739130435,
+              "0.5": 0.6086956521739131,
+              "0.7": 0.34782608695652173
+            },
+            "executed_calls": 20,
+            "fallback_count": 6,
+            "generation_seconds": 35.15110000000001,
+            "input_tokens": 64432,
+            "output_tokens": 1911
+          },
+          "evidence": {
+            "mIoU": 0.5222900465613518,
+            "recall_at_iou": {
+              "0.3": 0.6956521739130435,
+              "0.5": 0.6086956521739131,
+              "0.7": 0.391304347826087
+            },
+            "executed_calls": 20,
+            "fallback_count": 6,
+            "generation_seconds": 36.654700000000005,
+            "input_tokens": 65532,
+            "output_tokens": 1975
+          }
+        },
+        "comparisons": {
+          "ordinary_vs_baseline": {
+            "mean_iou_delta": -0.001728975773101194,
+            "bootstrap_95_interval": [
+              -0.01153993207088165,
+              0.005495999354759346
+            ],
+            "iou_improved": 2,
+            "iou_worsened": 1,
+            "iou_unchanged": 20,
+            "point7_gained": 0,
+            "point7_lost": 0
+          },
+          "evidence_vs_baseline": {
+            "mean_iou_delta": 0.007577986139555761,
+            "bootstrap_95_interval": [
+              0.0,
+              0.019632854454857913
+            ],
+            "iou_improved": 3,
+            "iou_worsened": 0,
+            "iou_unchanged": 20,
+            "point7_gained": 1,
+            "point7_lost": 0
+          },
+          "evidence_vs_ordinary": {
+            "mean_iou_delta": 0.009306961912656954,
+            "bootstrap_95_interval": [
+              0.0,
+              0.023852268508394055
+            ],
+            "iou_improved": 2,
+            "iou_worsened": 0,
+            "iou_unchanged": 21,
+            "point7_gained": 1,
+            "point7_lost": 0
+          }
+        }
+      },
+      "all": {
+        "N": 35,
+        "baseline_matched": 27,
+        "conditions": {
+          "baseline": {
+            "mIoU": 0.4444981941611972,
+            "recall_at_iou": {
+              "0.3": 0.6,
+              "0.5": 0.5428571428571428,
+              "0.7": 0.3142857142857143
+            },
+            "executed_calls": 35,
+            "fallback_count": 0,
+            "generation_seconds": 75.39419999999998,
+            "input_tokens": 103076,
+            "output_tokens": 3329
+          },
+          "ordinary": {
+            "mIoU": 0.44034003205975264,
+            "recall_at_iou": {
+              "0.3": 0.6,
+              "0.5": 0.5428571428571428,
+              "0.7": 0.2857142857142857
+            },
+            "executed_calls": 27,
+            "fallback_count": 12,
+            "generation_seconds": 48.242300000000014,
+            "input_tokens": 85327,
+            "output_tokens": 2646
+          },
+          "evidence": {
+            "mIoU": 0.44620628535260554,
+            "recall_at_iou": {
+              "0.3": 0.6,
+              "0.5": 0.5428571428571428,
+              "0.7": 0.3142857142857143
+            },
+            "executed_calls": 27,
+            "fallback_count": 12,
+            "generation_seconds": 49.96960000000001,
+            "input_tokens": 86812,
+            "output_tokens": 2724
+          }
+        },
+        "comparisons": {
+          "ordinary_vs_baseline": {
+            "mean_iou_delta": -0.004158162101444523,
+            "bootstrap_95_interval": [
+              -0.011728113343620367,
+              0.001890955798291434
+            ],
+            "iou_improved": 2,
+            "iou_worsened": 3,
+            "iou_unchanged": 30,
+            "point7_gained": 0,
+            "point7_lost": 1
+          },
+          "evidence_vs_baseline": {
+            "mean_iou_delta": 0.0017080911914083721,
+            "bootstrap_95_interval": [
+              -0.006153939872733462,
+              0.010741514070913248
+            ],
+            "iou_improved": 3,
+            "iou_worsened": 2,
+            "iou_unchanged": 30,
+            "point7_gained": 1,
+            "point7_lost": 1
+          },
+          "evidence_vs_ordinary": {
+            "mean_iou_delta": 0.005866253292852895,
+            "bootstrap_95_interval": [
+              -0.0004995004995004936,
+              0.014905669836071046
+            ],
+            "iou_improved": 2,
+            "iou_worsened": 1,
+            "iou_unchanged": 32,
+            "point7_gained": 1,
+            "point7_lost": 0
+          }
+        }
+      }
+    },
+    "interpretation": "No clear holdout evidence that the evidence-guided prompt beats an ordinary second look; do not promote automatically to full test.",
+    "automatic_full_benchmark_started": false,
+    "paired_examples": [
+      {
+        "index": 6596,
+        "group": "dev",
+        "video_id": "6HR54",
+        "query": "A woman smiles at the table, drinking from an orange cup as a girl prepares food nearby.",
+        "gt": [
+          0.9,
+          8.4
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.625,
+          "ordinary": 0.5769230769230769,
+          "evidence": 0.5681818181818182
+        }
+      },
+      {
+        "index": 3919,
+        "group": "dev",
+        "video_id": "3P38N",
+        "query": "A young male with dark hair, wearing a blue shirt and red pants, laughs as he sits in a room with a pink wall while reading a book.",
+        "gt": [
+          13.9,
+          18.4
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.0,
+          "evidence": 0.0,
+          "ordinary": 0.0
+        }
+      },
+      {
+        "index": 2761,
+        "group": "dev",
+        "video_id": "809QT",
+        "query": "Woman grabs a book from a garage shelf and departs.",
+        "gt": [
+          3.0,
+          8.0
+        ],
+        "frozen_verification": "not_matched",
+        "iou": {
+          "baseline": 0.0,
+          "ordinary": 0.0,
+          "evidence": 0.0
+        }
+      },
+      {
+        "index": 9609,
+        "group": "dev",
+        "video_id": "291LH",
+        "query": "A person is sitting on a couch in a room with a green wall and a television mounted on it, drinking from a cup.",
+        "gt": [
+          0.7,
+          6.7
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.0,
+          "evidence": 0.0,
+          "ordinary": 0.0
+        }
+      },
+      {
+        "index": 3163,
+        "group": "dev",
+        "video_id": "78R4Y",
+        "query": "a person is putting away groceries in a refrigerator, with boxes and bags visible in the background.",
+        "gt": [
+          1.6,
+          6.7
+        ],
+        "frozen_verification": "not_matched",
+        "iou": {
+          "baseline": 0.0,
+          "ordinary": 0.0,
+          "evidence": 0.0
+        }
+      },
+      {
+        "index": 6563,
+        "group": "dev",
+        "video_id": "8EYHC",
+        "query": "A person with blonde hair, wearing a dark-colored hoodie, sneezes in the image.",
+        "gt": [
+          10.0,
+          22.4
+        ],
+        "frozen_verification": "not_matched",
+        "iou": {
+          "baseline": 0.0,
+          "evidence": 0.0,
+          "ordinary": 0.0
+        }
+      },
+      {
+        "index": 9112,
+        "group": "dev",
+        "video_id": "ECMQU",
+        "query": "Sitting man puts on plaid shirt, then jacket, maintaining eye contact with camera.",
+        "gt": [
+          0.0,
+          14.0
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.9500000000000001,
+          "ordinary": 0.9500000000000001,
+          "evidence": 0.9500000000000001
+        }
+      },
+      {
+        "index": 8482,
+        "group": "dev",
+        "video_id": "E2Q68",
+        "query": "A young male in a maroon long-sleeved shirt starts opening a bag full of groceries.",
+        "gt": [
+          2.6,
+          13.5
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.8,
+          "evidence": 0.8,
+          "ordinary": 0.8
+        }
+      },
+      {
+        "index": 7453,
+        "group": "dev",
+        "video_id": "9IT59",
+        "query": "A woman in a sari, holding a pillow and examining it, walks leisurely through a narrow hallway.",
+        "gt": [
+          0.0,
+          10.1
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.5940594059405939,
+          "ordinary": 0.5940594059405939,
+          "evidence": 0.5940594059405939
+        }
+      },
+      {
+        "index": 1599,
+        "group": "dev",
+        "video_id": "APQSV",
+        "query": "The person opens another door, revealing a new room, while holding a white towel.",
+        "gt": [
+          2.6,
+          9.7
+        ],
+        "frozen_verification": "not_matched",
+        "iou": {
+          "baseline": 0.0,
+          "evidence": 0.0,
+          "ordinary": 0.0
+        }
+      },
+      {
+        "index": 6016,
+        "group": "dev",
+        "video_id": "0DY8C",
+        "query": "In a living room, a man in a white t-shirt and grey pants watches a cricket match on TV, occasionally looking at his phone with a laid-back demeanor.",
+        "gt": [
+          0.0,
+          9.0
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.75,
+          "ordinary": 0.6923076923076923,
+          "evidence": 0.6923076923076923
+        }
+      },
+      {
+        "index": 5470,
+        "group": "dev",
+        "video_id": "0BX9N",
+        "query": "A person, holding a purple bag, is shown opening it in a room with a white door and a white wall.",
+        "gt": [
+          11.8,
+          21.4
+        ],
+        "frozen_verification": "not_matched",
+        "iou": {
+          "baseline": 0.0,
+          "evidence": 0.0,
+          "ordinary": 0.0
+        }
+      },
+      {
+        "index": 4146,
+        "group": "holdout",
+        "video_id": "CWUDQ",
+        "query": "A person stands in front of the television with a blue wall as the backdrop while undressing.",
+        "gt": [
+          12.0,
+          19.4
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.8222222222222221,
+          "ordinary": 0.8222222222222221,
+          "evidence": 0.8222222222222221
+        }
+      },
+      {
+        "index": 3930,
+        "group": "holdout",
+        "video_id": "481PN",
+        "query": "a person in a pink shirt, wearing glasses, puts down a green cup by the phone next to a bunk bed with a wooden frame.",
+        "gt": [
+          5.7,
+          12.3
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.7951807228915663,
+          "evidence": 0.7951807228915663,
+          "ordinary": 0.7951807228915663
+        }
+      },
+      {
+        "index": 3440,
+        "group": "holdout",
+        "video_id": "GY70Y",
+        "query": "A man in a white t-shirt is seen drinking from a cup while sitting on a couch in a beige living room.",
+        "gt": [
+          9.6,
+          23.0
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.08695652173913043,
+          "ordinary": 0.08695652173913043,
+          "evidence": 0.08695652173913043
+        }
+      },
+      {
+        "index": 5052,
+        "group": "holdout",
+        "video_id": "ETT15",
+        "query": "A person in a red robe sits at a desk, interacting with a document and two computer monitors.",
+        "gt": [
+          0.0,
+          9.3
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.93,
+          "evidence": 0.93,
+          "ordinary": 0.93
+        }
+      },
+      {
+        "index": 11823,
+        "group": "holdout",
+        "video_id": "3X6SI",
+        "query": "A person sits on a chair next to a light in a room with a bookshelf filled with books.",
+        "gt": [
+          9.7,
+          16.0
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.6024096385542168,
+          "ordinary": 0.6024096385542168,
+          "evidence": 0.7228915662650601
+        }
+      },
+      {
+        "index": 1793,
+        "group": "holdout",
+        "video_id": "3UWW0",
+        "query": "A person is sitting in front of a window with a blue and white patterned curtain, sipping from a glass mug.",
+        "gt": [
+          14.6,
+          23.3
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.0,
+          "evidence": 0.0,
+          "ordinary": 0.0
+        }
+      },
+      {
+        "index": 2700,
+        "group": "holdout",
+        "video_id": "EI0F6",
+        "query": "A man opens the black-doored medicine cabinet in the bathroom.",
+        "gt": [
+          2.4,
+          16.1
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.45517241379310336,
+          "ordinary": 0.45517241379310336,
+          "evidence": 0.45517241379310336
+        }
+      },
+      {
+        "index": 4809,
+        "group": "holdout",
+        "video_id": "DQ46N",
+        "query": "a person wearing glasses and a maroon sweater sits in a chair in the kitchen.",
+        "gt": [
+          0.0,
+          6.7
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.8955223880597016,
+          "evidence": 0.8955223880597016,
+          "ordinary": 0.8955223880597016
+        }
+      },
+      {
+        "index": 9324,
+        "group": "holdout",
+        "video_id": "5KGCY",
+        "query": "Sitting at round table, person extends hand to grab glass nearby.",
+        "gt": [
+          9.8,
+          15.6
+        ],
+        "frozen_verification": "not_matched",
+        "iou": {
+          "baseline": 0.0,
+          "ordinary": 0.0,
+          "evidence": 0.0
+        }
+      },
+      {
+        "index": 7297,
+        "group": "holdout",
+        "video_id": "G82VI",
+        "query": "A man opens a cardboard box while surrounded by tools hanging on the wall.",
+        "gt": [
+          5.6,
+          13.4
+        ],
+        "frozen_verification": "not_matched",
+        "iou": {
+          "baseline": 0.0,
+          "evidence": 0.0,
+          "ordinary": 0.0
+        }
+      },
+      {
+        "index": 10130,
+        "group": "holdout",
+        "video_id": "73NG4",
+        "query": "A young man with curly hair pours a glass of orange juice on a countertop.",
+        "gt": [
+          5.7,
+          13.1
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.6727272727272727,
+          "ordinary": 0.6727272727272727,
+          "evidence": 0.6727272727272727
+        }
+      },
+      {
+        "index": 8860,
+        "group": "holdout",
+        "video_id": "B0BDR",
+        "query": "The person, slightly smiling, is wearing a blue shirt and red pants, and holding a plate of food against a pink wall.",
+        "gt": [
+          6.2,
+          16.7
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.2275449101796407,
+          "evidence": 0.2275449101796407,
+          "ordinary": 0.2275449101796407
+        }
+      },
+      {
+        "index": 11429,
+        "group": "holdout",
+        "video_id": "0NCWX",
+        "query": "A person in a dark blue shirt and plaid shorts, wearing glasses, is opening a kitchen cabinet with glass doors.",
+        "gt": [
+          0.0,
+          5.5
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.9821428571428572,
+          "ordinary": 0.9821428571428572,
+          "evidence": 0.9821428571428572
+        }
+      },
+      {
+        "index": 2327,
+        "group": "holdout",
+        "video_id": "35P3Q",
+        "query": "a person in a pink top and blue jeans is washing dishes in a sink.",
+        "gt": [
+          5.0,
+          11.7
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.5128205128205129,
+          "evidence": 0.5128205128205129,
+          "ordinary": 0.5128205128205129
+        }
+      },
+      {
+        "index": 5578,
+        "group": "holdout",
+        "video_id": "CF9QP",
+        "query": "A person in a black top and blue pants sits on the floor in front of a pink wall, eating something from a green plastic bag.",
+        "gt": [
+          13.4,
+          25.6
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.6475583864118898,
+          "ordinary": 0.6838565022421527,
+          "evidence": 0.6838565022421527
+        }
+      },
+      {
+        "index": 11395,
+        "group": "holdout",
+        "video_id": "5LH8B",
+        "query": "A person, wearing glasses and a black shirt, looks into the mirror and adopts a smiling expression.",
+        "gt": [
+          0.4,
+          10.9
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.6972477064220183,
+          "evidence": 0.6972477064220183,
+          "ordinary": 0.6972477064220183
+        }
+      },
+      {
+        "index": 7613,
+        "group": "holdout",
+        "video_id": "2XSK6",
+        "query": "A woman in a red hoodie and blue jeans closes the door next to a light-colored wooden table.",
+        "gt": [
+          9.7,
+          18.2
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.0,
+          "ordinary": 0.0,
+          "evidence": 0.0
+        }
+      },
+      {
+        "index": 933,
+        "group": "holdout",
+        "video_id": "2S6V7",
+        "query": "A young woman with purple hair takes a laptop from the counter while wearing a blue shirt.",
+        "gt": [
+          22.5,
+          30.1
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.8837209302325582,
+          "evidence": 0.9012345679012345,
+          "ordinary": 0.9012345679012345
+        }
+      },
+      {
+        "index": 11561,
+        "group": "holdout",
+        "video_id": "C1LVJ",
+        "query": "A person with long dark hair puts down a pillow beside a wooden table with a round top.",
+        "gt": [
+          13.8,
+          18.6
+        ],
+        "frozen_verification": "not_matched",
+        "iou": {
+          "baseline": 0.0,
+          "ordinary": 0.0,
+          "evidence": 0.0
+        }
+      },
+      {
+        "index": 7310,
+        "group": "holdout",
+        "video_id": "38HNU",
+        "query": "A person in a leopard print onesie, holding a blue object and laughing, is shown in a kitchen with a white door and a white refrigerator.",
+        "gt": [
+          13.0,
+          22.4
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.7765957446808512,
+          "evidence": 0.7765957446808512,
+          "ordinary": 0.7765957446808512
+        }
+      },
+      {
+        "index": 2410,
+        "group": "holdout",
+        "video_id": "3C8OG",
+        "query": "The camera focuses on a person, taking a bottle, with a laptop open and in use nearby.",
+        "gt": [
+          0.7,
+          5.6
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.4819277108433734,
+          "ordinary": 0.38834951456310673,
+          "evidence": 0.4819277108433734
+        }
+      },
+      {
+        "index": 9089,
+        "group": "holdout",
+        "video_id": "1Y09V",
+        "query": "A person is captured in the act of drinking coffee in a room setting, with a blue chair visible in the background.",
+        "gt": [
+          4.5,
+          10.3
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.5686274509803922,
+          "evidence": 0.5686274509803922,
+          "ordinary": 0.5686274509803922
+        }
+      },
+      {
+        "index": 6333,
+        "group": "holdout",
+        "video_id": "0IAGO",
+        "query": "A person turns on a light at a table in the foreground.",
+        "gt": [
+          13.0,
+          21.0
+        ],
+        "frozen_verification": "matched",
+        "iou": {
+          "baseline": 0.8,
+          "ordinary": 0.8,
+          "evidence": 0.8
+        }
+      }
+    ],
+    "selection_scope": "One query per video; train-only within manifest-indexed pixel assets; explicit text/span quality filters and initial full-train-corpus top1=GT.",
+    "evaluation_scope": "Conditional correct-initial-video localization probe, not full T=2/N=8 VCMR. Original verification is frozen after initial generation; no SQR is invoked.",
+    "holdout_limit": "Video-disjoint split within training data; the released checkpoint may have trained on these videos. Not an unseen-video benchmark.",
+    "runtime_input_audit": {
+      "all_calls_covered": true,
+      "calls": 89,
+      "per_case_visual_signature_consistent": true
+    },
+    "predictions_sha256": "067c8a3935e09d5b6ea97f83d219f04a8c0f9e451bc957d6bc122b42515817fb",
+    "limitations": [
+      "Training-derived correct-top1 probe is not a full VCMR/VER/VR benchmark.",
+      "Original checkpoint may already have trained on these videos.",
+      "Holdout has only 23 video-disjoint examples; bootstrap intervals are exploratory.",
+      "Condition C requests evidence but does not establish that generated rationales are true.",
+      "Identical visual and maximum-generation budgets; actual text/output token costs differ and are recorded.",
+      "No training, new frames, test-label edits or MD documents."
+    ]
+  },
+  "completed_at": "2026-11-06T18:39:55.064656+08:00"
+}

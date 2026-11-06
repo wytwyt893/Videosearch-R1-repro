@@ -1,0 +1,1 @@
+../../../scripts/check_charades_alignment.py

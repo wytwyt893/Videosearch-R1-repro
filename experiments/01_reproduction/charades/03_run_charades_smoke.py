@@ -1,0 +1,1 @@
+../../../scripts/run_charades_smoke.py

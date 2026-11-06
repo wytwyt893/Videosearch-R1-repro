@@ -1,0 +1,1 @@
+../../../../scripts/validate_activitynet_repair_cpu.py

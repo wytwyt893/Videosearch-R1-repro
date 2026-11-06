@@ -1,0 +1,994 @@
+{
+  "status": "COMPLETE_CPU_VALIDATED",
+  "created_at": "2026-11-06T22:25:41.331714+08:00",
+  "operations": [
+    {
+      "old_path": "scripts/env.sh",
+      "new_path": "common/env.sh",
+      "kind": "shared_implementation",
+      "sha256": "6574102ca7b2e4012da5c4d2269b6178103604fa75c96f96983b3767122fb1af",
+      "mtime_ns": 1792759849930887204
+    },
+    {
+      "old_path": "scripts/network.sh",
+      "new_path": "common/network.sh",
+      "kind": "shared_implementation",
+      "sha256": "2b95269c832c9af4ee73aa62d3db777f4b04773606fdcea941d9cff150b2935c",
+      "mtime_ns": 1792761830253971196
+    },
+    {
+      "old_path": "scripts/runtime_constraints.txt",
+      "new_path": "common/runtime_constraints.txt",
+      "kind": "shared_implementation",
+      "sha256": "c28612ca974351c312c2e69c70d19a0743dcb791e15bb0f0e6b20bdeff633f1e",
+      "mtime_ns": 1792762102249001337
+    },
+    {
+      "old_path": "scripts/http_assets.py",
+      "new_path": "common/http_assets.py",
+      "kind": "shared_implementation",
+      "sha256": "e3d1af5ca908850b9c618b90f4cd9e3dbc21f4fd399eb6ed4f9d3d6450ee12d5",
+      "mtime_ns": 1792760398010225237
+    },
+    {
+      "old_path": "scripts/remote_tar.py",
+      "new_path": "common/remote_tar.py",
+      "kind": "shared_implementation",
+      "sha256": "b5c35b38072189259b224dd0416559698916d3e0ad3bf8e995616df8fe454da5",
+      "mtime_ns": 1792761830361978967
+    },
+    {
+      "old_path": "scripts/audit_stage1.py",
+      "new_path": "common/audit_stage1.py",
+      "kind": "shared_implementation",
+      "sha256": "10054d3dfafd9fcd08ba459b0d37cefd5438f25705b9f9c8bd750cd8bf3948f4",
+      "mtime_ns": 1792756858427825892
+    },
+    {
+      "old_path": "scripts/install_runtime.sh",
+      "new_path": "common/install_runtime.sh",
+      "kind": "shared_implementation",
+      "sha256": "0d12939113bf11a0dd2d4eae9ba5c5c9711f6418ae343c0019ca8fc0294b4654",
+      "mtime_ns": 1792762102361008987
+    },
+    {
+      "old_path": "scripts/repair_decord.py",
+      "new_path": "common/repair_decord.py",
+      "kind": "shared_implementation",
+      "sha256": "c7fb6e92857f983d9f18bbe92d8b0fa0418b91f2b452a384ed4cdaf68773ef61",
+      "mtime_ns": 1792761876801302207
+    },
+    {
+      "old_path": "scripts/validate_runtime.py",
+      "new_path": "common/validate_runtime.py",
+      "kind": "shared_implementation",
+      "sha256": "5fa6aada119966f20a8ef78350958874d31325915d325b55b419cb9ccd5a7188",
+      "mtime_ns": 1792760763298699454
+    },
+    {
+      "old_path": "scripts/prepare_models.py",
+      "new_path": "common/prepare_models.py",
+      "kind": "shared_implementation",
+      "sha256": "df94edc3eee243b8cac1b7f8bfe0b9de89f3d80002c51fcf7d2123780c5d675b",
+      "mtime_ns": 1792761830473987026
+    },
+    {
+      "old_path": "scripts/restore_upstream.py",
+      "new_path": "common/restore_upstream.py",
+      "kind": "shared_implementation",
+      "sha256": "9965219dd95a709aadf8eb8262af435052b2e3875d6fd50b98945d5f040c5600",
+      "mtime_ns": 1792756858427825892
+    },
+    {
+      "old_path": "scripts/smoke_eval.py",
+      "new_path": "common/smoke_eval.py",
+      "kind": "shared_implementation",
+      "sha256": "902fd966f53de40ab34c7b3c0f25ae414229154dd6260c862ca4c51b47f23383",
+      "mtime_ns": 1792761953490716883
+    },
+    {
+      "old_path": "experiments/00_setup",
+      "new_path": "common/00_setup",
+      "kind": "directory"
+    },
+    {
+      "old_path": "experiments/01_charades_stage2",
+      "new_path": "experiments/01_reproduction/charades",
+      "kind": "directory"
+    },
+    {
+      "old_path": "experiments/02_didemo_stage2",
+      "new_path": "experiments/01_reproduction/didemo",
+      "kind": "directory"
+    },
+    {
+      "old_path": "experiments/03_activitynet_data_repair",
+      "new_path": "experiments/01_reproduction/activitynet/00_data_repair",
+      "kind": "directory"
+    },
+    {
+      "old_path": "experiments/04_activitynet_stage2",
+      "new_path": "experiments/01_reproduction/activitynet/01_evaluation",
+      "kind": "directory"
+    },
+    {
+      "old_path": "experiments/05_table2_summary",
+      "new_path": "experiments/01_reproduction/summary",
+      "kind": "directory"
+    },
+    {
+      "old_path": "experiments/06_charades_failure_cases",
+      "new_path": "experiments/02_error_analysis/charades/01_failure_cases",
+      "kind": "directory"
+    },
+    {
+      "old_path": "experiments/09_charades_annotation_audit",
+      "new_path": "experiments/02_error_analysis/charades/02_annotation_audit",
+      "kind": "directory"
+    },
+    {
+      "old_path": "experiments/07_charades_timestamp_smoke",
+      "new_path": "experiments/03_optimization/charades/01_timestamp_alignment/00_smoke",
+      "kind": "directory"
+    },
+    {
+      "old_path": "experiments/08_charades_timestamp_full",
+      "new_path": "experiments/03_optimization/charades/01_timestamp_alignment/01_full",
+      "kind": "directory"
+    },
+    {
+      "old_path": "experiments/10_charades_localization_probe",
+      "new_path": "experiments/03_optimization/charades/02_evidence_verification",
+      "kind": "directory"
+    },
+    {
+      "old_path": "doc",
+      "new_path": "docs/archive",
+      "kind": "directory"
+    }
+  ],
+  "rebased_symlinks": 77,
+  "navigation_documents_rebased": 22,
+  "frozen_files": [
+    {
+      "path": "scripts/activitynet_eda.py",
+      "bytes": 12927,
+      "mtime_ns": 1793172929481583074,
+      "sha256": "7bb8c65a03a914443838d293e3dcdc03d0fa26f03d86bb1674c83bfd0cb6f769",
+      "canonical_after": "scripts/activitynet_eda.py"
+    },
+    {
+      "path": "scripts/activitynet_repair_time.py",
+      "bytes": 2068,
+      "mtime_ns": 1793279734011819971,
+      "sha256": "260c7a43ff6dc8674a926fc087630a2143bc0664c57a182e5ffbe2d9c6c6f943",
+      "canonical_after": "scripts/activitynet_repair_time.py"
+    },
+    {
+      "path": "scripts/activitynet_repaired_eval.py",
+      "bytes": 2245,
+      "mtime_ns": 1793291388736599925,
+      "sha256": "087f3499d1b62e8236345a363eaa60e5b7659fb39687c9eff5d9863ab94a2383",
+      "canonical_after": "scripts/activitynet_repaired_eval.py"
+    },
+    {
+      "path": "scripts/align_activitynet_repair_sources.py",
+      "bytes": 10805,
+      "mtime_ns": 1793281901158111302,
+      "sha256": "c1027630a28578bb211ad2649e55fdd82c08ab07dc6f7e7d04d099c5509b733b",
+      "canonical_after": "scripts/align_activitynet_repair_sources.py"
+    },
+    {
+      "path": "scripts/analyze_charades_localization_probe.py",
+      "bytes": 5742,
+      "mtime_ns": 1793961804930953053,
+      "sha256": "5eadc3903b775a80d3769bee4022f5328325ef1f8d35143cc5ae087229069904",
+      "canonical_after": "scripts/analyze_charades_localization_probe.py"
+    },
+    {
+      "path": "scripts/analyze_charades_offline.py",
+      "bytes": 19253,
+      "mtime_ns": 1793106472518395589,
+      "sha256": "1ed81f35cb56d6bc3cd8408dc77e760597100d6aa8d8b628bdb21f13de60dbe7",
+      "canonical_after": "scripts/analyze_charades_offline.py"
+    },
+    {
+      "path": "scripts/analyze_didemo_offline.py",
+      "bytes": 20435,
+      "mtime_ns": 1793171353169774009,
+      "sha256": "c5ebf6670800e5dd0aa0daa097c78e58eabf126ffe1618b4731ecb5711332651",
+      "canonical_after": "scripts/analyze_didemo_offline.py"
+    },
+    {
+      "path": "scripts/audit_activitynet_sampling.py",
+      "bytes": 11453,
+      "mtime_ns": 1793265708939822888,
+      "sha256": "347938a9346fc3218a261fc5c3023dd8ae9777b368ade73120f46d3eba72b4dc",
+      "canonical_after": "scripts/audit_activitynet_sampling.py"
+    },
+    {
+      "path": "scripts/audit_charades_annotations.py",
+      "bytes": 8819,
+      "mtime_ns": 1793958252474454321,
+      "sha256": "63405cc3df313d5bb0238da13a33c357a71302149a32727eedbede241ee4308b",
+      "canonical_after": "scripts/audit_charades_annotations.py"
+    },
+    {
+      "path": "scripts/audit_stage1.py",
+      "bytes": 10135,
+      "mtime_ns": 1792756858427825892,
+      "sha256": "10054d3dfafd9fcd08ba459b0d37cefd5438f25705b9f9c8bd750cd8bf3948f4",
+      "canonical_after": "common/audit_stage1.py"
+    },
+    {
+      "path": "scripts/build_activitynet_repair_views.py",
+      "bytes": 12453,
+      "mtime_ns": 1793287134244540609,
+      "sha256": "9ac7cae406e205d03f465dc13fe1bcf5f2f6686799e7d96896c408adf9dca472",
+      "canonical_after": "scripts/build_activitynet_repair_views.py"
+    },
+    {
+      "path": "scripts/build_charades_timestamp_browser.py",
+      "bytes": 6331,
+      "mtime_ns": 1793871498940608684,
+      "sha256": "e85990ebe4baf274b2975fc1710fe51cd0bdca67aea9c1a2f21ae85fd5301619",
+      "canonical_after": "scripts/build_charades_timestamp_browser.py"
+    },
+    {
+      "path": "scripts/build_three_dataset_summary.py",
+      "bytes": 13135,
+      "mtime_ns": 1793863972247798973,
+      "sha256": "e62381f5e3b86fb04ee672b306be9f717bef73abbbd87cb165e15dd5a837a068",
+      "canonical_after": "scripts/build_three_dataset_summary.py"
+    },
+    {
+      "path": "scripts/charades_localization_probe_worker.py",
+      "bytes": 14052,
+      "mtime_ns": 1793961247153234360,
+      "sha256": "d727d136c865ef19032e6261746a37df217b00a4beec5254db9b9804442fc4f6",
+      "canonical_after": "scripts/charades_localization_probe_worker.py"
+    },
+    {
+      "path": "scripts/charades_timestamp_eval.py",
+      "bytes": 4644,
+      "mtime_ns": 1793870294571057101,
+      "sha256": "84a16159620327d3fca92922e7774c52b27239c7ceaa945fe8ec7b62d1a35b8b",
+      "canonical_after": "scripts/charades_timestamp_eval.py"
+    },
+    {
+      "path": "scripts/check_activitynet_alignment.py",
+      "bytes": 15375,
+      "mtime_ns": 1793255806018642692,
+      "sha256": "399fc5688f41d59c2f7c3febf1cea33152166c36511c59a4676d3a362d86fb0f",
+      "canonical_after": "scripts/check_activitynet_alignment.py"
+    },
+    {
+      "path": "scripts/check_activitynet_repair_integrity.py",
+      "bytes": 10334,
+      "mtime_ns": 1793291314034713230,
+      "sha256": "2391ed0f0713e055c80e4aa12744a849d04dddc5bf6ec38da1bd5f38631250ee",
+      "canonical_after": "scripts/check_activitynet_repair_integrity.py"
+    },
+    {
+      "path": "scripts/check_charades_alignment.py",
+      "bytes": 15127,
+      "mtime_ns": 1793023595903851608,
+      "sha256": "ac62ec9d32b7d9fa3488aa76e952c197ac5bbc8c1fe4610bb71db1e9c993ef0f",
+      "canonical_after": "scripts/check_charades_alignment.py"
+    },
+    {
+      "path": "scripts/check_charades_timestamps.py",
+      "bytes": 8136,
+      "mtime_ns": 1793870294675062862,
+      "sha256": "b48b7552898bd0536ba6e82095379a569d4c97d18a05074fdddc640a771dc45a",
+      "canonical_after": "scripts/check_charades_timestamps.py"
+    },
+    {
+      "path": "scripts/check_didemo_alignment.py",
+      "bytes": 15314,
+      "mtime_ns": 1793124124940610659,
+      "sha256": "07f1dc0617cd94e9d5a4649f145eb652c677a874ab22fe69b7aea76933ff663f",
+      "canonical_after": "scripts/check_didemo_alignment.py"
+    },
+    {
+      "path": "scripts/compare_activitynet_full_to_paper.py",
+      "bytes": 9673,
+      "mtime_ns": 1793540366840267594,
+      "sha256": "0f223e283d628106b58e443c443db75149c142a26e71730723a91fa1760632e4",
+      "canonical_after": "scripts/compare_activitynet_full_to_paper.py"
+    },
+    {
+      "path": "scripts/compare_activitynet_raw_npy.py",
+      "bytes": 11235,
+      "mtime_ns": 1793277557550635285,
+      "sha256": "148b40ce457d1d6ca98d63e4658ac3ead8fe064d3c498228ea313491e22f8336",
+      "canonical_after": "scripts/compare_activitynet_raw_npy.py"
+    },
+    {
+      "path": "scripts/download_activitynet_repair_sources.py",
+      "bytes": 8090,
+      "mtime_ns": 1793278354403151403,
+      "sha256": "20c9add077f6526d532c126a93a9d70a634536dbc65c4503218313e8c02555c9",
+      "canonical_after": "scripts/download_activitynet_repair_sources.py"
+    },
+    {
+      "path": "scripts/env.sh",
+      "bytes": 2302,
+      "mtime_ns": 1792759849930887204,
+      "sha256": "6574102ca7b2e4012da5c4d2269b6178103604fa75c96f96983b3767122fb1af",
+      "canonical_after": "common/env.sh"
+    },
+    {
+      "path": "scripts/extract_video_frames_verified.py",
+      "bytes": 13595,
+      "mtime_ns": 1793281682202162487,
+      "sha256": "701e402bfd4771051e03e1808bc904f2d58039b42d2a24d25a162be5d39bfe95",
+      "canonical_after": "scripts/extract_video_frames_verified.py"
+    },
+    {
+      "path": "scripts/fetch_activitynet_metadata.py",
+      "bytes": 5033,
+      "mtime_ns": 1793172199609917287,
+      "sha256": "cdbbf17aee6f9a80097cbd9f83b0414713a757c3ff97cb775d5a5214c4f81e55",
+      "canonical_after": "scripts/fetch_activitynet_metadata.py"
+    },
+    {
+      "path": "scripts/fetch_activitynet_raw_sample.py",
+      "bytes": 9475,
+      "mtime_ns": 1793280280055815662,
+      "sha256": "3b4f547f01edee211fd021a86a6f450fdf876d6099bb441f9a68e2792e700932",
+      "canonical_after": "scripts/fetch_activitynet_raw_sample.py"
+    },
+    {
+      "path": "scripts/fetch_activitynet_repair_alternatives.py",
+      "bytes": 7114,
+      "mtime_ns": 1793280847182011980,
+      "sha256": "2c5dc8e9f96057cbe686dffb9837dbe9529c96966126cdca6d4aed43c3a7bbf8",
+      "canonical_after": "scripts/fetch_activitynet_repair_alternatives.py"
+    },
+    {
+      "path": "scripts/fetch_charades_annotation_sources.py",
+      "bytes": 3467,
+      "mtime_ns": 1793958389485458763,
+      "sha256": "eaf47c34ff6ea50f5e10f64f1b5c1b63661f06ea8e68224c372c99acee431867",
+      "canonical_after": "scripts/fetch_charades_annotation_sources.py"
+    },
+    {
+      "path": "scripts/finalize_activitynet_repair_saved.py",
+      "bytes": 10435,
+      "mtime_ns": 1793540566733391956,
+      "sha256": "8c7dde547361a30ae422452df147d40a6b5ffa1a3e434910d51b5b8bb709593e",
+      "canonical_after": "scripts/finalize_activitynet_repair_saved.py"
+    },
+    {
+      "path": "scripts/http_assets.py",
+      "bytes": 3920,
+      "mtime_ns": 1792760398010225237,
+      "sha256": "e3d1af5ca908850b9c618b90f4cd9e3dbc21f4fd399eb6ed4f9d3d6450ee12d5",
+      "canonical_after": "common/http_assets.py"
+    },
+    {
+      "path": "scripts/index_activitynet_raw_mirror.py",
+      "bytes": 9249,
+      "mtime_ns": 1793280193567900353,
+      "sha256": "ee10170f83e911d62064c4dd8c964b724e7af49c4ec92d10873bbb4aaa793c28",
+      "canonical_after": "scripts/index_activitynet_raw_mirror.py"
+    },
+    {
+      "path": "scripts/inspect_charades_localization_cases.py",
+      "bytes": 20357,
+      "mtime_ns": 1793867508673211644,
+      "sha256": "46169404a5fa22528e9de3a48ddaa32c6e76ed62696c09e6cef2130b25363160",
+      "canonical_after": "scripts/inspect_charades_localization_cases.py"
+    },
+    {
+      "path": "scripts/inspect_charades_remaining_cases.py",
+      "bytes": 10354,
+      "mtime_ns": 1793934536565450796,
+      "sha256": "2fd024e09a087b70e21fff8a883e0777ccaf53e9be0d8c8e996533bae7e3eda8",
+      "canonical_after": "scripts/inspect_charades_remaining_cases.py"
+    },
+    {
+      "path": "scripts/install_runtime.sh",
+      "bytes": 2635,
+      "mtime_ns": 1792762102361008987,
+      "sha256": "0d12939113bf11a0dd2d4eae9ba5c5c9711f6418ae343c0019ca8fc0294b4654",
+      "canonical_after": "common/install_runtime.sh"
+    },
+    {
+      "path": "scripts/launch_charades_localization_probe.bash",
+      "bytes": 160,
+      "mtime_ns": 1793961171857046399,
+      "sha256": "fdf8b552ca4a68a1b4b35dc20c42d49d9683d5b8a7d5b3d7f9df6130aa9a2575",
+      "canonical_after": "scripts/launch_charades_localization_probe.bash"
+    },
+    {
+      "path": "scripts/network.sh",
+      "bytes": 773,
+      "mtime_ns": 1792761830253971196,
+      "sha256": "2b95269c832c9af4ee73aa62d3db777f4b04773606fdcea941d9cff150b2935c",
+      "canonical_after": "common/network.sh"
+    },
+    {
+      "path": "scripts/preflight_activitynet_full.py",
+      "bytes": 26961,
+      "mtime_ns": 1793255896878901497,
+      "sha256": "c836dab81b8ef7df50036856d0703ba923fc282cd4831fa29b2b6393f7ad10ce",
+      "canonical_after": "scripts/preflight_activitynet_full.py"
+    },
+    {
+      "path": "scripts/preflight_charades_full.py",
+      "bytes": 21447,
+      "mtime_ns": 1793030947762422197,
+      "sha256": "f144eda36159db3ae795a5e8d3813f8a350ac38b1940e5f2a633f801a23761ac",
+      "canonical_after": "scripts/preflight_charades_full.py"
+    },
+    {
+      "path": "scripts/preflight_didemo_full.py",
+      "bytes": 22940,
+      "mtime_ns": 1793124400339237545,
+      "sha256": "c7c30074a7b9b6cdfb521240387075eceac448e0511b1617aa4547c38cc7fb0b",
+      "canonical_after": "scripts/preflight_didemo_full.py"
+    },
+    {
+      "path": "scripts/prepare_activitynet_assets.py",
+      "bytes": 17299,
+      "mtime_ns": 1793172399197558235,
+      "sha256": "328095964c336f7e6ed98c3391a19f22a879bdce3e373d88d0d1b0ff950f65fa",
+      "canonical_after": "scripts/prepare_activitynet_assets.py"
+    },
+    {
+      "path": "scripts/prepare_charades_localization_probe.py",
+      "bytes": 9629,
+      "mtime_ns": 1793960580159797182,
+      "sha256": "c59a6c1ac4c2730c28444765b455b1002cc4a46f59820af29927dec10dff48c8",
+      "canonical_after": "scripts/prepare_charades_localization_probe.py"
+    },
+    {
+      "path": "scripts/prepare_charades_test_videos.py",
+      "bytes": 12283,
+      "mtime_ns": 1793028330758927829,
+      "sha256": "74c157fec2d51ff1fc0a4d41aba76c26aa84b0ddad1825d476d541b9ff8058bc",
+      "canonical_after": "scripts/prepare_charades_test_videos.py"
+    },
+    {
+      "path": "scripts/prepare_didemo_assets.py",
+      "bytes": 16160,
+      "mtime_ns": 1793123358286868562,
+      "sha256": "3c4147d2cc45c64efbb203e4cff80011c0bb8a0c1a4171aa536d496db4ac426b",
+      "canonical_after": "scripts/prepare_didemo_assets.py"
+    },
+    {
+      "path": "scripts/prepare_models.py",
+      "bytes": 4173,
+      "mtime_ns": 1792761830473987026,
+      "sha256": "df94edc3eee243b8cac1b7f8bfe0b9de89f3d80002c51fcf7d2123780c5d675b",
+      "canonical_after": "common/prepare_models.py"
+    },
+    {
+      "path": "scripts/qualify_activitynet_repair.py",
+      "bytes": 12949,
+      "mtime_ns": 1793279104044853015,
+      "sha256": "ff497a86b09c5c6607a43de4a622be1ae5f3009ad1853fe89e8b53256021b69b",
+      "canonical_after": "scripts/qualify_activitynet_repair.py"
+    },
+    {
+      "path": "scripts/remote_tar.py",
+      "bytes": 9191,
+      "mtime_ns": 1792761830361978967,
+      "sha256": "b5c35b38072189259b224dd0416559698916d3e0ad3bf8e995616df8fe454da5",
+      "canonical_after": "common/remote_tar.py"
+    },
+    {
+      "path": "scripts/repair_decord.py",
+      "bytes": 3891,
+      "mtime_ns": 1792761876801302207,
+      "sha256": "c7fb6e92857f983d9f18bbe92d8b0fa0418b91f2b452a384ed4cdaf68773ef61",
+      "canonical_after": "common/repair_decord.py"
+    },
+    {
+      "path": "scripts/repeat_charades_timestamp_nominal.py",
+      "bytes": 6373,
+      "mtime_ns": 1793870755680185472,
+      "sha256": "2967bd893f62db641d33e8c063798b0cbe7b6f016fd433b6e99db06ecbcb22f8",
+      "canonical_after": "scripts/repeat_charades_timestamp_nominal.py"
+    },
+    {
+      "path": "scripts/restore_upstream.py",
+      "bytes": 4426,
+      "mtime_ns": 1792756858427825892,
+      "sha256": "9965219dd95a709aadf8eb8262af435052b2e3875d6fd50b98945d5f040c5600",
+      "canonical_after": "common/restore_upstream.py"
+    },
+    {
+      "path": "scripts/retry_activitynet_source_downloads.py",
+      "bytes": 2423,
+      "mtime_ns": 1793279835256105503,
+      "sha256": "3e7773bc0252b9904858aecc13321927dd904ddd1f32b6705b5dfa3589287956",
+      "canonical_after": "scripts/retry_activitynet_source_downloads.py"
+    },
+    {
+      "path": "scripts/review_activitynet_source_alignment.py",
+      "bytes": 5788,
+      "mtime_ns": 1793281296335573595,
+      "sha256": "905473aba4bb2ea11db356faa9c6ed4403ea67d43284150a4bd9ce2e2cd7dec1",
+      "canonical_after": "scripts/review_activitynet_source_alignment.py"
+    },
+    {
+      "path": "scripts/review_charades_annotation_audit.py",
+      "bytes": 21365,
+      "mtime_ns": 1793958970583630711,
+      "sha256": "2e45ec62288adb6a8dfb7dbe9504dc9e7cd4fa33d86a3ab227132bc3d5403c65",
+      "canonical_after": "scripts/review_charades_annotation_audit.py"
+    },
+    {
+      "path": "scripts/review_charades_localization_cases.py",
+      "bytes": 17611,
+      "mtime_ns": 1793868486504439655,
+      "sha256": "37d8962fd66071e9427e0ee58bb3191d3a2caa93c43b0f38945b6d0fd06bfec6",
+      "canonical_after": "scripts/review_charades_localization_cases.py"
+    },
+    {
+      "path": "scripts/review_charades_remaining_cases.py",
+      "bytes": 6338,
+      "mtime_ns": 1793935022289212122,
+      "sha256": "3feb1bf04bbda0c8c60d3724a971aad9d5c6643699586ed2bb533594c2b1c017",
+      "canonical_after": "scripts/review_charades_remaining_cases.py"
+    },
+    {
+      "path": "scripts/run_activitynet_full.py",
+      "bytes": 21419,
+      "mtime_ns": 1793255806022642880,
+      "sha256": "ef08a50d70319d2d3301c162e1871874cf7c90535fe136745bbb2f7d700704a5",
+      "canonical_after": "scripts/run_activitynet_full.py"
+    },
+    {
+      "path": "scripts/run_activitynet_repair_full.py",
+      "bytes": 2431,
+      "mtime_ns": 1793291976155501010,
+      "sha256": "ad169d888ed3cc13287cc0a1833babd9b28b703e2a0621e453720aba4615d682",
+      "canonical_after": "scripts/run_activitynet_repair_full.py"
+    },
+    {
+      "path": "scripts/run_activitynet_repair_smoke.py",
+      "bytes": 17277,
+      "mtime_ns": 1793540366628258029,
+      "sha256": "098e2d79f9355b2c83ca39efdf3fd865853c4db3cba37c182c54345351bacd53",
+      "canonical_after": "scripts/run_activitynet_repair_smoke.py"
+    },
+    {
+      "path": "scripts/run_charades_full.py",
+      "bytes": 21333,
+      "mtime_ns": 1793030947638411707,
+      "sha256": "55ed9e64a3c5f9bead39fc4640b1cbc00b3050de83716093e94ce7b85792d520",
+      "canonical_after": "scripts/run_charades_full.py"
+    },
+    {
+      "path": "scripts/run_charades_localization_probe.py",
+      "bytes": 10267,
+      "mtime_ns": 1793961034101366442,
+      "sha256": "a2f20944ee0f3030152e0c554fc3d2c3b1ac9736aff1c5a8fb1960d9dcf53590",
+      "canonical_after": "scripts/run_charades_localization_probe.py"
+    },
+    {
+      "path": "scripts/run_charades_smoke.py",
+      "bytes": 5656,
+      "mtime_ns": 1792762209696285094,
+      "sha256": "d8acc84b98184f17952d34cbd4bd18b099906564a78fee55e9697299fe2b5b95",
+      "canonical_after": "scripts/run_charades_smoke.py"
+    },
+    {
+      "path": "scripts/run_charades_timestamp_ab.py",
+      "bytes": 12824,
+      "mtime_ns": 1793870239776020778,
+      "sha256": "dab07b22d1489f3f304275a931edf1da5d7a1e6f9471f85e95294327845c7408",
+      "canonical_after": "scripts/run_charades_timestamp_ab.py"
+    },
+    {
+      "path": "scripts/run_charades_timestamp_full.py",
+      "bytes": 20320,
+      "mtime_ns": 1793898588629142034,
+      "sha256": "664ad306947c14f07a9d167a633a7771f8375beca2bdb56ddd79ce0feb6f5335",
+      "canonical_after": "scripts/run_charades_timestamp_full.py"
+    },
+    {
+      "path": "scripts/run_didemo_full.py",
+      "bytes": 21326,
+      "mtime_ns": 1793124124784602457,
+      "sha256": "c56e126368b1942066eb0f02f0935b636e996de5b6cf7c61126eec2af7813e7d",
+      "canonical_after": "scripts/run_didemo_full.py"
+    },
+    {
+      "path": "scripts/runtime_constraints.txt",
+      "bytes": 96,
+      "mtime_ns": 1792762102249001337,
+      "sha256": "c28612ca974351c312c2e69c70d19a0743dcb791e15bb0f0e6b20bdeff633f1e",
+      "canonical_after": "common/runtime_constraints.txt"
+    },
+    {
+      "path": "scripts/score_activitynet_protocol.py",
+      "bytes": 9048,
+      "mtime_ns": 1793255806022642880,
+      "sha256": "5bd722b8d87fc23791f549ad6419507573f047682449a1d864b4046c8af7e965",
+      "canonical_after": "scripts/score_activitynet_protocol.py"
+    },
+    {
+      "path": "scripts/score_charades_protocol.py",
+      "bytes": 9037,
+      "mtime_ns": 1793023537601176373,
+      "sha256": "6b3102edfdf701eda055a7a822fc38c8427fc122bb9415270c1aeff769c7b0b7",
+      "canonical_after": "scripts/score_charades_protocol.py"
+    },
+    {
+      "path": "scripts/score_didemo_protocol.py",
+      "bytes": 9037,
+      "mtime_ns": 1793124400455244024,
+      "sha256": "e3b043db48ed09dee72dbc3435a1553058af5b816167db8b3272d6182d3b5927",
+      "canonical_after": "scripts/score_didemo_protocol.py"
+    },
+    {
+      "path": "scripts/smoke_eval.py",
+      "bytes": 1898,
+      "mtime_ns": 1792761953490716883,
+      "sha256": "902fd966f53de40ab34c7b3c0f25ae414229154dd6260c862ca4c51b47f23383",
+      "canonical_after": "common/smoke_eval.py"
+    },
+    {
+      "path": "scripts/summarize_charades_timestamp_ab.py",
+      "bytes": 15024,
+      "mtime_ns": 1793871499036613928,
+      "sha256": "8ceb74c6fd2ef76390ed6a36feddb09efb851b0925b9a7a642eeb228d3584be6",
+      "canonical_after": "scripts/summarize_charades_timestamp_ab.py"
+    },
+    {
+      "path": "scripts/summarize_charades_timestamp_full.py",
+      "bytes": 14441,
+      "mtime_ns": 1793898588737147687,
+      "sha256": "cb808cba67873070b2475bfad8e026d25087ddb1222916cc52cdf9b0d6ae0623",
+      "canonical_after": "scripts/summarize_charades_timestamp_full.py"
+    },
+    {
+      "path": "scripts/validate_activitynet_repair_cpu.py",
+      "bytes": 11699,
+      "mtime_ns": 1793291268593661302,
+      "sha256": "2ffbde9db22f76aa557d9f0632f7487b024b1cd0212cb3da4fb2e19faf9ad8f8",
+      "canonical_after": "scripts/validate_activitynet_repair_cpu.py"
+    },
+    {
+      "path": "scripts/validate_runtime.py",
+      "bytes": 2345,
+      "mtime_ns": 1792760763298699454,
+      "sha256": "5fa6aada119966f20a8ef78350958874d31325915d325b55b419cb9ccd5a7188",
+      "canonical_after": "common/validate_runtime.py"
+    },
+    {
+      "path": "scripts/validate_smoke_data.py",
+      "bytes": 3665,
+      "mtime_ns": 1792761445120581866,
+      "sha256": "c61aa3a21ef2a23f95ba2aefe870f1d55710918283af5a2b158a976ee58be3ee",
+      "canonical_after": "scripts/validate_smoke_data.py"
+    },
+    {
+      "path": "configs/activitynet_stage2_eval.bash",
+      "bytes": 2567,
+      "mtime_ns": 1793255806018642692,
+      "sha256": "c1feddd61973a5f4050b583c91d83ec1e2f30bb8b5dcb69780a7153cf9358e8b",
+      "canonical_after": "configs/activitynet_stage2_eval.bash"
+    },
+    {
+      "path": "configs/charades_stage2_eval.bash",
+      "bytes": 2552,
+      "mtime_ns": 1793023537481170864,
+      "sha256": "3a4e4bcdfdda142776fb1eca548630f87919250936124b017b1fc8c6336a30d6",
+      "canonical_after": "configs/charades_stage2_eval.bash"
+    },
+    {
+      "path": "configs/didemo_stage2_eval.bash",
+      "bytes": 2542,
+      "mtime_ns": 1793124124784602457,
+      "sha256": "8b367616d70eaa75bf4251b04937cade37f5862dab5b845d3d0302cd3b43299a",
+      "canonical_after": "configs/didemo_stage2_eval.bash"
+    },
+    {
+      "path": "tests/test_activitynet_full_ver_coverage.py",
+      "bytes": 1157,
+      "mtime_ns": 1793540366732262720,
+      "sha256": "87271298fe4d2fac106eefc0b684a2794abe9cc27615e163d182399f686e9ed6",
+      "canonical_after": "tests/test_activitynet_full_ver_coverage.py"
+    },
+    {
+      "path": "tests/test_activitynet_protocol.py",
+      "bytes": 6322,
+      "mtime_ns": 1793255806022642880,
+      "sha256": "714212aded71d79414c1c6e64a65d8d861a470de8918749f4f2a33ba12934848",
+      "canonical_after": "tests/test_activitynet_protocol.py"
+    },
+    {
+      "path": "tests/test_activitynet_repair_time.py",
+      "bytes": 1703,
+      "mtime_ns": 1793279734223828837,
+      "sha256": "bd20a5e8b3d8bc831e10ef517ad926ffa483723c9f0599252b6c5cd91302e323",
+      "canonical_after": "tests/test_activitynet_repair_time.py"
+    },
+    {
+      "path": "tests/test_activitynet_repair_views.py",
+      "bytes": 6600,
+      "mtime_ns": 1793280682330329990,
+      "sha256": "c1e8cf4d11b5b72b838e03a608b51c3eb895718e2e55a5c9b8eb43481e7416c5",
+      "canonical_after": "tests/test_activitynet_repair_views.py"
+    },
+    {
+      "path": "tests/test_activitynet_source_alignment.py",
+      "bytes": 1347,
+      "mtime_ns": 1793281901270117309,
+      "sha256": "8aac68ac2209cdaa269978168d7ceb75d72e0c1415937851dd74b0bd29f26ff3",
+      "canonical_after": "tests/test_activitynet_source_alignment.py"
+    },
+    {
+      "path": "tests/test_activitynet_source_qualification.py",
+      "bytes": 1815,
+      "mtime_ns": 1793279149946195117,
+      "sha256": "ddb2043da76450fe4a45b83dfe809fc9287ba6e796045c8cb6917f517a63dbe2",
+      "canonical_after": "tests/test_activitynet_source_qualification.py"
+    },
+    {
+      "path": "tests/test_activitynet_tar_partition.py",
+      "bytes": 2712,
+      "mtime_ns": 1793280280155820206,
+      "sha256": "be7330aa15bed9d638eb49b8923b9a4211cfc6af253d6e1d818c61303485e6c8",
+      "canonical_after": "tests/test_activitynet_tar_partition.py"
+    },
+    {
+      "path": "tests/test_activitynet_timing.py",
+      "bytes": 2205,
+      "mtime_ns": 1793255806022642880,
+      "sha256": "9ec2193b890366783d443ac7cf7101047459ec505b51ee76442f759e291f71fc",
+      "canonical_after": "tests/test_activitynet_timing.py"
+    },
+    {
+      "path": "tests/test_charades_case_patch_reconstruction.py",
+      "bytes": 1242,
+      "mtime_ns": 1793867508777217022,
+      "sha256": "5a1a7691232fef63dea04180c0672bedb49d8853125b91eb069808d1cf90205d",
+      "canonical_after": "tests/test_charades_case_patch_reconstruction.py"
+    },
+    {
+      "path": "tests/test_charades_protocol.py",
+      "bytes": 3672,
+      "mtime_ns": 1793023537945192166,
+      "sha256": "e7cfb31f0aa6d4c15071226fee170ad03c5ef82c0f9ee30f49fad6ca53f26873",
+      "canonical_after": "tests/test_charades_protocol.py"
+    },
+    {
+      "path": "tests/test_charades_timestamp_full.py",
+      "bytes": 5808,
+      "mtime_ns": 1793898681065984254,
+      "sha256": "7ebdc7bf1743338c24a04bf0cc7e84a2de03511f1804f20a6ab26183d91eaa73",
+      "canonical_after": "tests/test_charades_timestamp_full.py"
+    },
+    {
+      "path": "tests/test_charades_timestamps.py",
+      "bytes": 1515,
+      "mtime_ns": 1793870294779068622,
+      "sha256": "9f3dced7db5900de46b7b40738184ed399b4206b1b38ae5da098f2d3125b4a62",
+      "canonical_after": "tests/test_charades_timestamps.py"
+    },
+    {
+      "path": "tests/test_didemo_download_retries.py",
+      "bytes": 1932,
+      "mtime_ns": 1793123358402875233,
+      "sha256": "a0b27875264b1807b21ab626fb51a84e4df4f0577605c5a617ff7ee6d3cd8ae1",
+      "canonical_after": "tests/test_didemo_download_retries.py"
+    },
+    {
+      "path": "tests/test_didemo_protocol.py",
+      "bytes": 6107,
+      "mtime_ns": 1793124400575250728,
+      "sha256": "61d71b7fa5051b419570ff17a0e309fcd4882e85271d54ac63eafce7f5b9fd0d",
+      "canonical_after": "tests/test_didemo_protocol.py"
+    },
+    {
+      "path": "tests/test_didemo_timing.py",
+      "bytes": 2190,
+      "mtime_ns": 1793124177115349911,
+      "sha256": "e8c32e028b5621ee9f9165a7c3c29f3f975dc39f98a0e9c698caf566d1c8a5bd",
+      "canonical_after": "tests/test_didemo_timing.py"
+    },
+    {
+      "path": "tests/test_runner_timing.py",
+      "bytes": 2196,
+      "mtime_ns": 1793030947882432350,
+      "sha256": "84b5f5f349eaa42a0cf6603cfe9a442b989e42f88c02d88898aea04b4443290e",
+      "canonical_after": "tests/test_runner_timing.py"
+    },
+    {
+      "path": "tests/test_verified_video_sampling.py",
+      "bytes": 6266,
+      "mtime_ns": 1793281682318168944,
+      "sha256": "81b210c9a3c4db42353117cf9f4f0ced705cfa8ebbc00c801e9e4c3a92325be0",
+      "canonical_after": "tests/test_verified_video_sampling.py"
+    },
+    {
+      "path": "doc/videosearch_r1 × ACTIVITYNET修复版全量评估-10.30.md",
+      "bytes": 4632,
+      "mtime_ns": 1793863861821666287,
+      "sha256": "5d08bd2baa5315c37ac285e23192225456c33430b2f301c807cfffa40821d7e7",
+      "canonical_after": "docs/archive/videosearch_r1 × ACTIVITYNET修复版全量评估-10.30.md"
+    },
+    {
+      "path": "doc/videosearch_r1 × ACTIVITYNET原版smoke-10.29.md",
+      "bytes": 11419,
+      "mtime_ns": 1793863473204021162,
+      "sha256": "4481d946a62582f8d7978b22cdcd38c59ec763039e9e946d1370bbfe9d724099",
+      "canonical_after": "docs/archive/videosearch_r1 × ACTIVITYNET原版smoke-10.29.md"
+    },
+    {
+      "path": "doc/videosearch_r1 × CHARADES全量时间戳对照-11.06.md",
+      "bytes": 3439,
+      "mtime_ns": 1793932248513777122,
+      "sha256": "53f8b069dcb1f76082972d5f9d0ed17e8c9f2df9438f4d949aebbf31153049f9",
+      "canonical_after": "docs/archive/videosearch_r1 × CHARADES全量时间戳对照-11.06.md"
+    },
+    {
+      "path": "doc/videosearch_r1 × CHARADES全量评估-10.27.md",
+      "bytes": 17858,
+      "mtime_ns": 1793863473208021385,
+      "sha256": "65749353da2acdbb107482ee68e614a99309fba0e05a3661a3d776f7594b4aeb",
+      "canonical_after": "docs/archive/videosearch_r1 × CHARADES全量评估-10.27.md"
+    },
+    {
+      "path": "doc/videosearch_r1 × CHARADES定位失败案例分析-11.05.md",
+      "bytes": 12969,
+      "mtime_ns": 1793869584871395983,
+      "sha256": "fb5c093867e82b48a929e9a2a5bde721dc4a513de0bb4e99d0e91b0f801317cb",
+      "canonical_after": "docs/archive/videosearch_r1 × CHARADES定位失败案例分析-11.05.md"
+    },
+    {
+      "path": "doc/videosearch_r1 × CHARADES时间戳对照检查-11.05.md",
+      "bytes": 5739,
+      "mtime_ns": 1793871543939066789,
+      "sha256": "7f179d53d82ea742fb08c0d884e9a406a47bad4d88222c74c20b73dc1c5d3cda",
+      "canonical_after": "docs/archive/videosearch_r1 × CHARADES时间戳对照检查-11.05.md"
+    },
+    {
+      "path": "doc/videosearch_r1 × CHARADES离线检查-10.27.md",
+      "bytes": 11418,
+      "mtime_ns": 1793863473208021385,
+      "sha256": "14b657dc6f0f596fd812dd42d212e5f5311ed03b0e1ace6469c7cfb867150960",
+      "canonical_after": "docs/archive/videosearch_r1 × CHARADES离线检查-10.27.md"
+    },
+    {
+      "path": "doc/videosearch_r1 × DIDEMO全量评估-10.28.md",
+      "bytes": 10883,
+      "mtime_ns": 1793863473220022056,
+      "sha256": "3f76443d9c524641110e2846ce8c54a755b95abccffade3d40f665aa5a1fefe4",
+      "canonical_after": "docs/archive/videosearch_r1 × DIDEMO全量评估-10.28.md"
+    },
+    {
+      "path": "doc/videosearch_r1 × DIDEMO离线检查-10.28.md",
+      "bytes": 10972,
+      "mtime_ns": 1793863473224022279,
+      "sha256": "f694a93091632e4566bd5e8034c07a58420c4c6c4db08d5e2ac9b9c87ec2ebe4",
+      "canonical_after": "docs/archive/videosearch_r1 × DIDEMO离线检查-10.28.md"
+    },
+    {
+      "path": "doc/videosearch_r1 × 三数据集全量评估汇总-11.05.md",
+      "bytes": 8096,
+      "mtime_ns": 1793863680559584929,
+      "sha256": "4f70241fe63226ee4979ef65aa2a71b843c324a6d21ad794676911672f831483",
+      "canonical_after": "docs/archive/videosearch_r1 × 三数据集全量评估汇总-11.05.md"
+    }
+  ],
+  "test_groups": [
+    {
+      "group": "common",
+      "files": [
+        "tests/common/test_verified_video_sampling.py",
+        "tests/common/test_runner_timing.py"
+      ],
+      "frozen_implementations": [
+        "tests/test_verified_video_sampling.py",
+        "tests/test_runner_timing.py"
+      ]
+    },
+    {
+      "group": "reproduction/charades",
+      "files": [
+        "tests/reproduction/charades/test_charades_protocol.py"
+      ],
+      "frozen_implementations": [
+        "tests/test_charades_protocol.py"
+      ]
+    },
+    {
+      "group": "reproduction/didemo",
+      "files": [
+        "tests/reproduction/didemo/test_didemo_protocol.py",
+        "tests/reproduction/didemo/test_didemo_download_retries.py",
+        "tests/reproduction/didemo/test_didemo_timing.py"
+      ],
+      "frozen_implementations": [
+        "tests/test_didemo_protocol.py",
+        "tests/test_didemo_download_retries.py",
+        "tests/test_didemo_timing.py"
+      ]
+    },
+    {
+      "group": "reproduction/activitynet",
+      "files": [
+        "tests/reproduction/activitynet/test_activitynet_protocol.py",
+        "tests/reproduction/activitynet/test_activitynet_full_ver_coverage.py",
+        "tests/reproduction/activitynet/test_activitynet_repair_time.py",
+        "tests/reproduction/activitynet/test_activitynet_repair_views.py",
+        "tests/reproduction/activitynet/test_activitynet_source_alignment.py",
+        "tests/reproduction/activitynet/test_activitynet_source_qualification.py",
+        "tests/reproduction/activitynet/test_activitynet_tar_partition.py",
+        "tests/reproduction/activitynet/test_activitynet_timing.py"
+      ],
+      "frozen_implementations": [
+        "tests/test_activitynet_protocol.py",
+        "tests/test_activitynet_full_ver_coverage.py",
+        "tests/test_activitynet_repair_time.py",
+        "tests/test_activitynet_repair_views.py",
+        "tests/test_activitynet_source_alignment.py",
+        "tests/test_activitynet_source_qualification.py",
+        "tests/test_activitynet_tar_partition.py",
+        "tests/test_activitynet_timing.py"
+      ]
+    },
+    {
+      "group": "optimization/charades",
+      "files": [
+        "tests/optimization/charades/test_charades_timestamps.py",
+        "tests/optimization/charades/test_charades_timestamp_full.py",
+        "tests/optimization/charades/test_charades_case_patch_reconstruction.py"
+      ],
+      "frozen_implementations": [
+        "tests/test_charades_timestamps.py",
+        "tests/test_charades_timestamp_full.py",
+        "tests/test_charades_case_patch_reconstruction.py"
+      ]
+    }
+  ],
+  "documentation_compatibility": [
+    {
+      "path": "docs/reports",
+      "target": "reports"
+    },
+    {
+      "path": "docs/outputs",
+      "target": "outputs"
+    },
+    {
+      "path": "docs/scripts",
+      "target": "scripts"
+    },
+    {
+      "path": "docs/configs",
+      "target": "configs"
+    },
+    {
+      "path": "docs/logs",
+      "target": "logs"
+    },
+    {
+      "path": "docs/cache",
+      "target": "cache"
+    },
+    {
+      "path": "docs/upstream",
+      "target": "upstream"
+    },
+    {
+      "path": "docs/experiments",
+      "target": "experiments"
+    }
+  ],
+  "historical_reorganization_report": "common/00_setup/reports/51_workspace_reorganization.json",
+  "models_or_test_data_modified": false,
+  "model_execution": false,
+  "gpu_access": false,
+  "validated_at": "2026-11-06T22:34:54.519550+08:00",
+  "validation_report": "common/00_setup/reports/54_phase_layout_validation.json",
+  "navigation_rebasing_note": "Only generated README/RESULTS navigation was updated; historical detailed reports and 104 frozen files preserved."
+}

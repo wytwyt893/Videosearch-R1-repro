@@ -1,0 +1,309 @@
+{
+  "created_at": "2026-10-28T14:56:05.001708+08:00",
+  "status": "DIDEMO_STAGE2_FULL_COMPLETE",
+  "dataset": "DiDeMo-FIG",
+  "method": "VideoSearch-R1 / released Stage2 checkpoint",
+  "output_dir": "/data/wyt/videosearch_r1_repro/outputs/didemo_full_20261028_101412_373223",
+  "start_at": "2026-10-28T10:14:09.441393+08:00",
+  "launcher_exit_at": "2026-10-28T14:50:55.681564+08:00",
+  "expected_queries": 4013,
+  "completed_queries": 4013,
+  "full_video_corpus": 1002,
+  "official_source_commit": "69234fd9783b7235164d9f92b8903d9781dc284e",
+  "stage2_revision": "a576c16040c35a5ec71468c66ec7628e7db71997",
+  "retriever_revision": "9f2f7e710d6d81056aa5c0a4f04764fec6bb7bda",
+  "parameters": {
+    "T": 2,
+    "soft_tokens": 8,
+    "bf16": true,
+    "backend": "vllm",
+    "batch": 1,
+    "tensor_parallel_size": 1,
+    "eager": true,
+    "gpu_memory_utilization": 0.45,
+    "primary_VER": "last_verified",
+    "terminal_refinement": "keep_official"
+  },
+  "protocol": {
+    "primary_ver_turn": "last_verified",
+    "primary_ver_pairing": "turns[-1].answer versus turns[-1].top1_is_gt",
+    "ver_denominator": "valid_answers; invalid count and all-example accuracy reported explicitly",
+    "terminal_refinement": "keep_official_when_triggered; no extra verification beyond T=2",
+    "vr_ranking": "final_rank after any terminal refinement",
+    "vcmr": "official final_iou_r1 from the actual verified video",
+    "paper_ver_turn_confirmed": false
+  },
+  "primary": {
+    "VER": {
+      "N": 4013,
+      "N_expected": 4013,
+      "correct": 2857,
+      "accuracy": 0.7119362073261899,
+      "invalid_answers": 0,
+      "coverage": 1.0,
+      "accuracy_all_examples": 0.7119362073261899,
+      "confusion": {
+        "TP": 2128,
+        "TN": 729,
+        "FP": 933,
+        "FN": 223
+      }
+    },
+    "VR": {
+      "N": 4013,
+      "R@1": 0.5895838524794418,
+      "R@5": 0.8205831049090456,
+      "R@10": 0.8781460254173935,
+      "R@100": 0.975080986792923,
+      "MRR": 0.6894152559325609,
+      "mean_rank": 11.69897832045851
+    },
+    "VCMR": {
+      "N": 4013,
+      "mIoU@R1": 0.25584122697352546,
+      "IoU@0.3@R1": 0.31771741839023177,
+      "IoU@0.5@R1": 0.2880637926738101,
+      "IoU@0.7@R1": 0.19063045103413906
+    }
+  },
+  "supplementary": {
+    "first_turn_VER": {
+      "N": 4013,
+      "N_expected": 4013,
+      "correct": 3007,
+      "accuracy": 0.7493147271368054,
+      "invalid_answers": 0,
+      "coverage": 1.0,
+      "accuracy_all_examples": 0.7493147271368054,
+      "confusion": {
+        "TP": 1980,
+        "TN": 1027,
+        "FP": 786,
+        "FN": 220
+      }
+    }
+  },
+  "diagnostics": {
+    "terminal_refinement": {
+      "refined_after_second_verification": 952,
+      "changed_top1_video": 2,
+      "changed_video_label": 1
+    },
+    "official_final_field_pairing_VER": {
+      "N": 4013,
+      "N_expected": 4013,
+      "correct": 2856,
+      "accuracy": 0.7116870171941191,
+      "invalid_answers": 0,
+      "coverage": 1.0,
+      "accuracy_all_examples": 0.7116870171941191,
+      "confusion": {
+        "TP": 2128,
+        "TN": 728,
+        "FP": 933,
+        "FN": 224
+      }
+    },
+    "official_pairing_is_primary": false
+  },
+  "paper_reference": {
+    "url": "https://arxiv.org/html/2607.00446v1#S4.T2",
+    "table": 2,
+    "row": "DiDeMo-FIG / VideoSearch-R1",
+    "verified_at": "2026-10-28T14:56:05.001779+08:00"
+  },
+  "paper_comparison": [
+    {
+      "metric": "VCMR IoU≥0.3 R@1",
+      "hits": 1275,
+      "N": 4013,
+      "local_percent": 31.771741839023175,
+      "paper_percent": 33.3,
+      "delta_percentage_points": -1.5282581609768222,
+      "paper_ver_turn_unconfirmed": false
+    },
+    {
+      "metric": "VCMR IoU≥0.5 R@1",
+      "hits": 1156,
+      "N": 4013,
+      "local_percent": 28.80637926738101,
+      "paper_percent": 30.2,
+      "delta_percentage_points": -1.393620732618988,
+      "paper_ver_turn_unconfirmed": false
+    },
+    {
+      "metric": "VCMR IoU≥0.7 R@1",
+      "hits": 765,
+      "N": 4013,
+      "local_percent": 19.063045103413906,
+      "paper_percent": 19.7,
+      "delta_percentage_points": -0.6369548965860936,
+      "paper_ver_turn_unconfirmed": false
+    },
+    {
+      "metric": "VER：末次实际验证（主指标）",
+      "hits": 2857,
+      "N": 4013,
+      "local_percent": 71.193620732619,
+      "paper_percent": 74.6,
+      "delta_percentage_points": -3.4063792673809985,
+      "paper_ver_turn_unconfirmed": true
+    },
+    {
+      "metric": "VR R@1",
+      "hits": 2366,
+      "N": 4013,
+      "local_percent": 58.95838524794418,
+      "paper_percent": 59.0,
+      "delta_percentage_points": -0.041614752055821214,
+      "paper_ver_turn_unconfirmed": false
+    },
+    {
+      "metric": "VR R@5",
+      "hits": 3293,
+      "N": 4013,
+      "local_percent": 82.05831049090456,
+      "paper_percent": 82.0,
+      "delta_percentage_points": 0.0583104909045602,
+      "paper_ver_turn_unconfirmed": false
+    },
+    {
+      "metric": "VR R@10",
+      "hits": 3524,
+      "N": 4013,
+      "local_percent": 87.81460254173935,
+      "paper_percent": 87.8,
+      "delta_percentage_points": 0.014602541739350272,
+      "paper_ver_turn_unconfirmed": false
+    },
+    {
+      "metric": "VR R@100",
+      "hits": 3913,
+      "N": 4013,
+      "local_percent": 97.5080986792923,
+      "paper_percent": 97.5,
+      "delta_percentage_points": 0.00809867929230279,
+      "paper_ver_turn_unconfirmed": false
+    }
+  ],
+  "supplementary_first_ver_comparison": {
+    "local_percent": 74.93147271368053,
+    "paper_percent": 74.6,
+    "delta_percentage_points": 0.3314727136805402,
+    "paper_turn_not_confirmed": true,
+    "replaces_primary": false
+  },
+  "integrity": {
+    "checked_at": "2026-10-28T14:53:54.632144+08:00",
+    "passed": true,
+    "model_execution": false,
+    "hashes_and_primary_rescore_match": true,
+    "preflight_and_smoke_binding_still_pass": true,
+    "indices_exactly_0_through_4012": true,
+    "annotation_mapping_checked_by_supplementary_scorer": true,
+    "applied_sqr_tensors_all_8x2048": true,
+    "boundary_checks": {
+      "0.3": {
+        "python_hits": 1275,
+        "float32_hits": 1275,
+        "different_indices": []
+      },
+      "0.5": {
+        "python_hits": 1156,
+        "float32_hits": 1156,
+        "different_indices": []
+      },
+      "0.7": {
+        "python_hits": 765,
+        "float32_hits": 765,
+        "different_indices": []
+      }
+    },
+    "turn_counts": {
+      "1": 2766,
+      "2": 1247
+    },
+    "prediction_sha256": "325224da4792728f095f9fdb5960a93971498ede827e994a9eab8dc3b64e065c",
+    "primary_result_sha256": "e9b3fe51108f8768ccbb9247646064af9ac8cbdbaa21f30d3f64da38697d5ea0"
+  },
+  "skip": {
+    "query_not_found_in_meta": 0,
+    "pos_doc_missing": 0,
+    "video_file_missing": 0,
+    "gt_time_invalid": 0
+  },
+  "video_meta_stats": {
+    "npy_or_npz_inputs": 5260,
+    "meta_payload_hits": 5260,
+    "meta_payload_misses": 0
+  },
+  "answer_counts": {
+    "matched": 3061,
+    "not_matched": 952
+  },
+  "refine": {
+    "samples_with_refine": 1247,
+    "refine_token_generated_turns": 2199,
+    "refine_applied_turns": 2199
+  },
+  "matched_by_turn": {
+    "1": 2766,
+    "2": 295
+  },
+  "timing_seconds": {
+    "startup_seconds": 35.72674322128296,
+    "official_loop_seconds": 16561.890999794006,
+    "process_seconds": 16600.27,
+    "shutdown_seconds": 2.65225698471113,
+    "first_query_seconds": 7.916592049761675,
+    "steady_mean_seconds_per_query": 4.126128850243257,
+    "sample_timing_poll_seconds": 0.1
+  },
+  "process_hours": 4.611186111111111,
+  "smoke_forecast_hours": [
+    4.141707955186426,
+    4.559397331424554
+  ],
+  "planning_budget_hours": 6,
+  "gpu": {
+    "index": 1,
+    "name": "NVIDIA A100-SXM4-80GB",
+    "uuid": "GPU-677cef2a-aeb8-267d-4a59-19e72f682efc",
+    "cuda_uuid": "677cef2a-aeb8-267d-4a59-19e72f682efc",
+    "peak_used_mib": 50147,
+    "peak_used_gib": 48.9716796875,
+    "released": true
+  },
+  "postrun_resources": {
+    "checked_at": "2026-10-28T14:54:27.454157+08:00",
+    "gpu1": "1, GPU-677cef2a-aeb8-267d-4a59-19e72f682efc, 0, 0",
+    "gpu1_compute_apps": [],
+    "tmux_panes": [
+      "pane=0 dead=1 exit=0 command=bash",
+      "pane=1 dead=0 exit= command=tail"
+    ],
+    "launcher_exit_code": "0"
+  },
+  "temporal_axis_caveat": {
+    "confirmed": true,
+    "official_behavior_preserved": true,
+    "issue": "Official presampled-NPY metadata uses target fps=1 and sequential indices; source sampled timestamps are not forwarded. Long videos may receive a shorter apparent timeline.",
+    "decision": "Preserve official checkpoint inference for baseline smoke; no undocumented timestamp correction. Timing estimate does not establish exact paper metric alignment.",
+    "paper_temporal_alignment_confirmed": false
+  },
+  "evidence": {
+    "predictions_sha256": "325224da4792728f095f9fdb5960a93971498ede827e994a9eab8dc3b64e065c",
+    "primary_result_sha256": "e9b3fe51108f8768ccbb9247646064af9ac8cbdbaa21f30d3f64da38697d5ea0",
+    "supplementary_result_sha256": "9ea01f9a1cacdcea3c574fe7876622f53d3b2a5da32740da3d0fb7ae00c8c05d",
+    "experiment_signature": "997eef2dad1d0b3fa092a7155bb4d29be7906d1e6a985d780e4b41f6332eb491",
+    "preflight": "reports/15_didemo_cpu_preflight.json",
+    "smoke": "reports/16_didemo_final_smoke.json"
+  },
+  "interpretation": {
+    "VR_close_to_paper": true,
+    "VCMR_gap_cause_confirmed": false,
+    "paper_ver_turn_confirmed": false,
+    "training_reproduction": false,
+    "all_table2_baselines_reproduced": false
+  }
+}

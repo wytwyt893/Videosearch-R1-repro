@@ -1,0 +1,103 @@
+{
+  "timestamp": "2026-10-26T16:31:15.775196+08:00",
+  "local_checkpoint": "VideoSearchR1/charades-stage2",
+  "local_config": {
+    "hidden_size": 2048,
+    "intermediate_size": 6144,
+    "num_hidden_layers": 28,
+    "num_attention_heads": 16,
+    "num_key_value_heads": 8,
+    "head_dim": 128
+  },
+  "model_card_base_model": "Qwen/Qwen3-VL-4B-Instruct",
+  "official_config_comparison": [
+    {
+      "model": "Qwen/Qwen3-VL-2B-Instruct",
+      "url": "https://hf.co/Qwen/Qwen3-VL-2B-Instruct/resolve/main/config.json",
+      "text_config": {
+        "hidden_size": 2048,
+        "intermediate_size": 6144,
+        "num_hidden_layers": 28,
+        "num_attention_heads": 16,
+        "num_key_value_heads": 8,
+        "head_dim": 128
+      },
+      "vision_config": {
+        "deepstack_visual_indexes": [
+          5,
+          11,
+          17
+        ],
+        "depth": 24,
+        "hidden_act": "gelu_pytorch_tanh",
+        "hidden_size": 1024,
+        "in_channels": 3,
+        "initializer_range": 0.02,
+        "intermediate_size": 4096,
+        "model_type": "qwen3_vl",
+        "num_heads": 16,
+        "num_position_embeddings": 2304,
+        "out_hidden_size": 2048,
+        "patch_size": 16,
+        "spatial_merge_size": 2,
+        "temporal_patch_size": 2
+      },
+      "matches_local_text_architecture": true
+    },
+    {
+      "model": "Qwen/Qwen3-VL-4B-Instruct",
+      "url": "https://hf.co/Qwen/Qwen3-VL-4B-Instruct/resolve/main/config.json",
+      "text_config": {
+        "hidden_size": 2560,
+        "intermediate_size": 9728,
+        "num_hidden_layers": 36,
+        "num_attention_heads": 32,
+        "num_key_value_heads": 8,
+        "head_dim": 128
+      },
+      "vision_config": {
+        "deepstack_visual_indexes": [
+          5,
+          11,
+          17
+        ],
+        "depth": 24,
+        "hidden_act": "gelu_pytorch_tanh",
+        "hidden_size": 1024,
+        "in_channels": 3,
+        "initializer_range": 0.02,
+        "intermediate_size": 4096,
+        "model_type": "qwen3_vl",
+        "num_heads": 16,
+        "num_position_embeddings": 2304,
+        "out_hidden_size": 2560,
+        "patch_size": 16,
+        "spatial_merge_size": 2,
+        "temporal_patch_size": 2
+      },
+      "matches_local_text_architecture": false
+    }
+  ],
+  "note": "Architecture comparison establishes model family, not training lineage or Table 2 score reproduction.",
+  "checkpoint_tensor_shapes": {
+    "lm_head.weight": [
+      151670,
+      2048
+    ],
+    "model.language_model.embed_tokens.weight": [
+      151670,
+      2048
+    ],
+    "model.language_model.layers.0.mlp.gate_proj.weight": [
+      6144,
+      2048
+    ],
+    "model.language_model.layers.0.self_attn.q_proj.weight": [
+      2048,
+      2048
+    ]
+  },
+  "conclusion": "Local checkpoint configuration and tensor shapes match Qwen3-VL-2B architecture; the model card labels the base as 4B. The metadata conflict is unresolved, and architecture does not prove the exact training lineage or Table 2 score.",
+  "actual_language_layer_count": 28,
+  "all_language_q_projection_shapes_match_2b": true
+}

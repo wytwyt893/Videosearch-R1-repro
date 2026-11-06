@@ -1,0 +1,1 @@
+../../../scripts/run_didemo_full.py

@@ -1,0 +1,1 @@
+../../../../../scripts/summarize_charades_timestamp_full.py

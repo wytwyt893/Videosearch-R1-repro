@@ -1,0 +1,57 @@
+{
+  "status": "WORKSPACE_ORGANIZATION_CPU_VALIDATED",
+  "checked_at": "2026-11-06T22:12:56.926131+08:00",
+  "layout": {
+    "status": "LAYOUT_CPU_VALIDATION_PASSED",
+    "experiment_groups": 11,
+    "script_entries": 70,
+    "moved_files": 837,
+    "frozen_files": 104,
+    "full_timestamp_qualification": "FULL_TIMESTAMP_CPU_QUALIFIED",
+    "localization_probe_qualification": "CPU_QUALIFIED",
+    "cuda_initialized": false,
+    "model_execution": false,
+    "released_payload_MiB": 125.17
+  },
+  "tests": {
+    "passed": 76,
+    "log": "experiments/00_setup/logs/layout_cpu_tests_20261106.log",
+    "log_sha256": "c33531e15dd340fd178d497efa8268f3fbc71bf6f2356e7a22d0f35c131096b5"
+  },
+  "numbered_entry_dry_runs": {
+    "layout_didemo_dry_run_20261106.json": {
+      "passed": true,
+      "model_execution": false,
+      "gpu_access": false,
+      "sha256": "138e3287a7b9eb89c8512958a38b8834e98683fb053d4565ff14dd6f2243f713"
+    },
+    "layout_charades_dry_run_20261106.json": {
+      "passed": true,
+      "model_execution": false,
+      "gpu_access": false,
+      "sha256": "5a9275b3da69921fa40d5a50d527dfeb6e221c564965655076de9ffa5e21f67b"
+    },
+    "layout_activitynet_dry_run_20261106.json": {
+      "passed": true,
+      "model_execution": false,
+      "gpu_access": false,
+      "sha256": "08ba0c5f377e7bb2bc471198b08a3380e76024bf8dc6517a253e4400259816b1"
+    }
+  },
+  "navigation": {
+    "markdown_files": 28,
+    "local_links": 431,
+    "broken_new_navigation_links": 0,
+    "symbolic_links": 292,
+    "broken_symbolic_links": 0,
+    "historical_readme_snapshots": "Preserved verbatim; not current navigation."
+  },
+  "shell_entries": {
+    "syntax_check_passed": true,
+    "environment_bridge_workspace_check_passed": true,
+    "installer_executed": false
+  },
+  "validator_sha256": "c07f6bfaf90ac95c70da16c59ee3c0e5e25639bba55a140df46fc7acb86f2f2f",
+  "model_execution": false,
+  "gpu_access": false
+}

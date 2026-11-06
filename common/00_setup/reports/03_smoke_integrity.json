@@ -1,0 +1,62 @@
+{
+  "timestamp": "2026-10-23T21:36:36.021581+08:00",
+  "source_commit": "69234fd9783b7235164d9f92b8903d9781dc284e",
+  "upstream_clean": true,
+  "project_source_sha256": {
+    "scripts/validate_runtime.py": "5fa6aada119966f20a8ef78350958874d31325915d325b55b419cb9ccd5a7188",
+    "scripts/restore_upstream.py": "9965219dd95a709aadf8eb8262af435052b2e3875d6fd50b98945d5f040c5600",
+    "scripts/remote_tar.py": "b5c35b38072189259b224dd0416559698916d3e0ad3bf8e995616df8fe454da5",
+    "scripts/validate_smoke_data.py": "c61aa3a21ef2a23f95ba2aefe870f1d55710918283af5a2b158a976ee58be3ee",
+    "scripts/network.sh": "2b95269c832c9af4ee73aa62d3db777f4b04773606fdcea941d9cff150b2935c",
+    "scripts/run_charades_smoke.py": "d8acc84b98184f17952d34cbd4bd18b099906564a78fee55e9697299fe2b5b95",
+    "scripts/audit_stage1.py": "10054d3dfafd9fcd08ba459b0d37cefd5438f25705b9f9c8bd750cd8bf3948f4",
+    "scripts/http_assets.py": "e3d1af5ca908850b9c618b90f4cd9e3dbc21f4fd399eb6ed4f9d3d6450ee12d5",
+    "scripts/install_runtime.sh": "0d12939113bf11a0dd2d4eae9ba5c5c9711f6418ae343c0019ca8fc0294b4654",
+    "scripts/runtime_constraints.txt": "c28612ca974351c312c2e69c70d19a0743dcb791e15bb0f0e6b20bdeff633f1e",
+    "scripts/smoke_eval.py": "902fd966f53de40ab34c7b3c0f25ae414229154dd6260c862ca4c51b47f23383",
+    "scripts/prepare_models.py": "df94edc3eee243b8cac1b7f8bfe0b9de89f3d80002c51fcf7d2123780c5d675b",
+    "scripts/repair_decord.py": "c7fb6e92857f983d9f18bbe92d8b0fa0418b91f2b452a384ed4cdaf68773ef61",
+    "scripts/env.sh": "6574102ca7b2e4012da5c4d2269b6178103604fa75c96f96983b3767122fb1af",
+    "tools/bin/hf": "6beba1846b77e3a3e57499b88a6d109b6186b1916f14692d3c5ec4f35ae7c01b",
+    "tools/bin/smoke_python": "9251583ce4707c938b3ed329b9f0ce22601475191503cc6e790f1359fe07713d"
+  },
+  "evidence_sha256": {
+    "03_models.json": "18105040e4eb404b20557f67cd0f085dad7adfccff61f366cac8fa93bf113365",
+    "03_data_receipts.json": "5c256183f433f27c96643996df747ca5aa61a6867aab016687705d5202ab9dd0",
+    "03_data_validation.json": "48a90df2ec3a23f89a925abed93ef0a03a92f32200852473b1209ae782e60079",
+    "03_runtime_validation.json": "55d7a652a9d91032024b00f2c8a7631216120f30837f8f669b741e1c37180e46",
+    "03_decord_repair.json": "58ddd2e798075613b7720ee2e946b7729d02e0860e16b26e0d3b575a43da0fdc",
+    "environment.smoke.pip.freeze.txt": "814be3c0774e132ddb17f5e8df48c85c9803361cd3c1ba6e52c2e42b9ac00a57"
+  },
+  "runtime_compat_sha256": {
+    "_compat_meta.json": "df44483848ad2eb7d3d1f27686239025f8e603b0748c2ea385a2ec52022aa5c2",
+    "added_tokens.json": "3338788518288f5e34999461de4c905033c1858ed622d9633d954ed9adc3e69d",
+    "model.safetensors": "f11fbd1bbf8c5f8446b4a8344cb48e10e592d4472cf3335fb40cbbaed5e20bff",
+    "tokenizer_config.json": "0e6f0d874d720d0219a527ef260c1ab74b07510ee191a9e522237bab7a1c8184",
+    "generation_config.json": "3ff2e83a0510cccccc85c8c96c7df4207985c098b526d798bc2bc68e50bb1a41",
+    ".gitattributes": "7e7f86ba4537b77cfc7103bedbbb62f6d3e433fb308932dd572c77856fb0fcab",
+    "video_preprocessor_config.json": "59c5c9eb52182eb14c06ffb10ca9effd29adce5f238a95de23ca14a38dbd2cb1",
+    "preprocessor_config.json": "93585062a80db5e8ca038efc7726a3e6411d9db948472d81d63c6303993be8c5",
+    "README.md": "67fdcf2f1d3e8c4542353990f5d7d4fe1244f12b90c78aff4f29bbee98abe128",
+    "config.json": "fdbf30b3e71b9ca37ecdf5ec1243533a032bfca70af8b096d1a46c169744ccc4",
+    "chat_template.jinja": "3636d0f0bd6bef02654cdffdc447b79cb2cef8ab02cc75267345946291a489e4",
+    "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+    "tokenizer.json": "eda24b2b728f3383edd5ac02192ea21c77b021c338367b1542fa2cbe4c0f6d44",
+    "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+    "special_tokens_map.json": "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd",
+    "model.safetensors.partial": "e8591bc3495a9a9fa51094127914b289591ece5fc713557a1014aff5ea306af4"
+  },
+  "prediction_sha256": "2b50ad2a3e3b0b80a0311537ae65aabc547a9980135f301ef63c098083d28ca1",
+  "all_data_receipts_reverified": true,
+  "downloaded_video_tensors": 8,
+  "integrity": {
+    "expected_rows": 5,
+    "written_rows": 5,
+    "unique_indices": 5,
+    "skipped_rows": 0,
+    "video_metadata_misses": 0,
+    "retrieval_denominator": 5,
+    "temporal_denominator": 5
+  },
+  "passed": true
+}

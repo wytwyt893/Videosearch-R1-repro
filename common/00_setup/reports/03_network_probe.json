@@ -1,0 +1,867 @@
+{
+  "timestamp": "2026-10-23T20:49:33.709279+08:00",
+  "proxy": "http://127.0.0.1:7890",
+  "results": [
+    {
+      "name": "model",
+      "status": 200,
+      "bytes": 8888,
+      "seconds": 1.05,
+      "id": "VideoSearchR1/charades-stage2",
+      "sha": "c78dc49c6b2cffdf9ae36bd01b738f9b9cdce283",
+      "gated": false,
+      "private": false,
+      "safetensors": {
+        "parameters": {
+          "BF16": 2454407169
+        },
+        "total": 2454407169
+      },
+      "config": {
+        "architectures": [
+          "Qwen3VLForConditionalGeneration"
+        ],
+        "model_type": "qwen3_vl",
+        "tokenizer_config": {
+          "bos_token": null,
+          "eos_token": "<|im_end|>",
+          "pad_token": "<|endoftext|>",
+          "unk_token": null
+        },
+        "chat_template_jinja": "{%- if tools %}\n    {{- '<|im_start|>system\\n' }}\n    {%- if messages[0].role == 'system' %}\n        {%- if messages[0].content is string %}\n            {{- messages[0].content }}\n        {%- else %}\n            {%- for content in messages[0].content %}\n                {%- if 'text' in content %}\n                    {{- content.text }}\n                {%- endif %}\n            {%- endfor %}\n        {%- endif %}\n        {{- '\\n\\n' }}\n    {%- endif %}\n    {{- \"# Tools\\n\\nYou may call one or more functions to assist with the user query.\\n\\nYou are provided with function signatures within <tools></tools> XML tags:\\n<tools>\" }}\n    {%- for tool in tools %}\n        {{- \"\\n\" }}\n        {{- tool | tojson }}\n    {%- endfor %}\n    {{- \"\\n</tools>\\n\\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:\\n<tool_call>\\n{\\\"name\\\": <function-name>, \\\"arguments\\\": <args-json-object>}\\n</tool_call><|im_end|>\\n\" }}\n{%- else %}\n    {%- if messages[0].role == 'system' %}\n        {{- '<|im_start|>system\\n' }}\n        {%- if messages[0].content is string %}\n            {{- messages[0].content }}\n        {%- else %}\n            {%- for content in messages[0].content %}\n                {%- if 'text' in content %}\n                    {{- content.text }}\n                {%- endif %}\n            {%- endfor %}\n        {%- endif %}\n        {{- '<|im_end|>\\n' }}\n    {%- endif %}\n{%- endif %}\n{%- set image_count = namespace(value=0) %}\n{%- set video_count = namespace(value=0) %}\n{%- for message in messages %}\n    {%- if message.role == \"user\" %}\n        {{- '<|im_start|>' + message.role + '\\n' }}\n        {%- if message.content is string %}\n            {{- message.content }}\n        {%- else %}\n            {%- for content in message.content %}\n                {%- if content.type == 'image' or 'image' in content or 'image_url' in content %}\n                    {%- set image_count.value = image_count.value + 1 %}\n                    {%- if add_vision_id %}Picture {{ image_count.value }}: {% endif -%}\n                    <|vision_start|><|image_pad|><|vision_end|>\n                {%- elif content.type == 'video' or 'video' in content %}\n                    {%- set video_count.value = video_count.value + 1 %}\n                    {%- if add_vision_id %}Video {{ video_count.value }}: {% endif -%}\n                    <|vision_start|><|video_pad|><|vision_end|>\n                {%- elif 'text' in content %}\n                    {{- content.text }}\n                {%- endif %}\n            {%- endfor %}\n        {%- endif %}\n        {{- '<|im_end|>\\n' }}\n    {%- elif message.role == \"assistant\" %}\n        {{- '<|im_start|>' + message.role + '\\n' }}\n        {%- if message.content is string %}\n            {{- message.content }}\n        {%- else %}\n            {%- for content_item in message.content %}\n                {%- if 'text' in content_item %}\n                    {{- content_item.text }}\n                {%- endif %}\n            {%- endfor %}\n        {%- endif %}\n        {%- if message.tool_calls %}\n            {%- for tool_call in message.tool_calls %}\n                {%- if (loop.first and message.content) or (not loop.first) %}\n                    {{- '\\n' }}\n                {%- endif %}\n                {%- if tool_call.function %}\n                    {%- set tool_call = tool_call.function %}\n                {%- endif %}\n                {{- '<tool_call>\\n{\"name\": \"' }}\n                {{- tool_call.name }}\n                {{- '\", \"arguments\": ' }}\n                {%- if tool_call.arguments is string %}\n                    {{- tool_call.arguments }}\n                {%- else %}\n                    {{- tool_call.arguments | tojson }}\n                {%- endif %}\n                {{- '}\\n</tool_call>' }}\n            {%- endfor %}\n        {%- endif %}\n        {{- '<|im_end|>\\n' }}\n    {%- elif message.role == \"tool\" %}\n        {%- if loop.first or (messages[loop.index0 - 1].role != \"tool\") %}\n            {{- '<|im_start|>user' }}\n        {%- endif %}\n        {{- '\\n<tool_response>\\n' }}\n        {%- if message.content is string %}\n            {{- message.content }}\n        {%- else %}\n            {%- for content in message.content %}\n                {%- if content.type == 'image' or 'image' in content or 'image_url' in content %}\n                    {%- set image_count.value = image_count.value + 1 %}\n                    {%- if add_vision_id %}Picture {{ image_count.value }}: {% endif -%}\n                    <|vision_start|><|image_pad|><|vision_end|>\n                {%- elif content.type == 'video' or 'video' in content %}\n                    {%- set video_count.value = video_count.value + 1 %}\n                    {%- if add_vision_id %}Video {{ video_count.value }}: {% endif -%}\n                    <|vision_start|><|video_pad|><|vision_end|>\n                {%- elif 'text' in content %}\n                    {{- content.text }}\n                {%- endif %}\n            {%- endfor %}\n        {%- endif %}\n        {{- '\\n</tool_response>' }}\n        {%- if loop.last or (messages[loop.index0 + 1].role != \"tool\") %}\n            {{- '<|im_end|>\\n' }}\n        {%- endif %}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- '<|im_start|>assistant\\n' }}\n{%- endif %}\n"
+      },
+      "files": [
+        {
+          "name": ".gitattributes",
+          "size": 1681,
+          "lfs": null
+        },
+        {
+          "name": "README.md",
+          "size": 891,
+          "lfs": null
+        },
+        {
+          "name": "added_tokens.json",
+          "size": 729,
+          "lfs": null
+        },
+        {
+          "name": "chat_template.jinja",
+          "size": 5292,
+          "lfs": null
+        },
+        {
+          "name": "config.json",
+          "size": 1622,
+          "lfs": null
+        },
+        {
+          "name": "eval/external_verified_test_temporal_grounding.check.jsonl",
+          "size": 14879788,
+          "lfs": {
+            "sha256": "ac2256b6a5d882df706cc8b0730b22d29594b5bcb2d38894ac782b3def01ac2f",
+            "size": 14879788,
+            "pointerSize": 133
+          }
+        },
+        {
+          "name": "eval/result.json",
+          "size": 1794,
+          "lfs": null
+        },
+        {
+          "name": "generation_config.json",
+          "size": 199,
+          "lfs": null
+        },
+        {
+          "name": "merges.txt",
+          "size": 1671853,
+          "lfs": null
+        },
+        {
+          "name": "model.safetensors",
+          "size": 4908892434,
+          "lfs": {
+            "sha256": "327687cee5404bbae6ab5c33e427642913670fc1df869251e7ba6221a62bebbe",
+            "size": 4908892434,
+            "pointerSize": 135
+          }
+        },
+        {
+          "name": "preprocessor_config.json",
+          "size": 782,
+          "lfs": null
+        },
+        {
+          "name": "special_tokens_map.json",
+          "size": 613,
+          "lfs": null
+        },
+        {
+          "name": "tokenizer.json",
+          "size": 11423006,
+          "lfs": {
+            "sha256": "eda24b2b728f3383edd5ac02192ea21c77b021c338367b1542fa2cbe4c0f6d44",
+            "size": 11423006,
+            "pointerSize": 133
+          }
+        },
+        {
+          "name": "tokenizer_config.json",
+          "size": 5646,
+          "lfs": null
+        },
+        {
+          "name": "video_preprocessor_config.json",
+          "size": 817,
+          "lfs": null
+        },
+        {
+          "name": "vocab.json",
+          "size": 2776833,
+          "lfs": null
+        }
+      ]
+    },
+    {
+      "name": "manifest",
+      "status": 200,
+      "bytes": 20137,
+      "seconds": 2.65,
+      "manifest": {
+        "format": "videosearchr1-tar-shards-v2",
+        "dataset": "charades-sta",
+        "gcs_prefix": "gs://mlv_doc_under/eccv26/structured_charades",
+        "created_at": "2026-06-21T06:52:52.291678+00:00",
+        "total_files": 6709,
+        "total_size": 114703834511,
+        "shards": [
+          {
+            "name": "charades-sta-00000.tar",
+            "size": 1063122740,
+            "num_files": 74,
+            "parts": [
+              "shards/charades-sta-00000.tar.part-00000",
+              "shards/charades-sta-00000.tar.part-00001",
+              "shards/charades-sta-00000.tar.part-00002",
+              "shards/charades-sta-00000.tar.part-00003",
+              "shards/charades-sta-00000.tar.part-00004",
+              "shards/charades-sta-00000.tar.part-00005",
+              "shards/charades-sta-00000.tar.part-00006",
+              "shards/charades-sta-00000.tar.part-00007",
+              "shards/charades-sta-00000.tar.part-00008",
+              "shards/charades-sta-00000.tar.part-00009",
+              "shards/charades-sta-00000.tar.part-00010",
+              "shards/charades-sta-00000.tar.part-00011",
+              "shards/charades-sta-00000.tar.part-00012",
+              "shards/charades-sta-00000.tar.part-00013",
+              "shards/charades-sta-00000.tar.part-00014",
+              "shards/charades-sta-00000.tar.part-00015",
+              "shards/charades-sta-00000.tar.part-00016",
+              "shards/charades-sta-00000.tar.part-00017",
+              "shards/charades-sta-00000.tar.part-00018",
+              "shards/charades-sta-00000.tar.part-00019",
+              "shards/charades-sta-00000.tar.part-00020",
+              "shards/charades-sta-00000.tar.part-00021",
+              "shards/charades-sta-00000.tar.part-00022",
+              "shards/charades-sta-00000.tar.part-00023",
+              "shards/charades-sta-00000.tar.part-00024",
+              "shards/charades-sta-00000.tar.part-00025",
+              "shards/charades-sta-00000.tar.part-00026",
+              "shards/charades-sta-00000.tar.part-00027",
+              "shards/charades-sta-00000.tar.part-00028",
+              "shards/charades-sta-00000.tar.part-00029",
+              "shards/charades-sta-00000.tar.part-00030",
+              "shards/charades-sta-00000.tar.part-00031",
+              "shards/charades-sta-00000.tar.part-00032",
+              "shards/charades-sta-00000.tar.part-00033",
+              "shards/charades-sta-00000.tar.part-00034",
+              "shards/charades-sta-00000.tar.part-00035",
+              "shards/charades-sta-00000.tar.part-00036",
+              "shards/charades-sta-00000.tar.part-00037",
+              "shards/charades-sta-00000.tar.part-00038",
+              "shards/charades-sta-00000.tar.part-00039",
+              "shards/charades-sta-00000.tar.part-00040",
+              "shards/charades-sta-00000.tar.part-00041",
+              "shards/charades-sta-00000.tar.part-00042",
+              "shards/charades-sta-00000.tar.part-00043",
+              "shards/charades-sta-00000.tar.part-00044",
+              "shards/charades-sta-00000.tar.part-00045",
+              "shards/charades-sta-00000.tar.part-00046",
+              "shards/charades-sta-00000.tar.part-00047",
+              "shards/charades-sta-00000.tar.part-00048",
+              "shards/charades-sta-00000.tar.part-00049",
+              "shards/charades-sta-00000.tar.part-00050",
+              "shards/charades-sta-00000.tar.part-00051",
+              "shards/charades-sta-00000.tar.part-00052",
+              "shards/charades-sta-00000.tar.part-00053",
+              "shards/charades-sta-00000.tar.part-00054",
+              "shards/charades-sta-00000.tar.part-00055",
+              "shards/charades-sta-00000.tar.part-00056",
+              "shards/charades-sta-00000.tar.part-00057",
+              "shards/charades-sta-00000.tar.part-00058",
+              "shards/charades-sta-00000.tar.part-00059",
+              "shards/charades-sta-00000.tar.part-00060",
+              "shards/charades-sta-00000.tar.part-00061",
+              "shards/charades-sta-00000.tar.part-00062",
+              "shards/charades-sta-00000.tar.part-00063"
+            ]
+          },
+          {
+            "name": "charades-sta-00001.tar",
+            "size": 1068195152,
+            "num_files": 61
+          },
+          {
+            "name": "charades-sta-00002.tar",
+            "size": 1066897596,
+            "num_files": 60
+          },
+          {
+            "name": "charades-sta-00003.tar",
+            "size": 1059386586,
+            "num_files": 63
+          },
+          {
+            "name": "charades-sta-00004.tar",
+            "size": 1069149912,
+            "num_files": 66
+          },
+          {
+            "name": "charades-sta-00005.tar",
+            "size": 1071072198,
+            "num_files": 63
+          },
+          {
+            "name": "charades-sta-00006.tar",
+            "size": 1067792782,
+            "num_files": 59
+          },
+          {
+            "name": "charades-sta-00007.tar",
+            "size": 1063286838,
+            "num_files": 63
+          },
+          {
+            "name": "charades-sta-00008.tar",
+            "size": 1071473800,
+            "num_files": 68
+          },
+          {
+            "name": "charades-sta-00009.tar",
+            "size": 1058789312,
+            "num_files": 61
+          },
+          {
+            "name": "charades-sta-00010.tar",
+            "size": 1057498924,
+            "num_files": 59
+          },
+          {
+            "name": "charades-sta-00011.tar",
+            "size": 1071159714,
+            "num_files": 63
+          },
+          {
+            "name": "charades-sta-00012.tar",
+            "size": 1058356404,
+            "num_files": 63
+          },
+          {
+            "name": "charades-sta-00013.tar",
+            "size": 1070479902,
+            "num_files": 66
+          },
+          {
+            "name": "charades-sta-00014.tar",
+            "size": 1063455002,
+            "num_files": 64
+          },
+          {
+            "name": "charades-sta-00015.tar",
+            "size": 1058912094,
+            "num_files": 60
+          },
+          {
+            "name": "charades-sta-00016.tar",
+            "size": 1063732994,
+            "num_files": 64
+          },
+          {
+            "name": "charades-sta-00017.tar",
+            "size": 1073727062,
+            "num_files": 67
+          },
+          {
+            "name": "charades-sta-00018.tar",
+            "size": 1060624054,
+            "num_files": 62
+          },
+          {
+            "name": "charades-sta-00019.tar",
+            "size": 1061015618,
+            "num_files": 64
+          },
+          {
+            "name": "charades-sta-00020.tar",
+            "size": 1064329856,
+            "num_files": 64
+          },
+          {
+            "name": "charades-sta-00021.tar",
+            "size": 1065474422,
+            "num_files": 66,
+            "parts": [
+              "shards/charades-sta-00021.tar.part-00000",
+              "shards/charades-sta-00021.tar.part-00001",
+              "shards/charades-sta-00021.tar.part-00002",
+              "shards/charades-sta-00021.tar.part-00003",
+              "shards/charades-sta-00021.tar.part-00004",
+              "shards/charades-sta-00021.tar.part-00005",
+              "shards/charades-sta-00021.tar.part-00006",
+              "shards/charades-sta-00021.tar.part-00007",
+              "shards/charades-sta-00021.tar.part-00008",
+              "shards/charades-sta-00021.tar.part-00009",
+              "shards/charades-sta-00021.tar.part-00010",
+              "shards/charades-sta-00021.tar.part-00011",
+              "shards/charades-sta-00021.tar.part-00012",
+              "shards/charades-sta-00021.tar.part-00013",
+              "shards/charades-sta-00021.tar.part-00014",
+              "shards/charades-sta-00021.tar.part-00015",
+              "shards/charades-sta-00021.tar.part-00016",
+              "shards/charades-sta-00021.tar.part-00017",
+              "shards/charades-sta-00021.tar.part-00018",
+              "shards/charades-sta-00021.tar.part-00019",
+              "shards/charades-sta-00021.tar.part-00020",
+              "shards/charades-sta-00021.tar.part-00021",
+              "shards/charades-sta-00021.tar.part-00022",
+              "shards/charades-sta-00021.tar.part-00023",
+              "shards/charades-sta-00021.tar.part-00024",
+              "shards/charades-sta-00021.tar.part-00025",
+              "shards/charades-sta-00021.tar.part-00026",
+              "shards/charades-sta-00021.tar.part-00027",
+              "shards/charades-sta-00021.tar.part-00028",
+              "shards/charades-sta-00021.tar.part-00029",
+              "shards/charades-sta-00021.tar.part-00030",
+              "shards/charades-sta-00021.tar.part-00031",
+              "shards/charades-sta-00021.tar.part-00032",
+              "shards/charades-sta-00021.tar.part-00033",
+              "shards/charades-sta-00021.tar.part-00034",
+              "shards/charades-sta-00021.tar.part-00035",
+              "shards/charades-sta-00021.tar.part-00036",
+              "shards/charades-sta-00021.tar.part-00037",
+              "shards/charades-sta-00021.tar.part-00038",
+              "shards/charades-sta-00021.tar.part-00039",
+              "shards/charades-sta-00021.tar.part-00040",
+              "shards/charades-sta-00021.tar.part-00041",
+              "shards/charades-sta-00021.tar.part-00042",
+              "shards/charades-sta-00021.tar.part-00043",
+              "shards/charades-sta-00021.tar.part-00044",
+              "shards/charades-sta-00021.tar.part-00045",
+              "shards/charades-sta-00021.tar.part-00046",
+              "shards/charades-sta-00021.tar.part-00047",
+              "shards/charades-sta-00021.tar.part-00048",
+              "shards/charades-sta-00021.tar.part-00049",
+              "shards/charades-sta-00021.tar.part-00050",
+              "shards/charades-sta-00021.tar.part-00051",
+              "shards/charades-sta-00021.tar.part-00052",
+              "shards/charades-sta-00021.tar.part-00053",
+              "shards/charades-sta-00021.tar.part-00054",
+              "shards/charades-sta-00021.tar.part-00055",
+              "shards/charades-sta-00021.tar.part-00056",
+              "shards/charades-sta-00021.tar.part-00057",
+              "shards/charades-sta-00021.tar.part-00058",
+              "shards/charades-sta-00021.tar.part-00059",
+              "shards/charades-sta-00021.tar.part-00060",
+              "shards/charades-sta-00021.tar.part-00061",
+              "shards/charades-sta-00021.tar.part-00062",
+              "shards/charades-sta-00021.tar.part-00063"
+            ]
+          },
+          {
+            "name": "charades-sta-00022.tar",
+            "size": 1059870412,
+            "num_files": 65
+          },
+          {
+            "name": "charades-sta-00023.tar",
+            "size": 1058559018,
+            "num_files": 60
+          },
+          {
+            "name": "charades-sta-00024.tar",
+            "size": 1071633424,
+            "num_files": 65
+          },
+          {
+            "name": "charades-sta-00025.tar",
+            "size": 1069809754,
+            "num_files": 62
+          },
+          {
+            "name": "charades-sta-00026.tar",
+            "size": 1062436286,
+            "num_files": 61
+          },
+          {
+            "name": "charades-sta-00027.tar",
+            "size": 1071695168,
+            "num_files": 64
+          },
+          {
+            "name": "charades-sta-00028.tar",
+            "size": 1058425548,
+            "num_files": 63
+          },
+          {
+            "name": "charades-sta-00029.tar",
+            "size": 1066575850,
+            "num_files": 62
+          },
+          {
+            "name": "charades-sta-00030.tar",
+            "size": 1072752430,
+            "num_files": 62
+          },
+          {
+            "name": "charades-sta-00031.tar",
+            "size": 1066695162,
+            "num_files": 66
+          },
+          {
+            "name": "charades-sta-00032.tar",
+            "size": 1055252478,
+            "num_files": 60
+          },
+          {
+            "name": "charades-sta-00033.tar",
+            "size": 1070739608,
+            "num_files": 61
+          },
+          {
+            "name": "charades-sta-00034.tar",
+            "size": 1063929976,
+            "num_files": 65
+          },
+          {
+            "name": "charades-sta-00035.tar",
+            "size": 1068947316,
+            "num_files": 60
+          },
+          {
+            "name": "charades-sta-00036.tar",
+            "size": 1064185086,
+            "num_files": 60
+          },
+          {
+            "name": "charades-sta-00037.tar",
+            "size": 1072815814,
+            "num_files": 62
+          },
+          {
+            "name": "charades-sta-00038.tar",
+            "size": 1063378544,
+            "num_files": 61
+          },
+          {
+            "name": "charades-sta-00039.tar",
+            "size": 1067420554,
+            "num_files": 59
+          },
+          {
+            "name": "charades-sta-00040.tar",
+            "size": 1072689062,
+            "num_files": 67
+          },
+          {
+            "name": "charades-sta-00041.tar",
+            "size": 1071466330,
+            "num_files": 65
+          },
+          {
+            "name": "charades-sta-00042.tar",
+            "size": 1067204648,
+            "num_files": 58
+          },
+          {
+            "name": "charades-sta-00043.tar",
+            "size": 1068884112,
+            "num_files": 66
+          },
+          {
+            "name": "charades-sta-00044.tar",
+            "size": 1060035512,
+            "num_files": 61
+          },
+          {
+            "name": "charades-sta-00045.tar",
+            "size": 1061946434,
+            "num_files": 58
+          },
+          {
+            "name": "charades-sta-00046.tar",
+            "size": 1066967328,
+            "num_files": 63
+          },
+          {
+            "name": "charades-sta-00047.tar",
+            "size": 1065937152,
+            "num_files": 60
+          },
+          {
+            "name": "charades-sta-00048.tar",
+            "size": 1072118842,
+            "num_files": 65
+          },
+          {
+            "name": "charades-sta-00049.tar",
+            "size": 1073479458,
+            "num_files": 63
+          },
+          {
+            "name": "charades-sta-00050.tar",
+            "size": 1058261282,
+            "num_files": 58
+          },
+          {
+            "name": "charades-sta-00051.tar",
+            "size": 1063500462,
+            "num_files": 60
+          },
+          {
+            "name": "charades-sta-00052.tar",
+            "size": 1068993966,
+            "num_files": 63
+          },
+          {
+            "name": "charades-sta-00053.tar",
+            "size": 1072245172,
+            "num_files": 62
+          },
+          {
+            "name": "charades-sta-00054.tar",
+            "size": 1061532462,
+            "num_files": 60
+          },
+          {
+            "name": "charades-sta-00055.tar",
+            "size": 1058808972,
+            "num_files": 60
+          },
+          {
+            "name": "charades-sta-00056.tar",
+            "size": 1061799338,
+            "num_files": 61
+          },
+          {
+            "name": "charades-sta-00057.tar",
+            "size": 1071745194,
+            "num_files": 57
+          },
+          {
+            "name": "charades-sta-00058.tar",
+            "size": 1070849016,
+            "num_files": 63
+          },
+          {
+            "name": "charades-sta-00059.tar",
+            "size": 1070137250,
+            "num_files": 64
+          },
+          {
+            "name": "charades-sta-00060.tar",
+            "size": 1058136646,
+            "num_files": 62
+          },
+          {
+            "name": "charades-sta-00061.tar",
+            "size": 1065986440,
+            "num_files": 62
+          },
+          {
+            "name": "charades-sta-00062.tar",
+            "size": 1073418484,
+            "num_files": 65
+          },
+          {
+            "name": "charades-sta-00063.tar",
+            "size": 1055677764,
+            "num_files": 54
+          },
+          {
+            "name": "charades-sta-00064.tar",
+            "size": 1067778638,
+            "num_files": 64
+          },
+          {
+            "name": "charades-sta-00065.tar",
+            "size": 1072020250,
+            "num_files": 59
+          },
+          {
+            "name": "charades-sta-00066.tar",
+            "size": 1070738802,
+            "num_files": 57
+          },
+          {
+            "name": "charades-sta-00067.tar",
+            "size": 1065661876,
+            "num_files": 65
+          },
+          {
+            "name": "charades-sta-00068.tar",
+            "size": 1049183218,
+            "num_files": 62
+          },
+          {
+            "name": "charades-sta-00069.tar",
+            "size": 1065449854,
+            "num_files": 62
+          },
+          {
+            "name": "charades-sta-00070.tar",
+            "size": 1068855372,
+            "num_files": 63
+          },
+          {
+            "name": "charades-sta-00071.tar",
+            "size": 1067100494,
+            "num_files": 64
+          },
+          {
+            "name": "charades-sta-00072.tar",
+            "size": 1059576392,
+            "num_files": 64
+          },
+          {
+            "name": "charades-sta-00073.tar",
+            "size": 1067903270,
+            "num_files": 67
+          },
+          {
+            "name": "charades-sta-00074.tar",
+            "size": 1067155382,
+            "num_files": 61
+          },
+          {
+            "name": "charades-sta-00075.tar",
+            "size": 1064596390,
+            "num_files": 62
+          },
+          {
+            "name": "charades-sta-00076.tar",
+            "size": 1070812192,
+            "num_files": 62
+          },
+          {
+            "name": "charades-sta-00077.tar",
+            "size": 1062254792,
+            "num_files": 64
+          },
+          {
+            "name": "charades-sta-00078.tar",
+            "size": 1055829100,
+            "num_files": 62
+          },
+          {
+            "name": "charades-sta-00079.tar",
+            "size": 1052795608,
+            "num_files": 65
+          },
+          {
+            "name": "charades-sta-00080.tar",
+            "size": 1064792162,
+            "num_files": 58
+          },
+          {
+            "name": "charades-sta-00081.tar",
+            "size": 1072357520,
+            "num_files": 61
+          },
+          {
+            "name": "charades-sta-00082.tar",
+            "size": 1071678910,
+            "num_files": 62
+          },
+          {
+            "name": "charades-sta-00083.tar",
+            "size": 1057367654,
+            "num_files": 61
+          },
+          {
+            "name": "charades-sta-00084.tar",
+            "size": 1058052668,
+            "num_files": 58
+          },
+          {
+            "name": "charades-sta-00085.tar",
+            "size": 1060656558,
+            "num_files": 63
+          },
+          {
+            "name": "charades-sta-00086.tar",
+            "size": 1067972928,
+            "num_files": 60
+          },
+          {
+            "name": "charades-sta-00087.tar",
+            "size": 1062286662,
+            "num_files": 69
+          },
+          {
+            "name": "charades-sta-00088.tar",
+            "size": 1069796932,
+            "num_files": 59
+          },
+          {
+            "name": "charades-sta-00089.tar",
+            "size": 1061895150,
+            "num_files": 63
+          },
+          {
+            "name": "charades-sta-00090.tar",
+            "size": 1058868836,
+            "num_files": 61
+          },
+          {
+            "name": "charades-sta-00091.tar",
+            "size": 1071894984,
+            "num_files": 63
+          },
+          {
+            "name": "charades-sta-00092.tar",
+            "size": 1070304212,
+            "num_files": 64
+          },
+          {
+            "name": "charades-sta-00093.tar",
+            "size": 1056205996,
+            "num_files": 62
+          },
+          {
+            "name": "charades-sta-00094.tar",
+            "size": 1071326906,
+            "num_files": 61
+          },
+          {
+            "name": "charades-sta-00095.tar",
+            "size": 1055067390,
+            "num_files": 66
+          },
+          {
+            "name": "charades-sta-00096.tar",
+            "size": 1073207484,
+            "num_files": 63
+          },
+          {
+            "name": "charades-sta-00097.tar",
+            "size": 1073634452,
+            "num_files": 61
+          },
+          {
+            "name": "charades-sta-00098.tar",
+            "size": 1053821494,
+            "num_files": 62
+          },
+          {
+            "name": "charades-sta-00099.tar",
+            "size": 1070951228,
+            "num_files": 64
+          },
+          {
+            "name": "charades-sta-00100.tar",
+            "size": 1059793642,
+            "num_files": 59
+          },
+          {
+            "name": "charades-sta-00101.tar",
+            "size": 1072330230,
+            "num_files": 63
+          },
+          {
+            "name": "charades-sta-00102.tar",
+            "size": 1069884228,
+            "num_files": 63
+          },
+          {
+            "name": "charades-sta-00103.tar",
+            "size": 1059077044,
+            "num_files": 62
+          },
+          {
+            "name": "charades-sta-00104.tar",
+            "size": 1072366544,
+            "num_files": 58
+          },
+          {
+            "name": "charades-sta-00105.tar",
+            "size": 1071315848,
+            "num_files": 64
+          },
+          {
+            "name": "charades-sta-00106.tar",
+            "size": 1058841720,
+            "num_files": 57
+          },
+          {
+            "name": "charades-sta-00107.tar",
+            "size": 705496783,
+            "num_files": 44,
+            "parts": [
+              "shards/charades-sta-00107.tar.part-00000",
+              "shards/charades-sta-00107.tar.part-00001",
+              "shards/charades-sta-00107.tar.part-00002",
+              "shards/charades-sta-00107.tar.part-00003",
+              "shards/charades-sta-00107.tar.part-00004",
+              "shards/charades-sta-00107.tar.part-00005",
+              "shards/charades-sta-00107.tar.part-00006",
+              "shards/charades-sta-00107.tar.part-00007",
+              "shards/charades-sta-00107.tar.part-00008",
+              "shards/charades-sta-00107.tar.part-00009",
+              "shards/charades-sta-00107.tar.part-00010",
+              "shards/charades-sta-00107.tar.part-00011",
+              "shards/charades-sta-00107.tar.part-00012",
+              "shards/charades-sta-00107.tar.part-00013",
+              "shards/charades-sta-00107.tar.part-00014",
+              "shards/charades-sta-00107.tar.part-00015",
+              "shards/charades-sta-00107.tar.part-00016",
+              "shards/charades-sta-00107.tar.part-00017",
+              "shards/charades-sta-00107.tar.part-00018",
+              "shards/charades-sta-00107.tar.part-00019",
+              "shards/charades-sta-00107.tar.part-00020",
+              "shards/charades-sta-00107.tar.part-00021",
+              "shards/charades-sta-00107.tar.part-00022",
+              "shards/charades-sta-00107.tar.part-00023",
+              "shards/charades-sta-00107.tar.part-00024",
+              "shards/charades-sta-00107.tar.part-00025",
+              "shards/charades-sta-00107.tar.part-00026",
+              "shards/charades-sta-00107.tar.part-00027",
+              "shards/charades-sta-00107.tar.part-00028",
+              "shards/charades-sta-00107.tar.part-00029",
+              "shards/charades-sta-00107.tar.part-00030",
+              "shards/charades-sta-00107.tar.part-00031",
+              "shards/charades-sta-00107.tar.part-00032",
+              "shards/charades-sta-00107.tar.part-00033",
+              "shards/charades-sta-00107.tar.part-00034",
+              "shards/charades-sta-00107.tar.part-00035",
+              "shards/charades-sta-00107.tar.part-00036",
+              "shards/charades-sta-00107.tar.part-00037",
+              "shards/charades-sta-00107.tar.part-00038",
+              "shards/charades-sta-00107.tar.part-00039",
+              "shards/charades-sta-00107.tar.part-00040",
+              "shards/charades-sta-00107.tar.part-00041",
+              "shards/charades-sta-00107.tar.part-00042"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "flash",
+      "error": "HTTP Error 403: rate limit exceeded",
+      "seconds": 0.73
+    }
+  ]
+}

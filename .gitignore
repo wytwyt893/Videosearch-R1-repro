@@ -12,6 +12,12 @@
 /.codex/
 /.aws/
 /reports/setr_isolation_before.json
+/experiments/**/outputs/
+/experiments/**/logs/
+/experiments/00_setup/reports/setr_isolation_before.json
+/common/00_setup/outputs/
+/common/00_setup/logs/
+/common/00_setup/reports/setr_isolation_before.json
 __pycache__/
 *.pyc
 .env

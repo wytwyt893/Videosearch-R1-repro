@@ -1,0 +1,1 @@
+../../../scripts/preflight_didemo_full.py

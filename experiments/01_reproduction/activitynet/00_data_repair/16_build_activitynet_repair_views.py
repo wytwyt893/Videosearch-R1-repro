@@ -1,0 +1,1 @@
+../../../../scripts/build_activitynet_repair_views.py

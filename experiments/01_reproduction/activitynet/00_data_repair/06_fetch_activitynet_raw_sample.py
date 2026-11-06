@@ -1,0 +1,1 @@
+../../../../scripts/fetch_activitynet_raw_sample.py

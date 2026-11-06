@@ -1,0 +1,11 @@
+{
+  "status": "TIMESTAMP_AB_ARTIFACTS_VALIDATED",
+  "prediction_rows_total": 210,
+  "A_Aprime_core_outcomes_equal": 70,
+  "old_prediction_and_primary_hashes_unchanged": true,
+  "original_preflight_and_new_plan_bindings_unchanged": true,
+  "document_links_checked": 10,
+  "browser_frames": 198,
+  "all_python_sources_parse": true,
+  "summary_sha256": "592e9525d8acee11ae8b0325a4a636e03fc090ca4c2860d98d91627de03d7743"
+}

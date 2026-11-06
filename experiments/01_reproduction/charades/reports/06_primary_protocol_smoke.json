@@ -1,0 +1,71 @@
+{
+  "protocol": {
+    "primary_ver_turn": "last_verified",
+    "primary_ver_pairing": "turns[-1].answer versus turns[-1].top1_is_gt",
+    "ver_denominator": "valid_answers; invalid count and all-example accuracy reported explicitly",
+    "terminal_refinement": "keep_official_when_triggered; no extra verification beyond T=2",
+    "vr_ranking": "final_rank after any terminal refinement",
+    "vcmr": "official final_iou_r1 from the actual verified video",
+    "paper_ver_turn_confirmed": false
+  },
+  "num_examples": 5,
+  "primary": {
+    "VER": {
+      "N": 5,
+      "N_expected": 5,
+      "correct": 3,
+      "accuracy": 0.6,
+      "invalid_answers": 0,
+      "coverage": 1.0,
+      "accuracy_all_examples": 0.6,
+      "confusion": {
+        "TP": 1,
+        "TN": 2,
+        "FP": 2,
+        "FN": 0
+      }
+    },
+    "VR": {
+      "N": 5,
+      "R@1": 0.2,
+      "R@5": 0.2,
+      "R@10": 0.4,
+      "R@100": 0.6,
+      "MRR": 0.2261971012491441,
+      "mean_rank": 77.2
+    },
+    "VCMR": {
+      "N": 5,
+      "mIoU@R1": 0.11409395973154364,
+      "IoU@0.3@R1": 0.2,
+      "IoU@0.5@R1": 0.2,
+      "IoU@0.7@R1": 0.0
+    }
+  },
+  "diagnostics": {
+    "terminal_refinement": {
+      "refined_after_second_verification": 2,
+      "changed_top1_video": 0,
+      "changed_video_label": 0
+    },
+    "official_final_field_pairing_VER": {
+      "N": 5,
+      "N_expected": 5,
+      "correct": 3,
+      "accuracy": 0.6,
+      "invalid_answers": 0,
+      "coverage": 1.0,
+      "accuracy_all_examples": 0.6,
+      "confusion": {
+        "TP": 1,
+        "TN": 2,
+        "FP": 2,
+        "FN": 0
+      }
+    },
+    "official_pairing_is_primary": false
+  },
+  "source_jsonl": "/data/wyt/videosearch_r1_repro/outputs/charades_smoke_20261023_213015/external_verified_test_temporal_grounding_VideoSearchR1__charades-stage2.jsonl",
+  "source_sha256": "2b50ad2a3e3b0b80a0311537ae65aabc547a9980135f301ef63c098083d28ca1",
+  "scorer_sha256": "6b3102edfdf701eda055a7a822fc38c8427fc122bb9415270c1aeff769c7b0b7"
+}

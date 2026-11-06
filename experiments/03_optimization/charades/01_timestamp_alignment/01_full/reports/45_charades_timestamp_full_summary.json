@@ -1,0 +1,775 @@
+{
+  "status": "FULL_TIMESTAMP_PAIRED_COMPARISON_COMPLETE",
+  "created_at": "2026-11-06T10:30:48.459066+08:00",
+  "run_report": "/data/wyt/videosearch_r1_repro/reports/44_charades_timestamp_full.json",
+  "output_dir": "/data/wyt/videosearch_r1_repro/outputs/charades_timestamp_full_20261106_011200_472756",
+  "run_report_sha256_at_inference_complete": "a82c60c6c3ca75a669ae3972549db18c20796d3d8939347ee51422d0c6eae345",
+  "N": 3720,
+  "corpus_videos": 1334,
+  "gpu_index": 1,
+  "gpu_uuid": "GPU-677cef2a-aeb8-267d-4a59-19e72f682efc",
+  "metrics": {
+    "nominal": {
+      "VCMR_03": 0.1639784946236559,
+      "VCMR_05": 0.12473118279569892,
+      "VCMR_07": 0.06908602150537635,
+      "VER_last": 0.5225806451612903,
+      "VER_valid_N": 3720,
+      "VER_invalid": 0,
+      "VER_all_examples": 0.5225806451612903,
+      "VER_first_supplementary": 0.7483870967741936,
+      "VR_R1": 0.2478494623655914,
+      "VR_R5": 0.4295698924731183,
+      "VR_R10": 0.5225806451612903,
+      "VR_R100": 0.8459677419354839
+    },
+    "source": {
+      "VCMR_03": 0.1674731182795699,
+      "VCMR_05": 0.13521505376344087,
+      "VCMR_07": 0.07956989247311828,
+      "VER_last": 0.5279569892473118,
+      "VER_valid_N": 3720,
+      "VER_invalid": 0,
+      "VER_all_examples": 0.5279569892473118,
+      "VER_first_supplementary": 0.7526881720430108,
+      "VR_R1": 0.24435483870967742,
+      "VR_R5": 0.42768817204301074,
+      "VR_R10": 0.5220430107526882,
+      "VR_R100": 0.8456989247311828
+    },
+    "historical": {
+      "VCMR_03": 0.1639784946236559,
+      "VCMR_05": 0.12473118279569892,
+      "VCMR_07": 0.06908602150537635,
+      "VER_last": 0.5225806451612903,
+      "VER_valid_N": 3720,
+      "VER_invalid": 0,
+      "VER_all_examples": 0.5225806451612903,
+      "VER_first_supplementary": 0.7483870967741936,
+      "VR_R1": 0.2478494623655914,
+      "VR_R5": 0.4295698924731183,
+      "VR_R10": 0.5225806451612903,
+      "VR_R100": 0.8459677419354839
+    },
+    "author_released": {
+      "VCMR_03": 0.16478494623655915,
+      "VCMR_05": 0.13440860215053763,
+      "VCMR_07": 0.08172043010752689,
+      "VER_last": 0.5276881720430108,
+      "VER_valid_N": 3720,
+      "VER_invalid": 0,
+      "VER_all_examples": 0.5276881720430108,
+      "VER_first_supplementary": 0.7564516129032258,
+      "VR_R1": 0.2456989247311828,
+      "VR_R5": 0.4293010752688172,
+      "VR_R10": 0.5220430107526882,
+      "VR_R100": 0.8475806451612903
+    }
+  },
+  "paired_statistics": {
+    "N": 3720,
+    "thresholds": {
+      "0.3": {
+        "gained": 37,
+        "lost": 24,
+        "net": 13,
+        "delta_percentage_points": 0.34946236559139787,
+        "gained_indices": [
+          134,
+          146,
+          452,
+          739,
+          742,
+          770,
+          788,
+          870,
+          893,
+          987,
+          1035,
+          1248,
+          1252,
+          1423,
+          1751,
+          1895,
+          1911,
+          2155,
+          2201,
+          2261,
+          2273,
+          2384,
+          2451,
+          2578,
+          2702,
+          2808,
+          2876,
+          2902,
+          2911,
+          3174,
+          3275,
+          3318,
+          3408,
+          3424,
+          3546,
+          3599,
+          3678
+        ],
+        "lost_indices": [
+          161,
+          291,
+          413,
+          603,
+          631,
+          736,
+          931,
+          1023,
+          1067,
+          1134,
+          1396,
+          1461,
+          1470,
+          1682,
+          1893,
+          2191,
+          2233,
+          2289,
+          2421,
+          2525,
+          3112,
+          3135,
+          3322,
+          3664
+        ]
+      },
+      "0.5": {
+        "gained": 65,
+        "lost": 26,
+        "net": 39,
+        "delta_percentage_points": 1.0483870967741935,
+        "gained_indices": [
+          89,
+          192,
+          223,
+          254,
+          272,
+          334,
+          367,
+          497,
+          521,
+          606,
+          656,
+          684,
+          739,
+          742,
+          870,
+          893,
+          975,
+          1068,
+          1094,
+          1120,
+          1137,
+          1181,
+          1252,
+          1282,
+          1295,
+          1307,
+          1347,
+          1401,
+          1555,
+          1885,
+          1895,
+          1919,
+          2019,
+          2107,
+          2158,
+          2163,
+          2205,
+          2322,
+          2338,
+          2339,
+          2344,
+          2384,
+          2408,
+          2451,
+          2461,
+          2473,
+          2578,
+          2660,
+          2847,
+          2863,
+          2882,
+          2992,
+          3045,
+          3054,
+          3058,
+          3121,
+          3145,
+          3174,
+          3197,
+          3220,
+          3275,
+          3404,
+          3460,
+          3546,
+          3631
+        ],
+        "lost_indices": [
+          291,
+          413,
+          571,
+          603,
+          736,
+          775,
+          931,
+          1018,
+          1067,
+          1150,
+          1266,
+          1682,
+          1916,
+          2131,
+          2170,
+          2191,
+          2278,
+          2525,
+          2593,
+          2829,
+          2951,
+          3057,
+          3101,
+          3112,
+          3322,
+          3664
+        ]
+      },
+      "0.7": {
+        "gained": 78,
+        "lost": 39,
+        "net": 39,
+        "delta_percentage_points": 1.0483870967741935,
+        "gained_indices": [
+          22,
+          83,
+          110,
+          115,
+          121,
+          254,
+          315,
+          367,
+          432,
+          505,
+          527,
+          535,
+          655,
+          684,
+          692,
+          747,
+          765,
+          870,
+          882,
+          959,
+          969,
+          1137,
+          1161,
+          1165,
+          1181,
+          1252,
+          1259,
+          1282,
+          1321,
+          1377,
+          1408,
+          1516,
+          1524,
+          1555,
+          1560,
+          1582,
+          1598,
+          1616,
+          1792,
+          1805,
+          1843,
+          1873,
+          1960,
+          2033,
+          2157,
+          2242,
+          2257,
+          2286,
+          2344,
+          2374,
+          2384,
+          2442,
+          2496,
+          2508,
+          2668,
+          2686,
+          2750,
+          2802,
+          2926,
+          2984,
+          2995,
+          3003,
+          3004,
+          3062,
+          3129,
+          3145,
+          3158,
+          3174,
+          3275,
+          3340,
+          3433,
+          3502,
+          3556,
+          3564,
+          3605,
+          3663,
+          3679,
+          3714
+        ],
+        "lost_indices": [
+          151,
+          177,
+          269,
+          291,
+          358,
+          530,
+          603,
+          736,
+          1067,
+          1104,
+          1150,
+          1699,
+          1727,
+          1758,
+          1769,
+          1909,
+          2085,
+          2111,
+          2172,
+          2213,
+          2288,
+          2341,
+          2450,
+          2467,
+          2474,
+          2525,
+          2699,
+          2776,
+          2869,
+          2875,
+          2934,
+          3057,
+          3109,
+          3126,
+          3143,
+          3150,
+          3169,
+          3223,
+          3322
+        ]
+      }
+    },
+    "iou_improved": 369,
+    "iou_worsened": 223,
+    "iou_unchanged": 3128,
+    "joint_accepted_GT_N": 783,
+    "joint_accepted_GT_boundary_errors": {
+      "A": {
+        "start_MAE_seconds": 4.106385696040869,
+        "end_MAE_seconds": 4.683269476372924
+      },
+      "B": {
+        "start_MAE_seconds": 3.9335887611749683,
+        "end_MAE_seconds": 4.380395913154534
+      }
+    },
+    "last_verified_video_changed": 87,
+    "final_answer_changed": 81,
+    "final_rank_changed": 894,
+    "mean_iou_delta": 0.005064290976509574
+  },
+  "runtime_input_audit": {
+    "passed": true,
+    "generation_calls": {
+      "nominal": 6085,
+      "source": 6121
+    },
+    "seen_videos": 1135,
+    "all_seen_video_tensors_consistent": true,
+    "every_generation_time_label_verified": true
+  },
+  "protocol": {
+    "primary_ver_turn": "last_verified",
+    "primary_ver_pairing": "turns[-1].answer versus turns[-1].top1_is_gt",
+    "ver_denominator": "valid_answers; invalid count and all-example accuracy reported explicitly",
+    "terminal_refinement": "keep_official_when_triggered; no extra verification beyond T=2",
+    "vr_ranking": "final_rank after any terminal refinement",
+    "vcmr": "official final_iou_r1 from the actual verified video",
+    "paper_ver_turn_confirmed": false
+  },
+  "scores": {
+    "nominal": {
+      "protocol": {
+        "primary_ver_turn": "last_verified",
+        "primary_ver_pairing": "turns[-1].answer versus turns[-1].top1_is_gt",
+        "ver_denominator": "valid_answers; invalid count and all-example accuracy reported explicitly",
+        "terminal_refinement": "keep_official_when_triggered; no extra verification beyond T=2",
+        "vr_ranking": "final_rank after any terminal refinement",
+        "vcmr": "official final_iou_r1 from the actual verified video",
+        "paper_ver_turn_confirmed": false
+      },
+      "num_examples": 3720,
+      "primary": {
+        "VER": {
+          "N": 3720,
+          "N_expected": 3720,
+          "correct": 1944,
+          "accuracy": 0.5225806451612903,
+          "invalid_answers": 0,
+          "coverage": 1.0,
+          "accuracy_all_examples": 0.5225806451612903,
+          "confusion": {
+            "TP": 802,
+            "TN": 1142,
+            "FP": 1655,
+            "FN": 121
+          }
+        },
+        "VR": {
+          "N": 3720,
+          "R@1": 0.2478494623655914,
+          "R@5": 0.4295698924731183,
+          "R@10": 0.5225806451612903,
+          "R@100": 0.8459677419354839,
+          "MRR": 0.33829025203797936,
+          "mean_rank": 58.51989247311828
+        },
+        "VCMR": {
+          "N": 3720,
+          "mIoU@R1": 0.11079666952636752,
+          "IoU@0.3@R1": 0.1639784946236559,
+          "IoU@0.5@R1": 0.12473118279569892,
+          "IoU@0.7@R1": 0.06908602150537635
+        }
+      },
+      "diagnostics": {
+        "terminal_refinement": {
+          "refined_after_second_verification": 1263,
+          "changed_top1_video": 22,
+          "changed_video_label": 3
+        },
+        "official_final_field_pairing_VER": {
+          "N": 3720,
+          "N_expected": 3720,
+          "correct": 1945,
+          "accuracy": 0.5228494623655914,
+          "invalid_answers": 0,
+          "coverage": 1.0,
+          "accuracy_all_examples": 0.5228494623655914,
+          "confusion": {
+            "TP": 802,
+            "TN": 1143,
+            "FP": 1655,
+            "FN": 120
+          }
+        },
+        "official_pairing_is_primary": false
+      },
+      "supplementary": {
+        "first_turn_VER": {
+          "N": 3720,
+          "N_expected": 3720,
+          "correct": 2784,
+          "accuracy": 0.7483870967741936,
+          "invalid_answers": 0,
+          "coverage": 1.0,
+          "accuracy_all_examples": 0.7483870967741936,
+          "confusion": {
+            "TP": 612,
+            "TN": 2172,
+            "FP": 743,
+            "FN": 193
+          }
+        }
+      }
+    },
+    "source": {
+      "protocol": {
+        "primary_ver_turn": "last_verified",
+        "primary_ver_pairing": "turns[-1].answer versus turns[-1].top1_is_gt",
+        "ver_denominator": "valid_answers; invalid count and all-example accuracy reported explicitly",
+        "terminal_refinement": "keep_official_when_triggered; no extra verification beyond T=2",
+        "vr_ranking": "final_rank after any terminal refinement",
+        "vcmr": "official final_iou_r1 from the actual verified video",
+        "paper_ver_turn_confirmed": false
+      },
+      "num_examples": 3720,
+      "primary": {
+        "VER": {
+          "N": 3720,
+          "N_expected": 3720,
+          "correct": 1964,
+          "accuracy": 0.5279569892473118,
+          "invalid_answers": 0,
+          "coverage": 1.0,
+          "accuracy_all_examples": 0.5279569892473118,
+          "confusion": {
+            "TP": 791,
+            "TN": 1173,
+            "FP": 1639,
+            "FN": 117
+          }
+        },
+        "VR": {
+          "N": 3720,
+          "R@1": 0.24435483870967742,
+          "R@5": 0.42768817204301074,
+          "R@10": 0.5220430107526882,
+          "R@100": 0.8456989247311828,
+          "MRR": 0.3358379453524631,
+          "mean_rank": 58.829301075268816
+        },
+        "VCMR": {
+          "N": 3720,
+          "mIoU@R1": 0.11586096050287714,
+          "IoU@0.3@R1": 0.1674731182795699,
+          "IoU@0.5@R1": 0.13521505376344087,
+          "IoU@0.7@R1": 0.07956989247311828
+        }
+      },
+      "diagnostics": {
+        "terminal_refinement": {
+          "refined_after_second_verification": 1290,
+          "changed_top1_video": 20,
+          "changed_video_label": 3
+        },
+        "official_final_field_pairing_VER": {
+          "N": 3720,
+          "N_expected": 3720,
+          "correct": 1963,
+          "accuracy": 0.5276881720430108,
+          "invalid_answers": 0,
+          "coverage": 1.0,
+          "accuracy_all_examples": 0.5276881720430108,
+          "confusion": {
+            "TP": 791,
+            "TN": 1172,
+            "FP": 1639,
+            "FN": 118
+          }
+        },
+        "official_pairing_is_primary": false
+      },
+      "supplementary": {
+        "first_turn_VER": {
+          "N": 3720,
+          "N_expected": 3720,
+          "correct": 2800,
+          "accuracy": 0.7526881720430108,
+          "invalid_answers": 0,
+          "coverage": 1.0,
+          "accuracy_all_examples": 0.7526881720430108,
+          "confusion": {
+            "TP": 602,
+            "TN": 2198,
+            "FP": 717,
+            "FN": 203
+          }
+        }
+      }
+    },
+    "historical": {
+      "protocol": {
+        "primary_ver_turn": "last_verified",
+        "primary_ver_pairing": "turns[-1].answer versus turns[-1].top1_is_gt",
+        "ver_denominator": "valid_answers; invalid count and all-example accuracy reported explicitly",
+        "terminal_refinement": "keep_official_when_triggered; no extra verification beyond T=2",
+        "vr_ranking": "final_rank after any terminal refinement",
+        "vcmr": "official final_iou_r1 from the actual verified video",
+        "paper_ver_turn_confirmed": false
+      },
+      "num_examples": 3720,
+      "primary": {
+        "VER": {
+          "N": 3720,
+          "N_expected": 3720,
+          "correct": 1944,
+          "accuracy": 0.5225806451612903,
+          "invalid_answers": 0,
+          "coverage": 1.0,
+          "accuracy_all_examples": 0.5225806451612903,
+          "confusion": {
+            "TP": 802,
+            "TN": 1142,
+            "FP": 1655,
+            "FN": 121
+          }
+        },
+        "VR": {
+          "N": 3720,
+          "R@1": 0.2478494623655914,
+          "R@5": 0.4295698924731183,
+          "R@10": 0.5225806451612903,
+          "R@100": 0.8459677419354839,
+          "MRR": 0.33829025203797936,
+          "mean_rank": 58.51989247311828
+        },
+        "VCMR": {
+          "N": 3720,
+          "mIoU@R1": 0.11079666952636752,
+          "IoU@0.3@R1": 0.1639784946236559,
+          "IoU@0.5@R1": 0.12473118279569892,
+          "IoU@0.7@R1": 0.06908602150537635
+        }
+      },
+      "diagnostics": {
+        "terminal_refinement": {
+          "refined_after_second_verification": 1263,
+          "changed_top1_video": 22,
+          "changed_video_label": 3
+        },
+        "official_final_field_pairing_VER": {
+          "N": 3720,
+          "N_expected": 3720,
+          "correct": 1945,
+          "accuracy": 0.5228494623655914,
+          "invalid_answers": 0,
+          "coverage": 1.0,
+          "accuracy_all_examples": 0.5228494623655914,
+          "confusion": {
+            "TP": 802,
+            "TN": 1143,
+            "FP": 1655,
+            "FN": 120
+          }
+        },
+        "official_pairing_is_primary": false
+      },
+      "supplementary": {
+        "first_turn_VER": {
+          "N": 3720,
+          "N_expected": 3720,
+          "correct": 2784,
+          "accuracy": 0.7483870967741936,
+          "invalid_answers": 0,
+          "coverage": 1.0,
+          "accuracy_all_examples": 0.7483870967741936,
+          "confusion": {
+            "TP": 612,
+            "TN": 2172,
+            "FP": 743,
+            "FN": 193
+          }
+        }
+      }
+    },
+    "author_released": {
+      "protocol": {
+        "primary_ver_turn": "last_verified",
+        "primary_ver_pairing": "turns[-1].answer versus turns[-1].top1_is_gt",
+        "ver_denominator": "valid_answers; invalid count and all-example accuracy reported explicitly",
+        "terminal_refinement": "keep_official_when_triggered; no extra verification beyond T=2",
+        "vr_ranking": "final_rank after any terminal refinement",
+        "vcmr": "official final_iou_r1 from the actual verified video",
+        "paper_ver_turn_confirmed": false
+      },
+      "num_examples": 3720,
+      "primary": {
+        "VER": {
+          "N": 3720,
+          "N_expected": 3720,
+          "correct": 1963,
+          "accuracy": 0.5276881720430108,
+          "invalid_answers": 0,
+          "coverage": 1.0,
+          "accuracy_all_examples": 0.5276881720430108,
+          "confusion": {
+            "TP": 790,
+            "TN": 1173,
+            "FP": 1634,
+            "FN": 123
+          }
+        },
+        "VR": {
+          "N": 3720,
+          "R@1": 0.2456989247311828,
+          "R@5": 0.4293010752688172,
+          "R@10": 0.5220430107526882,
+          "R@100": 0.8475806451612903,
+          "MRR": 0.3370978602460038,
+          "mean_rank": 58.99596774193548
+        },
+        "VCMR": {
+          "N": 3720,
+          "mIoU@R1": 0.11561132220521828,
+          "IoU@0.3@R1": 0.16478494623655915,
+          "IoU@0.5@R1": 0.13440860215053763,
+          "IoU@0.7@R1": 0.08172043010752689
+        }
+      },
+      "diagnostics": {
+        "terminal_refinement": {
+          "refined_after_second_verification": 1296,
+          "changed_top1_video": 25,
+          "changed_video_label": 5
+        },
+        "official_final_field_pairing_VER": {
+          "N": 3720,
+          "N_expected": 3720,
+          "correct": 1962,
+          "accuracy": 0.5274193548387097,
+          "invalid_answers": 0,
+          "coverage": 1.0,
+          "accuracy_all_examples": 0.5274193548387097,
+          "confusion": {
+            "TP": 790,
+            "TN": 1172,
+            "FP": 1634,
+            "FN": 124
+          }
+        },
+        "official_pairing_is_primary": false
+      },
+      "supplementary": {
+        "first_turn_VER": {
+          "N": 3720,
+          "N_expected": 3720,
+          "correct": 2814,
+          "accuracy": 0.7564516129032258,
+          "invalid_answers": 0,
+          "coverage": 1.0,
+          "accuracy_all_examples": 0.7564516129032258,
+          "confusion": {
+            "TP": 602,
+            "TN": 2212,
+            "FP": 703,
+            "FN": 203
+          }
+        }
+      }
+    }
+  },
+  "time_semantics": "Released sampled_indices_src/raw_fps, validated against sampled_timestamps_sec; no new container-PTS decoding.",
+  "full_inference_counts": {
+    "nominal": 3720,
+    "source": 3720
+  },
+  "inputs_unchanged": true,
+  "historical_prediction_sha256": "35cf85cc43a42d96c2bcc8fe47d25416014db7669b09c5b3bd4e06b4faa3f425",
+  "author_prediction_sha256": "ac2256b6a5d882df706cc8b0730b22d29594b5bcb2d38894ac782b3def01ac2f",
+  "prediction_sha256": {
+    "nominal": "35cf85cc43a42d96c2bcc8fe47d25416014db7669b09c5b3bd4e06b4faa3f425",
+    "source": "7c1d402f2a1d15013cf31b444a8f4a725150d9a85c76310896e8946c4c9abdf4"
+  },
+  "summary_script_sha256": "cb808cba67873070b2475bfad8e026d25087ddb1222916cc52cdf9b0d6ae0623",
+  "interpretation_limits": "Single fixed-seed paired full test. Timestamp inputs may change verification, SQR and ranking downstream. Source time inherits released index/FPS metadata, not newly decoded container PTS. Author input settings remain unconfirmed.",
+  "artifact_sha256": {
+    "comparison.json": "8500021f671757c5531ccb1aed28ee8aac53010cc18635c6b96f3bfbcd79837f",
+    "paired_examples.csv": "fbebe317c62e3097fa4149e0ab1e06ca1b68aae1527550ab278d6020c3729754",
+    "metrics_comparison.csv": "0ad3a867f77f6149a645fa68e9b9c757f48054451c52894b1a5dddcb5635e639",
+    "largest_gains.json": "cce2dc097081ae8c5a7bead704c5eee2f51a01095c635ecf38bd4776cff01f8d",
+    "largest_losses.json": "5762687712cfea26eea78b8d68dac44f939b963952862d6e31b02b08f103f554"
+  },
+  "document": "/data/wyt/videosearch_r1_repro/doc/videosearch_r1 × CHARADES全量时间戳对照-11.06.md",
+  "document_sha256": "53f8b069dcb1f76082972d5f9d0ed17e8c9f2df9438f4d949aebbf31153049f9"
+}

@@ -1,0 +1,1 @@
+../../../scripts/score_didemo_protocol.py

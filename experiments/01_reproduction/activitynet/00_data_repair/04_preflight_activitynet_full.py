@@ -1,0 +1,1 @@
+../../../../scripts/preflight_activitynet_full.py

@@ -1,0 +1,1 @@
+../../../../scripts/compare_activitynet_full_to_paper.py

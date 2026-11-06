@@ -1,0 +1,1 @@
+../../../../scripts/launch_charades_localization_probe.bash

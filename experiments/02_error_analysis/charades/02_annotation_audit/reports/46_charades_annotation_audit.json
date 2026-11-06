@@ -1,0 +1,211 @@
+{
+  "status": "INITIAL_ANNOTATION_AUDIT_COMPLETE",
+  "output": "/data/wyt/videosearch_r1_repro/outputs/charades_annotation_audit_20261106_174412_692658",
+  "provenance": {
+    "original_records": 3720,
+    "original_match_key": "(video_id, gt_start, gt_end, exact coarse text); multiset comparison, not row number/desc_id",
+    "original_multiset_equal": false,
+    "missing_local_tuples": [
+      [
+        "QMHK8",
+        20.1,
+        44.4,
+        "the person undresses removes socks."
+      ]
+    ],
+    "extra_original_tuples": [
+      [
+        "QMHK8",
+        20.1,
+        44.4,
+        "the person undresses (removes socks."
+      ]
+    ],
+    "original_video_and_time_multiset_equal": true,
+    "original_exact_tuple_matches": 3719,
+    "original_tuples_match_after_parenthesis_removal": true,
+    "normalization_note": "Comparison only: one coarse sentence loses an opening parenthesis in VERIFIED; source files are unchanged.",
+    "original_text_sha256": "fab341679c20b0917173dcffffde367a71113fe63f3a645558cef2ebfbfefb55",
+    "original_mirror_revision": "1744b2159c3d11694f94dab4fcde8660c685e79a",
+    "original_mirror_note": "2D-TAN official implementation copy; TALL official Drive URL returned 404. Not a fresh direct download from TALL.",
+    "known_case_81_original_records": [
+      {
+        "line": 3234,
+        "video": "EYZXC",
+        "time": [
+          8.9,
+          23.2
+        ],
+        "cog_desc": "person pours a cup of coffee."
+      },
+      {
+        "line": 3235,
+        "video": "EYZXC",
+        "time": [
+          6.4,
+          11.1
+        ],
+        "cog_desc": "a person sits at a table."
+      },
+      {
+        "line": 3236,
+        "video": "EYZXC",
+        "time": [
+          20.3,
+          32.3
+        ],
+        "cog_desc": "person snuggling a blanket."
+      }
+    ],
+    "known_case_81_charades_csv": {
+      "id": "EYZXC",
+      "subject": "IY28",
+      "scene": "Kitchen",
+      "quality": "7",
+      "relevance": "7",
+      "verified": "Yes",
+      "script": "One person at a table pours something, then stands up and leaves, snuggling a blanket.",
+      "objects": "blanket;chair;coffee;cup;dish;table",
+      "descriptions": "a person sits at a table and pours a cup of coffee then wraps up in a blanket;A person walks to a table and sits down in a chair they pour a cup of coffe pick up a blanket wrap the blanket around themselves and get up and walk out.;A person sits at a table and pours coffee into a mug.  That same person then stands up and wraps a blanket around them.",
+      "actions": "c072 20.30 32.30;c154 23.60 31.70;c151 24.20 37.70;c011 6.40 11.10;c108 8.90 23.20;c118 6.70 23.40;c107 7.90 23.40;c059 6.70 28.20;c070 20.70 25.50;c073 20.50 36.40;c109 18.20 23.40;c110 8.10 23.40",
+      "length": "41.17"
+    },
+    "csv_sha256": "8b8b207b55fb95b949018027f69d83bd46cd844d15834f8f592ee8e7446173eb"
+  },
+  "structural": {
+    "records": 3720,
+    "videos": 1334,
+    "both_descriptions": 3720,
+    "qid_query_text_mismatches": 0,
+    "nonfinite_or_invalid_spans": 0,
+    "gt_end_beyond_annotation_duration": 543,
+    "overrun_videos": 341,
+    "overrun_count_by_threshold": {
+      "0": 543,
+      "0.1": 539,
+      "0.5": 451,
+      "1": 175,
+      "2": 0
+    },
+    "max_annotation_overrun_sec": 1.4699999999999989,
+    "note": "Duration checks identify source-label inconsistencies, not semantic errors; original boundary rounding/annotation policy may contribute."
+  },
+  "text_review_counts": {
+    "random": {
+      "same_target_in_text": 86,
+      "apparent_target_change": 2,
+      "related_action_or_boundary_risk": 11,
+      "wording_ambiguity": 1
+    },
+    "risk": {
+      "apparent_target_change": 9,
+      "same_target_in_text": 8,
+      "related_action_or_boundary_risk": 3
+    },
+    "known": {
+      "apparent_target_change": 1
+    }
+  },
+  "visual_findings": {
+    "47": {
+      "category": "compatible_event_expansion",
+      "observation": "Published frames show laptop upright around 10.55s, lowered/closed around 11.59s, then placed on sofa around 13.72s, all within/near the original 6.7-16.4s label.",
+      "conclusion": "Text difference alone is not enough to call an annotation error; both captions describe a connected sequence."
+    },
+    "1782": {
+      "category": "strong_fine_query_temporal_mismatch",
+      "observation": "The picture is taken from the table around 15.54-16.58s, held afterwards, and moved back toward the table around 29.04-30.08s. GT 25.7-32.0s is the return phase, but FIG asks about lifting.",
+      "conclusion": "Strong evidence of a manipulation-phase reversal in the fine query paired with inherited return-phase GT. No replacement interval is assigned."
+    },
+    "1628": {
+      "category": "cooccurring_actions_not_resolved_by_text",
+      "observation": "Inside GT 13.8-23.5s, a cup is at the mouth around 14.17s and food is brought to the mouth around 18.33-20.33s.",
+      "conclusion": "Eating and drinking coexist. The action-word difference does not establish that the fine query is false in the labeled clip."
+    },
+    "1697": {
+      "category": "coarse_caption_or_source_alignment_suspect",
+      "observation": "Door opening appears near 0.98-1.96s; the late GT 16.8-30.4s mostly shows laptop interaction. All three original coarse rows for this video refer to door opening under that same late interval.",
+      "conclusion": "Fine caption fits the published late frames better than coarse caption. Could reflect original coarse/time annotation or source alignment problems; raw video has not been independently verified. Do not force FIG back to coarse wording."
+    },
+    "2293": {
+      "category": "strong_fine_query_direction_mismatch",
+      "observation": "At the end of the clip, the person rises from the toilet around 43.83s and moves toward/out of the doorway around 44.83-47.0s. GT 43.3-48.0s is labeled walking out in original STA; fine query says entering and preparing to clean.",
+      "conclusion": "Strong evidence of exit/entry reversal and unsupported preparation-to-clean detail in the fine query; preserve official labels for evaluation."
+    },
+    "81": {
+      "category": "target_change_with_temporal_scope_risk",
+      "observation": "Original STA has sitting at table at 6.4-11.1s and pouring at 8.9-23.2s. Existing processor-RGB review shows pouring posture at 15.43s, beyond the sitting label. Some pouring also overlaps the sitting label.",
+      "conclusion": "The sitting-row FIG query foregrounds pouring but inherits the sitting interval. Strong scope-mismatch risk, not proof that every frame inside GT lacks pouring."
+    }
+  },
+  "duration_iou_upper_bound_below_point7": 15,
+  "evidence_figure": "/data/wyt/videosearch_r1_repro/outputs/charades_annotation_audit_20261106_174412_692658/audit_evidence.png",
+  "evidence_frames": [
+    {
+      "index": 1782,
+      "frame_index": 16,
+      "source_seconds": 16.583333333333332,
+      "manual_observation": "Picture held after pickup"
+    },
+    {
+      "index": 1782,
+      "frame_index": 27,
+      "source_seconds": 28.0,
+      "manual_observation": "Picture still held"
+    },
+    {
+      "index": 1782,
+      "frame_index": 29,
+      "source_seconds": 30.083333333333332,
+      "manual_observation": "Picture returned to table"
+    },
+    {
+      "index": 1697,
+      "frame_index": 1,
+      "source_seconds": 0.9800718719372754,
+      "manual_observation": "Door interaction near start"
+    },
+    {
+      "index": 1697,
+      "frame_index": 18,
+      "source_seconds": 18.784710878797778,
+      "manual_observation": "Laptop interaction inside GT"
+    },
+    {
+      "index": 1697,
+      "frame_index": 27,
+      "source_seconds": 28.25873897419144,
+      "manual_observation": "Laptop interaction inside GT"
+    }
+  ],
+  "evidence_figure_sha256": "113beadc410347f223630dbe6d0e47959d26078eb3450a2ca64e32bf30cf5d12",
+  "model_execution": false,
+  "gpu_access": false,
+  "official_data_modified": false,
+  "frozen_full_inputs_and_prediction_hashes_unchanged": true,
+  "limits": [
+    "Text flags are not confirmed annotation errors.",
+    "No prevalence estimate from risk-selected cases.",
+    "No added visual detail was validated for all 100 random cases.",
+    "Known 2233 independently appears in the frozen random sample and is retained.",
+    "No test GT, scores, model weights or configurations changed; no GPU.",
+    "Visual review covers five newly rendered cases across four videos plus existing case 81, not all 100 random cases.",
+    "Strong visual findings are based on published sampled NPYs, not independent original-video/PTS decoding.",
+    "Original TALL Drive source is unavailable; primary 2D-TAN preserved copy and original Charades CSV provide cross-checks.",
+    "Risk sample is purposive and cannot estimate population annotation error prevalence."
+  ],
+  "review_script_sha256": "2e45ec62288adb6a8dfb7dbe9504dc9e7cd4fa33d86a3ab227132bc3d5403c65",
+  "artifact_sha256": {
+    "provenance.json": "071bd495dcda7ab2d665912357b94e50e9c954241886c2afd324a281b4f1df89",
+    "text_review_summary.json": "43981d13ac038a3b184d13dedf3750a523c7e215981e475efa4c8ccda0cfaeac",
+    "duration_iou_upper_bounds.json": "a4c650861c822bf005629d05d48001ff3a04b49f2aab3d2457f60611b63cb8dc",
+    "visual_findings.json": "1be52efac5012e986b27c37df8ed180739473ddcb1e84686b6c6ddefd045c0fd",
+    "text_reviews.json": "af5de84be2594c10c5eaf2380ffaf30c58d95b8ad997ee083048ae26473a330d",
+    "prepare.json": "221a125f12a39e74b12c6ed20ee93449cfe5a7500866a0c095786a2b21c299e2",
+    "visual_extension.json": "137babe1379461fead0caa4887e92cd4bd8b6a973d680c37027312d46b4698de",
+    "selection.json": "f14393de1a28df8daf695086ebae96b9437a05d92749ec91713acb2a9a19f9eb",
+    "structural.json": "ee90eb55bcd0541339a130c283e786d6980ac4770430d572a2e43c52ebdef333",
+    "visual_selection.json": "9e9e10c1ad73be37ab31b58a96ad6bda63a114d7d0abac5fb5920c0a630738d9",
+    "duration_overruns.json": "54ae926286c661dfd2e1c845642b77e2b2a052d2bde57be4fb70079aa81e2d0c"
+  }
+}

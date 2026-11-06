@@ -1,0 +1,193 @@
+{
+  "status": "complete",
+  "model_execution": true,
+  "gpu_uuid": "GPU-677cef2a-aeb8-267d-4a59-19e72f682efc",
+  "cuda_uuid": "677cef2a-aeb8-267d-4a59-19e72f682efc",
+  "command": [
+    "bash",
+    "/data/wyt/videosearch_r1_repro/upstream/scripts/inference/inference.bash",
+    "charades",
+    "--checkpoint",
+    "/data/wyt/videosearch_r1_repro/checkpoints/VideoSearchR1__charades-stage2"
+  ],
+  "output_dir": "/data/wyt/videosearch_r1_repro/outputs/charades_final_smoke_20261027_000427_560958",
+  "preflight_signature": "fcb0a49bf35eaea3720dd720396dfa30a2903d2c4e6eea701522178c3cd00f1a",
+  "expected_examples": 10,
+  "run_kind": "final_smoke",
+  "gpu_index": 1,
+  "gpu_name": "NVIDIA A100-SXM4-80GB",
+  "ver_turn": "last_verified",
+  "terminal_refinement": "keep_official",
+  "returncode": 0,
+  "elapsed_seconds": 106.54,
+  "peak_gpu_used_mib": 45985,
+  "primary_result": "/data/wyt/videosearch_r1_repro/outputs/charades_final_smoke_20261027_000427_560958/external_verified_test_temporal_grounding_VideoSearchR1__charades-stage2.primary.result.json",
+  "predictions": "/data/wyt/videosearch_r1_repro/outputs/charades_final_smoke_20261027_000427_560958/external_verified_test_temporal_grounding_VideoSearchR1__charades-stage2.jsonl",
+  "primary": {
+    "VER": {
+      "N": 10,
+      "N_expected": 10,
+      "correct": 5,
+      "accuracy": 0.5,
+      "invalid_answers": 0,
+      "coverage": 1.0,
+      "accuracy_all_examples": 0.5,
+      "confusion": {
+        "TP": 2,
+        "TN": 3,
+        "FP": 5,
+        "FN": 0
+      }
+    },
+    "VR": {
+      "N": 10,
+      "R@1": 0.2,
+      "R@5": 0.2,
+      "R@10": 0.4,
+      "R@100": 0.8,
+      "MRR": 0.2329094079077949,
+      "mean_rank": 54.2
+    },
+    "VCMR": {
+      "N": 10,
+      "mIoU@R1": 0.13431970713849908,
+      "IoU@0.3@R1": 0.2,
+      "IoU@0.5@R1": 0.2,
+      "IoU@0.7@R1": 0.1
+    }
+  },
+  "refine": {
+    "samples_with_refine": 6,
+    "refine_token_generated_turns": 9,
+    "refine_applied_turns": 9
+  },
+  "timing": {
+    "startup_seconds": 46.75619959831238,
+    "official_loop_seconds": 53.83699989318848,
+    "process_seconds": 106.54,
+    "shutdown_seconds": 5.946800508499152,
+    "first_query_seconds": 16.280726875644177,
+    "steady_mean_seconds_per_query": 4.174060750338766,
+    "per_query_seconds": [
+      16.280726875644177,
+      8.022013709065504,
+      2.487642411957495,
+      2.069248685031198,
+      5.281210690969601,
+      4.37009446695447,
+      5.73999295104295,
+      2.4335804539732635,
+      2.6055455170571804,
+      4.5572178669972345
+    ],
+    "sample_timing_poll_seconds": 0.1,
+    "events": [
+      {
+        "index": 0,
+        "elapsed_seconds": 63.036926473956555,
+        "turns": 2,
+        "refines": 2
+      },
+      {
+        "index": 1,
+        "elapsed_seconds": 71.05894018302206,
+        "turns": 2,
+        "refines": 2
+      },
+      {
+        "index": 2,
+        "elapsed_seconds": 73.54658259497955,
+        "turns": 1,
+        "refines": 0
+      },
+      {
+        "index": 3,
+        "elapsed_seconds": 75.61583128001075,
+        "turns": 1,
+        "refines": 0
+      },
+      {
+        "index": 4,
+        "elapsed_seconds": 80.89704197098035,
+        "turns": 2,
+        "refines": 1
+      },
+      {
+        "index": 5,
+        "elapsed_seconds": 85.26713643793482,
+        "turns": 2,
+        "refines": 1
+      },
+      {
+        "index": 6,
+        "elapsed_seconds": 91.00712938897777,
+        "turns": 2,
+        "refines": 2
+      },
+      {
+        "index": 7,
+        "elapsed_seconds": 93.44070984295104,
+        "turns": 1,
+        "refines": 0
+      },
+      {
+        "index": 8,
+        "elapsed_seconds": 96.04625536000822,
+        "turns": 1,
+        "refines": 0
+      },
+      {
+        "index": 9,
+        "elapsed_seconds": 100.60347322700545,
+        "turns": 2,
+        "refines": 1
+      }
+    ],
+    "full_estimate": {
+      "target_queries": 3720,
+      "point_seconds": 15652.315657492327,
+      "scenario_lower_seconds": 8906.66611891976,
+      "scenario_upper_seconds": 23175.406888080674,
+      "scoring_allowance_seconds": 60,
+      "method": "Initialization once, first-query excess once, later-query mean times 3720. Scenario range uses observed p10/p90; not a confidence interval.",
+      "assumptions": "Same single GPU type, batch1, BF16/vLLM/eager, full local corpus and fixed settings. Query lengths, video sizes and number of turns vary.",
+      "observed_all_query_mean_seconds": 5.383699989318847,
+      "all_query_mean_projection_seconds": 20140.066960372926,
+      "planning_budget_hours": [
+        6,
+        7
+      ],
+      "planning_note": "Compare later-query mean projection with all-query loop mean projection. Only 10 fixed queries; first-query excess is not independently proven to be entirely warmup. Budget is an engineering allowance, not a confidence bound."
+    }
+  },
+  "scoring_seconds": 0.1,
+  "prediction_sha256": "6f485af869a5fc2799188b53db91e5e71bb0c1c667c9a1dc90f2e6c429c994cc",
+  "primary_result_sha256": "bd165d79051a246174fea49692427addfe8b1a4f61c5790bfb4f756240cbc115",
+  "gpu_after": "GPU-677cef2a-aeb8-267d-4a59-19e72f682efc, 81153, 0, 0",
+  "resource_release_passed": true,
+  "initial_gpu_after": "GPU-677cef2a-aeb8-267d-4a59-19e72f682efc, 81153, 0, 69",
+  "initial_runner_exit_code": 1,
+  "resource_check": {
+    "passed": true,
+    "samples": [
+      {
+        "elapsed_seconds": 0.166,
+        "gpu": "GPU-677cef2a-aeb8-267d-4a59-19e72f682efc, 81153, 0, 0",
+        "compute_apps": [],
+        "idle": true
+      },
+      {
+        "elapsed_seconds": 1.273,
+        "gpu": "GPU-677cef2a-aeb8-267d-4a59-19e72f682efc, 81153, 0, 0",
+        "compute_apps": [],
+        "idle": true
+      }
+    ],
+    "method": "Two consecutive idle samples, >=1s apart, without compute processes."
+  },
+  "experiment_signature": "3ebf3ab3b450ee1bb5b4b32819566cf8dc06eceacedced8124ecd0bee82c8102",
+  "qualification_preflight_signature": "cdbd5f7573d643ff4dfafbf4624f0d53fcf4e65aac53857650fc97f7ae4d9617",
+  "resource_recheck_only": true,
+  "resource_recheck_tool_sha256": "55ed9e64a3c5f9bead39fc4640b1cbc00b3050de83716093e94ce7b85792d520",
+  "qualification_note": "Inference and scoring passed in the original run. Only the immediate post-exit utilization sample failed; a later two-sample/no-compute-process check passed. Original runner, preflight and initial resource result are preserved. Inference inputs and effective parameters are unchanged."
+}

@@ -1,0 +1,1 @@
+../../../../scripts/score_activitynet_protocol.py

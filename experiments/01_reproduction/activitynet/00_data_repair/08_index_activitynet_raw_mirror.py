@@ -1,0 +1,1 @@
+../../../../scripts/index_activitynet_raw_mirror.py

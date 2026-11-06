@@ -1,0 +1,1 @@
+../../../../scripts/fetch_charades_annotation_sources.py

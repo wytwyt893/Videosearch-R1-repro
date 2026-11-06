@@ -1,0 +1,1 @@
+../../../../scripts/prepare_activitynet_assets.py

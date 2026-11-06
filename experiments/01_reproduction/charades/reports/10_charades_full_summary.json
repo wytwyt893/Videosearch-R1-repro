@@ -1,0 +1,80 @@
+{
+  "run_id": "charades_full_20261027_161353_178368",
+  "dataset": "Charades-FIG",
+  "status": "complete",
+  "num_examples": 3720,
+  "model_revision": "c78dc49c6b2cffdf9ae36bd01b738f9b9cdce283",
+  "official_commit": "69234fd9783b7235164d9f92b8903d9781dc284e",
+  "protocol": {
+    "primary_ver_turn": "last_verified",
+    "primary_ver_pairing": "turns[-1].answer versus turns[-1].top1_is_gt",
+    "ver_denominator": "valid_answers; invalid count and all-example accuracy reported explicitly",
+    "terminal_refinement": "keep_official_when_triggered; no extra verification beyond T=2",
+    "vr_ranking": "final_rank after any terminal refinement",
+    "vcmr": "official final_iou_r1 from the actual verified video",
+    "paper_ver_turn_confirmed": false
+  },
+  "primary": {
+    "VER": {
+      "N": 3720,
+      "N_expected": 3720,
+      "correct": 1944,
+      "accuracy": 0.5225806451612903,
+      "invalid_answers": 0,
+      "coverage": 1.0,
+      "accuracy_all_examples": 0.5225806451612903,
+      "confusion": {
+        "TP": 802,
+        "TN": 1142,
+        "FP": 1655,
+        "FN": 121
+      }
+    },
+    "VR": {
+      "N": 3720,
+      "R@1": 0.2478494623655914,
+      "R@5": 0.4295698924731183,
+      "R@10": 0.5225806451612903,
+      "R@100": 0.8459677419354839,
+      "MRR": 0.33829025203797936,
+      "mean_rank": 58.51989247311828
+    },
+    "VCMR": {
+      "N": 3720,
+      "mIoU@R1": 0.11079666952636752,
+      "IoU@0.3@R1": 0.1639784946236559,
+      "IoU@0.5@R1": 0.12473118279569892,
+      "IoU@0.7@R1": 0.06908602150537635
+    }
+  },
+  "diagnostics": {
+    "terminal_refinement": {
+      "refined_after_second_verification": 1263,
+      "changed_top1_video": 22,
+      "changed_video_label": 3
+    },
+    "official_final_field_pairing_VER": {
+      "N": 3720,
+      "N_expected": 3720,
+      "correct": 1945,
+      "accuracy": 0.5228494623655914,
+      "invalid_answers": 0,
+      "coverage": 1.0,
+      "accuracy_all_examples": 0.5228494623655914,
+      "confusion": {
+        "TP": 802,
+        "TN": 1143,
+        "FP": 1655,
+        "FN": 120
+      }
+    },
+    "official_pairing_is_primary": false
+  },
+  "elapsed_seconds": 16432.1,
+  "peak_gpu_used_mib": 49627,
+  "resource_release_passed": true,
+  "prediction_sha256": "35cf85cc43a42d96c2bcc8fe47d25416014db7669b09c5b3bd4e06b4faa3f425",
+  "primary_result_sha256": "3cbf3e52be1d93ea14e461a0a9a26576337e33b7d338c946d8b33141ce9e8e30",
+  "experiment_signature": "3ebf3ab3b450ee1bb5b4b32819566cf8dc06eceacedced8124ecd0bee82c8102",
+  "raw_outputs": "Retained locally under outputs/; excluded from Git."
+}

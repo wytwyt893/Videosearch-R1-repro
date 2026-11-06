@@ -1,0 +1,33 @@
+{
+  "created_at": "2026-10-28T15:27:45.699638+08:00",
+  "status": "DOWNLOAD_STARTED",
+  "model_execution": false,
+  "gpu_used": false,
+  "scope": "ActivityNet-FIG complete released test assets + Stage2 only; no training videos or GPU inference.",
+  "stage2_revision": "918ca416dc3678d28947b5794056607b7a4656b3",
+  "checkpoint_runtime_bytes": 4924782807,
+  "complete_train_test_bundle_bytes": 467728411142,
+  "complete_bundle_gib": 435.6060280855745,
+  "bundle_logical_shards": 444,
+  "bundle_physical_objects": 18913,
+  "test_queries": 16966,
+  "test_videos": 4866,
+  "test_pixel_bytes": null,
+  "test_counts_pending": "Annotation counts known; full corpus/vector rows and exact pixel bytes will be verified from remaining core/index.",
+  "existing_retriever_reused": "checkpoints/Qwen__Qwen3-VL-Embedding-2B",
+  "source_metadata": "cache/manifests/activitynet/sources.json",
+  "published_model_eval_artifacts": [],
+  "protected_previous_experiment_sha256": {
+    "configs/charades_stage2_eval.bash": "3a4e4bcdfdda142776fb1eca548630f87919250936124b017b1fc8c6336a30d6",
+    "configs/didemo_stage2_eval.bash": "8b367616d70eaa75bf4251b04937cade37f5862dab5b845d3d0302cd3b43299a",
+    "scripts/run_charades_full.py": "55ed9e64a3c5f9bead39fc4640b1cbc00b3050de83716093e94ce7b85792d520",
+    "scripts/score_charades_protocol.py": "6b3102edfdf701eda055a7a822fc38c8427fc122bb9415270c1aeff769c7b0b7",
+    "scripts/preflight_charades_full.py": "f144eda36159db3ae795a5e8d3813f8a350ac38b1940e5f2a633f801a23761ac",
+    "scripts/run_didemo_full.py": "c56e126368b1942066eb0f02f0935b636e996de5b6cf7c61126eec2af7813e7d",
+    "scripts/score_didemo_protocol.py": "e3b043db48ed09dee72dbc3435a1553058af5b816167db8b3272d6182d3b5927",
+    "scripts/preflight_didemo_full.py": "c7c30074a7b9b6cdfb521240387075eceac448e0511b1617aa4547c38cc7fb0b"
+  },
+  "started_at": "2026-10-28T15:28:03.430681+08:00",
+  "tmux_session": "videosearch_activitynet_download",
+  "download_log": "/data/wyt/videosearch_r1_repro/logs/activitynet_assets_20261028_152803.log"
+}

@@ -1,0 +1,1 @@
+../../../../scripts/run_activitynet_repair_full.py

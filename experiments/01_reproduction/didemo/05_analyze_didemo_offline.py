@@ -1,0 +1,1 @@
+../../../scripts/analyze_didemo_offline.py

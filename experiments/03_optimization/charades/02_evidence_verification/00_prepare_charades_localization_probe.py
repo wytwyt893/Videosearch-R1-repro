@@ -1,0 +1,1 @@
+../../../../scripts/prepare_charades_localization_probe.py

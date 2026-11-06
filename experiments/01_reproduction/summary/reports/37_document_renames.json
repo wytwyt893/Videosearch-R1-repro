@@ -1,0 +1,48 @@
+{
+  "created_on": "2026-11-05",
+  "naming_pattern": "videosearch_r1 × 报告内容-MM.DD.md",
+  "date_policy": "Existing documents retain the experiment/report date in their original filename; the new overview uses its compilation date. ActivityNet full started 2026-10-30 and completed 2026-10-31. All dates are Asia/Shanghai in 2026.",
+  "renames": [
+    {
+      "old_path": "doc/CHARADES_STAGE2_FULL_20261027.md",
+      "new_path": "doc/videosearch_r1 × CHARADES全量评估-10.27.md",
+      "original_sha256": "d836b1a2bde0492d3fb69ca79391402364917ec0aad506ab0c6e60d0a304b385",
+      "renamed_document_sha256": "65749353da2acdbb107482ee68e614a99309fba0e05a3661a3d776f7594b4aeb"
+    },
+    {
+      "old_path": "doc/CHARADES_STAGE2_OFFLINE_CHECK_20261027.md",
+      "new_path": "doc/videosearch_r1 × CHARADES离线检查-10.27.md",
+      "original_sha256": "fdad0d235e7ddff2e6fcc712579a6c2393eabbcbfdd0927cde0041da43a82ef6",
+      "renamed_document_sha256": "14b657dc6f0f596fd812dd42d212e5f5311ed03b0e1ace6469c7cfb867150960"
+    },
+    {
+      "old_path": "doc/DIDEMO_STAGE2_FULL_20261028.md",
+      "new_path": "doc/videosearch_r1 × DIDEMO全量评估-10.28.md",
+      "original_sha256": "1db8ec5b459455e5250944fd043405306c42e831475a626428b194263a648169",
+      "renamed_document_sha256": "3f76443d9c524641110e2846ce8c54a755b95abccffade3d40f665aa5a1fefe4"
+    },
+    {
+      "old_path": "doc/DIDEMO_STAGE2_OFFLINE_CHECK_20261028.md",
+      "new_path": "doc/videosearch_r1 × DIDEMO离线检查-10.28.md",
+      "original_sha256": "1e23b1aa3f2375a9e859dbfb7db48ca4424e30c416d9c9ba0d9717dcee938f48",
+      "renamed_document_sha256": "f694a93091632e4566bd5e8034c07a58420c4c6c4db08d5e2ac9b9c87ec2ebe4"
+    },
+    {
+      "old_path": "doc/ACTIVITYNET_STAGE2_SMOKE_20261029.md",
+      "new_path": "doc/videosearch_r1 × ACTIVITYNET原版smoke-10.29.md",
+      "original_sha256": "cd2469c467497e071adee9aefa5d67db1c2cad9a0ecc4e30b85dbd719f4561ae",
+      "renamed_document_sha256": "4481d946a62582f8d7978b22cdcd38c59ec763039e9e946d1370bbfe9d724099"
+    },
+    {
+      "old_path": "doc/ACTIVITYNET_STAGE2_REPAIRED_FULL_20261030_004132.md",
+      "new_path": "doc/videosearch_r1 × ACTIVITYNET修复版全量评估-10.30.md",
+      "original_sha256": "e500b09e2d6d6109aa8451cab722161d8da3ccea013e99c4a6ac5f2f0b2f61f4",
+      "renamed_document_sha256": "5d08bd2baa5315c37ac285e23192225456c33430b2f301c807cfffa40821d7e7"
+    }
+  ],
+  "new_summary_document": "doc/videosearch_r1 × 三数据集全量评估汇总-11.05.md",
+  "content_changes": "Names, headings, overview links and cross-references only. Experimental metrics, protocol and raw predictions are unchanged.",
+  "historical_report_snapshot": "reports/history/36_activitynet_repair_full_before_doc_rename_20261105.json",
+  "historical_readme_snapshot": "reports/history/README_before_20261105.md",
+  "historical_reference_policy": "Archived reports retain their original paths/hashes; resolve old document paths through this index. The current report 36 updates only the document location/hash and records this migration."
+}

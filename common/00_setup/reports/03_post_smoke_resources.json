@@ -1,0 +1,7 @@
+{
+  "timestamp": "2026-10-23T21:36:35.222228+08:00",
+  "gpus": "index, uuid, memory.used [MiB], memory.free [MiB], utilization.gpu [%]\n0, GPU-628327af-6e58-d49d-6c43-aef764bd3e3d, 70601 MiB, 10552 MiB, 100 %\n1, GPU-677cef2a-aeb8-267d-4a59-19e72f682efc, 0 MiB, 81153 MiB, 0 %",
+  "compute_processes": "pid, gpu_uuid, process_name, used_gpu_memory [MiB]\n2141205, GPU-628327af-6e58-d49d-6c43-aef764bd3e3d, VLLM::EngineCore, 70594 MiB",
+  "smoke_gpu_released": true,
+  "project_tasks_remaining": ""
+}

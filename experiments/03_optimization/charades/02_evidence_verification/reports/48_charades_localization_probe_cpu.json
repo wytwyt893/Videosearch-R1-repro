@@ -1,0 +1,3236 @@
+{
+  "status": "CPU_QUALIFIED",
+  "output": "/data/wyt/videosearch_r1_repro/outputs/charades_localization_probe_20261106_183407_371798",
+  "assets_report": "/data/wyt/videosearch_r1_repro/reports/47_charades_localization_probe_prepare.json",
+  "expected_records": 35,
+  "groups": {
+    "dev": 12,
+    "holdout": 23
+  },
+  "prompts": {
+    "ordinary": "Review this same video again and independently determine the start and end of the event requested by the original query. A previous proposal was {start:.2f} to {end:.2f} seconds. Keep that proposal if it is accurate; otherwise correct it. Use the original query and visible video, and return the same required answer/start/end format.",
+    "evidence": "Review this same video again to verify the temporal evidence for the event requested by the original query. A previous proposal was {start:.2f} to {end:.2f} seconds. In <think>, cite displayed video timestamp labels and briefly describe the visible action at its beginning and end, checking the neighboring observations before and after it. Distinguish the actual requested action from preparation, merely holding its object, and subsequent activities. Determine an interval supported by those observations. Keep the proposal if supported; otherwise correct it. Do not infer an action merely from the scene or objects. Return the same required answer/start/end format."
+  },
+  "max_input_tokens": 20384,
+  "max_new_tokens": 1024,
+  "conditions": [
+    "baseline",
+    "ordinary",
+    "evidence"
+  ],
+  "freeze": "Original query, chosen top1 video, original verification decision, pixels, source timestamps and checkpoint. Only temporal post-processing differs.",
+  "budget": "ordinary and evidence: at most one extra VLM call each, identical visual inputs, same 1024 generation cap; report actual text/output token costs separately.",
+  "fallback": "If baseline is not matched or lacks a valid span: no revision. If revision is not matched, invalid or length-capped: keep baseline span. Verification/ranking never overwritten.",
+  "evaluation_scope": "Conditional correct-initial-video localization probe, not full T=2/N=8 VCMR. Original verification is frozen after initial generation; no SQR is invoked.",
+  "holdout_limit": "Video-disjoint split within training data; the released checkpoint may have trained on these videos. Not an unseen-video benchmark.",
+  "input_audits": [
+    {
+      "index": 6596,
+      "arm": "baseline",
+      "input_tokens": 2848,
+      "visual_tokens": 2470,
+      "pixel_sha256": "5ceee51d2955e5b3560098b8b2485771cf35830ad13d84779472b5b610166027",
+      "video_grid": [
+        [
+          13,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "9.0",
+        "11.1",
+        "13.2",
+        "15.3",
+        "17.5",
+        "19.5",
+        "21.7",
+        "23.8",
+        "25.4"
+      ]
+    },
+    {
+      "index": 6596,
+      "arm": "ordinary",
+      "input_tokens": 2916,
+      "visual_tokens": 2470,
+      "pixel_sha256": "5ceee51d2955e5b3560098b8b2485771cf35830ad13d84779472b5b610166027",
+      "video_grid": [
+        [
+          13,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "9.0",
+        "11.1",
+        "13.2",
+        "15.3",
+        "17.5",
+        "19.5",
+        "21.7",
+        "23.8",
+        "25.4"
+      ]
+    },
+    {
+      "index": 6596,
+      "arm": "evidence",
+      "input_tokens": 2971,
+      "visual_tokens": 2470,
+      "pixel_sha256": "5ceee51d2955e5b3560098b8b2485771cf35830ad13d84779472b5b610166027",
+      "video_grid": [
+        [
+          13,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "9.0",
+        "11.1",
+        "13.2",
+        "15.3",
+        "17.5",
+        "19.5",
+        "21.7",
+        "23.8",
+        "25.4"
+      ]
+    },
+    {
+      "index": 3919,
+      "arm": "baseline",
+      "input_tokens": 3656,
+      "visual_tokens": 3230,
+      "pixel_sha256": "2dc2876bd77cbb9a9edf0d850ec32db1338c9bb1db0d74903cbf0c0d0e71596f",
+      "video_grid": [
+        [
+          17,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.6",
+        "6.7",
+        "8.8",
+        "10.9",
+        "12.9",
+        "15.0",
+        "17.1",
+        "19.1",
+        "21.2",
+        "23.3",
+        "25.4",
+        "27.4",
+        "29.5",
+        "31.6",
+        "33.7"
+      ]
+    },
+    {
+      "index": 3919,
+      "arm": "ordinary",
+      "input_tokens": 3724,
+      "visual_tokens": 3230,
+      "pixel_sha256": "2dc2876bd77cbb9a9edf0d850ec32db1338c9bb1db0d74903cbf0c0d0e71596f",
+      "video_grid": [
+        [
+          17,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.6",
+        "6.7",
+        "8.8",
+        "10.9",
+        "12.9",
+        "15.0",
+        "17.1",
+        "19.1",
+        "21.2",
+        "23.3",
+        "25.4",
+        "27.4",
+        "29.5",
+        "31.6",
+        "33.7"
+      ]
+    },
+    {
+      "index": 3919,
+      "arm": "evidence",
+      "input_tokens": 3779,
+      "visual_tokens": 3230,
+      "pixel_sha256": "2dc2876bd77cbb9a9edf0d850ec32db1338c9bb1db0d74903cbf0c0d0e71596f",
+      "video_grid": [
+        [
+          17,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.6",
+        "6.7",
+        "8.8",
+        "10.9",
+        "12.9",
+        "15.0",
+        "17.1",
+        "19.1",
+        "21.2",
+        "23.3",
+        "25.4",
+        "27.4",
+        "29.5",
+        "31.6",
+        "33.7"
+      ]
+    },
+    {
+      "index": 2761,
+      "arm": "baseline",
+      "input_tokens": 2642,
+      "visual_tokens": 2280,
+      "pixel_sha256": "4a48a95ac968166f5e317dcf300003b131078dadf7d15933b2201032c0de9101",
+      "video_grid": [
+        [
+          12,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.3",
+        "15.4",
+        "17.5",
+        "19.6",
+        "21.7",
+        "23.4"
+      ]
+    },
+    {
+      "index": 2761,
+      "arm": "ordinary",
+      "input_tokens": 2710,
+      "visual_tokens": 2280,
+      "pixel_sha256": "4a48a95ac968166f5e317dcf300003b131078dadf7d15933b2201032c0de9101",
+      "video_grid": [
+        [
+          12,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.3",
+        "15.4",
+        "17.5",
+        "19.6",
+        "21.7",
+        "23.4"
+      ]
+    },
+    {
+      "index": 2761,
+      "arm": "evidence",
+      "input_tokens": 2765,
+      "visual_tokens": 2280,
+      "pixel_sha256": "4a48a95ac968166f5e317dcf300003b131078dadf7d15933b2201032c0de9101",
+      "video_grid": [
+        [
+          12,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.3",
+        "15.4",
+        "17.5",
+        "19.6",
+        "21.7",
+        "23.4"
+      ]
+    },
+    {
+      "index": 9609,
+      "arm": "baseline",
+      "input_tokens": 2140,
+      "visual_tokens": 1728,
+      "pixel_sha256": "3e46fe7ecf1e2a299a0d576f2b527dabe0ebcb776bae730bd8ce49edd345e822",
+      "video_grid": [
+        [
+          16,
+          24,
+          18
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.2",
+        "15.3",
+        "17.5",
+        "19.6",
+        "21.7",
+        "23.8",
+        "25.9",
+        "28.0",
+        "30.2",
+        "31.8"
+      ]
+    },
+    {
+      "index": 9609,
+      "arm": "ordinary",
+      "input_tokens": 2208,
+      "visual_tokens": 1728,
+      "pixel_sha256": "3e46fe7ecf1e2a299a0d576f2b527dabe0ebcb776bae730bd8ce49edd345e822",
+      "video_grid": [
+        [
+          16,
+          24,
+          18
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.2",
+        "15.3",
+        "17.5",
+        "19.6",
+        "21.7",
+        "23.8",
+        "25.9",
+        "28.0",
+        "30.2",
+        "31.8"
+      ]
+    },
+    {
+      "index": 9609,
+      "arm": "evidence",
+      "input_tokens": 2263,
+      "visual_tokens": 1728,
+      "pixel_sha256": "3e46fe7ecf1e2a299a0d576f2b527dabe0ebcb776bae730bd8ce49edd345e822",
+      "video_grid": [
+        [
+          16,
+          24,
+          18
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.2",
+        "15.3",
+        "17.5",
+        "19.6",
+        "21.7",
+        "23.8",
+        "25.9",
+        "28.0",
+        "30.2",
+        "31.8"
+      ]
+    },
+    {
+      "index": 3163,
+      "arm": "baseline",
+      "input_tokens": 2052,
+      "visual_tokens": 1710,
+      "pixel_sha256": "6099063380cc9d08343f1638cb8cf3af5128ca276c5aa3dcc1d16384e6a0aa66",
+      "video_grid": [
+        [
+          9,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.6",
+        "2.8",
+        "5.0",
+        "7.2",
+        "9.4",
+        "11.6",
+        "13.8",
+        "16.0",
+        "17.7"
+      ]
+    },
+    {
+      "index": 3163,
+      "arm": "ordinary",
+      "input_tokens": 2120,
+      "visual_tokens": 1710,
+      "pixel_sha256": "6099063380cc9d08343f1638cb8cf3af5128ca276c5aa3dcc1d16384e6a0aa66",
+      "video_grid": [
+        [
+          9,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.6",
+        "2.8",
+        "5.0",
+        "7.2",
+        "9.4",
+        "11.6",
+        "13.8",
+        "16.0",
+        "17.7"
+      ]
+    },
+    {
+      "index": 3163,
+      "arm": "evidence",
+      "input_tokens": 2175,
+      "visual_tokens": 1710,
+      "pixel_sha256": "6099063380cc9d08343f1638cb8cf3af5128ca276c5aa3dcc1d16384e6a0aa66",
+      "video_grid": [
+        [
+          9,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.6",
+        "2.8",
+        "5.0",
+        "7.2",
+        "9.4",
+        "11.6",
+        "13.8",
+        "16.0",
+        "17.7"
+      ]
+    },
+    {
+      "index": 6563,
+      "arm": "baseline",
+      "input_tokens": 1782,
+      "visual_tokens": 1404,
+      "pixel_sha256": "3e609cdc4a1171a0c8d9c6ccb51cfbe12ed5eb6fc8ce02eac8287bf9df72595f",
+      "video_grid": [
+        [
+          13,
+          24,
+          18
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.1",
+        "15.2",
+        "17.3",
+        "19.4",
+        "21.5",
+        "23.6",
+        "25.8"
+      ]
+    },
+    {
+      "index": 6563,
+      "arm": "ordinary",
+      "input_tokens": 1850,
+      "visual_tokens": 1404,
+      "pixel_sha256": "3e609cdc4a1171a0c8d9c6ccb51cfbe12ed5eb6fc8ce02eac8287bf9df72595f",
+      "video_grid": [
+        [
+          13,
+          24,
+          18
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.1",
+        "15.2",
+        "17.3",
+        "19.4",
+        "21.5",
+        "23.6",
+        "25.8"
+      ]
+    },
+    {
+      "index": 6563,
+      "arm": "evidence",
+      "input_tokens": 1905,
+      "visual_tokens": 1404,
+      "pixel_sha256": "3e609cdc4a1171a0c8d9c6ccb51cfbe12ed5eb6fc8ce02eac8287bf9df72595f",
+      "video_grid": [
+        [
+          13,
+          24,
+          18
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.1",
+        "15.2",
+        "17.3",
+        "19.4",
+        "21.5",
+        "23.6",
+        "25.8"
+      ]
+    },
+    {
+      "index": 9112,
+      "arm": "baseline",
+      "input_tokens": 3200,
+      "visual_tokens": 2805,
+      "pixel_sha256": "444f8dcc6ecd15071b44fde3d88dc2cac31879158e337f753efaa2e068503fde",
+      "video_grid": [
+        [
+          15,
+          22,
+          34
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.3",
+        "15.4",
+        "17.5",
+        "19.7",
+        "21.8",
+        "23.9",
+        "26.0",
+        "28.2",
+        "29.8"
+      ]
+    },
+    {
+      "index": 9112,
+      "arm": "ordinary",
+      "input_tokens": 3268,
+      "visual_tokens": 2805,
+      "pixel_sha256": "444f8dcc6ecd15071b44fde3d88dc2cac31879158e337f753efaa2e068503fde",
+      "video_grid": [
+        [
+          15,
+          22,
+          34
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.3",
+        "15.4",
+        "17.5",
+        "19.7",
+        "21.8",
+        "23.9",
+        "26.0",
+        "28.2",
+        "29.8"
+      ]
+    },
+    {
+      "index": 9112,
+      "arm": "evidence",
+      "input_tokens": 3323,
+      "visual_tokens": 2805,
+      "pixel_sha256": "444f8dcc6ecd15071b44fde3d88dc2cac31879158e337f753efaa2e068503fde",
+      "video_grid": [
+        [
+          15,
+          22,
+          34
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.3",
+        "15.4",
+        "17.5",
+        "19.7",
+        "21.8",
+        "23.9",
+        "26.0",
+        "28.2",
+        "29.8"
+      ]
+    },
+    {
+      "index": 8482,
+      "arm": "baseline",
+      "input_tokens": 3048,
+      "visual_tokens": 2660,
+      "pixel_sha256": "0d3ee0566c67f360d7a838cabb6e5a8830c5672217edeb6010aa5215ffe8e8c1",
+      "video_grid": [
+        [
+          14,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.7",
+        "4.8",
+        "7.0",
+        "9.1",
+        "11.2",
+        "13.4",
+        "15.5",
+        "17.7",
+        "19.8",
+        "22.0",
+        "24.1",
+        "26.3",
+        "28.4"
+      ]
+    },
+    {
+      "index": 8482,
+      "arm": "ordinary",
+      "input_tokens": 3116,
+      "visual_tokens": 2660,
+      "pixel_sha256": "0d3ee0566c67f360d7a838cabb6e5a8830c5672217edeb6010aa5215ffe8e8c1",
+      "video_grid": [
+        [
+          14,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.7",
+        "4.8",
+        "7.0",
+        "9.1",
+        "11.2",
+        "13.4",
+        "15.5",
+        "17.7",
+        "19.8",
+        "22.0",
+        "24.1",
+        "26.3",
+        "28.4"
+      ]
+    },
+    {
+      "index": 8482,
+      "arm": "evidence",
+      "input_tokens": 3171,
+      "visual_tokens": 2660,
+      "pixel_sha256": "0d3ee0566c67f360d7a838cabb6e5a8830c5672217edeb6010aa5215ffe8e8c1",
+      "video_grid": [
+        [
+          14,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.7",
+        "4.8",
+        "7.0",
+        "9.1",
+        "11.2",
+        "13.4",
+        "15.5",
+        "17.7",
+        "19.8",
+        "22.0",
+        "24.1",
+        "26.3",
+        "28.4"
+      ]
+    },
+    {
+      "index": 7453,
+      "arm": "baseline",
+      "input_tokens": 2453,
+      "visual_tokens": 2090,
+      "pixel_sha256": "b572fa637bfd8e3791c84ca9b6f3608303e0bcc4ce99881daeb361fd3ddb9037",
+      "video_grid": [
+        [
+          11,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.7",
+        "4.8",
+        "7.0",
+        "9.1",
+        "11.3",
+        "13.4",
+        "15.6",
+        "17.7",
+        "19.9",
+        "21.5"
+      ]
+    },
+    {
+      "index": 7453,
+      "arm": "ordinary",
+      "input_tokens": 2521,
+      "visual_tokens": 2090,
+      "pixel_sha256": "b572fa637bfd8e3791c84ca9b6f3608303e0bcc4ce99881daeb361fd3ddb9037",
+      "video_grid": [
+        [
+          11,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.7",
+        "4.8",
+        "7.0",
+        "9.1",
+        "11.3",
+        "13.4",
+        "15.6",
+        "17.7",
+        "19.9",
+        "21.5"
+      ]
+    },
+    {
+      "index": 7453,
+      "arm": "evidence",
+      "input_tokens": 2576,
+      "visual_tokens": 2090,
+      "pixel_sha256": "b572fa637bfd8e3791c84ca9b6f3608303e0bcc4ce99881daeb361fd3ddb9037",
+      "video_grid": [
+        [
+          11,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.7",
+        "4.8",
+        "7.0",
+        "9.1",
+        "11.3",
+        "13.4",
+        "15.6",
+        "17.7",
+        "19.9",
+        "21.5"
+      ]
+    },
+    {
+      "index": 1599,
+      "arm": "baseline",
+      "input_tokens": 1780,
+      "visual_tokens": 1404,
+      "pixel_sha256": "b2180a6a8bccc365a3d3e2ec8c164f2ab82cab7383a530d8e5df201e3b9cb0fb",
+      "video_grid": [
+        [
+          13,
+          24,
+          18
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.7",
+        "4.8",
+        "7.0",
+        "9.1",
+        "11.2",
+        "13.4",
+        "15.5",
+        "17.7",
+        "19.8",
+        "22.0",
+        "24.1",
+        "26.3"
+      ]
+    },
+    {
+      "index": 1599,
+      "arm": "ordinary",
+      "input_tokens": 1848,
+      "visual_tokens": 1404,
+      "pixel_sha256": "b2180a6a8bccc365a3d3e2ec8c164f2ab82cab7383a530d8e5df201e3b9cb0fb",
+      "video_grid": [
+        [
+          13,
+          24,
+          18
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.7",
+        "4.8",
+        "7.0",
+        "9.1",
+        "11.2",
+        "13.4",
+        "15.5",
+        "17.7",
+        "19.8",
+        "22.0",
+        "24.1",
+        "26.3"
+      ]
+    },
+    {
+      "index": 1599,
+      "arm": "evidence",
+      "input_tokens": 1903,
+      "visual_tokens": 1404,
+      "pixel_sha256": "b2180a6a8bccc365a3d3e2ec8c164f2ab82cab7383a530d8e5df201e3b9cb0fb",
+      "video_grid": [
+        [
+          13,
+          24,
+          18
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.7",
+        "4.8",
+        "7.0",
+        "9.1",
+        "11.2",
+        "13.4",
+        "15.5",
+        "17.7",
+        "19.8",
+        "22.0",
+        "24.1",
+        "26.3"
+      ]
+    },
+    {
+      "index": 6016,
+      "arm": "baseline",
+      "input_tokens": 3061,
+      "visual_tokens": 2660,
+      "pixel_sha256": "f3da293f9a4f47157860204ca9392ce74a87aec507649c55702fdff403a5a7fa",
+      "video_grid": [
+        [
+          14,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.7",
+        "4.8",
+        "6.9",
+        "9.1",
+        "11.2",
+        "13.3",
+        "15.5",
+        "17.6",
+        "19.7",
+        "21.9",
+        "24.0",
+        "26.1",
+        "28.3"
+      ]
+    },
+    {
+      "index": 6016,
+      "arm": "ordinary",
+      "input_tokens": 3129,
+      "visual_tokens": 2660,
+      "pixel_sha256": "f3da293f9a4f47157860204ca9392ce74a87aec507649c55702fdff403a5a7fa",
+      "video_grid": [
+        [
+          14,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.7",
+        "4.8",
+        "6.9",
+        "9.1",
+        "11.2",
+        "13.3",
+        "15.5",
+        "17.6",
+        "19.7",
+        "21.9",
+        "24.0",
+        "26.1",
+        "28.3"
+      ]
+    },
+    {
+      "index": 6016,
+      "arm": "evidence",
+      "input_tokens": 3184,
+      "visual_tokens": 2660,
+      "pixel_sha256": "f3da293f9a4f47157860204ca9392ce74a87aec507649c55702fdff403a5a7fa",
+      "video_grid": [
+        [
+          14,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.7",
+        "4.8",
+        "6.9",
+        "9.1",
+        "11.2",
+        "13.3",
+        "15.5",
+        "17.6",
+        "19.7",
+        "21.9",
+        "24.0",
+        "26.1",
+        "28.3"
+      ]
+    },
+    {
+      "index": 5470,
+      "arm": "baseline",
+      "input_tokens": 2180,
+      "visual_tokens": 1815,
+      "pixel_sha256": "bcbdb3f80186456e354098cacfc676a2030acf6293c9127cb32b2f3d0b14a900",
+      "video_grid": [
+        [
+          11,
+          22,
+          30
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.7",
+        "4.8",
+        "7.0",
+        "9.1",
+        "11.3",
+        "13.4",
+        "15.6",
+        "17.7",
+        "19.9",
+        "22.0"
+      ]
+    },
+    {
+      "index": 5470,
+      "arm": "ordinary",
+      "input_tokens": 2248,
+      "visual_tokens": 1815,
+      "pixel_sha256": "bcbdb3f80186456e354098cacfc676a2030acf6293c9127cb32b2f3d0b14a900",
+      "video_grid": [
+        [
+          11,
+          22,
+          30
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.7",
+        "4.8",
+        "7.0",
+        "9.1",
+        "11.3",
+        "13.4",
+        "15.6",
+        "17.7",
+        "19.9",
+        "22.0"
+      ]
+    },
+    {
+      "index": 5470,
+      "arm": "evidence",
+      "input_tokens": 2303,
+      "visual_tokens": 1815,
+      "pixel_sha256": "bcbdb3f80186456e354098cacfc676a2030acf6293c9127cb32b2f3d0b14a900",
+      "video_grid": [
+        [
+          11,
+          22,
+          30
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.7",
+        "4.8",
+        "7.0",
+        "9.1",
+        "11.3",
+        "13.4",
+        "15.6",
+        "17.7",
+        "19.9",
+        "22.0"
+      ]
+    },
+    {
+      "index": 4146,
+      "arm": "baseline",
+      "input_tokens": 3246,
+      "visual_tokens": 2850,
+      "pixel_sha256": "3797f680b653b31e186b0f2969297e5f5b99248c4759ed8ccac367a72ae5005c",
+      "video_grid": [
+        [
+          15,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.1",
+        "15.2",
+        "17.3",
+        "19.4",
+        "21.5",
+        "23.6",
+        "25.7",
+        "27.8",
+        "29.9"
+      ]
+    },
+    {
+      "index": 4146,
+      "arm": "ordinary",
+      "input_tokens": 3314,
+      "visual_tokens": 2850,
+      "pixel_sha256": "3797f680b653b31e186b0f2969297e5f5b99248c4759ed8ccac367a72ae5005c",
+      "video_grid": [
+        [
+          15,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.1",
+        "15.2",
+        "17.3",
+        "19.4",
+        "21.5",
+        "23.6",
+        "25.7",
+        "27.8",
+        "29.9"
+      ]
+    },
+    {
+      "index": 4146,
+      "arm": "evidence",
+      "input_tokens": 3369,
+      "visual_tokens": 2850,
+      "pixel_sha256": "3797f680b653b31e186b0f2969297e5f5b99248c4759ed8ccac367a72ae5005c",
+      "video_grid": [
+        [
+          15,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.1",
+        "15.2",
+        "17.3",
+        "19.4",
+        "21.5",
+        "23.6",
+        "25.7",
+        "27.8",
+        "29.9"
+      ]
+    },
+    {
+      "index": 3930,
+      "arm": "baseline",
+      "input_tokens": 3255,
+      "visual_tokens": 2850,
+      "pixel_sha256": "4a9e1da41a11a17809bc60ac39c4c8a510bb713f385f1798af58cbe287ee95f7",
+      "video_grid": [
+        [
+          15,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.0",
+        "15.1",
+        "17.2",
+        "19.3",
+        "21.4",
+        "23.5",
+        "25.6",
+        "27.7",
+        "29.8"
+      ]
+    },
+    {
+      "index": 3930,
+      "arm": "ordinary",
+      "input_tokens": 3323,
+      "visual_tokens": 2850,
+      "pixel_sha256": "4a9e1da41a11a17809bc60ac39c4c8a510bb713f385f1798af58cbe287ee95f7",
+      "video_grid": [
+        [
+          15,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.0",
+        "15.1",
+        "17.2",
+        "19.3",
+        "21.4",
+        "23.5",
+        "25.6",
+        "27.7",
+        "29.8"
+      ]
+    },
+    {
+      "index": 3930,
+      "arm": "evidence",
+      "input_tokens": 3378,
+      "visual_tokens": 2850,
+      "pixel_sha256": "4a9e1da41a11a17809bc60ac39c4c8a510bb713f385f1798af58cbe287ee95f7",
+      "video_grid": [
+        [
+          15,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.0",
+        "15.1",
+        "17.2",
+        "19.3",
+        "21.4",
+        "23.5",
+        "25.6",
+        "27.7",
+        "29.8"
+      ]
+    },
+    {
+      "index": 3440,
+      "arm": "baseline",
+      "input_tokens": 2138,
+      "visual_tokens": 1728,
+      "pixel_sha256": "723977470933ec30b1726f0b0035db697604fc9399873cc158c044d4b0d3635e",
+      "video_grid": [
+        [
+          16,
+          24,
+          18
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.8",
+        "10.9",
+        "13.0",
+        "15.1",
+        "17.2",
+        "19.2",
+        "21.3",
+        "23.4",
+        "25.5",
+        "27.6",
+        "29.6",
+        "31.7"
+      ]
+    },
+    {
+      "index": 3440,
+      "arm": "ordinary",
+      "input_tokens": 2206,
+      "visual_tokens": 1728,
+      "pixel_sha256": "723977470933ec30b1726f0b0035db697604fc9399873cc158c044d4b0d3635e",
+      "video_grid": [
+        [
+          16,
+          24,
+          18
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.8",
+        "10.9",
+        "13.0",
+        "15.1",
+        "17.2",
+        "19.2",
+        "21.3",
+        "23.4",
+        "25.5",
+        "27.6",
+        "29.6",
+        "31.7"
+      ]
+    },
+    {
+      "index": 3440,
+      "arm": "evidence",
+      "input_tokens": 2261,
+      "visual_tokens": 1728,
+      "pixel_sha256": "723977470933ec30b1726f0b0035db697604fc9399873cc158c044d4b0d3635e",
+      "video_grid": [
+        [
+          16,
+          24,
+          18
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.8",
+        "10.9",
+        "13.0",
+        "15.1",
+        "17.2",
+        "19.2",
+        "21.3",
+        "23.4",
+        "25.5",
+        "27.6",
+        "29.6",
+        "31.7"
+      ]
+    },
+    {
+      "index": 5052,
+      "arm": "baseline",
+      "input_tokens": 2849,
+      "visual_tokens": 2470,
+      "pixel_sha256": "49da6a0849a1bc3352561c08c56193bb2298cdc052d227cd72e358bf2f5573ef",
+      "video_grid": [
+        [
+          13,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.2",
+        "15.4",
+        "17.5",
+        "19.6",
+        "21.7",
+        "23.9",
+        "25.5"
+      ]
+    },
+    {
+      "index": 5052,
+      "arm": "ordinary",
+      "input_tokens": 2917,
+      "visual_tokens": 2470,
+      "pixel_sha256": "49da6a0849a1bc3352561c08c56193bb2298cdc052d227cd72e358bf2f5573ef",
+      "video_grid": [
+        [
+          13,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.2",
+        "15.4",
+        "17.5",
+        "19.6",
+        "21.7",
+        "23.9",
+        "25.5"
+      ]
+    },
+    {
+      "index": 5052,
+      "arm": "evidence",
+      "input_tokens": 2972,
+      "visual_tokens": 2470,
+      "pixel_sha256": "49da6a0849a1bc3352561c08c56193bb2298cdc052d227cd72e358bf2f5573ef",
+      "video_grid": [
+        [
+          13,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.2",
+        "15.4",
+        "17.5",
+        "19.6",
+        "21.7",
+        "23.9",
+        "25.5"
+      ]
+    },
+    {
+      "index": 11823,
+      "arm": "baseline",
+      "input_tokens": 2054,
+      "visual_tokens": 1710,
+      "pixel_sha256": "e5a0dfa8b398513d590fdd232b0cec4fbed6b1759d87af8a63ad347f54d00cd6",
+      "video_grid": [
+        [
+          9,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.2",
+        "15.4",
+        "17.5"
+      ]
+    },
+    {
+      "index": 11823,
+      "arm": "ordinary",
+      "input_tokens": 2122,
+      "visual_tokens": 1710,
+      "pixel_sha256": "e5a0dfa8b398513d590fdd232b0cec4fbed6b1759d87af8a63ad347f54d00cd6",
+      "video_grid": [
+        [
+          9,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.2",
+        "15.4",
+        "17.5"
+      ]
+    },
+    {
+      "index": 11823,
+      "arm": "evidence",
+      "input_tokens": 2177,
+      "visual_tokens": 1710,
+      "pixel_sha256": "e5a0dfa8b398513d590fdd232b0cec4fbed6b1759d87af8a63ad347f54d00cd6",
+      "video_grid": [
+        [
+          9,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.2",
+        "15.4",
+        "17.5"
+      ]
+    },
+    {
+      "index": 1793,
+      "arm": "baseline",
+      "input_tokens": 2022,
+      "visual_tokens": 1620,
+      "pixel_sha256": "b4a0f093dddb738d4fff23d35f3ef1f982cd3d68b8a6b9c2111adb3602103a4d",
+      "video_grid": [
+        [
+          15,
+          24,
+          18
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.2",
+        "15.3",
+        "17.4",
+        "19.5",
+        "21.7",
+        "23.8",
+        "25.9",
+        "28.0",
+        "29.6"
+      ]
+    },
+    {
+      "index": 1793,
+      "arm": "ordinary",
+      "input_tokens": 2090,
+      "visual_tokens": 1620,
+      "pixel_sha256": "b4a0f093dddb738d4fff23d35f3ef1f982cd3d68b8a6b9c2111adb3602103a4d",
+      "video_grid": [
+        [
+          15,
+          24,
+          18
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.2",
+        "15.3",
+        "17.4",
+        "19.5",
+        "21.7",
+        "23.8",
+        "25.9",
+        "28.0",
+        "29.6"
+      ]
+    },
+    {
+      "index": 1793,
+      "arm": "evidence",
+      "input_tokens": 2145,
+      "visual_tokens": 1620,
+      "pixel_sha256": "b4a0f093dddb738d4fff23d35f3ef1f982cd3d68b8a6b9c2111adb3602103a4d",
+      "video_grid": [
+        [
+          15,
+          24,
+          18
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.2",
+        "15.3",
+        "17.4",
+        "19.5",
+        "21.7",
+        "23.8",
+        "25.9",
+        "28.0",
+        "29.6"
+      ]
+    },
+    {
+      "index": 2700,
+      "arm": "baseline",
+      "input_tokens": 3638,
+      "visual_tokens": 3230,
+      "pixel_sha256": "f7a647ed87fab069c1635bc7c3bd0912aed5c81132b30c7a67dcc473dd9676bf",
+      "video_grid": [
+        [
+          17,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.0",
+        "15.1",
+        "17.2",
+        "19.3",
+        "21.4",
+        "23.5",
+        "25.6",
+        "27.7",
+        "29.8",
+        "31.8",
+        "33.4"
+      ]
+    },
+    {
+      "index": 2700,
+      "arm": "ordinary",
+      "input_tokens": 3706,
+      "visual_tokens": 3230,
+      "pixel_sha256": "f7a647ed87fab069c1635bc7c3bd0912aed5c81132b30c7a67dcc473dd9676bf",
+      "video_grid": [
+        [
+          17,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.0",
+        "15.1",
+        "17.2",
+        "19.3",
+        "21.4",
+        "23.5",
+        "25.6",
+        "27.7",
+        "29.8",
+        "31.8",
+        "33.4"
+      ]
+    },
+    {
+      "index": 2700,
+      "arm": "evidence",
+      "input_tokens": 3761,
+      "visual_tokens": 3230,
+      "pixel_sha256": "f7a647ed87fab069c1635bc7c3bd0912aed5c81132b30c7a67dcc473dd9676bf",
+      "video_grid": [
+        [
+          17,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.0",
+        "15.1",
+        "17.2",
+        "19.3",
+        "21.4",
+        "23.5",
+        "25.6",
+        "27.7",
+        "29.8",
+        "31.8",
+        "33.4"
+      ]
+    },
+    {
+      "index": 4809,
+      "arm": "baseline",
+      "input_tokens": 3443,
+      "visual_tokens": 3040,
+      "pixel_sha256": "44b73b20dfd1fc73b9db77dfeedf8d86b2a19dcfb8c37fe101e88992d016159c",
+      "video_grid": [
+        [
+          16,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.7",
+        "8.8",
+        "10.9",
+        "12.9",
+        "15.0",
+        "17.1",
+        "19.1",
+        "21.2",
+        "23.3",
+        "25.3",
+        "27.4",
+        "29.5",
+        "31.0"
+      ]
+    },
+    {
+      "index": 4809,
+      "arm": "ordinary",
+      "input_tokens": 3511,
+      "visual_tokens": 3040,
+      "pixel_sha256": "44b73b20dfd1fc73b9db77dfeedf8d86b2a19dcfb8c37fe101e88992d016159c",
+      "video_grid": [
+        [
+          16,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.7",
+        "8.8",
+        "10.9",
+        "12.9",
+        "15.0",
+        "17.1",
+        "19.1",
+        "21.2",
+        "23.3",
+        "25.3",
+        "27.4",
+        "29.5",
+        "31.0"
+      ]
+    },
+    {
+      "index": 4809,
+      "arm": "evidence",
+      "input_tokens": 3566,
+      "visual_tokens": 3040,
+      "pixel_sha256": "44b73b20dfd1fc73b9db77dfeedf8d86b2a19dcfb8c37fe101e88992d016159c",
+      "video_grid": [
+        [
+          16,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.7",
+        "8.8",
+        "10.9",
+        "12.9",
+        "15.0",
+        "17.1",
+        "19.1",
+        "21.2",
+        "23.3",
+        "25.3",
+        "27.4",
+        "29.5",
+        "31.0"
+      ]
+    },
+    {
+      "index": 9324,
+      "arm": "baseline",
+      "input_tokens": 2216,
+      "visual_tokens": 1870,
+      "pixel_sha256": "81394e1171851f9fe7efdf22c1a00ae35f851da928e0675af8348b315c249096",
+      "video_grid": [
+        [
+          10,
+          34,
+          22
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.7",
+        "4.9",
+        "7.1",
+        "9.2",
+        "11.5",
+        "13.6",
+        "15.8",
+        "18.0",
+        "20.2"
+      ]
+    },
+    {
+      "index": 9324,
+      "arm": "ordinary",
+      "input_tokens": 2284,
+      "visual_tokens": 1870,
+      "pixel_sha256": "81394e1171851f9fe7efdf22c1a00ae35f851da928e0675af8348b315c249096",
+      "video_grid": [
+        [
+          10,
+          34,
+          22
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.7",
+        "4.9",
+        "7.1",
+        "9.2",
+        "11.5",
+        "13.6",
+        "15.8",
+        "18.0",
+        "20.2"
+      ]
+    },
+    {
+      "index": 9324,
+      "arm": "evidence",
+      "input_tokens": 2339,
+      "visual_tokens": 1870,
+      "pixel_sha256": "81394e1171851f9fe7efdf22c1a00ae35f851da928e0675af8348b315c249096",
+      "video_grid": [
+        [
+          10,
+          34,
+          22
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.7",
+        "4.9",
+        "7.1",
+        "9.2",
+        "11.5",
+        "13.6",
+        "15.8",
+        "18.0",
+        "20.2"
+      ]
+    },
+    {
+      "index": 7297,
+      "arm": "baseline",
+      "input_tokens": 3674,
+      "visual_tokens": 3264,
+      "pixel_sha256": "ac241fc1bf7d2058045d5bd2415d525c561eccb2ba9a4391ae473dfcb09917a9",
+      "video_grid": [
+        [
+          17,
+          24,
+          32
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.0",
+        "15.1",
+        "17.2",
+        "19.3",
+        "21.4",
+        "23.5",
+        "25.6",
+        "27.7",
+        "29.7",
+        "31.8",
+        "33.9"
+      ]
+    },
+    {
+      "index": 7297,
+      "arm": "ordinary",
+      "input_tokens": 3742,
+      "visual_tokens": 3264,
+      "pixel_sha256": "ac241fc1bf7d2058045d5bd2415d525c561eccb2ba9a4391ae473dfcb09917a9",
+      "video_grid": [
+        [
+          17,
+          24,
+          32
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.0",
+        "15.1",
+        "17.2",
+        "19.3",
+        "21.4",
+        "23.5",
+        "25.6",
+        "27.7",
+        "29.7",
+        "31.8",
+        "33.9"
+      ]
+    },
+    {
+      "index": 7297,
+      "arm": "evidence",
+      "input_tokens": 3797,
+      "visual_tokens": 3264,
+      "pixel_sha256": "ac241fc1bf7d2058045d5bd2415d525c561eccb2ba9a4391ae473dfcb09917a9",
+      "video_grid": [
+        [
+          17,
+          24,
+          32
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.0",
+        "15.1",
+        "17.2",
+        "19.3",
+        "21.4",
+        "23.5",
+        "25.6",
+        "27.7",
+        "29.7",
+        "31.8",
+        "33.9"
+      ]
+    },
+    {
+      "index": 10130,
+      "arm": "baseline",
+      "input_tokens": 3043,
+      "visual_tokens": 2640,
+      "pixel_sha256": "a380e6ad09958a957464b75a1ee783323e022c5fce6b2409b68695aaac0e759c",
+      "video_grid": [
+        [
+          16,
+          22,
+          30
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.6",
+        "6.7",
+        "8.8",
+        "10.8",
+        "12.9",
+        "14.9",
+        "17.0",
+        "19.1",
+        "21.2",
+        "23.2",
+        "25.3",
+        "27.4",
+        "29.4",
+        "31.5"
+      ]
+    },
+    {
+      "index": 10130,
+      "arm": "ordinary",
+      "input_tokens": 3111,
+      "visual_tokens": 2640,
+      "pixel_sha256": "a380e6ad09958a957464b75a1ee783323e022c5fce6b2409b68695aaac0e759c",
+      "video_grid": [
+        [
+          16,
+          22,
+          30
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.6",
+        "6.7",
+        "8.8",
+        "10.8",
+        "12.9",
+        "14.9",
+        "17.0",
+        "19.1",
+        "21.2",
+        "23.2",
+        "25.3",
+        "27.4",
+        "29.4",
+        "31.5"
+      ]
+    },
+    {
+      "index": 10130,
+      "arm": "evidence",
+      "input_tokens": 3166,
+      "visual_tokens": 2640,
+      "pixel_sha256": "a380e6ad09958a957464b75a1ee783323e022c5fce6b2409b68695aaac0e759c",
+      "video_grid": [
+        [
+          16,
+          22,
+          30
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.6",
+        "6.7",
+        "8.8",
+        "10.8",
+        "12.9",
+        "14.9",
+        "17.0",
+        "19.1",
+        "21.2",
+        "23.2",
+        "25.3",
+        "27.4",
+        "29.4",
+        "31.5"
+      ]
+    },
+    {
+      "index": 8860,
+      "arm": "baseline",
+      "input_tokens": 3253,
+      "visual_tokens": 2850,
+      "pixel_sha256": "523e2720a452f19ef301557d487a82f3e18a817f2fa59256d88ee41a96c8ef8c",
+      "video_grid": [
+        [
+          15,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.2",
+        "13.3",
+        "15.4",
+        "17.5",
+        "19.6",
+        "21.8",
+        "23.9",
+        "26.0",
+        "28.1",
+        "30.3"
+      ]
+    },
+    {
+      "index": 8860,
+      "arm": "ordinary",
+      "input_tokens": 3321,
+      "visual_tokens": 2850,
+      "pixel_sha256": "523e2720a452f19ef301557d487a82f3e18a817f2fa59256d88ee41a96c8ef8c",
+      "video_grid": [
+        [
+          15,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.2",
+        "13.3",
+        "15.4",
+        "17.5",
+        "19.6",
+        "21.8",
+        "23.9",
+        "26.0",
+        "28.1",
+        "30.3"
+      ]
+    },
+    {
+      "index": 8860,
+      "arm": "evidence",
+      "input_tokens": 3376,
+      "visual_tokens": 2850,
+      "pixel_sha256": "523e2720a452f19ef301557d487a82f3e18a817f2fa59256d88ee41a96c8ef8c",
+      "video_grid": [
+        [
+          15,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.2",
+        "13.3",
+        "15.4",
+        "17.5",
+        "19.6",
+        "21.8",
+        "23.9",
+        "26.0",
+        "28.1",
+        "30.3"
+      ]
+    },
+    {
+      "index": 11429,
+      "arm": "baseline",
+      "input_tokens": 3450,
+      "visual_tokens": 3040,
+      "pixel_sha256": "fc916dddcb33b32a680d6de1985397e21ad32090300ef096fe542d2ef32b6c3d",
+      "video_grid": [
+        [
+          16,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.1",
+        "15.2",
+        "17.3",
+        "19.4",
+        "21.5",
+        "23.6",
+        "25.7",
+        "27.8",
+        "29.9",
+        "31.5"
+      ]
+    },
+    {
+      "index": 11429,
+      "arm": "ordinary",
+      "input_tokens": 3518,
+      "visual_tokens": 3040,
+      "pixel_sha256": "fc916dddcb33b32a680d6de1985397e21ad32090300ef096fe542d2ef32b6c3d",
+      "video_grid": [
+        [
+          16,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.1",
+        "15.2",
+        "17.3",
+        "19.4",
+        "21.5",
+        "23.6",
+        "25.7",
+        "27.8",
+        "29.9",
+        "31.5"
+      ]
+    },
+    {
+      "index": 11429,
+      "arm": "evidence",
+      "input_tokens": 3573,
+      "visual_tokens": 3040,
+      "pixel_sha256": "fc916dddcb33b32a680d6de1985397e21ad32090300ef096fe542d2ef32b6c3d",
+      "video_grid": [
+        [
+          16,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.1",
+        "15.2",
+        "17.3",
+        "19.4",
+        "21.5",
+        "23.6",
+        "25.7",
+        "27.8",
+        "29.9",
+        "31.5"
+      ]
+    },
+    {
+      "index": 2327,
+      "arm": "baseline",
+      "input_tokens": 3198,
+      "visual_tokens": 2805,
+      "pixel_sha256": "cf759c72112eab91ddc25d7878b7208e1242bdb8d37cf3a8fdef891ab462e136",
+      "video_grid": [
+        [
+          15,
+          22,
+          34
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "10.9",
+        "13.1",
+        "15.1",
+        "17.2",
+        "19.3",
+        "21.4",
+        "23.5",
+        "25.6",
+        "27.7",
+        "29.8"
+      ]
+    },
+    {
+      "index": 2327,
+      "arm": "ordinary",
+      "input_tokens": 3266,
+      "visual_tokens": 2805,
+      "pixel_sha256": "cf759c72112eab91ddc25d7878b7208e1242bdb8d37cf3a8fdef891ab462e136",
+      "video_grid": [
+        [
+          15,
+          22,
+          34
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "10.9",
+        "13.1",
+        "15.1",
+        "17.2",
+        "19.3",
+        "21.4",
+        "23.5",
+        "25.6",
+        "27.7",
+        "29.8"
+      ]
+    },
+    {
+      "index": 2327,
+      "arm": "evidence",
+      "input_tokens": 3321,
+      "visual_tokens": 2805,
+      "pixel_sha256": "cf759c72112eab91ddc25d7878b7208e1242bdb8d37cf3a8fdef891ab462e136",
+      "video_grid": [
+        [
+          15,
+          22,
+          34
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "10.9",
+        "13.1",
+        "15.1",
+        "17.2",
+        "19.3",
+        "21.4",
+        "23.5",
+        "25.6",
+        "27.7",
+        "29.8"
+      ]
+    },
+    {
+      "index": 5578,
+      "arm": "baseline",
+      "input_tokens": 3255,
+      "visual_tokens": 2850,
+      "pixel_sha256": "632c9932f002fb71c4143d433f32b0b9a3ae513406bbb2cc3a30057b1b2d9c11",
+      "video_grid": [
+        [
+          15,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.2",
+        "15.4",
+        "17.5",
+        "19.6",
+        "21.7",
+        "23.9",
+        "26.0",
+        "28.1",
+        "30.2"
+      ]
+    },
+    {
+      "index": 5578,
+      "arm": "ordinary",
+      "input_tokens": 3323,
+      "visual_tokens": 2850,
+      "pixel_sha256": "632c9932f002fb71c4143d433f32b0b9a3ae513406bbb2cc3a30057b1b2d9c11",
+      "video_grid": [
+        [
+          15,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.2",
+        "15.4",
+        "17.5",
+        "19.6",
+        "21.7",
+        "23.9",
+        "26.0",
+        "28.1",
+        "30.2"
+      ]
+    },
+    {
+      "index": 5578,
+      "arm": "evidence",
+      "input_tokens": 3378,
+      "visual_tokens": 2850,
+      "pixel_sha256": "632c9932f002fb71c4143d433f32b0b9a3ae513406bbb2cc3a30057b1b2d9c11",
+      "video_grid": [
+        [
+          15,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.2",
+        "15.4",
+        "17.5",
+        "19.6",
+        "21.7",
+        "23.9",
+        "26.0",
+        "28.1",
+        "30.2"
+      ]
+    },
+    {
+      "index": 11395,
+      "arm": "baseline",
+      "input_tokens": 3478,
+      "visual_tokens": 3072,
+      "pixel_sha256": "701da2a240ba96173a6c38ccee5bc6d2900ced9ae23aa1053aa37d3498e421f4",
+      "video_grid": [
+        [
+          16,
+          32,
+          24
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.1",
+        "15.2",
+        "17.4",
+        "19.5",
+        "21.6",
+        "23.7",
+        "25.8",
+        "27.9",
+        "30.0",
+        "31.6"
+      ]
+    },
+    {
+      "index": 11395,
+      "arm": "ordinary",
+      "input_tokens": 3546,
+      "visual_tokens": 3072,
+      "pixel_sha256": "701da2a240ba96173a6c38ccee5bc6d2900ced9ae23aa1053aa37d3498e421f4",
+      "video_grid": [
+        [
+          16,
+          32,
+          24
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.1",
+        "15.2",
+        "17.4",
+        "19.5",
+        "21.6",
+        "23.7",
+        "25.8",
+        "27.9",
+        "30.0",
+        "31.6"
+      ]
+    },
+    {
+      "index": 11395,
+      "arm": "evidence",
+      "input_tokens": 3601,
+      "visual_tokens": 3072,
+      "pixel_sha256": "701da2a240ba96173a6c38ccee5bc6d2900ced9ae23aa1053aa37d3498e421f4",
+      "video_grid": [
+        [
+          16,
+          32,
+          24
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.1",
+        "15.2",
+        "17.4",
+        "19.5",
+        "21.6",
+        "23.7",
+        "25.8",
+        "27.9",
+        "30.0",
+        "31.6"
+      ]
+    },
+    {
+      "index": 7613,
+      "arm": "baseline",
+      "input_tokens": 3446,
+      "visual_tokens": 3040,
+      "pixel_sha256": "2ac1d2b108ca7d4bc813ccccd7d50a7571867e2520c9a69bf7d8a11be2a59e58",
+      "video_grid": [
+        [
+          16,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.6",
+        "6.7",
+        "8.7",
+        "10.8",
+        "12.9",
+        "14.9",
+        "17.0",
+        "19.0",
+        "21.1",
+        "23.2",
+        "25.2",
+        "27.3",
+        "29.4",
+        "31.5"
+      ]
+    },
+    {
+      "index": 7613,
+      "arm": "ordinary",
+      "input_tokens": 3514,
+      "visual_tokens": 3040,
+      "pixel_sha256": "2ac1d2b108ca7d4bc813ccccd7d50a7571867e2520c9a69bf7d8a11be2a59e58",
+      "video_grid": [
+        [
+          16,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.6",
+        "6.7",
+        "8.7",
+        "10.8",
+        "12.9",
+        "14.9",
+        "17.0",
+        "19.0",
+        "21.1",
+        "23.2",
+        "25.2",
+        "27.3",
+        "29.4",
+        "31.5"
+      ]
+    },
+    {
+      "index": 7613,
+      "arm": "evidence",
+      "input_tokens": 3569,
+      "visual_tokens": 3040,
+      "pixel_sha256": "2ac1d2b108ca7d4bc813ccccd7d50a7571867e2520c9a69bf7d8a11be2a59e58",
+      "video_grid": [
+        [
+          16,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.6",
+        "6.7",
+        "8.7",
+        "10.8",
+        "12.9",
+        "14.9",
+        "17.0",
+        "19.0",
+        "21.1",
+        "23.2",
+        "25.2",
+        "27.3",
+        "29.4",
+        "31.5"
+      ]
+    },
+    {
+      "index": 933,
+      "arm": "baseline",
+      "input_tokens": 4439,
+      "visual_tokens": 3990,
+      "pixel_sha256": "0cf72e3dd40c0936346dba0d9c4131490580c05cd60ad689d38da00a3ae3dfd6",
+      "video_grid": [
+        [
+          21,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.1",
+        "15.2",
+        "17.2",
+        "19.3",
+        "21.4",
+        "23.5",
+        "25.6",
+        "27.7",
+        "29.8",
+        "31.9",
+        "34.0",
+        "36.1",
+        "38.1",
+        "40.2",
+        "41.8"
+      ]
+    },
+    {
+      "index": 933,
+      "arm": "ordinary",
+      "input_tokens": 4507,
+      "visual_tokens": 3990,
+      "pixel_sha256": "0cf72e3dd40c0936346dba0d9c4131490580c05cd60ad689d38da00a3ae3dfd6",
+      "video_grid": [
+        [
+          21,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.1",
+        "15.2",
+        "17.2",
+        "19.3",
+        "21.4",
+        "23.5",
+        "25.6",
+        "27.7",
+        "29.8",
+        "31.9",
+        "34.0",
+        "36.1",
+        "38.1",
+        "40.2",
+        "41.8"
+      ]
+    },
+    {
+      "index": 933,
+      "arm": "evidence",
+      "input_tokens": 4562,
+      "visual_tokens": 3990,
+      "pixel_sha256": "0cf72e3dd40c0936346dba0d9c4131490580c05cd60ad689d38da00a3ae3dfd6",
+      "video_grid": [
+        [
+          21,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.1",
+        "15.2",
+        "17.2",
+        "19.3",
+        "21.4",
+        "23.5",
+        "25.6",
+        "27.7",
+        "29.8",
+        "31.9",
+        "34.0",
+        "36.1",
+        "38.1",
+        "40.2",
+        "41.8"
+      ]
+    },
+    {
+      "index": 11561,
+      "arm": "baseline",
+      "input_tokens": 3276,
+      "visual_tokens": 2880,
+      "pixel_sha256": "0daca3c1803196c30b53d9a15a9ae73a9c4c37dea768f1d0a4cee2cbc57a4cea",
+      "video_grid": [
+        [
+          15,
+          24,
+          32
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.1",
+        "15.2",
+        "17.3",
+        "19.4",
+        "21.4",
+        "23.6",
+        "25.6",
+        "27.7",
+        "29.8"
+      ]
+    },
+    {
+      "index": 11561,
+      "arm": "ordinary",
+      "input_tokens": 3344,
+      "visual_tokens": 2880,
+      "pixel_sha256": "0daca3c1803196c30b53d9a15a9ae73a9c4c37dea768f1d0a4cee2cbc57a4cea",
+      "video_grid": [
+        [
+          15,
+          24,
+          32
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.1",
+        "15.2",
+        "17.3",
+        "19.4",
+        "21.4",
+        "23.6",
+        "25.6",
+        "27.7",
+        "29.8"
+      ]
+    },
+    {
+      "index": 11561,
+      "arm": "evidence",
+      "input_tokens": 3399,
+      "visual_tokens": 2880,
+      "pixel_sha256": "0daca3c1803196c30b53d9a15a9ae73a9c4c37dea768f1d0a4cee2cbc57a4cea",
+      "video_grid": [
+        [
+          15,
+          24,
+          32
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.1",
+        "15.2",
+        "17.3",
+        "19.4",
+        "21.4",
+        "23.6",
+        "25.6",
+        "27.7",
+        "29.8"
+      ]
+    },
+    {
+      "index": 7310,
+      "arm": "baseline",
+      "input_tokens": 3257,
+      "visual_tokens": 2850,
+      "pixel_sha256": "1f78579e2a5856c076ce7c7ccf786d91bcae9e23082fd9a98b6e195a0ed962d8",
+      "video_grid": [
+        [
+          15,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.2",
+        "13.3",
+        "15.4",
+        "17.5",
+        "19.6",
+        "21.8",
+        "23.9",
+        "26.0",
+        "28.2",
+        "30.3"
+      ]
+    },
+    {
+      "index": 7310,
+      "arm": "ordinary",
+      "input_tokens": 3325,
+      "visual_tokens": 2850,
+      "pixel_sha256": "1f78579e2a5856c076ce7c7ccf786d91bcae9e23082fd9a98b6e195a0ed962d8",
+      "video_grid": [
+        [
+          15,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.2",
+        "13.3",
+        "15.4",
+        "17.5",
+        "19.6",
+        "21.8",
+        "23.9",
+        "26.0",
+        "28.2",
+        "30.3"
+      ]
+    },
+    {
+      "index": 7310,
+      "arm": "evidence",
+      "input_tokens": 3380,
+      "visual_tokens": 2850,
+      "pixel_sha256": "1f78579e2a5856c076ce7c7ccf786d91bcae9e23082fd9a98b6e195a0ed962d8",
+      "video_grid": [
+        [
+          15,
+          38,
+          20
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.2",
+        "13.3",
+        "15.4",
+        "17.5",
+        "19.6",
+        "21.8",
+        "23.9",
+        "26.0",
+        "28.2",
+        "30.3"
+      ]
+    },
+    {
+      "index": 2410,
+      "arm": "baseline",
+      "input_tokens": 3277,
+      "visual_tokens": 2880,
+      "pixel_sha256": "74fc5bcd85c008c0e7d7ae5657fe108abdacfd6c46c0cd75274470f1307d7b82",
+      "video_grid": [
+        [
+          15,
+          24,
+          32
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.7",
+        "8.8",
+        "10.9",
+        "12.9",
+        "15.0",
+        "17.1",
+        "19.1",
+        "21.2",
+        "23.2",
+        "25.3",
+        "27.4",
+        "29.4"
+      ]
+    },
+    {
+      "index": 2410,
+      "arm": "ordinary",
+      "input_tokens": 3345,
+      "visual_tokens": 2880,
+      "pixel_sha256": "74fc5bcd85c008c0e7d7ae5657fe108abdacfd6c46c0cd75274470f1307d7b82",
+      "video_grid": [
+        [
+          15,
+          24,
+          32
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.7",
+        "8.8",
+        "10.9",
+        "12.9",
+        "15.0",
+        "17.1",
+        "19.1",
+        "21.2",
+        "23.2",
+        "25.3",
+        "27.4",
+        "29.4"
+      ]
+    },
+    {
+      "index": 2410,
+      "arm": "evidence",
+      "input_tokens": 3400,
+      "visual_tokens": 2880,
+      "pixel_sha256": "74fc5bcd85c008c0e7d7ae5657fe108abdacfd6c46c0cd75274470f1307d7b82",
+      "video_grid": [
+        [
+          15,
+          24,
+          32
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.7",
+        "8.8",
+        "10.9",
+        "12.9",
+        "15.0",
+        "17.1",
+        "19.1",
+        "21.2",
+        "23.2",
+        "25.3",
+        "27.4",
+        "29.4"
+      ]
+    },
+    {
+      "index": 9089,
+      "arm": "baseline",
+      "input_tokens": 3251,
+      "visual_tokens": 2850,
+      "pixel_sha256": "dd757f2daca1ce4df0b84d191717609d52a61d2b78c18f78daf5c95979b714de",
+      "video_grid": [
+        [
+          15,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.2",
+        "15.4",
+        "17.5",
+        "19.6",
+        "21.8",
+        "23.9",
+        "26.0",
+        "28.1",
+        "30.3"
+      ]
+    },
+    {
+      "index": 9089,
+      "arm": "ordinary",
+      "input_tokens": 3319,
+      "visual_tokens": 2850,
+      "pixel_sha256": "dd757f2daca1ce4df0b84d191717609d52a61d2b78c18f78daf5c95979b714de",
+      "video_grid": [
+        [
+          15,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.2",
+        "15.4",
+        "17.5",
+        "19.6",
+        "21.8",
+        "23.9",
+        "26.0",
+        "28.1",
+        "30.3"
+      ]
+    },
+    {
+      "index": 9089,
+      "arm": "evidence",
+      "input_tokens": 3374,
+      "visual_tokens": 2850,
+      "pixel_sha256": "dd757f2daca1ce4df0b84d191717609d52a61d2b78c18f78daf5c95979b714de",
+      "video_grid": [
+        [
+          15,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.8",
+        "6.9",
+        "9.0",
+        "11.1",
+        "13.2",
+        "15.4",
+        "17.5",
+        "19.6",
+        "21.8",
+        "23.9",
+        "26.0",
+        "28.1",
+        "30.3"
+      ]
+    },
+    {
+      "index": 6333,
+      "arm": "baseline",
+      "input_tokens": 3041,
+      "visual_tokens": 2660,
+      "pixel_sha256": "2c9281cda268d462f9320dfb610db165b305425c1d9bb1cc28cbb9ec774f017b",
+      "video_grid": [
+        [
+          14,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.1",
+        "15.2",
+        "17.3",
+        "19.4",
+        "21.5",
+        "23.6",
+        "25.7",
+        "27.8"
+      ]
+    },
+    {
+      "index": 6333,
+      "arm": "ordinary",
+      "input_tokens": 3109,
+      "visual_tokens": 2660,
+      "pixel_sha256": "2c9281cda268d462f9320dfb610db165b305425c1d9bb1cc28cbb9ec774f017b",
+      "video_grid": [
+        [
+          14,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.1",
+        "15.2",
+        "17.3",
+        "19.4",
+        "21.5",
+        "23.6",
+        "25.7",
+        "27.8"
+      ]
+    },
+    {
+      "index": 6333,
+      "arm": "evidence",
+      "input_tokens": 3164,
+      "visual_tokens": 2660,
+      "pixel_sha256": "2c9281cda268d462f9320dfb610db165b305425c1d9bb1cc28cbb9ec774f017b",
+      "video_grid": [
+        [
+          14,
+          20,
+          38
+        ]
+      ],
+      "time_labels": [
+        "0.5",
+        "2.6",
+        "4.7",
+        "6.8",
+        "8.9",
+        "11.0",
+        "13.1",
+        "15.2",
+        "17.3",
+        "19.4",
+        "21.5",
+        "23.6",
+        "25.7",
+        "27.8"
+      ]
+    }
+  ],
+  "model_execution": false,
+  "cuda_initialized": false,
+  "file_sha256": {
+    "scripts/charades_localization_probe_worker.py": "d727d136c865ef19032e6261746a37df217b00a4beec5254db9b9804442fc4f6",
+    "scripts/prepare_charades_localization_probe.py": "c59a6c1ac4c2730c28444765b455b1002cc4a46f59820af29927dec10dff48c8",
+    "scripts/run_charades_localization_probe.py": "a2f20944ee0f3030152e0c554fc3d2c3b1ac9736aff1c5a8fb1960d9dcf53590",
+    "scripts/audit_charades_annotations.py": "63405cc3df313d5bb0238da13a33c357a71302149a32727eedbede241ee4308b",
+    "scripts/charades_timestamp_eval.py": "84a16159620327d3fca92922e7774c52b27239c7ceaa945fe8ec7b62d1a35b8b",
+    "reports/47_charades_localization_probe_prepare.json": "a7e3034e7919ccb85e8cdf85623d08744cf3777191f45d9fed6b9feb185a65ad",
+    "outputs/charades_localization_probe_20261106_183407_371798/text_quality_review.json": "1c01b2c184f1ad95d709fda312c6301a0668c309db6f92a10419c25483e11b39",
+    "checkpoints/VideoSearchR1__charades-stage2/config.json": "fdbf30b3e71b9ca37ecdf5ec1243533a032bfca70af8b096d1a46c169744ccc4",
+    "checkpoints/VideoSearchR1__charades-stage2/_vllm_compat/_compat_meta.json": "df44483848ad2eb7d3d1f27686239025f8e603b0748c2ea385a2ec52022aa5c2"
+  }
+}

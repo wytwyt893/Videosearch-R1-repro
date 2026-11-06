@@ -1,0 +1,58 @@
+{
+  "status": "PHASE_REORGANIZATION_CPU_VALIDATED",
+  "checked_at": "2026-11-06T22:36:28.887110+08:00",
+  "layout": {
+    "status": "PHASE_LAYOUT_CPU_VALIDATION_PASSED",
+    "phases": 3,
+    "registered_subexperiments": 11,
+    "shared_implementations": 12,
+    "classified_test_modules": 17,
+    "historical_validation": {
+      "status": "LAYOUT_CPU_VALIDATION_PASSED",
+      "experiment_groups": 11,
+      "script_entries": 70,
+      "moved_files": 837,
+      "frozen_files": 104,
+      "full_timestamp_qualification": "FULL_TIMESTAMP_CPU_QUALIFIED",
+      "localization_probe_qualification": "CPU_QUALIFIED",
+      "cuda_initialized": false,
+      "model_execution": false,
+      "released_payload_MiB": 125.17
+    },
+    "current_markdown_files": 41,
+    "current_local_links": 459,
+    "canonical_raw_files_ignored": 761,
+    "broken_navigation_links": 0,
+    "model_execution": false,
+    "gpu_access": false
+  },
+  "regression_tests": {
+    "modules": 17,
+    "cases": 76,
+    "passed": true,
+    "log": "common/00_setup/logs/phase_layout_tests_20261106.log",
+    "log_sha256": "2a91e83e5e9dcb4527120f7438d1d176d7b89464da8c934e7940cc7e8c9032ba"
+  },
+  "numbered_entry_dry_runs": {
+    "phase_charades_dry_run_20261106.json": {
+      "passed": true,
+      "sha256": "5a9275b3da69921fa40d5a50d527dfeb6e221c564965655076de9ffa5e21f67b"
+    },
+    "phase_activitynet_dry_run_20261106.json": {
+      "passed": true,
+      "sha256": "08ba0c5f377e7bb2bc471198b08a3380e76024bf8dc6517a253e4400259816b1"
+    },
+    "phase_didemo_dry_run_20261106.json": {
+      "passed": true,
+      "sha256": "138e3287a7b9eb89c8512958a38b8834e98683fb053d4565ff14dd6f2243f713"
+    }
+  },
+  "validators": {
+    "common/00_setup/90_validate_layout.py": "c07f6bfaf90ac95c70da16c59ee3c0e5e25639bba55a140df46fc7acb86f2f2f",
+    "common/00_setup/91_validate_phase_layout.py": "3cc424b11df16fc3921e069bf9f7ea203521dd9170f5ed5ef9cd8265151eb8ce",
+    "tests/run_tests.py": "5fdc2107f8c08db6f7e73b6cd1a79b09b30b5c8aaee6bc0ae39c46562db6de76"
+  },
+  "model_execution": false,
+  "gpu_access": false,
+  "test_labels_or_model_parameters_modified": false
+}

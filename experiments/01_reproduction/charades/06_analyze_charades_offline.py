@@ -1,0 +1,1 @@
+../../../scripts/analyze_charades_offline.py

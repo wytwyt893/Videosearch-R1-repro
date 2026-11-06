@@ -1,0 +1,127 @@
+{
+  "timestamp": "2026-10-28T02:06:41.727644+08:00",
+  "configuration_checks_passed": true,
+  "claim": "Paper-explicit inference settings match; unspecified choices are frozen to the official baseline, with declared uncertainties.",
+  "not_a_claim": "This is not proof of exact paper training lineage, complete data availability, or reproduced Table 2 scores.",
+  "model_execution": false,
+  "network_access": false,
+  "gpu_access": false,
+  "upstream_commit": "69234fd9783b7235164d9f92b8903d9781dc284e",
+  "upstream_clean": true,
+  "profile": "configs/didemo_stage2_eval.bash",
+  "profile_sha256": "8b367616d70eaa75bf4251b04937cade37f5862dab5b845d3d0302cd3b43299a",
+  "official_evaluator_sha256": "3e8ec59647ed07a500bc9535fbce61c94a514f39369ef756a8d5deaa55473421",
+  "snapshot_revisions": {
+    "VideoSearchR1/didemo-stage2": "a576c16040c35a5ec71468c66ec7628e7db71997",
+    "Qwen/Qwen3-VL-Embedding-2B": "9f2f7e710d6d81056aa5c0a4f04764fec6bb7bda"
+  },
+  "snapshot_check_scope": "Recheck configuration/tokenizer hashes and all sizes against verified DiDeMo and retriever receipts; current weight SHA256 is checked by CPU preflight.",
+  "worker_arguments": {
+    "--model_path": "/data/wyt/videosearch_r1_repro/checkpoints/VideoSearchR1__didemo-stage2",
+    "--processor_path": "/data/wyt/videosearch_r1_repro/checkpoints/VideoSearchR1__didemo-stage2",
+    "--verified_test_jsonl": "/data/wyt/videosearch_r1_repro/data/didemo/raw_annotation/test.jsonl",
+    "--video_root": "/data/wyt/videosearch_r1_repro/data/didemo/test/video_npy_with_meta",
+    "--video_meta_path": "/data/wyt/videosearch_r1_repro/data/didemo/test/video_npy_with_meta/meta.jsonl",
+    "--query_embeddings_path": "/data/wyt/videosearch_r1_repro/data/didemo/test/query_embedding/query_embeddings.test.npy",
+    "--query_meta_path": "/data/wyt/videosearch_r1_repro/data/didemo/test/query_embedding/query_meta.test.jsonl",
+    "--video_embeddings_path": "/data/wyt/videosearch_r1_repro/data/didemo/test/video_embedding_1fps/segment_embeds.npy",
+    "--video_docid2row_path": "/data/wyt/videosearch_r1_repro/data/didemo/test/video_embedding_1fps/docid2row.json",
+    "--temporal": "True",
+    "--max_turn": "2",
+    "--iou_thresholds": "0.3,0.5,0.7",
+    "--refine_token": "<REFINE>",
+    "--refine_token_count": "8",
+    "--use_refine_gate": "False",
+    "--use_query_embedder_path": "True",
+    "--query_embedder_model_path": "/data/wyt/videosearch_r1_repro/checkpoints/Qwen__Qwen3-VL-Embedding-2B",
+    "--use_updated_query": "False",
+    "--qfinal_pooling": "latent_last",
+    "--qfinal_normalize": "True",
+    "--query_embedder_max_length": "128",
+    "--query_embedder_input_prefix": "Represent the user's input",
+    "--model_max_length": "20384",
+    "--max_new_tokens": "1024",
+    "--use_vllm": "True",
+    "--vllm_model_path": "",
+    "--vllm_tensor_parallel_size": "1",
+    "--vllm_gpu_memory_utilization": "0.45",
+    "--vllm_max_num_seqs": "1",
+    "--vllm_eval_batch_size": "1",
+    "--vllm_disable_custom_all_reduce": "False",
+    "--vllm_enforce_eager": "True",
+    "--topk": "1,5,10,100",
+    "--rerank_topk": "all",
+    "--max_samples": "0",
+    "--eval_limit_ratio": "1.0",
+    "--num_shards": "1",
+    "--shard_id": "0",
+    "--resume_skip_jsonl": "",
+    "--progress_interval_sec": "2.0",
+    "--use_tqdm": "True",
+    "--tqdm_mininterval": "0.2",
+    "--seed": "42",
+    "--bf16": "True",
+    "--save_query_vectors": "False",
+    "--save_query_vectors_max_gb": "200",
+    "--save_query_vectors_only_refined": "False",
+    "--profile_rollout_depths": "",
+    "--resume_from_jsonl": "False"
+  },
+  "verified_argument_count": 40,
+  "local_policy": {
+    "VIDEOSEARCH_VER_TURN": "last_verified",
+    "VIDEOSEARCH_VER_DENOMINATOR": "valid_answers",
+    "VIDEOSEARCH_TERMINAL_REFINEMENT": "keep_official"
+  },
+  "primary_scoring_entry": "scripts/score_didemo_protocol.py",
+  "primary_scoring_entry_sha256": "e3b043db48ed09dee72dbc3435a1553058af5b816167db8b3272d6182d3b5927",
+  "experimental_configuration_decided": true,
+  "visual_pixel_defaults": {
+    "--image_patch_size": 16,
+    "--video_min_pixels": 100352,
+    "--video_max_pixels": 602112,
+    "--video_total_pixels": 90316800
+  },
+  "video_metadata_rows": 1002,
+  "annotation_rows": 4013,
+  "visual_policy": "Use released 1 FPS / max-64-frame tensors and official inference resizing; no inferred 4096-token inference cap.",
+  "generation_sampling": {
+    "n": 1,
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "top_k": -1,
+    "repetition_penalty": 1.0
+  },
+  "vllm_seed_explicitly_passed": false,
+  "vllm_seed_observed_in_prior_smoke": 0,
+  "resolved_policy_decisions": [
+    {
+      "topic": "4096 visual tokens at inference",
+      "paper_scope": "The paper sets 4096 visual tokens during training; it does not explicitly impose a 4096-token inference ceiling.",
+      "decision": "Keep the official inference resizing and processor; do not add a 4096-token cap.",
+      "basis": "User instruction on 2026-10-26: only impose the cap if explicitly required for inference by the paper.",
+      "official_inference_modified": false
+    },
+    {
+      "topic": "Primary VER",
+      "decision": "Use each query's last actual verification, paired with that checked video. Retain official valid-answer denominator and report coverage.",
+      "basis": "User selected last verification as primary; first-turn VER is an optional supplementary analysis."
+    },
+    {
+      "topic": "Terminal refinement",
+      "decision": "Keep the official final query update and reranking when SQR is triggered at turn 2. Do not add a third verification.",
+      "basis": "User selected terminal refinement for the main experiment; skipping it is a possible later ablation.",
+      "official_inference_modified": false
+    },
+    {
+      "topic": "Checkpoint size",
+      "decision": "Keep the verified released 2B-architecture checkpoint unchanged.",
+      "basis": "User accepted actual checkpoint architecture; model-card provenance discrepancy is retained as metadata only."
+    }
+  ],
+  "open_questions": [],
+  "paper_provenance_caveats": [
+    "Selecting last-turn VER and terminal refinement is the declared reproduction protocol, not proof that the paper used precisely this scoring convention.",
+    "Released model card says 4B while actual config/tensors match 2B; exact training lineage is not established."
+  ]
+}

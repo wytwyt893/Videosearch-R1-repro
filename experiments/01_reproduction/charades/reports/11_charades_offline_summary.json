@@ -1,0 +1,222 @@
+{
+  "status": "OFFLINE_MINIMUM_PASSED",
+  "created_at": "2026-10-27T21:07:59.775824+08:00",
+  "model_execution": false,
+  "gpu_access": false,
+  "validation": {
+    "local": {
+      "examples": 3720,
+      "annotations_aligned": true,
+      "turns_reparsed": 6085,
+      "parser_and_iou_mismatch_count": 0,
+      "mismatches": []
+    },
+    "reference": {
+      "examples": 3720,
+      "annotations_aligned": true,
+      "turns_reparsed": 6135,
+      "parser_and_iou_mismatch_count": 0,
+      "mismatches": []
+    },
+    "original_sources_unchanged": true,
+    "official_result_reproduced": true,
+    "official_result_absolute_tolerance": 1e-12,
+    "aggregation_roundoff": [
+      {
+        "task": "VR",
+        "metric": "MRR",
+        "recomputed": 0.3370978602460038,
+        "released": 0.3370978602460052,
+        "delta": -1.3877787807814457e-15
+      },
+      {
+        "task": "VCMR",
+        "metric": "mIoU@R1",
+        "recomputed": 0.11561132220521828,
+        "released": 0.1156113222052184,
+        "delta": -1.249000902703301e-16
+      }
+    ]
+  },
+  "local_primary": {
+    "VER": {
+      "N": 3720,
+      "N_expected": 3720,
+      "correct": 1944,
+      "accuracy": 0.5225806451612903,
+      "invalid_answers": 0,
+      "coverage": 1.0,
+      "accuracy_all_examples": 0.5225806451612903,
+      "confusion": {
+        "TP": 802,
+        "TN": 1142,
+        "FP": 1655,
+        "FN": 121
+      }
+    },
+    "VR": {
+      "N": 3720,
+      "R@1": 0.2478494623655914,
+      "R@5": 0.4295698924731183,
+      "R@10": 0.5225806451612903,
+      "R@100": 0.8459677419354839,
+      "MRR": 0.33829025203797936,
+      "mean_rank": 58.51989247311828
+    },
+    "VCMR": {
+      "N": 3720,
+      "mIoU@R1": 0.11079666952636752,
+      "IoU@0.3@R1": 0.1639784946236559,
+      "IoU@0.5@R1": 0.12473118279569892,
+      "IoU@0.7@R1": 0.06908602150537635
+    }
+  },
+  "reference_primary": {
+    "VER": {
+      "N": 3720,
+      "N_expected": 3720,
+      "correct": 1963,
+      "accuracy": 0.5276881720430108,
+      "invalid_answers": 0,
+      "coverage": 1.0,
+      "accuracy_all_examples": 0.5276881720430108,
+      "confusion": {
+        "TP": 790,
+        "TN": 1173,
+        "FP": 1634,
+        "FN": 123
+      }
+    },
+    "VR": {
+      "N": 3720,
+      "R@1": 0.2456989247311828,
+      "R@5": 0.4293010752688172,
+      "R@10": 0.5220430107526882,
+      "R@100": 0.8475806451612903,
+      "MRR": 0.3370978602460038,
+      "mean_rank": 58.99596774193548
+    },
+    "VCMR": {
+      "N": 3720,
+      "mIoU@R1": 0.11561132220521828,
+      "IoU@0.3@R1": 0.16478494623655915,
+      "IoU@0.5@R1": 0.13440860215053763,
+      "IoU@0.7@R1": 0.08172043010752689
+    }
+  },
+  "local_first_turn_VER": {
+    "N": 3720,
+    "N_expected": 3720,
+    "correct": 2784,
+    "accuracy": 0.7483870967741936,
+    "invalid_answers": 0,
+    "coverage": 1.0,
+    "accuracy_all_examples": 0.7483870967741936,
+    "confusion": {
+      "TP": 612,
+      "TN": 2172,
+      "FP": 743,
+      "FN": 193
+    }
+  },
+  "reference_first_turn_VER": {
+    "N": 3720,
+    "N_expected": 3720,
+    "correct": 2814,
+    "accuracy": 0.7564516129032258,
+    "invalid_answers": 0,
+    "coverage": 1.0,
+    "accuracy_all_examples": 0.7564516129032258,
+    "confusion": {
+      "TP": 602,
+      "TN": 2212,
+      "FP": 703,
+      "FN": 203
+    }
+  },
+  "same_counts": {
+    "qid_equal": 3720,
+    "orig_rank_equal": 3720,
+    "final_rank_equal": 2602,
+    "final_top1_doc_id_equal": 3565,
+    "first_top1_doc_id_equal": 3720,
+    "last_top1_doc_id_equal": 3569,
+    "first_answer_equal": 3604,
+    "last_answer_equal": 3563
+  },
+  "vcmr_paired_differences": {
+    "0.3": {
+      "reference_hits": 613,
+      "local_hits": 610,
+      "reference_hit_local_miss": 39,
+      "local_hit_reference_miss": 36,
+      "net_local_minus_reference": -3,
+      "lost_local_failure_types": {
+        "correct_video_localization_below_threshold": 25,
+        "wrong_checked_video": 11,
+        "correct_video_rejected": 3
+      },
+      "gained_reference_failure_types": {
+        "correct_video_localization_below_threshold": 18,
+        "correct_video_rejected": 4,
+        "wrong_checked_video": 14
+      }
+    },
+    "0.5": {
+      "reference_hits": 500,
+      "local_hits": 464,
+      "reference_hit_local_miss": 68,
+      "local_hit_reference_miss": 32,
+      "net_local_minus_reference": -36,
+      "lost_local_failure_types": {
+        "correct_video_localization_below_threshold": 57,
+        "wrong_checked_video": 10,
+        "correct_video_rejected": 1
+      },
+      "gained_reference_failure_types": {
+        "correct_video_rejected": 3,
+        "wrong_checked_video": 10,
+        "correct_video_localization_below_threshold": 19
+      }
+    },
+    "0.7": {
+      "reference_hits": 304,
+      "local_hits": 257,
+      "reference_hit_local_miss": 85,
+      "local_hit_reference_miss": 38,
+      "net_local_minus_reference": -47,
+      "lost_local_failure_types": {
+        "correct_video_localization_below_threshold": 79,
+        "wrong_checked_video": 6
+      },
+      "gained_reference_failure_types": {
+        "correct_video_localization_below_threshold": 31,
+        "correct_video_rejected": 2,
+        "wrong_checked_video": 5
+      }
+    }
+  },
+  "data_subgroups": {
+    "duplicate_text_overrides": {
+      "N": 13,
+      "local_iou07_hits": 1,
+      "reference_iou07_hits": 1,
+      "net_iou07_hits": 0,
+      "scope": "Descriptive subgroup; no label edits and no causal attribution."
+    },
+    "annotation_end_exceeds_duration": {
+      "N": 539,
+      "local_iou07_hits": 11,
+      "reference_iou07_hits": 39,
+      "net_iou07_hits": -28,
+      "scope": "Descriptive subgroup; no label edits and no causal attribution."
+    }
+  },
+  "limitations": [
+    "No new inference or visual inspection; labels define video correctness.",
+    "Reference inference backend and exact original input budget are not recorded by these predictions.",
+    "Observed trajectory/span differences do not isolate their backend or preprocessing cause.",
+    "Primary last-verification protocol remains unchanged."
+  ],
+  "raw_analysis": "Retained locally under outputs/charades_offline_minimum_20261027/; excluded from Git."
+}

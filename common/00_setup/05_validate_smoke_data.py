@@ -1,0 +1,1 @@
+../../scripts/validate_smoke_data.py

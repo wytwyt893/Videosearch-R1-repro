@@ -1,0 +1,3352 @@
+{
+  "status": "complete",
+  "run_kind": "timestamp_only_paired70",
+  "output_dir": "/data/wyt/videosearch_r1_repro/outputs/charades_timestamp_ab_20261105_171942_386257",
+  "created_at": "2026-11-05T17:19:42.386647+08:00",
+  "gpu_index": 1,
+  "gpu_uuid": "GPU-677cef2a-aeb8-267d-4a59-19e72f682efc",
+  "cuda_uuid": "677cef2a-aeb8-267d-4a59-19e72f682efc",
+  "plan": "/data/wyt/videosearch_r1_repro/reports/40_charades_timestamp_cpu.json",
+  "plan_sha256": "653a1f1041c5724464e00a27b567add38acb5546004b0e4cffb0bce9992ef220",
+  "selection": {
+    "cohorts": {
+      "diagnostic_cases": [
+        26,
+        870,
+        1252,
+        1516,
+        2233,
+        2344
+      ],
+      "random64_excluding_diagnostic": [
+        110,
+        192,
+        198,
+        222,
+        277,
+        403,
+        453,
+        528,
+        619,
+        668,
+        696,
+        697,
+        698,
+        756,
+        762,
+        1100,
+        1101,
+        1218,
+        1261,
+        1283,
+        1384,
+        1550,
+        1684,
+        1739,
+        1771,
+        1791,
+        1837,
+        1872,
+        1925,
+        1941,
+        1960,
+        1969,
+        1992,
+        2042,
+        2119,
+        2244,
+        2298,
+        2315,
+        2335,
+        2482,
+        2524,
+        2599,
+        2703,
+        2720,
+        2797,
+        2883,
+        3016,
+        3056,
+        3069,
+        3077,
+        3116,
+        3119,
+        3235,
+        3239,
+        3283,
+        3367,
+        3422,
+        3459,
+        3561,
+        3573,
+        3584,
+        3595,
+        3685,
+        3686
+      ]
+    },
+    "original_indices": [
+      26,
+      110,
+      192,
+      198,
+      222,
+      277,
+      403,
+      453,
+      528,
+      619,
+      668,
+      696,
+      697,
+      698,
+      756,
+      762,
+      870,
+      1100,
+      1101,
+      1218,
+      1252,
+      1261,
+      1283,
+      1384,
+      1516,
+      1550,
+      1684,
+      1739,
+      1771,
+      1791,
+      1837,
+      1872,
+      1925,
+      1941,
+      1960,
+      1969,
+      1992,
+      2042,
+      2119,
+      2233,
+      2244,
+      2298,
+      2315,
+      2335,
+      2344,
+      2482,
+      2524,
+      2599,
+      2703,
+      2720,
+      2797,
+      2883,
+      3016,
+      3056,
+      3069,
+      3077,
+      3116,
+      3119,
+      3235,
+      3239,
+      3283,
+      3367,
+      3422,
+      3459,
+      3561,
+      3573,
+      3584,
+      3595,
+      3685,
+      3686
+    ],
+    "random_seed": 20261105,
+    "selection_precedes_new_model_inference": true,
+    "limits": "Six purposive diagnostic examples and a separate random64 cohort from the other 3714 questions. Neither is a full benchmark."
+  },
+  "expected_queries_per_condition": 70,
+  "corpus_videos": 1334,
+  "conditions": {
+    "nominal": {
+      "status": "complete",
+      "command": [
+        "/data/wyt/videosearch_r1_repro/envs/videosearchr1/bin/python",
+        "-B",
+        "/data/wyt/videosearch_r1_repro/scripts/charades_timestamp_eval.py",
+        "--clock",
+        "nominal",
+        "--audit",
+        "/data/wyt/videosearch_r1_repro/outputs/charades_timestamp_ab_20261105_171942_386257/nominal/input_audit.jsonl",
+        "--model_path",
+        "/data/wyt/videosearch_r1_repro/checkpoints/VideoSearchR1__charades-stage2",
+        "--processor_path",
+        "/data/wyt/videosearch_r1_repro/checkpoints/VideoSearchR1__charades-stage2",
+        "--verified_test_jsonl",
+        "/data/wyt/videosearch_r1_repro/data/charades-sta/raw_annotation/test.jsonl",
+        "--video_root",
+        "/data/wyt/videosearch_r1_repro/data/charades-sta/test/video_npy_with_meta",
+        "--video_meta_path",
+        "/data/wyt/videosearch_r1_repro/data/charades-sta/test/video_npy_with_meta/meta.jsonl",
+        "--query_embeddings_path",
+        "/data/wyt/videosearch_r1_repro/data/charades-sta/test/query_embedding/query_embeddings.test.npy",
+        "--query_meta_path",
+        "/data/wyt/videosearch_r1_repro/data/charades-sta/test/query_embedding/query_meta.test.jsonl",
+        "--video_embeddings_path",
+        "/data/wyt/videosearch_r1_repro/data/charades-sta/test/video_embedding_1fps/segment_embeds.npy",
+        "--video_docid2row_path",
+        "/data/wyt/videosearch_r1_repro/data/charades-sta/test/video_embedding_1fps/docid2row.json",
+        "--temporal",
+        "True",
+        "--max_turn",
+        "2",
+        "--iou_thresholds",
+        "0.3,0.5,0.7",
+        "--refine_token",
+        "<REFINE>",
+        "--refine_token_count",
+        "8",
+        "--use_refine_gate",
+        "False",
+        "--use_query_embedder_path",
+        "True",
+        "--query_embedder_model_path",
+        "/data/wyt/videosearch_r1_repro/checkpoints/Qwen__Qwen3-VL-Embedding-2B",
+        "--use_updated_query",
+        "False",
+        "--qfinal_pooling",
+        "latent_last",
+        "--qfinal_normalize",
+        "True",
+        "--query_embedder_max_length",
+        "128",
+        "--query_embedder_input_prefix",
+        "Represent the user's input",
+        "--model_max_length",
+        "20384",
+        "--max_new_tokens",
+        "1024",
+        "--use_vllm",
+        "True",
+        "--vllm_model_path",
+        "",
+        "--vllm_tensor_parallel_size",
+        "1",
+        "--vllm_gpu_memory_utilization",
+        "0.45",
+        "--vllm_max_num_seqs",
+        "1",
+        "--vllm_eval_batch_size",
+        "1",
+        "--vllm_disable_custom_all_reduce",
+        "False",
+        "--vllm_enforce_eager",
+        "True",
+        "--topk",
+        "1,5,10,100",
+        "--rerank_topk",
+        "all",
+        "--max_samples",
+        "0",
+        "--eval_limit_ratio",
+        "1.0",
+        "--num_shards",
+        "1",
+        "--shard_id",
+        "0",
+        "--resume_skip_jsonl",
+        "/data/wyt/videosearch_r1_repro/outputs/charades_timestamp_cpu_20261105_171815_896639/selection_exclusions.jsonl",
+        "--progress_interval_sec",
+        "2.0",
+        "--use_tqdm",
+        "True",
+        "--tqdm_mininterval",
+        "0.2",
+        "--seed",
+        "42",
+        "--bf16",
+        "True",
+        "--save_query_vectors",
+        "False",
+        "--save_query_vectors_max_gb",
+        "200",
+        "--save_query_vectors_only_refined",
+        "False",
+        "--profile_rollout_depths",
+        "",
+        "--resume_from_jsonl",
+        "False",
+        "--output_json",
+        "/data/wyt/videosearch_r1_repro/outputs/charades_timestamp_ab_20261105_171942_386257/nominal/external_verified_test_temporal_grounding_VideoSearchR1__charades-stage2.json",
+        "--output_jsonl",
+        "/data/wyt/videosearch_r1_repro/outputs/charades_timestamp_ab_20261105_171942_386257/nominal/external_verified_test_temporal_grounding_VideoSearchR1__charades-stage2.jsonl"
+      ],
+      "arguments": {
+        "--model_path": "/data/wyt/videosearch_r1_repro/checkpoints/VideoSearchR1__charades-stage2",
+        "--processor_path": "/data/wyt/videosearch_r1_repro/checkpoints/VideoSearchR1__charades-stage2",
+        "--verified_test_jsonl": "/data/wyt/videosearch_r1_repro/data/charades-sta/raw_annotation/test.jsonl",
+        "--video_root": "/data/wyt/videosearch_r1_repro/data/charades-sta/test/video_npy_with_meta",
+        "--video_meta_path": "/data/wyt/videosearch_r1_repro/data/charades-sta/test/video_npy_with_meta/meta.jsonl",
+        "--query_embeddings_path": "/data/wyt/videosearch_r1_repro/data/charades-sta/test/query_embedding/query_embeddings.test.npy",
+        "--query_meta_path": "/data/wyt/videosearch_r1_repro/data/charades-sta/test/query_embedding/query_meta.test.jsonl",
+        "--video_embeddings_path": "/data/wyt/videosearch_r1_repro/data/charades-sta/test/video_embedding_1fps/segment_embeds.npy",
+        "--video_docid2row_path": "/data/wyt/videosearch_r1_repro/data/charades-sta/test/video_embedding_1fps/docid2row.json",
+        "--temporal": "True",
+        "--max_turn": "2",
+        "--iou_thresholds": "0.3,0.5,0.7",
+        "--refine_token": "<REFINE>",
+        "--refine_token_count": "8",
+        "--use_refine_gate": "False",
+        "--use_query_embedder_path": "True",
+        "--query_embedder_model_path": "/data/wyt/videosearch_r1_repro/checkpoints/Qwen__Qwen3-VL-Embedding-2B",
+        "--use_updated_query": "False",
+        "--qfinal_pooling": "latent_last",
+        "--qfinal_normalize": "True",
+        "--query_embedder_max_length": "128",
+        "--query_embedder_input_prefix": "Represent the user's input",
+        "--model_max_length": "20384",
+        "--max_new_tokens": "1024",
+        "--use_vllm": "True",
+        "--vllm_model_path": "",
+        "--vllm_tensor_parallel_size": "1",
+        "--vllm_gpu_memory_utilization": "0.45",
+        "--vllm_max_num_seqs": "1",
+        "--vllm_eval_batch_size": "1",
+        "--vllm_disable_custom_all_reduce": "False",
+        "--vllm_enforce_eager": "True",
+        "--topk": "1,5,10,100",
+        "--rerank_topk": "all",
+        "--max_samples": "0",
+        "--eval_limit_ratio": "1.0",
+        "--num_shards": "1",
+        "--shard_id": "0",
+        "--resume_skip_jsonl": "/data/wyt/videosearch_r1_repro/outputs/charades_timestamp_cpu_20261105_171815_896639/selection_exclusions.jsonl",
+        "--progress_interval_sec": "2.0",
+        "--use_tqdm": "True",
+        "--tqdm_mininterval": "0.2",
+        "--seed": "42",
+        "--bf16": "True",
+        "--save_query_vectors": "False",
+        "--save_query_vectors_max_gb": "200",
+        "--save_query_vectors_only_refined": "False",
+        "--profile_rollout_depths": "",
+        "--resume_from_jsonl": "False",
+        "--output_json": "/data/wyt/videosearch_r1_repro/outputs/charades_timestamp_ab_20261105_171942_386257/nominal/external_verified_test_temporal_grounding_VideoSearchR1__charades-stage2.json",
+        "--output_jsonl": "/data/wyt/videosearch_r1_repro/outputs/charades_timestamp_ab_20261105_171942_386257/nominal/external_verified_test_temporal_grounding_VideoSearchR1__charades-stage2.jsonl"
+      },
+      "output_dir": "/data/wyt/videosearch_r1_repro/outputs/charades_timestamp_ab_20261105_171942_386257/nominal",
+      "returncode": 0,
+      "elapsed_seconds": 421.36,
+      "peak_gpu_used_mib": 55589,
+      "resource_release": {
+        "passed": true,
+        "samples": [
+          {
+            "elapsed_seconds": 0.14,
+            "gpu": "GPU-677cef2a-aeb8-267d-4a59-19e72f682efc, 81153, 0, 0",
+            "compute_apps": [],
+            "idle": true
+          },
+          {
+            "elapsed_seconds": 1.288,
+            "gpu": "GPU-677cef2a-aeb8-267d-4a59-19e72f682efc, 81153, 0, 0",
+            "compute_apps": [],
+            "idle": true
+          }
+        ],
+        "method": "Two consecutive idle samples, >=1s apart, without compute processes."
+      },
+      "prediction_sha256": "a3d32599171d76740f83bbbec058f4041e0dec94472bdb976984fc093dc8b8af",
+      "audit_sha256": "2feaa15f3ce0564084c8cd4bfb7abb2850de6ca59b52a2028c11ea8b900700f1"
+    },
+    "source": {
+      "status": "complete",
+      "command": [
+        "/data/wyt/videosearch_r1_repro/envs/videosearchr1/bin/python",
+        "-B",
+        "/data/wyt/videosearch_r1_repro/scripts/charades_timestamp_eval.py",
+        "--clock",
+        "source",
+        "--audit",
+        "/data/wyt/videosearch_r1_repro/outputs/charades_timestamp_ab_20261105_171942_386257/source/input_audit.jsonl",
+        "--model_path",
+        "/data/wyt/videosearch_r1_repro/checkpoints/VideoSearchR1__charades-stage2",
+        "--processor_path",
+        "/data/wyt/videosearch_r1_repro/checkpoints/VideoSearchR1__charades-stage2",
+        "--verified_test_jsonl",
+        "/data/wyt/videosearch_r1_repro/data/charades-sta/raw_annotation/test.jsonl",
+        "--video_root",
+        "/data/wyt/videosearch_r1_repro/data/charades-sta/test/video_npy_with_meta",
+        "--video_meta_path",
+        "/data/wyt/videosearch_r1_repro/data/charades-sta/test/video_npy_with_meta/meta.jsonl",
+        "--query_embeddings_path",
+        "/data/wyt/videosearch_r1_repro/data/charades-sta/test/query_embedding/query_embeddings.test.npy",
+        "--query_meta_path",
+        "/data/wyt/videosearch_r1_repro/data/charades-sta/test/query_embedding/query_meta.test.jsonl",
+        "--video_embeddings_path",
+        "/data/wyt/videosearch_r1_repro/data/charades-sta/test/video_embedding_1fps/segment_embeds.npy",
+        "--video_docid2row_path",
+        "/data/wyt/videosearch_r1_repro/data/charades-sta/test/video_embedding_1fps/docid2row.json",
+        "--temporal",
+        "True",
+        "--max_turn",
+        "2",
+        "--iou_thresholds",
+        "0.3,0.5,0.7",
+        "--refine_token",
+        "<REFINE>",
+        "--refine_token_count",
+        "8",
+        "--use_refine_gate",
+        "False",
+        "--use_query_embedder_path",
+        "True",
+        "--query_embedder_model_path",
+        "/data/wyt/videosearch_r1_repro/checkpoints/Qwen__Qwen3-VL-Embedding-2B",
+        "--use_updated_query",
+        "False",
+        "--qfinal_pooling",
+        "latent_last",
+        "--qfinal_normalize",
+        "True",
+        "--query_embedder_max_length",
+        "128",
+        "--query_embedder_input_prefix",
+        "Represent the user's input",
+        "--model_max_length",
+        "20384",
+        "--max_new_tokens",
+        "1024",
+        "--use_vllm",
+        "True",
+        "--vllm_model_path",
+        "",
+        "--vllm_tensor_parallel_size",
+        "1",
+        "--vllm_gpu_memory_utilization",
+        "0.45",
+        "--vllm_max_num_seqs",
+        "1",
+        "--vllm_eval_batch_size",
+        "1",
+        "--vllm_disable_custom_all_reduce",
+        "False",
+        "--vllm_enforce_eager",
+        "True",
+        "--topk",
+        "1,5,10,100",
+        "--rerank_topk",
+        "all",
+        "--max_samples",
+        "0",
+        "--eval_limit_ratio",
+        "1.0",
+        "--num_shards",
+        "1",
+        "--shard_id",
+        "0",
+        "--resume_skip_jsonl",
+        "/data/wyt/videosearch_r1_repro/outputs/charades_timestamp_cpu_20261105_171815_896639/selection_exclusions.jsonl",
+        "--progress_interval_sec",
+        "2.0",
+        "--use_tqdm",
+        "True",
+        "--tqdm_mininterval",
+        "0.2",
+        "--seed",
+        "42",
+        "--bf16",
+        "True",
+        "--save_query_vectors",
+        "False",
+        "--save_query_vectors_max_gb",
+        "200",
+        "--save_query_vectors_only_refined",
+        "False",
+        "--profile_rollout_depths",
+        "",
+        "--resume_from_jsonl",
+        "False",
+        "--output_json",
+        "/data/wyt/videosearch_r1_repro/outputs/charades_timestamp_ab_20261105_171942_386257/source/external_verified_test_temporal_grounding_VideoSearchR1__charades-stage2.json",
+        "--output_jsonl",
+        "/data/wyt/videosearch_r1_repro/outputs/charades_timestamp_ab_20261105_171942_386257/source/external_verified_test_temporal_grounding_VideoSearchR1__charades-stage2.jsonl"
+      ],
+      "arguments": {
+        "--model_path": "/data/wyt/videosearch_r1_repro/checkpoints/VideoSearchR1__charades-stage2",
+        "--processor_path": "/data/wyt/videosearch_r1_repro/checkpoints/VideoSearchR1__charades-stage2",
+        "--verified_test_jsonl": "/data/wyt/videosearch_r1_repro/data/charades-sta/raw_annotation/test.jsonl",
+        "--video_root": "/data/wyt/videosearch_r1_repro/data/charades-sta/test/video_npy_with_meta",
+        "--video_meta_path": "/data/wyt/videosearch_r1_repro/data/charades-sta/test/video_npy_with_meta/meta.jsonl",
+        "--query_embeddings_path": "/data/wyt/videosearch_r1_repro/data/charades-sta/test/query_embedding/query_embeddings.test.npy",
+        "--query_meta_path": "/data/wyt/videosearch_r1_repro/data/charades-sta/test/query_embedding/query_meta.test.jsonl",
+        "--video_embeddings_path": "/data/wyt/videosearch_r1_repro/data/charades-sta/test/video_embedding_1fps/segment_embeds.npy",
+        "--video_docid2row_path": "/data/wyt/videosearch_r1_repro/data/charades-sta/test/video_embedding_1fps/docid2row.json",
+        "--temporal": "True",
+        "--max_turn": "2",
+        "--iou_thresholds": "0.3,0.5,0.7",
+        "--refine_token": "<REFINE>",
+        "--refine_token_count": "8",
+        "--use_refine_gate": "False",
+        "--use_query_embedder_path": "True",
+        "--query_embedder_model_path": "/data/wyt/videosearch_r1_repro/checkpoints/Qwen__Qwen3-VL-Embedding-2B",
+        "--use_updated_query": "False",
+        "--qfinal_pooling": "latent_last",
+        "--qfinal_normalize": "True",
+        "--query_embedder_max_length": "128",
+        "--query_embedder_input_prefix": "Represent the user's input",
+        "--model_max_length": "20384",
+        "--max_new_tokens": "1024",
+        "--use_vllm": "True",
+        "--vllm_model_path": "",
+        "--vllm_tensor_parallel_size": "1",
+        "--vllm_gpu_memory_utilization": "0.45",
+        "--vllm_max_num_seqs": "1",
+        "--vllm_eval_batch_size": "1",
+        "--vllm_disable_custom_all_reduce": "False",
+        "--vllm_enforce_eager": "True",
+        "--topk": "1,5,10,100",
+        "--rerank_topk": "all",
+        "--max_samples": "0",
+        "--eval_limit_ratio": "1.0",
+        "--num_shards": "1",
+        "--shard_id": "0",
+        "--resume_skip_jsonl": "/data/wyt/videosearch_r1_repro/outputs/charades_timestamp_cpu_20261105_171815_896639/selection_exclusions.jsonl",
+        "--progress_interval_sec": "2.0",
+        "--use_tqdm": "True",
+        "--tqdm_mininterval": "0.2",
+        "--seed": "42",
+        "--bf16": "True",
+        "--save_query_vectors": "False",
+        "--save_query_vectors_max_gb": "200",
+        "--save_query_vectors_only_refined": "False",
+        "--profile_rollout_depths": "",
+        "--resume_from_jsonl": "False",
+        "--output_json": "/data/wyt/videosearch_r1_repro/outputs/charades_timestamp_ab_20261105_171942_386257/source/external_verified_test_temporal_grounding_VideoSearchR1__charades-stage2.json",
+        "--output_jsonl": "/data/wyt/videosearch_r1_repro/outputs/charades_timestamp_ab_20261105_171942_386257/source/external_verified_test_temporal_grounding_VideoSearchR1__charades-stage2.jsonl"
+      },
+      "output_dir": "/data/wyt/videosearch_r1_repro/outputs/charades_timestamp_ab_20261105_171942_386257/source",
+      "returncode": 0,
+      "elapsed_seconds": 347.84,
+      "peak_gpu_used_mib": 54321,
+      "resource_release": {
+        "passed": true,
+        "samples": [
+          {
+            "elapsed_seconds": 0.153,
+            "gpu": "GPU-677cef2a-aeb8-267d-4a59-19e72f682efc, 81153, 0, 0",
+            "compute_apps": [],
+            "idle": true
+          },
+          {
+            "elapsed_seconds": 1.284,
+            "gpu": "GPU-677cef2a-aeb8-267d-4a59-19e72f682efc, 81153, 0, 0",
+            "compute_apps": [],
+            "idle": true
+          }
+        ],
+        "method": "Two consecutive idle samples, >=1s apart, without compute processes."
+      },
+      "prediction_sha256": "2897384ce673495cac35d7efb1d71094349e513b83af45d1107efd2fbfb2e6e3",
+      "audit_sha256": "266c5f0f7b964a74ac897afb82ef0d51adf71144552c5d13666859a2cb59df56"
+    }
+  },
+  "launcher_sha256": "dab07b22d1489f3f304275a931edf1da5d7a1e6f9471f85e95294327845c7408",
+  "full_benchmark_started": false,
+  "current_condition": "source",
+  "comparison": {
+    "cohorts": {
+      "diagnostic_cases": {
+        "N": 6,
+        "nominal": {
+          "protocol": {
+            "primary_ver_turn": "last_verified",
+            "primary_ver_pairing": "turns[-1].answer versus turns[-1].top1_is_gt",
+            "ver_denominator": "valid_answers; invalid count and all-example accuracy reported explicitly",
+            "terminal_refinement": "keep_official_when_triggered; no extra verification beyond T=2",
+            "vr_ranking": "final_rank after any terminal refinement",
+            "vcmr": "official final_iou_r1 from the actual verified video",
+            "paper_ver_turn_confirmed": false
+          },
+          "num_examples": 6,
+          "primary": {
+            "VER": {
+              "N": 6,
+              "N_expected": 6,
+              "correct": 6,
+              "accuracy": 1.0,
+              "invalid_answers": 0,
+              "coverage": 1.0,
+              "accuracy_all_examples": 1.0,
+              "confusion": {
+                "TP": 6,
+                "TN": 0,
+                "FP": 0,
+                "FN": 0
+              }
+            },
+            "VR": {
+              "N": 6,
+              "R@1": 1.0,
+              "R@5": 1.0,
+              "R@10": 1.0,
+              "R@100": 1.0,
+              "MRR": 1.0,
+              "mean_rank": 1.0
+            },
+            "VCMR": {
+              "N": 6,
+              "mIoU@R1": 0.39738385284362293,
+              "IoU@0.3@R1": 0.6666666666666666,
+              "IoU@0.5@R1": 0.3333333333333333,
+              "IoU@0.7@R1": 0.16666666666666666
+            }
+          },
+          "diagnostics": {
+            "terminal_refinement": {
+              "refined_after_second_verification": 0,
+              "changed_top1_video": 0,
+              "changed_video_label": 0
+            },
+            "official_final_field_pairing_VER": {
+              "N": 6,
+              "N_expected": 6,
+              "correct": 6,
+              "accuracy": 1.0,
+              "invalid_answers": 0,
+              "coverage": 1.0,
+              "accuracy_all_examples": 1.0,
+              "confusion": {
+                "TP": 6,
+                "TN": 0,
+                "FP": 0,
+                "FN": 0
+              }
+            },
+            "official_pairing_is_primary": false
+          },
+          "supplementary": {
+            "first_turn_VER": {
+              "N": 6,
+              "N_expected": 6,
+              "correct": 6,
+              "accuracy": 1.0,
+              "invalid_answers": 0,
+              "coverage": 1.0,
+              "accuracy_all_examples": 1.0,
+              "confusion": {
+                "TP": 6,
+                "TN": 0,
+                "FP": 0,
+                "FN": 0
+              }
+            }
+          },
+          "original_indices": [
+            26,
+            870,
+            1252,
+            1516,
+            2233,
+            2344
+          ]
+        },
+        "source": {
+          "protocol": {
+            "primary_ver_turn": "last_verified",
+            "primary_ver_pairing": "turns[-1].answer versus turns[-1].top1_is_gt",
+            "ver_denominator": "valid_answers; invalid count and all-example accuracy reported explicitly",
+            "terminal_refinement": "keep_official_when_triggered; no extra verification beyond T=2",
+            "vr_ranking": "final_rank after any terminal refinement",
+            "vcmr": "official final_iou_r1 from the actual verified video",
+            "paper_ver_turn_confirmed": false
+          },
+          "num_examples": 6,
+          "primary": {
+            "VER": {
+              "N": 6,
+              "N_expected": 6,
+              "correct": 6,
+              "accuracy": 1.0,
+              "invalid_answers": 0,
+              "coverage": 1.0,
+              "accuracy_all_examples": 1.0,
+              "confusion": {
+                "TP": 6,
+                "TN": 0,
+                "FP": 0,
+                "FN": 0
+              }
+            },
+            "VR": {
+              "N": 6,
+              "R@1": 1.0,
+              "R@5": 1.0,
+              "R@10": 1.0,
+              "R@100": 1.0,
+              "MRR": 1.0,
+              "mean_rank": 1.0
+            },
+            "VCMR": {
+              "N": 6,
+              "mIoU@R1": 0.6316899768578534,
+              "IoU@0.3@R1": 0.8333333333333334,
+              "IoU@0.5@R1": 0.8333333333333334,
+              "IoU@0.7@R1": 0.8333333333333334
+            }
+          },
+          "diagnostics": {
+            "terminal_refinement": {
+              "refined_after_second_verification": 0,
+              "changed_top1_video": 0,
+              "changed_video_label": 0
+            },
+            "official_final_field_pairing_VER": {
+              "N": 6,
+              "N_expected": 6,
+              "correct": 6,
+              "accuracy": 1.0,
+              "invalid_answers": 0,
+              "coverage": 1.0,
+              "accuracy_all_examples": 1.0,
+              "confusion": {
+                "TP": 6,
+                "TN": 0,
+                "FP": 0,
+                "FN": 0
+              }
+            },
+            "official_pairing_is_primary": false
+          },
+          "supplementary": {
+            "first_turn_VER": {
+              "N": 6,
+              "N_expected": 6,
+              "correct": 6,
+              "accuracy": 1.0,
+              "invalid_answers": 0,
+              "coverage": 1.0,
+              "accuracy_all_examples": 1.0,
+              "confusion": {
+                "TP": 6,
+                "TN": 0,
+                "FP": 0,
+                "FN": 0
+              }
+            }
+          },
+          "original_indices": [
+            26,
+            870,
+            1252,
+            1516,
+            2233,
+            2344
+          ]
+        },
+        "historical": {
+          "protocol": {
+            "primary_ver_turn": "last_verified",
+            "primary_ver_pairing": "turns[-1].answer versus turns[-1].top1_is_gt",
+            "ver_denominator": "valid_answers; invalid count and all-example accuracy reported explicitly",
+            "terminal_refinement": "keep_official_when_triggered; no extra verification beyond T=2",
+            "vr_ranking": "final_rank after any terminal refinement",
+            "vcmr": "official final_iou_r1 from the actual verified video",
+            "paper_ver_turn_confirmed": false
+          },
+          "num_examples": 6,
+          "primary": {
+            "VER": {
+              "N": 6,
+              "N_expected": 6,
+              "correct": 6,
+              "accuracy": 1.0,
+              "invalid_answers": 0,
+              "coverage": 1.0,
+              "accuracy_all_examples": 1.0,
+              "confusion": {
+                "TP": 6,
+                "TN": 0,
+                "FP": 0,
+                "FN": 0
+              }
+            },
+            "VR": {
+              "N": 6,
+              "R@1": 1.0,
+              "R@5": 1.0,
+              "R@10": 1.0,
+              "R@100": 1.0,
+              "MRR": 1.0,
+              "mean_rank": 1.0
+            },
+            "VCMR": {
+              "N": 6,
+              "mIoU@R1": 0.39787083356316183,
+              "IoU@0.3@R1": 0.6666666666666666,
+              "IoU@0.5@R1": 0.3333333333333333,
+              "IoU@0.7@R1": 0.16666666666666666
+            }
+          },
+          "diagnostics": {
+            "terminal_refinement": {
+              "refined_after_second_verification": 0,
+              "changed_top1_video": 0,
+              "changed_video_label": 0
+            },
+            "official_final_field_pairing_VER": {
+              "N": 6,
+              "N_expected": 6,
+              "correct": 6,
+              "accuracy": 1.0,
+              "invalid_answers": 0,
+              "coverage": 1.0,
+              "accuracy_all_examples": 1.0,
+              "confusion": {
+                "TP": 6,
+                "TN": 0,
+                "FP": 0,
+                "FN": 0
+              }
+            },
+            "official_pairing_is_primary": false
+          },
+          "supplementary": {
+            "first_turn_VER": {
+              "N": 6,
+              "N_expected": 6,
+              "correct": 6,
+              "accuracy": 1.0,
+              "invalid_answers": 0,
+              "coverage": 1.0,
+              "accuracy_all_examples": 1.0,
+              "confusion": {
+                "TP": 6,
+                "TN": 0,
+                "FP": 0,
+                "FN": 0
+              }
+            }
+          },
+          "original_indices": [
+            26,
+            870,
+            1252,
+            1516,
+            2233,
+            2344
+          ]
+        },
+        "iou_improved": 4,
+        "iou_worsened": 1,
+        "iou_unchanged": 1,
+        "strict_0point7_gained": 4,
+        "strict_0point7_lost": 0,
+        "nominal_historical_semantic_replays": 4
+      },
+      "random64_excluding_diagnostic": {
+        "N": 64,
+        "nominal": {
+          "protocol": {
+            "primary_ver_turn": "last_verified",
+            "primary_ver_pairing": "turns[-1].answer versus turns[-1].top1_is_gt",
+            "ver_denominator": "valid_answers; invalid count and all-example accuracy reported explicitly",
+            "terminal_refinement": "keep_official_when_triggered; no extra verification beyond T=2",
+            "vr_ranking": "final_rank after any terminal refinement",
+            "vcmr": "official final_iou_r1 from the actual verified video",
+            "paper_ver_turn_confirmed": false
+          },
+          "num_examples": 64,
+          "primary": {
+            "VER": {
+              "N": 64,
+              "N_expected": 64,
+              "correct": 33,
+              "accuracy": 0.515625,
+              "invalid_answers": 0,
+              "coverage": 1.0,
+              "accuracy_all_examples": 0.515625,
+              "confusion": {
+                "TP": 16,
+                "TN": 17,
+                "FP": 29,
+                "FN": 2
+              }
+            },
+            "VR": {
+              "N": 64,
+              "R@1": 0.28125,
+              "R@5": 0.4375,
+              "R@10": 0.53125,
+              "R@100": 0.875,
+              "MRR": 0.3602097984918235,
+              "mean_rank": 67.1875
+            },
+            "VCMR": {
+              "N": 64,
+              "mIoU@R1": 0.1791363166975153,
+              "IoU@0.3@R1": 0.234375,
+              "IoU@0.5@R1": 0.21875,
+              "IoU@0.7@R1": 0.15625
+            }
+          },
+          "diagnostics": {
+            "terminal_refinement": {
+              "refined_after_second_verification": 19,
+              "changed_top1_video": 0,
+              "changed_video_label": 0
+            },
+            "official_final_field_pairing_VER": {
+              "N": 64,
+              "N_expected": 64,
+              "correct": 33,
+              "accuracy": 0.515625,
+              "invalid_answers": 0,
+              "coverage": 1.0,
+              "accuracy_all_examples": 0.515625,
+              "confusion": {
+                "TP": 16,
+                "TN": 17,
+                "FP": 29,
+                "FN": 2
+              }
+            },
+            "official_pairing_is_primary": false
+          },
+          "supplementary": {
+            "first_turn_VER": {
+              "N": 64,
+              "N_expected": 64,
+              "correct": 49,
+              "accuracy": 0.765625,
+              "invalid_answers": 0,
+              "coverage": 1.0,
+              "accuracy_all_examples": 0.765625,
+              "confusion": {
+                "TP": 10,
+                "TN": 39,
+                "FP": 13,
+                "FN": 2
+              }
+            }
+          },
+          "original_indices": [
+            110,
+            192,
+            198,
+            222,
+            277,
+            403,
+            453,
+            528,
+            619,
+            668,
+            696,
+            697,
+            698,
+            756,
+            762,
+            1100,
+            1101,
+            1218,
+            1261,
+            1283,
+            1384,
+            1550,
+            1684,
+            1739,
+            1771,
+            1791,
+            1837,
+            1872,
+            1925,
+            1941,
+            1960,
+            1969,
+            1992,
+            2042,
+            2119,
+            2244,
+            2298,
+            2315,
+            2335,
+            2482,
+            2524,
+            2599,
+            2703,
+            2720,
+            2797,
+            2883,
+            3016,
+            3056,
+            3069,
+            3077,
+            3116,
+            3119,
+            3235,
+            3239,
+            3283,
+            3367,
+            3422,
+            3459,
+            3561,
+            3573,
+            3584,
+            3595,
+            3685,
+            3686
+          ]
+        },
+        "source": {
+          "protocol": {
+            "primary_ver_turn": "last_verified",
+            "primary_ver_pairing": "turns[-1].answer versus turns[-1].top1_is_gt",
+            "ver_denominator": "valid_answers; invalid count and all-example accuracy reported explicitly",
+            "terminal_refinement": "keep_official_when_triggered; no extra verification beyond T=2",
+            "vr_ranking": "final_rank after any terminal refinement",
+            "vcmr": "official final_iou_r1 from the actual verified video",
+            "paper_ver_turn_confirmed": false
+          },
+          "num_examples": 64,
+          "primary": {
+            "VER": {
+              "N": 64,
+              "N_expected": 64,
+              "correct": 35,
+              "accuracy": 0.546875,
+              "invalid_answers": 0,
+              "coverage": 1.0,
+              "accuracy_all_examples": 0.546875,
+              "confusion": {
+                "TP": 16,
+                "TN": 19,
+                "FP": 27,
+                "FN": 2
+              }
+            },
+            "VR": {
+              "N": 64,
+              "R@1": 0.28125,
+              "R@5": 0.4375,
+              "R@10": 0.53125,
+              "R@100": 0.875,
+              "MRR": 0.35841885970794796,
+              "mean_rank": 67.046875
+            },
+            "VCMR": {
+              "N": 64,
+              "mIoU@R1": 0.181305299906576,
+              "IoU@0.3@R1": 0.234375,
+              "IoU@0.5@R1": 0.234375,
+              "IoU@0.7@R1": 0.171875
+            }
+          },
+          "diagnostics": {
+            "terminal_refinement": {
+              "refined_after_second_verification": 21,
+              "changed_top1_video": 1,
+              "changed_video_label": 0
+            },
+            "official_final_field_pairing_VER": {
+              "N": 64,
+              "N_expected": 64,
+              "correct": 35,
+              "accuracy": 0.546875,
+              "invalid_answers": 0,
+              "coverage": 1.0,
+              "accuracy_all_examples": 0.546875,
+              "confusion": {
+                "TP": 16,
+                "TN": 19,
+                "FP": 27,
+                "FN": 2
+              }
+            },
+            "official_pairing_is_primary": false
+          },
+          "supplementary": {
+            "first_turn_VER": {
+              "N": 64,
+              "N_expected": 64,
+              "correct": 49,
+              "accuracy": 0.765625,
+              "invalid_answers": 0,
+              "coverage": 1.0,
+              "accuracy_all_examples": 0.765625,
+              "confusion": {
+                "TP": 10,
+                "TN": 39,
+                "FP": 13,
+                "FN": 2
+              }
+            }
+          },
+          "original_indices": [
+            110,
+            192,
+            198,
+            222,
+            277,
+            403,
+            453,
+            528,
+            619,
+            668,
+            696,
+            697,
+            698,
+            756,
+            762,
+            1100,
+            1101,
+            1218,
+            1261,
+            1283,
+            1384,
+            1550,
+            1684,
+            1739,
+            1771,
+            1791,
+            1837,
+            1872,
+            1925,
+            1941,
+            1960,
+            1969,
+            1992,
+            2042,
+            2119,
+            2244,
+            2298,
+            2315,
+            2335,
+            2482,
+            2524,
+            2599,
+            2703,
+            2720,
+            2797,
+            2883,
+            3016,
+            3056,
+            3069,
+            3077,
+            3116,
+            3119,
+            3235,
+            3239,
+            3283,
+            3367,
+            3422,
+            3459,
+            3561,
+            3573,
+            3584,
+            3595,
+            3685,
+            3686
+          ]
+        },
+        "historical": {
+          "protocol": {
+            "primary_ver_turn": "last_verified",
+            "primary_ver_pairing": "turns[-1].answer versus turns[-1].top1_is_gt",
+            "ver_denominator": "valid_answers; invalid count and all-example accuracy reported explicitly",
+            "terminal_refinement": "keep_official_when_triggered; no extra verification beyond T=2",
+            "vr_ranking": "final_rank after any terminal refinement",
+            "vcmr": "official final_iou_r1 from the actual verified video",
+            "paper_ver_turn_confirmed": false
+          },
+          "num_examples": 64,
+          "primary": {
+            "VER": {
+              "N": 64,
+              "N_expected": 64,
+              "correct": 34,
+              "accuracy": 0.53125,
+              "invalid_answers": 0,
+              "coverage": 1.0,
+              "accuracy_all_examples": 0.53125,
+              "confusion": {
+                "TP": 16,
+                "TN": 18,
+                "FP": 28,
+                "FN": 2
+              }
+            },
+            "VR": {
+              "N": 64,
+              "R@1": 0.28125,
+              "R@5": 0.4375,
+              "R@10": 0.53125,
+              "R@100": 0.875,
+              "MRR": 0.3601070405284088,
+              "mean_rank": 67.125
+            },
+            "VCMR": {
+              "N": 64,
+              "mIoU@R1": 0.17863577557197416,
+              "IoU@0.3@R1": 0.234375,
+              "IoU@0.5@R1": 0.21875,
+              "IoU@0.7@R1": 0.140625
+            }
+          },
+          "diagnostics": {
+            "terminal_refinement": {
+              "refined_after_second_verification": 20,
+              "changed_top1_video": 1,
+              "changed_video_label": 0
+            },
+            "official_final_field_pairing_VER": {
+              "N": 64,
+              "N_expected": 64,
+              "correct": 34,
+              "accuracy": 0.53125,
+              "invalid_answers": 0,
+              "coverage": 1.0,
+              "accuracy_all_examples": 0.53125,
+              "confusion": {
+                "TP": 16,
+                "TN": 18,
+                "FP": 28,
+                "FN": 2
+              }
+            },
+            "official_pairing_is_primary": false
+          },
+          "supplementary": {
+            "first_turn_VER": {
+              "N": 64,
+              "N_expected": 64,
+              "correct": 49,
+              "accuracy": 0.765625,
+              "invalid_answers": 0,
+              "coverage": 1.0,
+              "accuracy_all_examples": 0.765625,
+              "confusion": {
+                "TP": 10,
+                "TN": 39,
+                "FP": 13,
+                "FN": 2
+              }
+            }
+          },
+          "original_indices": [
+            110,
+            192,
+            198,
+            222,
+            277,
+            403,
+            453,
+            528,
+            619,
+            668,
+            696,
+            697,
+            698,
+            756,
+            762,
+            1100,
+            1101,
+            1218,
+            1261,
+            1283,
+            1384,
+            1550,
+            1684,
+            1739,
+            1771,
+            1791,
+            1837,
+            1872,
+            1925,
+            1941,
+            1960,
+            1969,
+            1992,
+            2042,
+            2119,
+            2244,
+            2298,
+            2315,
+            2335,
+            2482,
+            2524,
+            2599,
+            2703,
+            2720,
+            2797,
+            2883,
+            3016,
+            3056,
+            3069,
+            3077,
+            3116,
+            3119,
+            3235,
+            3239,
+            3283,
+            3367,
+            3422,
+            3459,
+            3561,
+            3573,
+            3584,
+            3595,
+            3685,
+            3686
+          ]
+        },
+        "iou_improved": 6,
+        "iou_worsened": 7,
+        "iou_unchanged": 51,
+        "strict_0point7_gained": 2,
+        "strict_0point7_lost": 1,
+        "nominal_historical_semantic_replays": 49
+      }
+    },
+    "paired_cases": [
+      {
+        "index": 26,
+        "query": "a person walks through a doorway, dressed in a purple sweater and black pants with a floral pattern, holding a red cup.",
+        "gt_video": "7IPW7",
+        "gt": [
+          0.0,
+          6.3
+        ],
+        "nominal_span": [
+          0.0,
+          5.0
+        ],
+        "source_span": [
+          0.0,
+          5.0
+        ],
+        "nominal_iou": 0.7936507936507936,
+        "source_iou": 0.7936507936507936,
+        "delta_iou": 0.0,
+        "nominal_last_video": "7IPW7",
+        "source_last_video": "7IPW7",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.7936507936507936,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 110,
+        "query": "A person sits on the toilet in a bathroom, holding a sandwich in hand.",
+        "gt_video": "O6DJW",
+        "gt": [
+          6.7,
+          12.1
+        ],
+        "nominal_span": [
+          5.0,
+          11.0
+        ],
+        "source_span": [
+          6.0,
+          12.0
+        ],
+        "nominal_iou": 0.6056338028169015,
+        "source_iou": 0.8688524590163936,
+        "delta_iou": 0.26321865619949214,
+        "nominal_last_video": "O6DJW",
+        "source_last_video": "O6DJW",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.6056338028169015,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 192,
+        "query": "A young woman with dark hair lies down on the bed to review pictures, with a wall-mounted picture frame visible above her.",
+        "gt_video": "TKJCI",
+        "gt": [
+          16.3,
+          31.0
+        ],
+        "nominal_span": [
+          15.0,
+          24.0
+        ],
+        "source_span": [
+          16.0,
+          25.0
+        ],
+        "nominal_iou": 0.48124999999999996,
+        "source_iou": 0.58,
+        "delta_iou": 0.09875,
+        "nominal_last_video": "TKJCI",
+        "source_last_video": "TKJCI",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 1,
+        "source_refines": 1,
+        "historical_iou": 0.48124999999999996,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 198,
+        "query": "The person starts sneezing while sitting at a dining table.",
+        "gt_video": "GYVK9",
+        "gt": [
+          17.6,
+          22.5
+        ],
+        "nominal_span": [
+          5.0,
+          11.0
+        ],
+        "source_span": [
+          5.0,
+          12.0
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "AYZS4",
+        "source_last_video": "AYZS4",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 1,
+        "source_refines": 1,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 222,
+        "query": "Wearing tie-dye shirt and black pants, person bends to put book on chair without looking or sitting, in close proximity to mirrored closet.",
+        "gt_video": "YE6TZ",
+        "gt": [
+          0.2,
+          8.3
+        ],
+        "nominal_span": [
+          1.8,
+          9.6
+        ],
+        "source_span": [
+          1.6,
+          10.3
+        ],
+        "nominal_iou": 0.6914893617021276,
+        "source_iou": 0.6633663366336633,
+        "delta_iou": -0.028123025068464313,
+        "nominal_last_video": "YE6TZ",
+        "source_last_video": "YE6TZ",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.6914893617021276,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 277,
+        "query": "\"Opening the refrigerator, the person grabs a sandwich and starts eating it without closing the door.\"",
+        "gt_video": "J2XFQ",
+        "gt": [
+          17.2,
+          22.5
+        ],
+        "nominal_span": [
+          null,
+          null
+        ],
+        "source_span": [
+          null,
+          null
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "RFH6M",
+        "source_last_video": "RFH6M",
+        "nominal_answer": "not_matched",
+        "source_answer": "not_matched",
+        "nominal_refines": 2,
+        "source_refines": 2,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 403,
+        "query": "Person, wearing skull T-shirt and dark shorts, walks to refrigerator and opens it;",
+        "gt_video": "CIUVA",
+        "gt": [
+          46.5,
+          55.0
+        ],
+        "nominal_span": [
+          13.0,
+          19.0
+        ],
+        "source_span": [
+          14.0,
+          19.9
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "YPRUL",
+        "source_last_video": "YPRUL",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 1,
+        "source_refines": 1,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 453,
+        "query": "The camera captures a person walking into a bathroom, turning away, and coming to a stop inside.",
+        "gt_video": "6XB10",
+        "gt": [
+          0.0,
+          9.0
+        ],
+        "nominal_span": [
+          0.0,
+          5.0
+        ],
+        "source_span": [
+          0.0,
+          5.0
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "S7JTZ",
+        "source_last_video": "S7JTZ",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 1,
+        "source_refines": 1,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": false,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 528,
+        "query": "A person puts on shoes in a room where a light is on.",
+        "gt_video": "07TCM",
+        "gt": [
+          6.0,
+          15.9
+        ],
+        "nominal_span": [
+          null,
+          null
+        ],
+        "source_span": [
+          null,
+          null
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "W0XPU",
+        "source_last_video": "W0XPU",
+        "nominal_answer": "not_matched",
+        "source_answer": "not_matched",
+        "nominal_refines": 2,
+        "source_refines": 2,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": false,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 619,
+        "query": "Person walks to light, switches it off, then departs.",
+        "gt_video": "MZZK2",
+        "gt": [
+          6.6,
+          10.9
+        ],
+        "nominal_span": [
+          10.0,
+          19.0
+        ],
+        "source_span": [
+          11.0,
+          19.4
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "VCYH8",
+        "source_last_video": "VCYH8",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 1,
+        "source_refines": 1,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 668,
+        "query": "A person turns on a light in an interior room.",
+        "gt_video": "ZIP18",
+        "gt": [
+          0.0,
+          4.0
+        ],
+        "nominal_span": [
+          21.6,
+          29.0
+        ],
+        "source_span": [
+          22.0,
+          29.9
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "D9PWE",
+        "source_last_video": "D9PWE",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 1,
+        "source_refines": 1,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": false,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 696,
+        "query": "a person is in the hallway undressing, wearing a plaid shirt and plaid pants.",
+        "gt_video": "MZ3I3",
+        "gt": [
+          0.0,
+          12.9
+        ],
+        "nominal_span": [
+          null,
+          null
+        ],
+        "source_span": [
+          null,
+          null
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "LQ0FJ",
+        "source_last_video": "LQ0FJ",
+        "nominal_answer": "not_matched",
+        "source_answer": "not_matched",
+        "nominal_refines": 2,
+        "source_refines": 2,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 697,
+        "query": "The person, who is a young boy, starts sneezing while holding a microphone.",
+        "gt_video": "TQYV1",
+        "gt": [
+          21.1,
+          27.2
+        ],
+        "nominal_span": [
+          null,
+          null
+        ],
+        "source_span": [
+          null,
+          null
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "Z0DO7",
+        "source_last_video": "Z0DO7",
+        "nominal_answer": "not_matched",
+        "source_answer": "not_matched",
+        "nominal_refines": 2,
+        "source_refines": 2,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 698,
+        "query": "a person runs to the door, in an interior space with a couch, a chair, and a dining table.",
+        "gt_video": "XSVLL",
+        "gt": [
+          0.0,
+          10.8
+        ],
+        "nominal_span": [
+          0.0,
+          5.0
+        ],
+        "source_span": [
+          0.0,
+          5.0
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "PC7H2",
+        "source_last_video": "PC7H2",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 1,
+        "source_refines": 1,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 756,
+        "query": "Sitting at desk, person looks at picture and begins to write.",
+        "gt_video": "2P7A9",
+        "gt": [
+          26.9,
+          31.6
+        ],
+        "nominal_span": [
+          0.0,
+          10.9
+        ],
+        "source_span": [
+          0.0,
+          11.0
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "ZI1GC",
+        "source_last_video": "ZI1GC",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 1,
+        "source_refines": 1,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 762,
+        "query": "The person, holding a book, sits in a chair indoors.",
+        "gt_video": "NX8X9",
+        "gt": [
+          13.8,
+          18.2
+        ],
+        "nominal_span": [
+          null,
+          null
+        ],
+        "source_span": [
+          null,
+          null
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "5C4EK",
+        "source_last_video": "5C4EK",
+        "nominal_answer": "not_matched",
+        "source_answer": "not_matched",
+        "nominal_refines": 2,
+        "source_refines": 2,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 870,
+        "query": "The person, dressed in a striped shirt and plaid shorts, closes the closet doors.",
+        "gt_video": "0Z1PC",
+        "gt": [
+          25.0,
+          32.5
+        ],
+        "nominal_span": [
+          2.5,
+          13.0
+        ],
+        "source_span": [
+          26.0,
+          34.1
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.7142857142857142,
+        "delta_iou": 0.7142857142857142,
+        "nominal_last_video": "0Z1PC",
+        "source_last_video": "0Z1PC",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 1100,
+        "query": "Person puts shoes in a box in an indoor setting.",
+        "gt_video": "SBM3M",
+        "gt": [
+          0.0,
+          8.8
+        ],
+        "nominal_span": [
+          null,
+          null
+        ],
+        "source_span": [
+          null,
+          null
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "AHBE8",
+        "source_last_video": "AHBE8",
+        "nominal_answer": "not_matched",
+        "source_answer": "not_matched",
+        "nominal_refines": 2,
+        "source_refines": 2,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 1101,
+        "query": "A person opens a laptop on a table, with a bottle of soda nearby.",
+        "gt_video": "UETQS",
+        "gt": [
+          1.4,
+          11.2
+        ],
+        "nominal_span": [
+          15.0,
+          27.0
+        ],
+        "source_span": [
+          16.0,
+          29.0
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "9PXI9",
+        "source_last_video": "9PXI9",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 1218,
+        "query": "A person sits down on the sofa, holding a glass in his hand.",
+        "gt_video": "TCOXG",
+        "gt": [
+          21.3,
+          31.0
+        ],
+        "nominal_span": [
+          null,
+          null
+        ],
+        "source_span": [
+          null,
+          null
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "J5K87",
+        "source_last_video": "J5K87",
+        "nominal_answer": "not_matched",
+        "source_answer": "not_matched",
+        "nominal_refines": 2,
+        "source_refines": 2,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": false,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 1252,
+        "query": "A person in black jacket and pants sits in a chair, eating a sandwich.",
+        "gt_video": "BEAAA",
+        "gt": [
+          0.0,
+          3.5
+        ],
+        "nominal_span": [
+          0.0,
+          27.0
+        ],
+        "source_span": [
+          0.0,
+          3.0
+        ],
+        "nominal_iou": 0.12962962962962962,
+        "source_iou": 0.8571428571428571,
+        "delta_iou": 0.7275132275132274,
+        "nominal_last_video": "BEAAA",
+        "source_last_video": "BEAAA",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.12962962962962962,
+        "nominal_replays_historical_semantics": false,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 1261,
+        "query": "the person is sitting in the couch with the laptop, surrounded by pictures on the wall.",
+        "gt_video": "X9M5B",
+        "gt": [
+          0.0,
+          15.9
+        ],
+        "nominal_span": [
+          0.0,
+          13.0
+        ],
+        "source_span": [
+          0.0,
+          13.0
+        ],
+        "nominal_iou": 0.8176100628930818,
+        "source_iou": 0.8176100628930818,
+        "delta_iou": 0.0,
+        "nominal_last_video": "X9M5B",
+        "source_last_video": "X9M5B",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 1,
+        "source_refines": 1,
+        "historical_iou": 0.8176100628930818,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 1283,
+        "query": "The man pockets the phone and readjusts the camera.",
+        "gt_video": "95GB4",
+        "gt": [
+          5.1,
+          13.1
+        ],
+        "nominal_span": [
+          7.0,
+          14.0
+        ],
+        "source_span": [
+          7.0,
+          14.0
+        ],
+        "nominal_iou": 0.6853932584269662,
+        "source_iou": 0.6853932584269662,
+        "delta_iou": 0.0,
+        "nominal_last_video": "95GB4",
+        "source_last_video": "95GB4",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.6853932584269662,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 1384,
+        "query": "A person reaches for and opens their closet, revealing clothes and then closes it.",
+        "gt_video": "DV6CH",
+        "gt": [
+          0.0,
+          6.2
+        ],
+        "nominal_span": [
+          0.0,
+          7.0
+        ],
+        "source_span": [
+          0.0,
+          7.9
+        ],
+        "nominal_iou": 0.8857142857142859,
+        "source_iou": 0.7848101265822783,
+        "delta_iou": -0.10090415913200756,
+        "nominal_last_video": "DV6CH",
+        "source_last_video": "DV6CH",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 1,
+        "source_refines": 1,
+        "historical_iou": 0.8857142857142859,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 1516,
+        "query": "A young boy with dark hair, dressed in a striped shirt and shorts, stands up from a bench.",
+        "gt_video": "TDAY1",
+        "gt": [
+          23.4,
+          35.0
+        ],
+        "nominal_span": [
+          25.0,
+          33.0
+        ],
+        "source_span": [
+          26.0,
+          34.37
+        ],
+        "nominal_iou": 0.689655172413793,
+        "source_iou": 0.7215517241379307,
+        "delta_iou": 0.031896551724137634,
+        "nominal_last_video": "TDAY1",
+        "source_last_video": "TDAY1",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.689655172413793,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 1550,
+        "query": "a person is undressing under a blanket in an indoor setting.",
+        "gt_video": "CEZ4D",
+        "gt": [
+          17.9,
+          27.2
+        ],
+        "nominal_span": [
+          null,
+          null
+        ],
+        "source_span": [
+          null,
+          null
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "KOVTR",
+        "source_last_video": "KOVTR",
+        "nominal_answer": "not_matched",
+        "source_answer": "not_matched",
+        "nominal_refines": 2,
+        "source_refines": 2,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 1684,
+        "query": "A person undresses while wearing a black t-shirt.",
+        "gt_video": "OY3LS",
+        "gt": [
+          7.2,
+          23.6
+        ],
+        "nominal_span": [
+          5.0,
+          13.0
+        ],
+        "source_span": [
+          5.0,
+          13.0
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "DUSJO",
+        "source_last_video": "DUSJO",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 1,
+        "source_refines": 1,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": false,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 1739,
+        "query": "a man in a white tank top is running the vacuum.",
+        "gt_video": "K9EAZ",
+        "gt": [
+          0.0,
+          10.0
+        ],
+        "nominal_span": [
+          null,
+          null
+        ],
+        "source_span": [
+          null,
+          null
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "D9PWE",
+        "source_last_video": "D9PWE",
+        "nominal_answer": "not_matched",
+        "source_answer": "not_matched",
+        "nominal_refines": 2,
+        "source_refines": 2,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 1771,
+        "query": "A person in a kitchen, clad in black hoodie and jeans, holds a green plastic bag at their side.",
+        "gt_video": "1BGZ0",
+        "gt": [
+          0.0,
+          9.2
+        ],
+        "nominal_span": [
+          0.0,
+          13.0
+        ],
+        "source_span": [
+          0.0,
+          7.0
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "EFUTW",
+        "source_last_video": "EFUTW",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 1,
+        "source_refines": 1,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": false,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 1791,
+        "query": "A person removes their shoes in front of a door while wearing a green sweater.",
+        "gt_video": "ZNQVC",
+        "gt": [
+          10.5,
+          17.3
+        ],
+        "nominal_span": [
+          2.5,
+          9.5
+        ],
+        "source_span": [
+          null,
+          null
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "JMPKP",
+        "source_last_video": "WX8N8",
+        "nominal_answer": "matched",
+        "source_answer": "not_matched",
+        "nominal_refines": 1,
+        "source_refines": 2,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": false,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 1837,
+        "query": "The person puts down the laptop in a room setting.",
+        "gt_video": "9KDP0",
+        "gt": [
+          22.9,
+          31.0
+        ],
+        "nominal_span": [
+          7.0,
+          14.0
+        ],
+        "source_span": [
+          12.6,
+          20.0
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "P5YNX",
+        "source_last_video": "96ATI",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 1,
+        "source_refines": 0,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 1872,
+        "query": "The camera focuses on a man holding a plate with a sandwich as he continues to eat it.",
+        "gt_video": "0KZYF",
+        "gt": [
+          2.3,
+          7.8
+        ],
+        "nominal_span": [
+          16.0,
+          30.77
+        ],
+        "source_span": [
+          17.0,
+          30.77
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "GMLPK",
+        "source_last_video": "GMLPK",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 1925,
+        "query": "A kitchen-bound phone user, gesturing and conversing animatedly, interacts with a cereal box and bottle.",
+        "gt_video": "S2FUO",
+        "gt": [
+          0.0,
+          8.4
+        ],
+        "nominal_span": [
+          0.0,
+          7.0
+        ],
+        "source_span": [
+          0.0,
+          8.0
+        ],
+        "nominal_iou": 0.8333333333333333,
+        "source_iou": 0.9523809523809526,
+        "delta_iou": 0.11904761904761929,
+        "nominal_last_video": "S2FUO",
+        "source_last_video": "S2FUO",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.8333333333333333,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 1941,
+        "query": "Approaching light, person flips switch, illuminating room.",
+        "gt_video": "LGJAR",
+        "gt": [
+          17.6,
+          25.2
+        ],
+        "nominal_span": [
+          13.0,
+          21.0
+        ],
+        "source_span": [
+          14.6,
+          22.0
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "HSEH1",
+        "source_last_video": "HSEH1",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 1960,
+        "query": "A person takes a picture in a cozy living room setting.",
+        "gt_video": "95GB4",
+        "gt": [
+          8.8,
+          19.8
+        ],
+        "nominal_span": [
+          9.8,
+          17.3
+        ],
+        "source_span": [
+          9.8,
+          18.0
+        ],
+        "nominal_iou": 0.6818181818181818,
+        "source_iou": 0.7454545454545454,
+        "delta_iou": 0.0636363636363636,
+        "nominal_last_video": "95GB4",
+        "source_last_video": "95GB4",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.6818181818181818,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 1969,
+        "query": "Pouring milk: man stops at halfway mark in glass, shuts refrigerator.",
+        "gt_video": "C10FA",
+        "gt": [
+          16.4,
+          32.2
+        ],
+        "nominal_span": [
+          null,
+          null
+        ],
+        "source_span": [
+          null,
+          null
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "C10FA",
+        "source_last_video": "C10FA",
+        "nominal_answer": "not_matched",
+        "source_answer": "not_matched",
+        "nominal_refines": 2,
+        "source_refines": 2,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 1992,
+        "query": "In the kitchen, a man holds open a book, surrounded by appliances.",
+        "gt_video": "9O0NP",
+        "gt": [
+          0.0,
+          8.3
+        ],
+        "nominal_span": [
+          0.0,
+          8.0
+        ],
+        "source_span": [
+          null,
+          null
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "TKAUR",
+        "source_last_video": "TKAUR",
+        "nominal_answer": "matched",
+        "source_answer": "not_matched",
+        "nominal_refines": 1,
+        "source_refines": 2,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 2042,
+        "query": "One person runs in, entering the room where a woman in a blue top and black pants stands, holding a camera and looking at it.",
+        "gt_video": "72M7T",
+        "gt": [
+          4.0,
+          9.0
+        ],
+        "nominal_span": [
+          3.0,
+          9.0
+        ],
+        "source_span": [
+          3.0,
+          9.9
+        ],
+        "nominal_iou": 0.8333333333333334,
+        "source_iou": 0.7246376811594203,
+        "delta_iou": -0.10869565217391308,
+        "nominal_last_video": "72M7T",
+        "source_last_video": "72M7T",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 1,
+        "source_refines": 1,
+        "historical_iou": 0.8333333333333334,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 2119,
+        "query": "the camera focuses on a person drinking from a glass while standing near a table.",
+        "gt_video": "AOK1L",
+        "gt": [
+          30.5,
+          36.0
+        ],
+        "nominal_span": [
+          0.0,
+          6.0
+        ],
+        "source_span": [
+          0.0,
+          7.3
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "GZF5F",
+        "source_last_video": "GZF5F",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 2233,
+        "query": "A person is shown drinking from a glass in an indoor setting, with a black car parked nearby.",
+        "gt_video": "V6H2O",
+        "gt": [
+          8.1,
+          14.5
+        ],
+        "nominal_span": [
+          1.5,
+          13.0
+        ],
+        "source_span": [
+          16.0,
+          23.0
+        ],
+        "nominal_iou": 0.376923076923077,
+        "source_iou": 0.0,
+        "delta_iou": -0.376923076923077,
+        "nominal_last_video": "V6H2O",
+        "source_last_video": "V6H2O",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.3798449612403101,
+        "nominal_replays_historical_semantics": false,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 2244,
+        "query": "A person takes out their phone while standing in front of a wooden door.",
+        "gt_video": "47RAA",
+        "gt": [
+          17.2,
+          33.4
+        ],
+        "nominal_span": [
+          5.0,
+          13.0
+        ],
+        "source_span": [
+          5.0,
+          14.0
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "WXXYY",
+        "source_last_video": "WXXYY",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 1,
+        "source_refines": 1,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": false,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 2298,
+        "query": "The first person wakes up from a nap and interacts with the second person, who is still sleeping.",
+        "gt_video": "WT46G",
+        "gt": [
+          4.6,
+          13.1
+        ],
+        "nominal_span": [
+          6.0,
+          15.0
+        ],
+        "source_span": [
+          14.6,
+          21.0
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "OVD84",
+        "source_last_video": "7XMBM",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 1,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 2315,
+        "query": "A person is shown in an indoor setting, drinking from an empty glass.",
+        "gt_video": "MTOFZ",
+        "gt": [
+          19.4,
+          30.0
+        ],
+        "nominal_span": [
+          19.5,
+          27.0
+        ],
+        "source_span": [
+          20.0,
+          28.0
+        ],
+        "nominal_iou": 0.7075471698113207,
+        "source_iou": 0.7547169811320754,
+        "delta_iou": 0.047169811320754707,
+        "nominal_last_video": "MTOFZ",
+        "source_last_video": "MTOFZ",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.7075471698113207,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 2335,
+        "query": "A man in a gray shirt and black shorts is drinking from a cup in the room.",
+        "gt_video": "9YOI8",
+        "gt": [
+          14.8,
+          22.7
+        ],
+        "nominal_span": [
+          15.6,
+          23.2
+        ],
+        "source_span": [
+          16.0,
+          24.0
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "FNBYE",
+        "source_last_video": "FNBYE",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 1,
+        "source_refines": 1,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 2344,
+        "query": "Two men are present in the image, one laughing at a picture and the other looking on.",
+        "gt_video": "1QP1S",
+        "gt": [
+          21.9,
+          35.0
+        ],
+        "nominal_span": [
+          17.0,
+          29.0
+        ],
+        "source_span": [
+          17.9,
+          33.93
+        ],
+        "nominal_iou": 0.39444444444444454,
+        "source_iou": 0.7035087719298245,
+        "delta_iou": 0.30906432748538,
+        "nominal_last_video": "1QP1S",
+        "source_last_video": "1QP1S",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.39444444444444454,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 2482,
+        "query": "this person, dressed in a gray jacket and shorts, takes out their phone.",
+        "gt_video": "9U82D",
+        "gt": [
+          13.8,
+          19.7
+        ],
+        "nominal_span": [
+          null,
+          null
+        ],
+        "source_span": [
+          null,
+          null
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "OU3XH",
+        "source_last_video": "OU3XH",
+        "nominal_answer": "not_matched",
+        "source_answer": "not_matched",
+        "nominal_refines": 2,
+        "source_refines": 2,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 2524,
+        "query": "The person puts the phone in a pocket as he stands in a hallway with a wooden floor.",
+        "gt_video": "EIT66",
+        "gt": [
+          2.8,
+          8.7
+        ],
+        "nominal_span": [
+          12.0,
+          12.28
+        ],
+        "source_span": [
+          12.28,
+          12.28
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "2443O",
+        "source_last_video": "2443O",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 2599,
+        "query": "A person in a purple sweater with a pattern of white snowflakes and red flowers takes out a red towel.",
+        "gt_video": "KK7D4",
+        "gt": [
+          0.9,
+          8.2
+        ],
+        "nominal_span": [
+          0.0,
+          8.0
+        ],
+        "source_span": [
+          0.0,
+          8.0
+        ],
+        "nominal_iou": 0.8658536585365854,
+        "source_iou": 0.8658536585365854,
+        "delta_iou": 0.0,
+        "nominal_last_video": "KK7D4",
+        "source_last_video": "KK7D4",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.8658536585365854,
+        "nominal_replays_historical_semantics": false,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 2703,
+        "query": "A person sits on the floor, examines the sink, and then rises in a bathroom.",
+        "gt_video": "4VX01",
+        "gt": [
+          0.0,
+          9.4
+        ],
+        "nominal_span": [
+          2.0,
+          10.5
+        ],
+        "source_span": [
+          2.0,
+          11.0
+        ],
+        "nominal_iou": 0.7047619047619049,
+        "source_iou": 0.6727272727272728,
+        "delta_iou": -0.03203463203463208,
+        "nominal_last_video": "4VX01",
+        "source_last_video": "4VX01",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 1,
+        "source_refines": 1,
+        "historical_iou": 0.6727272727272728,
+        "nominal_replays_historical_semantics": false,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 2720,
+        "query": "A person in a white t-shirt, black shorts, and a black baseball cap opens a door.",
+        "gt_video": "IUETR",
+        "gt": [
+          0.0,
+          8.1
+        ],
+        "nominal_span": [
+          0.0,
+          13.0
+        ],
+        "source_span": [
+          0.0,
+          13.3
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "IEQWT",
+        "source_last_video": "IEQWT",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 2797,
+        "query": "The person opens the cabinet in the pantry, revealing shelves filled with various items.",
+        "gt_video": "UR5TU",
+        "gt": [
+          0.8,
+          7.7
+        ],
+        "nominal_span": [
+          3.0,
+          11.0
+        ],
+        "source_span": [
+          3.0,
+          13.2
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "V2GC9",
+        "source_last_video": "V2GC9",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 1,
+        "source_refines": 1,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 2883,
+        "query": "The person, dressed in a striped shirt, laughed heartily.",
+        "gt_video": "KNGRY",
+        "gt": [
+          13.3,
+          18.1
+        ],
+        "nominal_span": [
+          4.0,
+          17.0
+        ],
+        "source_span": [
+          6.0,
+          18.0
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "X2JBJ",
+        "source_last_video": "X2JBJ",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 3016,
+        "query": "the camera captures a person in dark clothing turning off the light.",
+        "gt_video": "Q5MDU",
+        "gt": [
+          0.0,
+          3.6
+        ],
+        "nominal_span": [
+          9.38,
+          9.38
+        ],
+        "source_span": [
+          9.38,
+          9.38
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "HSEH1",
+        "source_last_video": "HSEH1",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 3056,
+        "query": "Person smoothly puts towel on a closet shelf.",
+        "gt_video": "5EEXF",
+        "gt": [
+          16.9,
+          23.8
+        ],
+        "nominal_span": [
+          null,
+          null
+        ],
+        "source_span": [
+          null,
+          null
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "BDJ84",
+        "source_last_video": "BDJ84",
+        "nominal_answer": "not_matched",
+        "source_answer": "not_matched",
+        "nominal_refines": 2,
+        "source_refines": 2,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 3069,
+        "query": "Person, in doorway, gets up, switches off light, then departs.",
+        "gt_video": "ATCOR",
+        "gt": [
+          19.7,
+          25.8
+        ],
+        "nominal_span": [
+          null,
+          null
+        ],
+        "source_span": [
+          null,
+          null
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "WXXYY",
+        "source_last_video": "WXXYY",
+        "nominal_answer": "not_matched",
+        "source_answer": "not_matched",
+        "nominal_refines": 2,
+        "source_refines": 2,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 3077,
+        "query": "The person, wearing a black shirt and a cap, begins to eat the cookie.",
+        "gt_video": "120YL",
+        "gt": [
+          37.0,
+          43.0
+        ],
+        "nominal_span": [
+          3.0,
+          13.0
+        ],
+        "source_span": [
+          3.0,
+          14.0
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "YN3AA",
+        "source_last_video": "YN3AA",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 3116,
+        "query": "The person turns on the light, revealing a young girl in a pink shirt with the word 'Cheer' on it.",
+        "gt_video": "A59CN",
+        "gt": [
+          18.6,
+          25.0
+        ],
+        "nominal_span": [
+          0.0,
+          2.5
+        ],
+        "source_span": [
+          0.0,
+          24.0
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.21599999999999994,
+        "delta_iou": 0.21599999999999994,
+        "nominal_last_video": "A59CN",
+        "source_last_video": "A59CN",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 1,
+        "source_refines": 1,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 3119,
+        "query": "A person, dressed in a plaid shirt, is captured in the frame as they begin sneezing in a doorway with a green wall on one side and a purple wall on the other.",
+        "gt_video": "6XB10",
+        "gt": [
+          26.9,
+          36.5
+        ],
+        "nominal_span": [
+          17.0,
+          29.0
+        ],
+        "source_span": [
+          18.0,
+          29.9
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "F66WG",
+        "source_last_video": "F66WG",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": false,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 3235,
+        "query": "A person is shown in the living room, holding a white bowl and watching television.",
+        "gt_video": "OHNUQ",
+        "gt": [
+          0.0,
+          9.5
+        ],
+        "nominal_span": [
+          0.0,
+          10.0
+        ],
+        "source_span": [
+          0.0,
+          13.0
+        ],
+        "nominal_iou": 0.95,
+        "source_iou": 0.7307692307692307,
+        "delta_iou": -0.21923076923076923,
+        "nominal_last_video": "OHNUQ",
+        "source_last_video": "OHNUQ",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.95,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 3239,
+        "query": "The person puts a pillow into the closet filled with various items, including clothes and boxes.",
+        "gt_video": "VU996",
+        "gt": [
+          7.4,
+          14.7
+        ],
+        "nominal_span": [
+          null,
+          null
+        ],
+        "source_span": [
+          null,
+          null
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "VU996",
+        "source_last_video": "VU996",
+        "nominal_answer": "not_matched",
+        "source_answer": "not_matched",
+        "nominal_refines": 2,
+        "source_refines": 2,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 3283,
+        "query": "A person takes another box from the shelf filled with various items.",
+        "gt_video": "65UVU",
+        "gt": [
+          9.6,
+          16.1
+        ],
+        "nominal_span": [
+          null,
+          null
+        ],
+        "source_span": [
+          null,
+          null
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "6IL0C",
+        "source_last_video": "6IL0C",
+        "nominal_answer": "not_matched",
+        "source_answer": "not_matched",
+        "nominal_refines": 2,
+        "source_refines": 2,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": false,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 3367,
+        "query": "A person looked in wonder at the contents of a box while seated on a staircase.",
+        "gt_video": "3IS9Y",
+        "gt": [
+          18.0,
+          23.4
+        ],
+        "nominal_span": [
+          0.0,
+          7.0
+        ],
+        "source_span": [
+          0.0,
+          6.8
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "5TYXL",
+        "source_last_video": "5TYXL",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 3422,
+        "query": "A person in a green sweatshirt puts a broom into the open wooden closet door.",
+        "gt_video": "MS4GA",
+        "gt": [
+          2.8,
+          9.1
+        ],
+        "nominal_span": [
+          0.0,
+          7.0
+        ],
+        "source_span": [
+          0.0,
+          7.0
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "29V7T",
+        "source_last_video": "29V7T",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 1,
+        "source_refines": 1,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": false,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 3459,
+        "query": "The person is eating from a pink bowl.",
+        "gt_video": "QIT2W",
+        "gt": [
+          9.9,
+          22.8
+        ],
+        "nominal_span": [
+          null,
+          null
+        ],
+        "source_span": [
+          null,
+          null
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "TFWNO",
+        "source_last_video": "TFWNO",
+        "nominal_answer": "not_matched",
+        "source_answer": "not_matched",
+        "nominal_refines": 2,
+        "source_refines": 2,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 3561,
+        "query": "A person sits on a large, comfortable sofa in a room with a window displaying curtains and bars, engrossed in reading a book.",
+        "gt_video": "75M1Z",
+        "gt": [
+          25.9,
+          32.0
+        ],
+        "nominal_span": [
+          null,
+          null
+        ],
+        "source_span": [
+          null,
+          null
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "3IPI3",
+        "source_last_video": "3IPI3",
+        "nominal_answer": "not_matched",
+        "source_answer": "not_matched",
+        "nominal_refines": 2,
+        "source_refines": 2,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 3573,
+        "query": "A person takes off their shoes while standing on a staircase with a wooden handrail.",
+        "gt_video": "3LN8C",
+        "gt": [
+          23.0,
+          31.9
+        ],
+        "nominal_span": [
+          23.0,
+          33.0
+        ],
+        "source_span": [
+          24.0,
+          34.0
+        ],
+        "nominal_iou": 0.8899999999999999,
+        "source_iou": 0.718181818181818,
+        "delta_iou": -0.17181818181818187,
+        "nominal_last_video": "3LN8C",
+        "source_last_video": "3LN8C",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.8899999999999999,
+        "nominal_replays_historical_semantics": false,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 3584,
+        "query": "A person is shown sitting in a room, drinking water from a glass, with a television on a stand in the background.",
+        "gt_video": "LCLLN",
+        "gt": [
+          1.4,
+          6.9
+        ],
+        "nominal_span": [
+          0.0,
+          10.0
+        ],
+        "source_span": [
+          0.0,
+          13.0
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "HUWAZ",
+        "source_last_video": "HUWAZ",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 3595,
+        "query": "A person is engrossed in the television, with a bottle and a bowl on the nearby table.",
+        "gt_video": "GG3K5",
+        "gt": [
+          19.5,
+          31.0
+        ],
+        "nominal_span": [
+          null,
+          null
+        ],
+        "source_span": [
+          null,
+          null
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "0TKKR",
+        "source_last_video": "0TKKR",
+        "nominal_answer": "not_matched",
+        "source_answer": "not_matched",
+        "nominal_refines": 2,
+        "source_refines": 2,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": false,
+        "same_verified_GT_and_matched": false
+      },
+      {
+        "index": 3685,
+        "query": "A woman stands in kitchen, holding bananas, as a person enters, opens door, and leaves.",
+        "gt_video": "SE2K2",
+        "gt": [
+          0.6,
+          7.1
+        ],
+        "nominal_span": [
+          0.0,
+          6.5
+        ],
+        "source_span": [
+          0.0,
+          7.9
+        ],
+        "nominal_iou": 0.8309859154929579,
+        "source_iou": 0.8227848101265822,
+        "delta_iou": -0.008201105366375638,
+        "nominal_last_video": "SE2K2",
+        "source_last_video": "SE2K2",
+        "nominal_answer": "matched",
+        "source_answer": "matched",
+        "nominal_refines": 0,
+        "source_refines": 0,
+        "historical_iou": 0.8309859154929579,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": true
+      },
+      {
+        "index": 3686,
+        "query": "The person turns on a light while standing in front of a mirror.",
+        "gt_video": "FTYFA",
+        "gt": [
+          4.1,
+          8.8
+        ],
+        "nominal_span": [
+          null,
+          null
+        ],
+        "source_span": [
+          null,
+          null
+        ],
+        "nominal_iou": 0.0,
+        "source_iou": 0.0,
+        "delta_iou": 0.0,
+        "nominal_last_video": "QQMY8",
+        "source_last_video": "QQMY8",
+        "nominal_answer": "not_matched",
+        "source_answer": "not_matched",
+        "nominal_refines": 2,
+        "source_refines": 2,
+        "historical_iou": 0.0,
+        "nominal_replays_historical_semantics": true,
+        "same_verified_GT_and_matched": false
+      }
+    ],
+    "runtime_audit": {
+      "all_generation_calls_covered": true,
+      "consistent_visual_tensors_for_every_seen_video": true,
+      "seen_videos": 100,
+      "generation_calls": {
+        "nominal": 111,
+        "source": 111
+      },
+      "source_and_nominal_labels_verified": true
+    },
+    "limits": "Small exploratory paired test, with diagnostic and random cohorts reported separately. No new full-benchmark result; source times inherit released metadata, not newly verified container PTS."
+  },
+  "completed_at": "2026-11-05T17:32:35.258046+08:00",
+  "comparison_file": "/data/wyt/videosearch_r1_repro/outputs/charades_timestamp_ab_20261105_171942_386257/comparison.json"
+}
